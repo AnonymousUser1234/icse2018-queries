@@ -1,0 +1,198 @@
+MAHOUT-1410
+contain vector id cluster non name vector vector id valu cluster id vector valu distanc squar pdf ti known vector 
+2
+core.src.main.java.org.apache.mahout.clustering.classify.ClusterClassificationDriver.ClusterClassificationDriver
+core.src.main.java.org.apache.mahout.clustering.classify.ClusterClassificationMapper.ClusterClassificationMapper
+
+MAHOUT-1409
+ha index check error test correct index 
+1
+math.src.main.java.org.apache.mahout.math.MatrixVectorView.MatrixVectorView
+
+MAHOUT-1398
+provid constructor delimit user cours user overwritten archiv goal us four space delimit pattern design framework mahout vari demand most user make easi us cost time implement push patch 
+1
+core.src.main.java.org.apache.mahout.cf.taste.impl.model.file.FileDataModel.FileDataModel
+
+MAHOUT-1396
+chang import librari 
+0
+
+MAHOUT-1389
+complementari naiv bay classifi get call option activ run option complementari naiv bay classifi get call 
+1
+core.src.main.java.org.apache.mahout.classifier.naivebayes.training.TrainNaiveBayesJob.TrainNaiveBayesJob
+
+MAHOUT-1379
+fail digest cluster data point digest fail cluster ha singl data point issu call expect point avail cluster 
+1
+examples.src.main.java.org.apache.mahout.clustering.streaming.tools.ClusterQualitySummarizer.ClusterQualitySummarizer
+
+MAHOUT-1378
+run random forest ignor featur fail load featur descriptor from json file 
+1
+src.main.java.org.apache.mahout.classifier.df.data.Dataset.Dataset
+
+MAHOUT-1371
+loader misinterpret nomin integ real string nomin valu contain valu integ real string misinterpret nomin 
+2
+integration.src.main.java.org.apache.mahout.utils.vectors.arff.ARFFVectorIterable.ARFFVectorIterable
+integration.src.main.java.org.apache.mahout.utils.vectors.arff.ARFFIterator.ARFFIterator
+
+MAHOUT-1368
+convert us digest better accuraci quartil estim produc quantil current quartil estim fail highli skew distribut extend provid quantil digest handl 
+3
+math.src.test.java.org.apache.mahout.math.stats.OnlineSummarizerTest.OnlineSummarizerTest
+math.src.main.java.org.apache.mahout.math.stats.OnlineSummarizer.OnlineSummarizer
+mahout.examples.src.main.java.org.apache.mahout.clustering.streaming.tools.ClusterQualitySummarizer.ClusterQualitySummarizer
+
+MAHOUT-1367
+except thread main run command error us command line argument unabl load hadoop librari platform class applic except thread main littl troubl from help 
+1
+integration.src.main.java.org.apache.mahout.text.wikipedia.WikipediaXmlSplitter.WikipediaXmlSplitter
+
+MAHOUT-1364
+upgrad mahout codebas lucen parallel random test carrot fail mac os code invok lucen api discuss 1345 fix upgrad lucen version present lucen version mahout trunk 
+12
+core.src.main.java.org.apache.mahout.vectorizer.document.SequenceFileTokenizerMapper.SequenceFileTokenizerMapper
+integration.src.main.java.org.apache.mahout.text.SequenceFilesFromLuceneStorageDriver.SequenceFilesFromLuceneStorageDriver
+integration.src.main.java.org.apache.mahout.text.LuceneStorageConfiguration.LuceneStorageConfiguration
+integration.src.main.java.org.apache.mahout.text.SequenceFilesFromLuceneStorageMapper.SequenceFilesFromLuceneStorageMapper
+integration.src.main.java.org.apache.mahout.text.LuceneSegmentRecordReader.LuceneSegmentRecordReader
+core.src.main.java.org.apache.mahout.common.lucene.AnalyzerUtils.AnalyzerUtils
+integration.src.main.java.org.apache.mahout.utils.regex.AnalyzerTransformer.AnalyzerTransformer
+integration.src.main.java.org.apache.mahout.text.wikipedia.WikipediaAnalyzer.WikipediaAnalyzer
+core.src.main.java.org.apache.mahout.common.lucene.TokenStreamIterator.TokenStreamIterator
+integration.src.main.java.org.apache.mahout.text.LuceneSegmentInputFormat.LuceneSegmentInputFormat
+integration.src.main.java.org.apache.mahout.text.ReadOnlyFileSystemDirectory.ReadOnlyFileSystemDirectory
+integration.src.main.java.org.apache.mahout.text.LuceneSegmentInputSplit.LuceneSegmentInputSplit
+
+MAHOUT-1358
+set truethrow set run cluster specifi follow error issu caus follow code code iter twice fail second us obviou reason 
+1
+core.src.main.java.org.apache.mahout.clustering.streaming.mapreduce.StreamingKMeansThread.StreamingKMeansThread
+
+MAHOUT-1357
+produc wrong entri trace code valu term hash convert back string concaten raw form make revers engin even harder fix creat string patch attach 
+1
+core.src.main.java.org.apache.mahout.vectorizer.encoders.InteractionValueEncoder.InteractionValueEncoder
+
+MAHOUT-1351
+support improv reduc runtim 80 perform cluster scale invari featur transform sift descriptor deriv visual word comput vision unlik spars document vector sift descriptor dens improv involv updat constructor us creat centroid ad test process 
+1
+core.src.main.java.org.apache.mahout.clustering.AbstractCluster.AbstractCluster
+
+MAHOUT-1349
+crash highest index spars dictionari vector larger dictionari vector size wrong here support fairli simpl us repositori 500k document gener input vector dictionari custom code hash featur max size 5m didn featur dataset want minim collis ran fine gener result run follow error error access dictionari featur index 698948 dictionari load code http grepcod com file repo1 maven org maven2 org apach mahout mahout integr org apach mahout util vector vector helper java vector helper load term dictionari 28 java io file 29 check hasn chang dictionari arrai size number uniqu keyword highest index after ran custom dictionari featur gener code discov 517 327 uniqu featur surpris die index 517327 don understand didn die load dictionari file reason code creat dictionari arrai ha size highest index read from dictionari sequenc file easili calcul preced loop misunderstand work fine reduc hash size total number featur desir gener don number featur befor run job guess high crash alex piggott ikanow 
+1
+integration.src.main.java.org.apache.mahout.utils.vectors.VectorHelper.VectorHelper
+
+MAHOUT-1339
+copyright header sourc code chang 
+0
+
+MAHOUT-1336
+fail silent apparentl allow mapr option valid foolproof result silent failur error messag 
+1
+core.src.test.java.org.apache.mahout.vectorizer.HighDFWordsPrunerTest.HighDFWordsPrunerTest
+
+MAHOUT-1320
+unstabl from time time test fail follow build log here bit more build log output show test run parallel on last time test fail ubuntu node randomli success node doesn caus node specif 
+0
+
+MAHOUT-1319
+seqdirectori filter argument silent ignor run mr run seqdirectori sequenc file from input directori from command line specifi custom filter filter paramet argument ignor us input except thrown command run xm sequenti filter found work expect 
+4
+integration.src.main.java.org.apache.mahout.text.SequenceFilesFromDirectory.SequenceFilesFromDirectory
+integration.src.main.java.org.apache.mahout.text.WholeFileRecordReader.WholeFileRecordReader
+integration.src.test.java.org.apache.mahout.text.TestSequenceFilesFromDirectory.TestSequenceFilesFromDirectory
+core.src.main.java.org.apache.mahout.common.HadoopUtil.HadoopUtil
+
+MAHOUT-1317
+clarifi messag experi thing get error from sourc realiz littl incomplet issu form incorrect maximum number similar row here known actual issu paramet zero neg incorrect trivial chang error messag save folk time newbi quick grep code show more case code base appar easi fix save folk time get relev error 
+32
+core.src.main.java.org.apache.mahout.classifier.df.mapreduce.partial.Step1Mapper.Step1Mapper
+core.src.main.java.org.apache.mahout.clustering.kmeans.RandomSeedGenerator.RandomSeedGenerator
+core.src.main.java.org.apache.mahout.classifier.df.data.Dataset.Dataset
+core.src.main.java.org.apache.mahout.cf.taste.impl.eval.GenericRecommenderIRStatsEvaluator.GenericRecommenderIRStatsEvaluator
+core.src.main.java.org.apache.mahout.math.neighborhood.BruteSearch.BruteSearch
+core.src.main.java.org.apache.mahout.cf.taste.impl.recommender.SamplingCandidateItemsStrategy.SamplingCandidateItemsStrategy
+core.src.main.java.org.apache.mahout.cf.taste.impl.common.WeightedRunningAverage.WeightedRunningAverage
+core.src.main.java.org.apache.mahout.classifier.df.data.DataConverter.DataConverter
+core.src.main.java.org.apache.mahout.classifier.df.data.DataLoader.DataLoader
+integration.src.main.java.org.apache.mahout.cf.taste.impl.model.mongodb.MongoDBDataModel.MongoDBDataModel
+math.src.main.java.org.apache.mahout.math.als.AlternatingLeastSquaresSolver.AlternatingLeastSquaresSolver
+examples.src.main.java.org.apache.mahout.cf.taste.example.kddcup.KDDCupDataModel.KDDCupDataModel
+integration.src.main.java.org.apache.mahout.utils.vectors.lucene.LuceneIterator.LuceneIterator
+core.src.main.java.org.apache.mahout.cf.taste.impl.recommender.TopItems.TopItems
+core.src.main.java.org.apache.mahout.cf.taste.impl.eval.AbstractDifferenceRecommenderEvaluator.AbstractDifferenceRecommenderEvaluator
+integration.src.main.java.org.apache.mahout.cf.taste.impl.model.cassandra.CassandraDataModel.CassandraDataModel
+math.src.main.java.org.apache.mahout.math.random.Empirical.Empirical
+core.src.main.java.org.apache.mahout.cf.taste.impl.similarity.GenericUserSimilarity.GenericUserSimilarity
+core.src.main.java.org.apache.mahout.classifier.naivebayes.training.WeightsMapper.WeightsMapper
+core.src.main.java.org.apache.mahout.math.neighborhood.FastProjectionSearch.FastProjectionSearch
+math.src.main.java.org.apache.mahout.math.random.ChineseRestaurant.ChineseRestaurant
+core.src.main.java.org.apache.mahout.cf.taste.impl.common.SamplingLongPrimitiveIterator.SamplingLongPrimitiveIterator
+core.src.main.java.org.apache.mahout.classifier.df.mapreduce.partial.TreeID.TreeID
+core.src.main.java.org.apache.mahout.math.Varint.Varint
+core.src.main.java.org.apache.mahout.common.iterator.SamplingIterator.SamplingIterator
+core.src.main.java.org.apache.mahout.math.hadoop.similarity.cooccurrence.RowSimilarityJob.RowSimilarityJob
+core.src.main.java.org.apache.mahout.math.neighborhood.ProjectionSearch.ProjectionSearch
+core.src.main.java.org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob.ItemSimilarityJob
+core.src.main.java.org.apache.mahout.cf.taste.impl.similarity.GenericItemSimilarity.GenericItemSimilarity
+core.src.main.java.org.apache.mahout.cf.taste.impl.eval.IRStatisticsImpl.IRStatisticsImpl
+org.apache.mahout.utils.SplitInput.SplitInput
+org.apache.mahout.math.CholeskyDecomposition.CholeskyDecomposition
+
+MAHOUT-1314
+set option set rskm reduc fail problem reduc method line 60 similar line 81 full stack trace time set 
+1
+core.src.main.java.org.apache.mahout.clustering.streaming.mapreduce.StreamingKMeansReducer.StreamingKMeansReducer
+
+MAHOUT-1308
+extend restrict visibl order implement custom extend visibl modifi extend 
+0
+
+MAHOUT-1301
+method ha excess comma end realiz method chang mahout 1259 patch patch introduc bug output method chang extra comma ad end string exampl follow spars vector return follow string extra comma end string 
+2
+math.src.main.java.org.apache.mahout.math.RandomAccessSparseVector.RandomAccessSparseVector
+math.src.main.java.org.apache.mahout.math.SequentialAccessSparseVector.SequentialAccessSparseVector
+
+MAHOUT-1291
+yield cosmet suboptim except bin mahout run arg hadoop version run bin mahout argument error correctli displai lack argument part displai error hadoop code version hadoop error quit jvm call code error main method version hadoop code doesn immedi exit jvm execut continu yield except pretti harmless ugli attach on line fix from main error more correct begin 
+1
+core.src.main.java.org.apache.mahout.driver.MahoutDriver.MahoutDriver
+
+MAHOUT-1285
+loader mispars string data successfulli load numer file mahout origin gener weka file contain randomli gener data specif random seed follow except thrown 
+2
+integration.src.main.java.org.apache.mahout.utils.vectors.arff.ARFFVectorIterable.ARFFVectorIterable
+integration.src.main.java.org.apache.mahout.utils.vectors.arff.MapBackedARFFModel.MapBackedARFFModel
+
+MAHOUT-1284
+bug reus recommend practic reus object us test mahout keep instanc map next time user reus object intern map chang make fail test job reus 
+0
+
+MAHOUT-1276
+job name confus set job name iter differ logger info job name start from base run job iter job name start from better set job name logger info messag current job name confus 
+1
+core.src.main.java.org.apache.mahout.cf.taste.hadoop.als.ParallelALSFactorizationJob.ParallelALSFactorizationJob
+
+MAHOUT-1261
+ha size run larg 600m 4b matrix spars total set associ 630 mb job fail hash id don valu result return set cardin except issu valu from max return vector ha max entri nasti littl on bug think size set sebastian schelter thought 
+1
+core.src.main.java.org.apache.mahout.cf.taste.hadoop.TasteHadoopUtils.TasteHadoopUtils
+
+MAHOUT-1242
+kei redistribut function associ map integ base map current us return kei valu easili lead degener behavior kei constant lower bit collis chain simpl strong hash function step ensur kei distribut more uniform input distribut 
+1
+math.src.main.java.org.apache.mahout.math.map.HashFunctions.HashFunctions
+
+MAHOUT-1030
+regress cluster point won make build pretti widespread impact code test don properti implement old version creat jira post interim result 12 12 21 pm jeff eastman wrote revers evid introduc pretti easi fix make chang befor paritosh cut releas bit tonight 12 00 pm pat ferrel wrote appear written mahout mean distanc from centroid longer store here hope wrong welcom chang on order cluster doc distanc from cluster centroid calcul distanc mean up centroid cluster id mean iter cluster cluster doc number cluster fairli larg miss 
+3
+core.src.main.java.org.apache.mahout.clustering.classify.ClusterClassificationDriver.ClusterClassificationDriver
+integration.src.main.java.org.apache.mahout.utils.clustering.ClusterDumperWriter.ClusterDumperWriter
+core.src.main.java.org.apache.mahout.clustering.classify.ClusterClassificationMapper.ClusterClassificationMapper
+

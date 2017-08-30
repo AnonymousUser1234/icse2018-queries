@@ -1,0 +1,259 @@
+PIG-3512
+reduc estimat broken pig 3497 pig 3497 move adjust num reduc stage revert right 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.JobControlCompiler
+
+PIG-3510
+filter extractor fail more on filter statement regress from pig 3461 rewrit partit filter optim here exampl demonstr problem two filter filter dateint 20130901 dateint 20131001 filter event id 419 event id 418 on filter filter dateint 20130901 dateint 20131001 event id 419 event id 418 dateint event id partit column filter express push down filter event id 419 event id 418 push down 
+1
+src.org.apache.pig.newplan.logical.optimizer.LogicalPlanOptimizer.LogicalPlanOptimizer
+
+PIG-3485
+remov cast util byte map method from load caster pig 1876 ad type map annot follow method deprec deprec map string object byte map io except remov replac method take type inform map string object byte map resourc field schema field schema io except 
+2
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.expressionOperators.POCast.POCast
+src.org.apache.pig.impl.util.CastUtils.CastUtils
+
+PIG-3495
+stream udf e2 test failur window jython script absolut path fail exampl scriptingudf py jython myfunc load studenttab10k pig storag name ag gpa foreach gener myfunc squar ag dump 
+1
+src.org.apache.pig.scripting.ScriptEngine.ScriptEngine
+
+PIG-3470
+print configur variabl grunt paramet handl limit grunt design pig 2122 find abl list job conf properti test statement debug script line line patch set command analogu hive call kei valu paramet print configur variabl properti prefix 
+0
+
+PIG-3468
+pig 3123 break e2 test jython diagnost pig 3123 optim type cast insert ad cast insert flag lo load lo prune flag us illustr visual output from loader displai exampl 110 jython diagnost broken 
+6
+src.org.apache.pig.newplan.logical.rules.LoadTypeCastInserter.LoadTypeCastInserter
+src.org.apache.pig.newplan.logical.relational.LOStream.LOStream
+src.org.apache.pig.newplan.logical.rules.TypeCastInserter.TypeCastInserter
+src.org.apache.pig.pen.util.DisplayExamples.DisplayExamples
+src.org.apache.pig.newplan.logical.rules.StreamTypeCastInserter.StreamTypeCastInserter
+src.org.apache.pig.newplan.logical.relational.LOLoad.LOLoad
+
+PIG-3461
+rewrit partit filter optim make work case current algorithm partit filter pushdown identif fail corner case rewrit logic work case maximum filter pushdown 
+3
+src.org.apache.pig.backend.hadoop.executionengine.HExecutionEngine.HExecutionEngine
+src.org.apache.pig.newplan.logical.rules.PartitionFilterOptimizer.PartitionFilterOptimizer
+src.org.apache.pig.newplan.logical.optimizer.LogicalPlanOptimizer.LogicalPlanOptimizer
+
+PIG-3455
+pig 11 memori error run pig larg script 5k line 85 assign pig fail follow error even befor job fire pig stack trace error 2998 unhandl intern error java heap space java lang memori error java heap space java util arrai copi arrai java 2882 java lang abstract string builder expand capac abstract string builder java 100 java lang abstract string builder append abstract string builder java 390 java lang string builder append string builder java 119 org apach pig newplan logic optim logic plan printer depth first lp logic plan printer java 83 org apach pig newplan logic optim logic plan printer visit logic plan printer java 69 org apach pig newplan logic relat logic plan get signatur logic plan java 122 org apach pig pig server execut pig server java 1237 org apach pig pig server execut batch pig server java 333 org apach pig tool grunt grunt parser execut batch grunt parser java 137 org apach pig tool grunt grunt parser pars stop error grunt parser java 198 org apach pig tool grunt grunt parser pars stop error grunt parser java 170 org apach pig tool grunt grunt exec grunt java 84 org apach pig main run main java 604 org apach pig main main main java 157 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 39 sun reflect deleg method accessor impl invok deleg method accessor impl java 25 java lang reflect method invok method java 597 org apach hadoop util run jar main run jar java 160 script work fine pig 10 
+1
+src.org.apache.pig.newplan.logical.relational.LogicalPlan.LogicalPlan
+
+PIG-3445
+make parquet format avail box pig add parquet jar pig packag make avail box pig user add parquet pig list packag search udf altern parquet jar contain class name apach pig builtin parquet loader parquet storer user us parquet simpli type load foo parquet loader store bar parquet storer 
+0
+
+PIG-3424
+list name first even dudf list pass current dudf list pass add begin list name defin push end list case pig deploy contain predefin dudf list resolut befor fulli qualifi name defin load 
+1
+src.org.apache.pig.impl.PigContext.PigContext
+
+PIG-3405
+udf document improp us document sourc code javadoc http svn apach org repo asf pig trunk src org apach pig builtin java apach pig refer manual http pig apach org doc r0 piglatin ref2 html index pass udf index read code test result zero index correct behavior user betrai offici document 
+0
+
+PIG-3390
+make pig work base 95 base 95 chang api incompat follow api base storag pig us longer avail mutat set write wal scan write data output addit base longer avail on monolith archiv entir function broken down smaller piec hbase client hbase server 
+1
+src.org.apache.pig.backend.hadoop.hbase.HBaseStorage.HBaseStorage
+
+PIG-3379
+alia reus nest foreach caus pig script fail follow script fail temp pig event load event time devic id chararrai event name chararrai event foreach event gener event time devic id event name event minut group event event time 60000 event minut foreach event minut distinct devic distinct event devic id nb devic size distinct devic distinct devic filter event event name xua heart beat nb devic watch size distinct devic gener 60000 time stamp nb devic nb devic nb devic watch nb devic watch event minut filter event minut time stamp time stamp 100000 foreach event minut gener time stamp describ error 2013 07 16 11 31 20 450 main error org apach pig tool grunt grunt error 1025 file home xzhang document temp pig line 14 column 37 invalid field project project field time stamp exist schema devic id chararrai distinct alia name nd distinct devic fix problem observ remov last filter statement fix problem 
+3
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder
+src.org.apache.pig.newplan.logical.relational.LOInnerLoad.LOInnerLoad
+src.org.apache.pig.newplan.logical.expression.ProjectExpression.ProjectExpression
+
+PIG-3360
+intermitt neg e2 test fail hadoop on exampl stream error here stack get backend error messag error org apach pig backend executionengin exec except error 2055 receiv error process map plan perl pig stream bad pl middl fail exit statu org apach pig backend hadoop executionengin map reduc layer pig gener map base run pipelin pig gener map base java 311 org apach pig backend hadoop executionengin map reduc layer pig gener map base map pig gener map base java 278 org apach pig backend hadoop executionengin map reduc layer pig gener map base map pig gener map base java 64 org apach hadoop mapreduc mapper run mapper java 145 org apach hadoop mapr map task run mapper map task java 763 org apach hadoop mapr map task run map task java 339 org apach hadoop mapr yarn child run yarn child java 162 java secur access control privileg method javax secur auth subject subject java 396 org apach hadoop secur user group inform user group inform java 1477 org apach hadoop mapr yarn child main yarn child java 157 pig stack trace error 2244 job fail hadoop error messag org apach pig backend executionengin exec except error 2244 job fail hadoop error messag org apach pig tool grunt grunt parser execut batch grunt parser java 145 org apach pig tool grunt grunt parser pars stop error grunt parser java 198 org apach pig tool grunt grunt parser pars stop error grunt parser java 170 org apach pig tool grunt grunt exec grunt java 84 org apach pig main run main java 604 org apach pig main main main java 157 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 39 sun reflect deleg method accessor impl invok deleg method accessor impl java 25 java lang reflect method invok method java 597 org apach hadoop util run jar main run jar java 212 
+2
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.Launcher.Launcher
+src.org.apache.pig.backend.hadoop.executionengine.Launcher.Launcher
+
+PIG-3355
+column map kei prune bug distinct bug distinct immedi follow result ha least on column prune column map kei prune test show exampl script submit patch 
+1
+src.org.apache.pig.newplan.logical.rules.ColumnPruneHelper.ColumnPruneHelper
+
+PIG-3339
+move pattern compil date variabl pattern compil costli current done tupl date extract date time zone variabl 
+1
+src.org.apache.pig.builtin.ToDate.ToDate
+
+PIG-3335
+test error handl te negative7 fail mr2 test fail test mr2 junit framework assert fail error org apach pig parser test error handl te negative7 test error handl java 138 
+0
+
+PIG-3331
+valu store avro file specif schema store avro storag script store avro predefin schema store valu file load number txt pig storag intnum1000 id intnum5 intnum100 intnum longnum floatnum doublenum b2 foreach gener id intnum5 intnum100 c2 filter b2 110 id id 120 store c2 tmp test avro storag test valu write org apach pig piggybank storag avro avro storag debug schema name rmyrecord type record field name id type name intnum5 type name intnum100 type open file show follow schema avro schema type record name rmyrecord field name id type name intnum5 type name intnum100 type problem store schema viraj 
+1
+src.main.java.org.apache.pig.piggybank.storage.avro.PigSchema2Avro.PigSchema2Avro
+
+PIG-3329
+rank fail work split input txt script load input txt pig storag split rank dump job fail error messag java lang runtim except unabl read counter pig counter counter 4929375455335572575 org apach pig backend hadoop executionengin physic layer relat oper po rank add rank po rank java 161 org apach pig backend hadoop executionengin physic layer relat oper po rank get next po rank java 134 org apach pig backend hadoop executionengin physic layer physic process input physic java 308 org apach pig backend hadoop executionengin physic layer relat oper po split get next po split java 214 org apach pig backend hadoop executionengin map reduc layer pig gener map base run pipelin pig gener map base java 283 org apach pig backend hadoop executionengin map reduc layer pig gener map base map pig gener map base java 278 org apach pig backend hadoop executionengin map reduc layer pig gener map base map pig gener map base java 64 org apach hadoop mapreduc mapper run mapper java 157 org apach hadoop mapr map task run mapper map task java 673 org apach hadoop mapr map task run map task java 324 org apach hadoop mapr child run child java 275 java secur access control privileg method javax secur auth subject subject java 396 org apach hadoop secur user group inform user group inform java 1340 org apach hadoop mapr child main child java 269 
+2
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MRCompiler.MRCompiler
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceOper.MapReduceOper
+
+PIG-3327
+pig hit oom fetch task report java lang memori error gc overhead limit exceed hit hadoop 23 pig script launch job ha 80k map task report arrai caus oom 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.Launcher.Launcher
+
+PIG-3322
+avro avro storag npe read file level schema get npe load file avro storag file ha schema type record name tupl field name name type string doc autogener from pig field schema name ag type doc autogener from pig field schema name gpa type doc autogener from pig field schema e2 style test fail num store file pig type tupl reli convers record load store schema notmq pig load inpath singlefil studentcomplextab10k pig storag name chararrai ag gpa name chararrai ag gpa foreach gener describ store outpath intermedi org apach pig piggybank storag avro avro storag exec read back store avro load outpath intermedi org apach pig piggybank storag avro avro storag describ store outpath verifi pig script load inpath singlefil studentcomplextab10k pig storag name chararrai ag gpa name chararrai ag gpa foreach gener describ store outpath 
+2
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroRecordReader.PigAvroRecordReader
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage
+
+PIG-3321
+avro support user specifi schema load user abl explicitli specifi schema us read avro input allow user exactli specifi resolv input multipl schema depend guess done multipl schema set 
+5
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroInputFormat.PigAvroInputFormat
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroRecordReader.PigAvroRecordReader
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorageUtils.AvroStorageUtils
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroDatumReader.PigAvroDatumReader
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage
+
+PIG-3318
+avro valu honor merg schema load avro storag piggybank avro storag merg multipl schema valu specifi avro schema avro storag put null merg data set employee3 avro type record name employe field name name type string nu name ag type name dept type string du employee4 avro type record name employe field name name type string nu name ag type name dept type string du name offic type string ou employee6 avro type record name employe field name name type string nu name lastnam type string lnu name ag type name salari type name dept type string du name offic type string ou pig script employe load employe ser org apach pig piggybank storag avro avro storag multipl schema describ employe dump employe output schema employe name chararrai ag dept chararrai lastnam chararrai salari offic chararrai milo 30 dh asmya 34 pq baljit 23 rs pune 60 astrophys warrior 5466 uta rajsathan 20 biochemistri royal 1378 stanford chennai 50 microbiolog superk 7338 hopkin mumbai 20 appli math indian 4468 uah praj 54 rmx champaign buba 767 hd sunnyval manku 375 ms york viraj 
+4
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroInputFormat.PigAvroInputFormat
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroRecordReader.PigAvroRecordReader
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorageUtils.AvroStorageUtils
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage
+
+PIG-3316
+pig fail interpret date time valu special case queri load date txt f1 f2 datetim dump input data 1970 01 01 1970 01 pig gener follow output 1970 01 01 t00 00 00 000 01 00 1970 01 01 t00 00 00 000 01 00 seemingli incorrectli interpret dai month part time zone 
+1
+src.org.apache.pig.builtin.ToDate.ToDate
+
+PIG-3313
+pig job hang job tracker bounc execut run pig job pig runner after mapreduc job submit job tracker bounc doesn get back up pig job hang reason pig keep job control object non deamon thread keep connect jobtrack job tracker down pig fail jobcontrol thread keep run on stop 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher.MapReduceLauncher
+
+PIG-3310
+implicit split insert gener uid nest schema field lead miscomput follow exampl inp load input member id shop id score tuplifi foreach inp gener member id shop id tuplifi score d1 foreach tuplifi gener tuplifi member id member id tuplifi shop id shop id score score d2 foreach tuplifi gener tuplifi member id member id tuplifi shop id shop id score score join d1 shop id d2 shop id foreach gener d1 member id member id1 d2 member id member id2 d1 shop id shop explain dump bit weird written minim reproduct real tuplifi phase from multi kei group input data 1001 101 1002 103 1003 102 1004 102 1005 101 1003 101 1002 123 1042 101 1005 101 1002 133 wrong output 1001 1001 1002 1002 1002 1002 1002 1002 second column member id initi filter member id1 member id2 after comput fail push up filter optim mistakenli move lo filter oper befor join place work tupl fail understand issu implicit split insert creat lo split output correctli reset schema lo split output regener uid field d1 d2 tupl member logic plan after implicit split nserter simplifi d1 name lo schema member id 124 shop id 125 column prune input uid 127 column prune output uid 125 124 tuplifi name lo split output schema tuplifi 127 tupl member id 124 shop id 125 column prune input uid 123 column prune output uid 127 tuplifi name lo split schema tuplifi 123 tupl member id 124 shop id 125 column prune input uid 123 column prune output uid 123 d2 name lo schema member id 124 shop id 125 column prune input uid 130 column prune output uid 125 124 tuplifi name lo split output schema tuplifi 130 tupl member id 124 shop id 125 column prune input uid 123 column prune output uid 130 tuplifi name lo split schema tuplifi 123 tupl member id 124 shop id 125 column prune input uid 123 column prune output uid 123 tuplifi correctli get uid 127 130 member tupl don get reproject branch uid join name lo join hash schema d1 member id 124 d1 shop id 125 d2 member id 139 d2 shop id 132 column prune input uid 125 124 132 column prune output uid 125 124 132 shop id name project type uid 125 input column shop id name project type uid 125 input column exampl reproject member id project member id node creat ultim two branch join correctli get separ uid understand lo split output get schema recurs nest schema field light understand logic plan handl complet wrong attach draft patch test reproduc issu haven abl run unit test fix weird hang happi complet wrong fix issu 
+1
+src.org.apache.pig.newplan.logical.relational.LOSplitOutput.LOSplitOutput
+
+PIG-3309
+test json loader storag fail ibm jdk test json storag loader fail small differ hash map print hash map specif http doc oracl com javas doc api java util hash map html mention make guarante order map guarante order remain constant time pig testcas reli order hash map item print test json loader storage1 explicitli comparison testcas test json loader storage1 25 sec fail expect key2 key1 a0 a1 a10 a11 cat a10 a11 dog a10 a11 pig a2 a20 a21 moon a3 key4 value4 key1 value1 key2 key3 a0 a1 a10 a11 cat a10 a11 dog a10 a11 pig a2 a20 a21 moon a3 key1 value1 key4 value4 junit framework comparison failur expect key2 key1 a0 a1 a10 a11 cat a10 a11 dog a10 a11 pig a2 a20 a21 moon a3 key4 value4 key1 value1 key2 key3 a0 a1 a10 a11 cat a10 a11 dog a10 a11 pig a2 a20 a21 moon a3 key1 value1 key4 value4 org apach pig test test json loader storag test json loader storage1 test json loader storag java 63 
+1
+test.org.apache.pig.test.utils.TestHelper.TestHelper
+
+PIG-3292
+logic plan invalid state duplic uid schema self join get cross product pig 3020 work differ pig version apach pig version 10 cdh4 rexport compil feb 15 2013 12 20 54 accor releas note pig 3020 includ cdh dist http archiv cloudera com cdh4 cdh pig 10 cdh4 chang txt problem self join get cross product load input kei group group kei foreach group pair cross gener flatten pair dump error error org apach pig tool grunt grunt error 2270 logic plan invalid state duplic uid schema 16 bytearrai 16 bytearrai here workaround load input kei group group kei foreach group foreach gener pair cross gener flatten pair dump 
+1
+src.org.apache.pig.newplan.logical.relational.LOCross.LOCross
+
+PIG-3290
+test logic plan builder test query85 fail trunk reproduc local except junit framework assert fail error org apach pig impl plan plan valid except error 1108 line column 79 duplic schema alia group org apach pig test test logic plan builder build plan test logic plan builder java 2211 org apach pig test test logic plan builder test query85 test logic plan builder java 1011 
+1
+src.org.apache.pig.newplan.logical.expression.DereferenceExpression.DereferenceExpression
+
+PIG-3267
+cat storer fail limit queri follow queri fail data load student txt name chararrai ag gpa data limit limit data 10 sampl foreach data limit gener ag number store sampl sampl org apach hcatalog pig cat storer part dt 20130101 t010000 t36 error befor launch second job error messag messag org apach hadoop mapr file exist except output directori hdf localhost 8020 user hive warehous sampl part dt 20130101 t010000 t36 exist org apach hadoop mapr file output format check output spec file output format java 121 org apach hcatalog mapreduc file output format contain check output spec file output format contain java 135 org apach hcatalog mapreduc cat base output format check output spec cat base output format java 72 org apach pig backend hadoop executionengin map reduc layer pig output format check output spec helper pig output format java 207 org apach pig backend hadoop executionengin map reduc layer pig output format check output spec pig output format java 188 org apach hadoop mapr job client run job client java 887 org apach hadoop mapr job client run job client java 850 java secur access control privileg method javax secur auth subject subject java 396 org apach hadoop secur user group inform user group inform java 1121 org apach hadoop mapr job client submit job intern job client java 850 org apach hadoop mapr job client submit job job client java 824 org apach hadoop mapr jobcontrol job submit job java 378 org apach hadoop mapr jobcontrol job control start readi job job control java 247 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 39 sun reflect deleg method accessor impl invok deleg method accessor impl java 25 java lang reflect method invok method java 597 org apach pig backend hadoop20 pig job control main loop action pig job control java 157 org apach pig backend hadoop20 pig job control run pig job control java 134 java lang thread run thread java 680 org apach pig backend hadoop executionengin map reduc layer map reduc launcher run map reduc launcher java 257 
+1
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.POStore.POStore
+
+PIG-3255
+avoid extra arrai copi stream pig stream java tupl deseri byte io except text val text byte storag util text tupl val field del remov text byte copi construct tupl directli from byte 
+0
+
+PIG-3247
+piggybank function mimic claus sql order test hive written udf mimic behavior sql claus thought share 
+0
+
+PIG-3210
+pig fail start write log log file pig check log file name befor set pig logfil properti place forget check place 381 pig context get properti set properti pig logfil log file name log file name 451 pig context get properti set properti pig logfil log file name 12 12 25 16 38 00 warn pig main write permiss directori opt trend hadooppet saniti tm result creat log file 14 2012 12 25 16 38 00 372 main info org apach pig main apach pig version 10 tm6 rexport compil oct 22 2012 11 11 02 15 2012 12 25 16 38 01 712 main warn org apach pig main write log file opt trend hadooppet saniti tm result akamai pig1356453481712 log 16 2012 12 25 16 38 01 727 main error org apach pig main error 2999 unexpect intern error 17 2012 12 25 16 38 01 727 main warn org apach pig main log file write 18 2012 12 25 16 38 01 727 main error org apach pig main java lang pointer except 19 java util hashtabl put hashtabl java 394 20 java util properti set properti properti java 143 21 org apach pig main run main java 542 22 org apach pig main main main java 115 23 sun reflect method accessor impl invoke0 method 24 sun reflect method accessor impl invok method accessor impl java 39 25 sun reflect deleg method accessor impl invok deleg method accessor impl java 25 26 java lang reflect method invok method java 597 27 org apach hadoop util run jar main run jar java 208 
+1
+src.org.apache.pig.Main.Main
+
+PIG-3204
+chang script pars pars entir script line line current lot nn call made determin schema file path load statement slow nn caus bunch issu take lot time found script spend from min 40 min depend script good place optim 
+2
+src.org.apache.pig.PigServer.PigServer
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser
+
+PIG-3199
+provid method retriev name loader storer pig server logic plan expos user order on make valid base on get load store path oper abl perform check path valid 
+0
+
+PIG-3173
+partit filter push down happen partit kei condit includ construct load db tabl org apach hcatalog pig cat loader filter region usa dt 201302051800 region uk dt 201302051800 foreach gener name ag dump warn scan tabl 2013 02 06 22 22 16 233 main warn org apach pig newplan col filter extractor partit filter push down partit column region construct pcond pcond pcond condit partit column 2013 02 06 22 22 16 233 main warn org apach pig newplan col filter extractor partit filter push down partit column datestamp construct pcond pcond pcond condit partit column 
+1
+src.org.apache.pig.newplan.PColFilterExtractor.PColFilterExtractor
+
+PIG-3168
+test multi queri basic test multi queri split map multi merg fail trunk pig 2994 made explain alia equival explain previou alia break test multi queri basic test multi queri split map multi merg previou alia gener alia user defin alia follow fix test group f2 f7 f8 store foo4 bin storag explain explain 
+1
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser
+
+PIG-3114
+duplic macro name error pigunit pig unit test pig script macro defin pig run fine cluster get pars error pigunit basic pig script macro get similar error org apach pig impl logic layer frontend except error 1000 error pars line reason duplic macro name macro org apach pig pig server graph pars queri pig server java 1607 org apach pig pig server graph queri pig server java 1546 org apach pig pig server queri pig server java 516 org apach pig tool grunt grunt parser process pig grunt parser java 988 org apach pig pigunit pig grunt parser process pig grunt parser java 61 org apach pig tool pigscript parser pig script parser pars pig script parser java 412 org apach pig tool grunt grunt parser pars stop error grunt parser java 194 org apach pig pigunit pig pig server script pig server java 56 org apach pig pigunit pig test script pig test java 160 org apach pig pigunit pig test output pig test java 231 org apach pig pigunit pig test output pig test java 261 first pig test pig test test top2 queri pig test java 32 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 39 sun reflect deleg method accessor impl invok deleg method accessor impl java 25 java lang reflect method invok method java 597 junit framework test run test test java 176 junit framework test run bare test java 141 junit framework test result protect test result java 122 junit framework test result run test result java 142 junit framework test result run test result java 125 junit framework test run test java 129 junit framework test suit run test test suit java 255 junit framework test suit run test suit java 250 org junit intern runner unit38 runner run unit38 runner java 84 org eclips jdt intern junit4 runner unit4 test refer run unit4 test refer java 50 org eclips jdt intern junit runner test execut run test execut java 38 org eclips jdt intern junit runner remot test runner run test remot test runner java 467 org eclips jdt intern junit runner remot test runner run test remot test runner java 683 org eclips jdt intern junit runner remot test runner run remot test runner java 390 org eclips jdt intern junit runner remot test runner main remot test runner java 197 caus fail pars line reason duplic macro name macro org apach pig parser queri parser driver make macro def queri parser driver java 406 org apach pig parser queri parser driver expand macro queri parser driver java 277 org apach pig parser queri parser driver pars queri parser driver java 178 org apach pig pig server graph pars queri pig server java 1599 30 more pig script fail test pig defin macro queri return order queri total desc data load input queri chararrai queri group group data queri queri count foreach queri group gener group queri count data total queri order macro queri count queri queri limit limit queri order store queri limit output remov macro pigunit work fine even defin macro result pars error 
+0
+
+PIG-3097
+hive columnar loader doesn correctli load partit hive tabl partit hive tabl hive describ mytabl f1 string f2 string f3 string partit dt string follow pig script correct schema grunt load hive warehous mytabl org apach pig piggybank storag hive columnar loader f1 string f2 string f3 string grunt describ f1 chararrai f2 chararrai f3 chararrai partit dt chararrai command grunt dump produc first column record tabl four column expect 
+1
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.storage.HiveColumnarLoader.HiveColumnarLoader
+
+PIG-3065
+pig output format committ support recoveri hadoop 23 hadoop 23 output committ option support recoveri handl applic master get restart fail attempt pig outputformat committ support recoveri 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigOutputCommitter.PigOutputCommitter
+
+PIG-3060
+flatten nest foreach fail input contain empti bag flatten insid foreach statement produc wrong result input contain empti bag load flatten txt a0 a1 bag chararrai group a0 foreach c1 foreach gener flatten a1 gener count c1 easi workaround filter empti bag 
+3
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.POForEach.POForEach
+test.org.apache.pig.test.TestEvalPipelineLocal.TestEvalPipelineLocal
+src.org.apache.pig.data.DefaultAbstractBag.DefaultAbstractBag
+
+PIG-3048
+add mapreduc workflow inform job configur ad workflow properti job configur enabl log analysi workflow addit individu map reduc job suggest properti includ workflow id workflow name adjac list connect node workflow name current node workflow mapreduc workflow id uniqu id workflow ideal prepend applic name pig pig script id mapreduc workflow name name workflow distinguish workflow from workflow group differ run workflow pig command line mapreduc workflow adjac adjac list workflow graph encod mapreduc workflow adjac sourc node comma separ list target node mapreduc workflow node name name node map reduc job workflow adjac list 
+2
+src.org.apache.pig.tools.pigstats.ScriptState.ScriptState
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher.MapReduceLauncher
+
+PIG-2970
+nest foreach get incorrect schema unrel inner queri pig 2968 hit weird error messag cat test foreach2 pig daili load nyse exchang symbol grpd group daili exchang uniqu foreach grpd sym daili symbol uniq sym distinct sym ignor uniq sym result gener group daili describ uniqu 10 zzz foreach uniqu gener group 11 explain zzz pig local column map kei prune test foreach2 pig uniqu symbol bytearrai 2012 10 12 16 55 44 226 main error org apach pig tool grunt grunt error 1025 file test foreach2 pig line 10 column 30 invalid field project project field group exist schema symbol bytearrai 
+2
+src.org.apache.pig.backend.hadoop.executionengine.HExecutionEngine.HExecutionEngine
+src.org.apache.pig.PigServer.PigServer
+
+PIG-2956
+invalid cach specif stream statement categori failur e2 test comput spec comput spec comput spec race condit race condit race condit race condit race condit here stack error 6003 invalid cach specif file doesn exist program file x86 gnu win32 bin head ex org apach pig backend hadoop executionengin map reduc layer job creation except error 2017 intern error creat job configur org apach pig backend hadoop executionengin map reduc layer job control compil get job job control compil java 723 org apach pig backend hadoop executionengin map reduc layer job control compil compil job control compil java 258 org apach pig backend hadoop executionengin map reduc layer map reduc launcher launch pig map reduc launcher java 151 org apach pig pig server launch plan pig server java 1318 org apach pig pig server execut compil logic plan pig server java 1303 org apach pig pig server execut pig server java 1293 org apach pig pig server execut batch pig server java 364 org apach pig tool grunt grunt parser execut batch grunt parser java 133 org apach pig tool grunt grunt parser pars stop error grunt parser java 194 org apach pig tool grunt grunt parser pars stop error grunt parser java 166 org apach pig tool grunt grunt exec grunt java 84 org apach pig main run main java 561 org apach pig main main main java 111 caus org apach pig backend executionengin exec except error 6003 invalid cach specif file doesn exist program file x86 gnu win32 bin head ex org apach pig backend hadoop executionengin map reduc layer job control compil setup distribut cach job control compil java 1151 org apach pig backend hadoop executionengin map reduc layer job control compil setup distribut cach job control compil java 1129 org apach pig backend hadoop executionengin map reduc layer job control compil get job job control compil java 447 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.JobControlCompiler
+
+PIG-2828
+handl null data type compar data bag contain valu compar gener follow except caus java lang pointer except org apach pig data data type compar data type java 427 org apach pig builtin tupl compar compar java 97 org apach pig builtin tupl compar compar java java util prioriti queue sift up compar prioriti queue java 649 java util prioriti queue sift up prioriti queue java 627 java util prioriti queue offer prioriti queue java 329 java util prioriti queue add prioriti queue java 306 org apach pig builtin updat java 141 org apach pig builtin exec java 116 code java start line 91 object field1 o1 get field num object field2 o2 get field num type found datatyp data type find type field1 type found data type compar field1 field2 datatyp datatyp reason type found data type field1 script fail judg field1 
+2
+src.org.apache.pig.data.DataType.DataType
+src.org.apache.pig.builtin.TOP.TOP
+
+PIG-2767
+pig creat wrong schema after dereferenc nest tupl field follow script fail data load test data txt pig storag f1 f2 f3 f4 nest foreach data gener f1 f2 f3 f4 nest tupl dereferenc foreach nest gener f1 nest tupl f2 f3 describ dereferenc us dereferenc foreach dereferenc gener nest tupl f3 describ us dereferenc schema dereferenc f1 nest tupl f2 f3 describ think f1 f2 dump us data form correct schema ex problem describ schema incorrect refer nest tupl us dereferenc statement consid invalid script fail run error invalid field project project field nest tupl exist schema f1 f2 
+1
+src.org.apache.pig.newplan.logical.expression.DereferenceExpression.DereferenceExpression
+
+PIG-2606
+join oper accept alia multipl input grunt load grunt 2012 03 16 18 48 45 687 main error org apach pig tool grunt grunt error 2998 unhandl intern error count operand grunt load a0 txt a0 a1 grunt join a0 a1 2013 08 27 13 36 21 807 main error org apach pig tool grunt grunt error 2225 project refer 
+1
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder
+
+PIG-2265
+test test secondari sort failur error messag testcas test nest sort end end3 53 076 sec caus error unabl open iter alia backend error org apach pig data data arrai cast org apach pig data tupl org apach pig impl logic layer frontend except error 1066 unabl open iter alia backend error org apach pig data data arrai cast org apach pig data tupl org apach pig pig server open iter pig server java 742 org apach pig test test secondari sort test nest sort end end3 test secondari sort java 550 caus java lang cast except org apach pig data data arrai cast org apach pig data tupl org apach pig backend hadoop executionengin physic layer express oper po project get next po project java 392 org apach pig backend hadoop executionengin physic layer relat oper po local rearrang get next po local rearrang java 357 org apach pig backend hadoop executionengin map reduc layer pig map base run pipelin pig map base java 236 org apach pig backend hadoop executionengin map reduc layer pig map base map pig map base java 231 org apach pig backend hadoop executionengin map reduc layer pig map base map pig map base java 53 org apach hadoop mapreduc mapper run mapper java 144 org apach hadoop mapr map task run mapper map task java 621 org apach hadoop mapr map task run map task java 305 
+2
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MRCompiler.MRCompiler
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.SecondaryKeyOptimizer.SecondaryKeyOptimizer
+

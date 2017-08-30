@@ -1,0 +1,107 @@
+OPENJPA-2255
+couldn load definit creat couldn definit includ length definit length assign valu 255 student id length ha defin 128 definit length set valu 255 warn messag occur warn schema exist column incompat column schema definit exist column 
+1
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingInfo.MappingInfo
+
+OPENJPA-2229
+persist entiti recogn deploi ve found guid minor issu report page easili solv except thrown jpa queri error occur pars queri filter select from error messag name recogn entiti identifi meant close match known entiti name 
+2
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.AbstractCFMetaDataFactory.AbstractCFMetaDataFactory
+iopenjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository
+
+OPENJPA-2197
+compar paramet contain compar method name bad method name helper method bug didn get detect 
+1
+openjpa-persistence.src.main.java.org.apache.openjpa.persistence.AnnotationPersistenceMetaDataParser.AnnotationPersistenceMetaDataParser
+
+OPENJPA-2131
+miss paramet except gener queri queri from except historti set parament call db2 work fine invok correctli set paramet pend oracl implement invok get call two check satisfi go creat instanc time pend paramet miss add eventu ll get miss paramet except from execut queri bug exist branch trunk work after call add code reset 
+2
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.SQLBuffer.SQLBuffer
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.OracleDictionary.OracleDictionary
+
+OPENJPA-428
+bad error messag bad error messag bug report confus misplac error messag problem describ feel free request more info from run project get follow error messag db2 work fine invok correctli set paramet pend oracl implement invok get call two check satisfi go creat instanc time pend paramet miss add param list eventu ll get miss paramet except from execut queri bug exist branch trunk work call add code reset param list properti name recogn ignor name close match valid properti call two properti name print differ similar retyp id annot make special charact on come from copi past abl identifi error messag print remov id annot from on class class id here sampl annot 
+2
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.Configurations.Configurations
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.ConfigurationImpl.ConfigurationImpl
+
+OPENJPA-2275
+extend propos access level chang attribut method order improv extend http openjpa 208410 n2 nabbl com overrid schema tool td7581315 html 
+0
+
+OPENJPA-2257
+concurreni lead call lead issu occur right after start up overli jee applic multipl instanc creat time find issu stack trace caus 
+1
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.ConfigurationImpl.ConfigurationImpl
+
+OPENJPA-2247
+annot ignor map unidirect own runtim incorrectli ignor map unidirect own problem exist run set version exampl column ignor runtim fk non exist column 
+1
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository
+
+OPENJPA-2231
+jest us reader order preserv utf charact replac function us reader type 
+1
+openjpa-jest.src.main.java.org.apache.openjpa.persistence.jest.TokenReplacedStream.TokenReplacedStream
+
+OPENJPA-2227
+open jpa doesn find custom us custom enterpris applic open jpa provid defin custom sequenc sequenc thrown insert data databas exampl produc stacktrac attach wrong loader us instanti custom sequenc similar issu openjpa 758 work fine after deploi except occur method method paramet us pure call need method call 
+1
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.SequenceMetaData.SequenceMetaData
+
+OPENJPA-2196
+creat sequenc postgr bad english annot entiti method creat alter sequenc sql invalid postgr document postgr inform paramet option http www postgresql org doc sql altersequ html error occur execut sql even method fault toler connect mark rollback allow run next val sequenc ndi marco 
+2
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.NativeJDBCSeq.NativeJDBCSeq
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DBDictionary.DBDictionary
+
+OPENJPA-2174
+result set map look up retriev column data from invalid index except thrown retriev column data from result set name queri attribut name defin entiti differ from actual column ala name defin queri didn up result set map correct column name befor retriev data fix test attach 
+2
+src.main.java.org.apache.openjpa.jdbc.kernel.MappedQueryResultObjectProvider.MappedQueryResultObjectProvider
+src.main.java.org.apache.openjpa.jdbc.sql.ResultSetResult.ResultSetResult
+
+OPENJPA-2163
+lifecycl event callback occur more expect problem uncov scenario multipl instanc creat from instanc initi instanc instanc life cycl event occur specif entiti manag listen creat emf invok expect behavior listen regist em from life cycl event relat call 
+1
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl
+
+OPENJPA-2151
+improv perform run perform test found improv cach addit meta data found improv ad transit concept state come from instanc work unnecessari work exampl find entiti activ transact clean bitset call state doesn fresh instanc don touch dirti bitset 
+5
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.StateManagerImpl.StateManagerImpl
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.TCleanState.TCleanState
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.ClassMetaData.ClassMetaData
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PNonTransState.PNonTransState
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.ENonTransState.ENonTransState
+
+OPENJPA-2149
+add wrong cast paramet make unsuabl notic rd paramet integ cast problem start second paramet first on whil work last sql buffer mean cast param index ad last method issu leav criteria function useless extend db dictionari remov cast work function ambigu advanc found temporari work ugli workaround coalesc us raw valu paramet make work valu twice becuas put get bug 
+3
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.exps.Args.Args
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.exps.UnaryOp.UnaryOp
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.exps.DatastoreFunction.DatastoreFunction
+
+OPENJPA-2133
+open jpa doesn find custom map applic loader jira openjpa 758 address loader issu found applic loader fix specif issu occur custom map basic map handl attach patch propos chang fix pattern done fix jira openjpa 758 jira more detail 
+1
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository
+
+OPENJPA-2107
+conflict ad entiti time queri complex queri creat follow error load object id 26301 instanc id exist l1 cach occur assign exist id instanc befor flush attempt load exist instanc id entiti get load from db twice queri hit problem instanc make problem set orig variabl debugg test run fine follow flag 
+1
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.BrokerImpl.BrokerImpl
+
+OPENJPA-1682
+fail invalid db2 creat tabl sql statement start fail follow except db2 creat tabl constraint requir 
+8
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DBDictionary.DBDictionary
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.nullity.TestBasicFieldNullity.TestBasicFieldNullity
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.RowImpl.RowImpl
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DB2Dictionary.DB2Dictionary
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.ForeignKey.ForeignKey
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.LocalConstraint.LocalConstraint
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DerbyDictionary.DerbyDictionary
+

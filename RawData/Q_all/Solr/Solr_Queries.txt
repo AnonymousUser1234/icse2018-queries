@@ -1,0 +1,323 @@
+SOLR-5296
+creat collect implicit router add shard rang shard creat collect implicit router add shard rang shard exampl from solr cloud wiki http localhost 8983 solr admin collect action creat name myimplicitcollection3 num shard max shard node router name implicit shard s1 s2 replic factor follow clusterst creat myimplicitcollection3 shard s1 rang 80000000 ffffffff state activ replica core node1 unknown macro state core node3 unknown macro state s2 rang fffffff state activ replica core node2 unknown macro state core node4 state activ base url http 192 168 7574 solr core myimplicitcollection3 s2 replica1 node name 192 168 7574 solr leader max shard node router unknown macro name replic factor collect implicit router shard rang note createshard api right thing 
+1
+solr.core.src.java.org.apache.solr.cloud.Overseer.Overseer
+
+SOLR-5295
+createshard collect api creat max shard node number replica replic factor specifi report brett hoerner solr user http www mail archiv com solr user lucen apach org msg89545 html chang collect configur requir user set max shard node default befor createshard api restrict ve creat simpl test collect machin set max shard node collect creation time made shard good th shard imposs creat cluster shard node problem doesn requir more hardwar shard exist on exist server creat collect shard set max shard node 1000 silli test good add shard4 immedi add 1000 replica shard4 
+1
+solr.core.src.java.org.apache.solr.cloud.OverseerCollectionProcessor.OverseerCollectionProcessor
+
+SOLR-5291
+solrj propag root caus user error frustrat littl bug forc log insight happen error messag except get solrj gener 
+5
+solr.core.src.java.org.apache.solr.response.BinaryResponseWriter.BinaryResponseWriter
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.HttpSolrServer.HttpSolrServer
+solr.core.src.java.org.apache.solr.handler.ReplicationHandler.ReplicationHandler
+solr.core.src.java.org.apache.solr.response.SchemaXmlResponseWriter.SchemaXmlResponseWriter
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.XMLResponseParser.XMLResponseParser
+
+SOLR-5274
+updat org apach httpcompon caus test ssl fail properti longer clean up properli test contamin test run fine isol get ve ad abil add specif set us properti point abl load jetti parallel requir step 
+0
+
+SOLR-5264
+method name list on config argument collect field mutat updat processor factori method call on take entri name list pull collect us custom updat processor build function right home part name list here patch move method 
+6
+solr.core.src.java.org.apache.solr.update.processor.AddSchemaFieldsUpdateProcessorFactory.AddSchemaFieldsUpdateProcessorFactory
+solr.core.src.java.org.apache.solr.update.processor.FieldMutatingUpdateProcessorFactory.FieldMutatingUpdateProcessorFactory
+solr.core.src.java.org.apache.solr.update.processor.ParseBooleanFieldUpdateProcessorFactory.ParseBooleanFieldUpdateProcessorFactory
+solr.core.src.java.org.apache.solr.update.processor.CloneFieldUpdateProcessorFactory.CloneFieldUpdateProcessorFactory
+solr.core.src.java.org.apache.solr.update.processor.ParseDateFieldUpdateProcessorFactory.ParseDateFieldUpdateProcessorFactory
+solr.core.src.java.org.apache.solr.update.processor.StatelessScriptUpdateProcessorFactory.StatelessScriptUpdateProcessorFactory
+
+SOLR-5263
+cloud solr server url cach updat race cloud solr server request url list updat last cluster state hash code differ from current hash code cluster state time happen cach entri current collect request updat follow condit caus race queri collect cach entri exist updat collect queri collect request method notic hash code chang updat cach collect updat last cluster state hash code queri collect last cluster state hash code ha updat updat cach collect even stale fix on two wai track last cluster state hash code collect lazili updat entri time notic last cluster state hash code cluster state hash code 2a rebuild entir cach collect 2b clear current cach collect 
+1
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.CloudSolrServer.CloudSolrServer
+
+SOLR-5258
+router field support composit id router code support router field composit id calcul simpl non compound hash isn don us compound id chang doc router field support implicit router field valu us calcul full compound hash us calcul prefix bit uniqu kei us lower bit consist suggest abl specifi separ field us prefix bit router prefix field 
+1
+solr.solrj.src.java.org.apache.solr.common.cloud.CompositeIdRouter.CompositeIdRouter
+
+SOLR-5246
+shard split support collect configur hash router rout field follow up work done solr 5017 shard split doesn support collect configur hash router rout field 
+6
+solr.core.src.test.org.apache.solr.cloud.ShardSplitTest.ShardSplitTest
+solr.core.src.java.org.apache.solr.update.SolrIndexSplitter.SolrIndexSplitter
+solr.core.src.java.org.apache.solr.update.SplitIndexCommand.SplitIndexCommand
+solr.core.src.java.org.apache.solr.handler.admin.CoreAdminHandler.CoreAdminHandler
+solr.core.src.java.org.apache.solr.cloud.OverseerCollectionProcessor.OverseerCollectionProcessor
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest
+
+SOLR-5241
+simpl post tool test slow systm hostnam resolut exampl com note shai dev lucen list simpl post tool test ridicul slow ran from ant take second id problem relat url attempt respons exampl com 
+1
+solr.core.src.test.org.apache.solr.util.SimplePostToolTest.SimplePostToolTest
+
+SOLR-5167
+abil us analyz infix suggest solr abl us analyz infix suggest solr defin solrconfig xml 
+2
+solr.core.src.test.org.apache.solr.spelling.suggest.TestAnalyzeInfixSuggestions.TestAnalyzeInfixSuggestions
+solr.core.src.java.org.apache.solr.spelling.suggest.fst.AnalyzingInfixLookupFactory.AnalyzingInfixLookupFactory
+
+SOLR-5121
+zkcli usag makepath doesn match actual command after patch solr 4972 introduc usag zkcli sh cmd makepath chang zkcli sh zkhost localhost 9983 cmd makepath apach solr data txt config data command expect expect singl path creat data suppli put creat actual file zk assum makepath stai command correct usag wrong altern usag right makepath superset put 
+1
+solr.core.src.java.org.apache.solr.cloud.ZkCLI.ZkCLI
+
+SOLR-4882
+restrict solr resourc loader classload access file instanc dir solr resourc loader current allow load file from absolut cwd rel path us fallback resourc look up loader limit fallback sub dir instanc dir pass ctor cwd special remov cwd instanc config root dir reason secur relat solr compon allow pass resourc path rest paramet xsl stylesheet veloc templat load resourc loader limit thing allow load passwd stylesheet add solrconfig xml set enabl old behaviour disabl exist instal requir file from instanc dir avail url loader us intern lucen support anymor 
+3
+solr.contrib.velocity.src.java.org.apache.solr.response.VelocityResponseWriter.VelocityResponseWriter
+solr.core.src.java.org.apache.solr.cloud.ZkSolrResourceLoader.ZkSolrResourceLoader
+solr.core.src.java.org.apache.solr.core.SolrResourceLoader.SolrResourceLoader
+
+SOLR-4511
+repeat doesn correct index version slave relat solr 4471 master repeat slave architectur replic master repeat work fine slave aren abl replic master repeat node return old index version admin ui version repeat correct http localhost 17045 solr replic command indexvers respons name gener 29037 version 29042 restart repeat node url return correct index version after fail 
+1
+solr.core.src.test.org.apache.solr.handler.TestReplicationHandler.TestReplicationHandler
+
+SOLR-3615
+jmx mbean disappear core reload http issu apach org jira brows solr 3616 fix solv issu bean disappear after core reload 
+0
+
+SOLR-5281
+incorrect access core properti index schema java index schema us core name log core name output schema follow 3814 core load executor thread info org apach solr schema index schema read solr schema from schema xml 3926 core load executor thread info org apach solr schema index schema schema name exampl properti name pattern chang name solr core name solr 5162 index schema java string name name loader get core properti sb append loader get core properti get properti name sb append 
+1
+solr.core.src.java.org.apache.solr.schema.IndexSchema.IndexSchema
+
+SOLR-5279
+implicit properti don exist core reload implicit properti specif solr core name work fine solr startup core reload longer exist configur us result core initi problem discov rc4 work fine 
+1
+solr.core.src.java.org.apache.solr.core.CoreDescriptor.CoreDescriptor
+
+SOLR-5261
+updat current trunk 4x earlier binari protocol back compat binari protocol broke broke after 
+1
+solr.solrj.src.java.org.apache.solr.common.util.JavaBinCodec.JavaBinCodec
+
+SOLR-5243
+kill shard on collect result leader elect differ collect discov more ad hoc test creat two collect shard name kill leader on caus leader elect leav first leaderless 
+1
+solr.core.src.java.org.apache.solr.cloud.ZkController.ZkController
+
+SOLR-5240
+solr cloud node doesn quickli back kill singl node bring back up result wait more replica up 
+1
+solr.core.src.java.org.apache.solr.core.CoreContainer.CoreContainer
+
+SOLR-5233
+admin collect action deleteshard broken problem delet shard delet semi claim done overs collect processor overs collect processor java 723 delet shard invok overs collect processor overs collect processor java 781 successfulli delet collect collection1 shard 
+3
+solr.core.src.java.org.apache.solr.handler.admin.CollectionsHandler.CollectionsHandler
+solr.core.src.java.org.apache.solr.cloud.Overseer.Overseer
+solr.core.src.java.org.apache.solr.cloud.OverseerCollectionProcessor.OverseerCollectionProcessor
+
+SOLR-5231
+field miss from doc treat function base doc segment issu hard explain exampl crux problem behavior function wrap arround field field name consist document valu functio behavior depend document segment valu field breviti detail follow comment ve abl reproduc trunk didn back farther work explicitli us exist function condit exist field name elodi sannier report initi symptom mail list 
+1
+solr.core.src.java.org.apache.solr.schema.BoolField.BoolField
+
+SOLR-5227
+attempt configur dynam field requir valu fail solr 5222 pascal note get behavior expect sort miss last dynam field doc valu solr up solr doc valu requir valu hard error specifi valu dynam field 
+1
+solr.core.src.java.org.apache.solr.schema.IndexSchema.IndexSchema
+
+SOLR-5206
+open exchang rate org provid refresh rate open exchang rate org provid reload rate after initi load matter refresh interv set 
+1
+solr.core.src.java.org.apache.solr.schema.OpenExchangeRatesOrgProvider.OpenExchangeRatesOrgProvider
+
+SOLR-5201
+uima updat request processor reus analysi engin report http markmail org thread psiyl4 ukaejl4 fx uima updat request processor instanti analysi engin request bad perform nice ae reus 
+2
+solr.contrib.uima.src.java.org.apache.solr.uima.processor.UIMAUpdateRequestProcessor.UIMAUpdateRequestProcessor
+solr.contrib.uima.src.java.org.apache.solr.uima.processor.UIMAUpdateRequestProcessorFactory.UIMAUpdateRequestProcessorFactory
+
+SOLR-5190
+solr entiti processor substitut variabl child entiti note user mail list solr entiti processor us child entiti substitut variabl http www mail archiv com solr user lucen apach org msg88002 html http stackoverflow com question 15734308 solrentityprocessor call sub entiti lq solr 3336 attempt fix problem move variabl substitut queri method fix complet queri method call 
+1
+solr.contrib.dataimporthandler.src.java.org.apache.solr.handler.dataimport.SolrEntityProcessor.SolrEntityProcessor
+
+SOLR-5188
+log isn work branch 4x trunk log section ui isn work branch 4x trunk solr admin info log handler respons ha error tag log initi problem start exampl latest checkout from branch 4x trunk log ui version exampl work fine 
+2
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr
+solr.core.src.java.org.apache.solr.core.CoreContainer.CoreContainer
+
+SOLR-5156
+provid move content file zoo keeper zk cli spinoff from solr 4718 don good put solr xml up zookeep first place fake get file up consist zk cli 
+1
+solr.core.src.java.org.apache.solr.cloud.ZkCLI.ZkCLI
+
+SOLR-5150
+hdf index input fulli read request byte patrick hunt notic hdf directori code bit blur here read call read request byte return number byte written ignor blur move seek read fulli call synchron two call deal clone kill perform read fulli call let pass posit first seek perform better requir synchron notic seek intern impl seek op seek read 
+1
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory
+
+SOLR-5148
+solr input document children field lazi current field initi constructor better initi lazilli 
+4
+solr.core.src.java.org.apache.solr.update.AddUpdateCommand.AddUpdateCommand
+solr.solrj.src.java.org.apache.solr.common.util.JavaBinCodec.JavaBinCodec
+solr.solrj.src.java.org.apache.solr.common.SolrInputDocument.SolrInputDocument
+solr.solrj.src.java.org.apache.solr.client.solrj.util.ClientUtils.ClientUtils
+
+SOLR-5134
+hdf index output extend buffer index output upstream blur ha move hdf index output us buffer index output simpl fs index output 
+1
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory
+
+SOLR-5122
+spellcheck collat max collect doc estim meaninless lead arithmet except zero part solr 4952 spell check collat test start random merg polici apar led failur test estim hit count test assum specif valu return estim hit colleat appear chang merg polici result differ segment differ term stat caus estim code produc differ valu expect made quick attempt improv test expect exact valu spellcheck collat max collect doc set estim exact collat max collect doc collat max collect doc greater num doc index random valu us collat max collect doc confirm estim more num doc index lead odd arithmet except zero error test suggest genuin bug code estim hit get tickl mergepolici segment collat max collect doc combin updat appear gener problem collect doc order estim hit even divid zero error estim larg meaningless doc collect order 
+4
+solr.core.src.test.org.apache.solr.spelling.SpellCheckCollatorTest.SpellCheckCollatorTest
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollectorException.EarlyTerminatingCollectorException
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollector.EarlyTerminatingCollector
+solr.core.src.java.org.apache.solr.spelling.SpellCheckCollator.SpellCheckCollator
+
+SOLR-5119
+manag schema problem after ad field schema rest api after ad field schema api schema shown admin ui anymor reload collect core pointer except schema work step reproduc enabl manag schema exampl solr collection1 conf solrconfig xml upload config sh exampl cloud script zkcli sh localhost 8575 cmd upconfig exampl solr collection1 conf myconfig creat collect curl http localhost 8983 solr admin collect action creat name mycollect num shard replic factor collect config name myconfig add field curl http localhost 8983 solr mycollect schema field post content type applic json data binari name field type string store index name field2 type string store index problem http localhost 8983 solr mycollect shard1 replica1 schema xml version encod utf respons lst name respons header name statu 404 name time lst lst name error str name msg find config myconfig str name code 404 lst respons problem http localhost 8983 solr admin collect action reload name mycollect respons lst name respons header name statu name time 845 lst lst name failur str name 10 147 252 8983 solr org apach solr client solrj impl http solr server remot solr except server http 10 147 252 8983 solr return non statu 500 messag server error str lst respons restart solr work 
+1
+solr.core.src.java.org.apache.solr.schema.ManagedIndexSchema.ManagedIndexSchema
+
+SOLR-5108
+plugin load fail mor on instanc singleton plugin found continu from config pars valid work done solr 4953 improv solr config pars fail multipl instanc plugin found type plugin on allow us time moment solr config load plugin info happili initi list plugin info xpath code call list plugin info get plugin info string plugin info get plugin info string shorthand get first item list make get plugin info string error list ha multipl item chang signatur load plugin info instanc expect find error earlier redund check 
+1
+solr.core.src.java.org.apache.solr.core.SolrConfig.SolrConfig
+
+SOLR-5107
+luke request handler pointer except num term default exampl http localhost 8983 solr collection1 admin luke fl cat num term yield error org apach solr core solr core java lang pointer except org apach solr handler admin luke request handler get detail field info luke request handler java 610 org apach solr handler admin luke request handler get index field info luke request handler java 378 org apach solr handler admin luke request handler handl request bodi luke request handler java 160 org apach solr handler request handler base handl request request handler base java 135 org apach solr core solr core execut solr core java 1845 org apach solr servlet solr dispatch filter execut solr dispatch filter java 666 org apach solr servlet solr dispatch filter filter solr dispatch filter java 369 org apach solr servlet solr dispatch filter filter solr dispatch filter java 158 org eclips jetti servlet servlet handler cach chain filter servlet handler java 1419 org eclips jetti servlet servlet handler handl servlet handler java 455 org eclips jetti server handler scope handler handl scope handler java 137 org eclips jetti secur secur handler handl secur handler java 557 org eclips jetti server session session handler handl session handler java 231 org eclips jetti server handler context handler handl context handler java 1075 org eclips jetti servlet servlet handler scope servlet handler java 384 org eclips jetti server session session handler scope session handler java 193 org eclips jetti server handler context handler scope context handler java 1009 org eclips jetti server handler scope handler handl scope handler java 135 org eclips jetti server handler context handler collect handl context handler collect java 255 org eclips jetti server handler handler collect handl handler collect java 154 org eclips jetti server handler handler wrapper handl handler wrapper java 116 org eclips jetti server server handl server java 368 org eclips jetti server abstract http connect handl request abstract http connect java 489 org eclips jetti server block http connect handl request block http connect java 53 org eclips jetti server abstract http connect header complet abstract http connect java 942 org eclips jetti server abstract http connect request handler header complet abstract http connect java 1004 org eclips jetti http http parser pars next http parser java 640 org eclips jetti http http parser pars avail http parser java 235 org eclips jetti server block http connect handl block http connect java 72 org eclips jetti server bio socket connector connector end point run socket connector java 264 org eclips jetti util thread queu thread pool run job queu thread pool java 608 org eclips jetti util thread queu thread pool run queu thread pool java 543 java lang thread run thread java 722 
+1
+solr.core.src.java.org.apache.solr.handler.admin.LukeRequestHandler.LukeRequestHandler
+
+SOLR-5094
+test jmx integr make sens reason explain test jmx integr stope work machin todai start realiz logic reason work machin back test first written setup ensur bean server up run prior initi solr core configur us test design us jmx exist bean server run r1402613 inadvertantli chang solr core initi befor certainti mbean server start test fail varieti confus wai jmx run reason succe bean server run ve patch fix gener least make fail clear error hte problem jmx server isn found core init 
+1
+solr.core.src.test.org.apache.solr.core.TestJmxIntegration.TestJmxIntegration
+
+SOLR-5083
+move jdk style hidden class inner class solr request parser prevent uptod javac bug on place solr crazi java class inner class java file next lead problem updat javac determin file updat class separ java file inner class 
+0
+
+SOLR-5082
+implement charset paramet allow user send queri updat solr charact set utf inform solr charset us paramet input encod discuss solr 4265 solr 4283 chang charset bad idea distribut search solr cloud reli utf 
+0
+
+SOLR-5017
+allow shard base valu field abl creat collect shard done base valu field collect creat shard field field name persist doc collect zk implicit doc router field shard field composit id doc router us field id field 
+3
+solr.core.src.java.org.apache.solr.update.SolrIndexSplitter.SolrIndexSplitter
+solr.solrj.src.java.org.apache.solr.common.cloud.CompositeIdRouter.CompositeIdRouter
+solr.solrj.src.java.org.apache.solr.common.cloud.HashBasedRouter.HashBasedRouter
+
+SOLR-4953
+config xml pars fail hard xpath expect match most on node string multipl valu found review code notic multipl index config block solrconfig xml on win hte rest ignor hard failur situat test bad config method verifi broaden goal issu fail configur contain multipl node valu option on valu expect 
+3
+solr.core.src.java.org.apache.solr.core.SolrConfig.SolrConfig
+solr.core.src.java.org.apache.solr.update.SolrIndexConfig.SolrIndexConfig
+solr.core.src.java.org.apache.solr.core.Config.Config
+
+SOLR-4909
+solr index reader open replic slave ve experi cach filter data segment solr cach wrapper filter filter queri custom queri parser suggest yonik seelei solr 3763 encount situat valu get core cach kei atom reader segment chang segment disk searcher reopen cach wrapper filter us valu segment get core cach kei kei cach situat data cach segment reus segment disk part index affect lucen field cach field valu cach cach segment solr first start open searcher underli directori reader standard index reader factori reader call directori reader open index dir term info index divisor reader subsequ reopen solr core open searcher call directori reader open chang current reader writer get act reopen reader writer first open writer result valu get core cach kei chang segment even segment chang depend role solr server ha differ effect solr cloud node free stand index search server segment cach invalid first directori reader reopen subsequ reopen us index writer instanc valu get core cach kei segment chang cach retain master slave replic set up segment cach invalid occur slave replic index reopen index writer instanc result valu get core cach kei chang segment directori reader reopen differ index writer instanc approach alter open behavior allow reus segment level cach case get input idea befor dig chang cloud node standalon first commit issu creat updat handler index writer befor directori reader us writer open reader comment solr core constructor yonik seelei searcher open befor updat handler accept approach chang behavior slave replic set up on solut open writer from snap puller index retriev core enabl slave writer need server configur master slave function replic repeat downstream slave chang index retriev ll attach unit test demonstr behavior reopen directori reader effect valu get core cach kei assumpt behavior lucen reader reopen oper correct chang necessari solr side thing 
+3
+solr.core.src.test.org.apache.solr.core.TestNonNRTOpen.TestNonNRTOpen
+solr.core.src.java.org.apache.solr.core.SolrCore.SolrCore
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen
+
+SOLR-4817
+solr fall back back compat built solr xml solr cloud mode hard error more built solr xml good solrcloud old style solr xml core won persist style ideal make easier debug solr home fail solrcloud mode back compat pull intern solr xml 
+6
+solr.contrib.dataimporthandler.src.test.org.apache.solr.handler.dataimport.TestContentStreamDataSource.TestContentStreamDataSource
+solr.core.src.test.org.apache.solr.cloud.ClusterStateUpdateTest.ClusterStateUpdateTest
+solr.core.src.test.org.apache.solr.cloud.ZkControllerTest.ZkControllerTest
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr
+solr.contrib.dataimporthandler.src.test.org.apache.solr.handler.dataimport.TestSolrEntityProcessorEndToEnd.TestSolrEntityProcessorEndToEnd
+solr.solrj.src.test.org.apache.solr.client.solrj.TestLBHttpSolrServer.TestLBHttpSolrServer
+
+SOLR-4808
+persist us router replic factor max shard node collect shard level replic factor collect persist us ad replica save replic factor collect factor shard level 
+0
+
+SOLR-4764
+nrt init reader from index writer spinoff from solr 4761 solr first open directori reader from directori pass iw open chang notic confus mergedsegmentwarm doesn appear work first after ve reopen total current behavior caus iw pool reus segment from pass extern reader caus horribl doubl up ineffici stuff extent chang even perform confus ideal chang index reader factori method writer directori custom directori reader work 
+3
+solr.core.src.test.org.apache.solr.core.TestArbitraryIndexDir.TestArbitraryIndexDir
+solr.solrj.src.test.org.apache.solr.client.solrj.MultiCoreExampleTestBase.MultiCoreExampleTestBase
+solr.core.src.java.org.apache.solr.core.SolrCore.SolrCore
+
+SOLR-4718
+allow solr xml store zookeep near piec puzzl make solr xml storabl zookeep code wise term solr doesn difficult work more interest get configur zk first place enhanc zk cli boostrap conf punt patch second level solr get file from zk possibl prop dzk solr xml path blah blah path zk file requir dzk host dzk run pro simpl wrap head easi script con run multipl jvm point differ file problem solr xml element solr solrcloud str name zk host zkurl str str name zk solr xml path str solrcloud solr form hing presenc absenc zk solr xml path present up solr xml file zk properti zk version overwrit local copi note interest support option old style solr xml easi instanc local solr xml style on zk old style vice versa old style awai doesn worth effort pro mechan con requir solr xml file client admittedli instal didn care multipl jvm stock file didn chang manual push solr xml zk read base sysprop ll get structur place debat check consensu 
+5
+solr.core.src.java.org.apache.solr.core.SolrXMLCoresLocator.SolrXMLCoresLocator
+solr.core.src.java.org.apache.solr.core.ConfigSolrXmlOld.ConfigSolrXmlOld
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistor.TestSolrXmlPersistor
+solr.core.src.java.org.apache.solr.servlet.SolrDispatchFilter.SolrDispatchFilter
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr
+
+SOLR-4688
+add test relat report core init failur lazi load core spin solr 4672 zinc erick worri don more test saniti check behvaior lazi load core report back core init failur part core admin statu request error messag return us core 
+2
+solr.core.src.java.org.apache.solr.schema.IndexSchema.IndexSchema
+solr.core.src.java.org.apache.solr.core.CoreContainer.CoreContainer
+
+SOLR-4679
+html line break br remov index caus wrong search result html line break br br br remov extract content from html file replac empti space test file html head titl test mit html zeilenschaltungen titl head word1 br word2 br word special name linz br special name vienna html solr content attribut contain follow text test mit html zeilenschaltungen word1 word2 word special name linzand special name vienna abl find word linz us extract request handler put content solr wiki apach org solr extract request handler 
+0
+
+SOLR-4489
+string index bound except spell check compon solr request param shown spellcheck enabl elev facet spellcheck minecraft spellcheck extend result spellcheck max collat 10 spellcheck collat wt javabin def type edismax spellcheck more popular note work fine us case fail queri term feb 22 2013 11 06 04 org apach solr common solr except log sever java lang string index bound except string index rang java lang abstract string builder replac abstract string builder java 797 java lang string builder replac string builder java 271 org apach solr spell spell check collat get collat spell check collat java 190 org apach solr spell spell check collat collat spell check collat java 75 org apach solr handler compon spell check compon add collat respons spell check compon java 203 org apach solr handler compon spell check compon process spell check compon java 180 org apach solr handler compon search handler handl request bodi search handler java 206 org apach solr handler request handler base handl request request handler base java 129 org apach solr core solr core execut solr core java 1699 org apach solr servlet solr dispatch filter execut solr dispatch filter java 455 org apach solr servlet solr dispatch filter filter solr dispatch filter java 276 org eclips jetti servlet servlet handler cach chain filter servlet handler java 1337 org eclips jetti servlet servlet handler handl servlet handler java 484 org eclips jetti server handler scope handler handl scope handler java 119 org eclips jetti secur secur handler handl secur handler java 524 org eclips jetti server session session handler handl session handler java 233 org eclips jetti server handler context handler handl context handler java 1065 org eclips jetti servlet servlet handler scope servlet handler java 413 org eclips jetti server session session handler scope session handler java 192 org eclips jetti server handler context handler scope context handler java 999 org eclips jetti server handler scope handler handl scope handler java 117 org eclips jetti server handler context handler collect handl context handler collect java 250 org eclips jetti server handler handler collect handl handler collect java 149 org eclips jetti server handler handler wrapper handl handler wrapper java 111 org eclips jetti server server handl server java 351 org eclips jetti server abstract http connect handl request abstract http connect java 454 org eclips jetti server block http connect handl request block http connect java 47 org eclips jetti server abstract http connect header complet abstract http connect java 890 org eclips jetti server abstract http connect request handler header complet abstract http connect java 944 org eclips jetti http http parser pars next http parser java 634 org eclips jetti http http parser pars avail http parser java 230 org eclips jetti server block http connect handl block http connect java 66 org eclips jetti server bio socket connector connector end point run socket connector java 254 org eclips jetti util thread queu thread pool run job queu thread pool java 599 org eclips jetti util thread queu thread pool run queu thread pool java 534 java lang thread run thread java 680 
+1
+solr.core.src.java.org.apache.solr.spelling.SpellCheckCollator.SpellCheckCollator
+
+SOLR-4249
+chang uniq field updat processor factori subclass field valu subset updat processor factori uniq field updat processor factori ha arround chang subclass field valu subset updat processor factori lot redund code elimin from factori made more configur support field match logic field mutat updat processor factori list field name code need handl legaci config current support uniq field updat processor factori user start exist init param syntax support warn log recommend arr name field name arr lst name field lst start field option won recogn 
+1
+solr.core.src.java.org.apache.solr.update.processor.UniqFieldsUpdateProcessorFactory.UniqFieldsUpdateProcessorFactory
+
+SOLR-4221
+custom shard featur let user control shard rout 
+10
+solr.solrj.src.java.org.apache.solr.common.cloud.DocCollection.DocCollection
+solr.solrj.src.java.org.apache.solr.common.cloud.ClusterState.ClusterState
+solr.core.src.java.org.apache.solr.cloud.ZkController.ZkController
+solr.solrj.src.java.org.apache.solr.common.cloud.ZkNodeProps.ZkNodeProps
+solr.solrj.src.java.org.apache.solr.common.cloud.CompositeIdRouter.CompositeIdRouter
+solr.core.src.java.org.apache.solr.handler.admin.CollectionsHandler.CollectionsHandler
+solr.core.src.java.org.apache.solr.cloud.Overseer.Overseer
+solr.solrj.src.java.org.apache.solr.common.cloud.ImplicitDocRouter.ImplicitDocRouter
+solr.solrj.src.java.org.apache.solr.common.cloud.DocRouter.DocRouter
+solr.core.src.java.org.apache.solr.cloud.OverseerCollectionProcessor.OverseerCollectionProcessor
+
+SOLR-4059
+allow forward updat replica base updat param hash fulli thought on yonik caught up apach abl skip hash let client choos shard send replica idea hash 
+0
+
+SOLR-3936
+queri elev compon wrong order result group activ us elev group expect result order standard solr exampl http localhost 8983 solr elev enabl elev fl score 2c elev cid cname forc elev group field manu group indent ipod wt json result ignor elev respons header statu time param enabl elev fl score elev id name indent ipod forc elev group field manu group wt json group manu match group group valu belkin doclist num found start max score 7698604 doc id f8 v7067 apl kit name belkin mobil power cord pod dock score 7698604 elev group valu doclist num found start max score 28869766 doc id ma147 ll name appl 60 gb pod video playback black score 28869766 elev elev xml defin follow rule queri text ipod doc id ma147 ll put actual ipod doc id iw 02 exclud exclud cabl queri elev 
+1
+solr.core.src.java.org.apache.solr.handler.component.QueryElevationComponent.QueryElevationComponent
+
+SOLR-3852
+admin ui cloud tree arrai index bound except binari file zk tree origin bug descript solr embed zk fine extern zk get arrai index bound except crux problem bad assumpt zk node contain data zookeep info servlet power tree view cloud admin ui assum data utf8 text extenr zk system write data zk more problem system write binari data zk node zk embed solr solr extern zk instanc problem explicitli put binari file solr config upconfig zk on workarround peopl encount problem solr zk instanc share tool make us chroot patch point solr zk won path zk tree binari data http wiki apach org solr solr cloud zookeep chroot problem put binai file config dir imag veloc straight forward workarround exampl stack trace bug 43242 qtp965223859 14 warn org eclips jetti servlet servlet handler solr zookeep java lang arrai index bound except 213 org apach lucen util unicod util utf8 utf16 unicod util java 620 org apach lucen util byte ref utf8 string byte ref java 168 org apach solr servlet zookeep info servlet zk printer print tree zookeep info servlet java 303 org apach solr servlet zookeep info servlet zk printer print tree zookeep info servlet java 339 org apach solr servlet zookeep info servlet zk printer print tree zookeep info servlet java 339 org apach solr servlet zookeep info servlet zk printer print zookeep info servlet java 228 org apach solr servlet zookeep info servlet get zookeep info servlet java 106 
+1
+solr.core.src.java.org.apache.solr.servlet.ZookeeperInfoServlet.ZookeeperInfoServlet
+
+SOLR-2570
+random indexwrit set solr test random indexwrit set lucen test vari segment 
+0
+
+SOLR-2548
+multithread facet add multithread support facet 
+2
+solr.core.src.java.org.apache.solr.request.SimpleFacets.SimpleFacets
+solr.core.src.java.org.apache.solr.request.UnInvertedField.UnInvertedField
+
+SOLR-2345
+extend geodist support multi valu lat field extend geodist geofilt support multi valu lat field geohash sort geodist asc 
+2
+solr.core.src.java.org.apache.solr.search.function.distance.GeoDistValueSourceParser.GeoDistValueSourceParser
+solr.core.src.java.org.apache.solr.search.function.distance.HaversineConstFunction.HaversineConstFunction
+

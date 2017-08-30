@@ -1,0 +1,143 @@
+TIKA-1126
+text html procud tika server tika resourc handler tika server produc text plain patch add support produc text html 
+2
+tika-server.src.test.java.org.apache.tika.server.TikaResourceTest.TikaResourceTest
+tika-server.src.main.java.org.apache.tika.server.TikaResource.TikaResource
+
+TIKA-1090
+chang method 
+0
+
+TIKA-1083
+add link uti valu tika 1012 ad tika link tika uti patch fill valu 
+1
+tika-core.src.test.java.org.apache.tika.mime.MimeTypesReaderTest.MimeTypesReaderTest
+
+TIKA-1074
+extract except hit visit embed document spinoff from tika 1072 issu problemat document document corrupt poi bug caus except visit embed document chang tika suppress except rest document extract fine more robust here log except save record except after pars app decid 
+4
+tika-app.src.main.java.org.apache.tika.cli.TikaCLI.TikaCLI
+tika-parsers.src.test.java.org.apache.tika.parser.microsoft.WordParserTest.WordParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.AbstractPOIFSExtractor.AbstractPOIFSExtractor
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.SummaryExtractor.SummaryExtractor
+
+TIKA-1053
+upgrad tika parser us right tika us caus issu wiki project bundl framework us more recent version us pegdown us parboil draw problem compat http jira xwiki org brows xe 1269 more detail issu face upgrad 
+1
+tika-parsers.src.main.java.org.apache.tika.parser.asm.XHTMLClassVisitor.XHTMLClassVisitor
+
+TIKA-1047
+provid jax rs detect current us jax rs server detect meta endpoint problem send entir document get metadata detect byte necessari send 8k server let order accomplish good modifi meta endpoint address individu field return part current follow path turn queri paramet more appropri easier manipul tool jqueri suffici data avail interest tika possibl implement 
+6
+src.main.java.org.apache.tika.server.JSONMessageBodyWriter.JSONMessageBodyWriter
+tika-server.src.main.java.org.apache.tika.server.TikaServerCli.TikaServerCli.TikaServerCli
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest
+src.main.java.org.apache.tika.server.CSVMessageBodyWriter.CSVMessageBodyWriter
+tika-server.src.main.java.org.apache.tika.server.TikaResource.TikaResource
+src.main.java.org.apache.tika.server.MetadataEP.MetadataEP
+
+TIKA-1014
+allow custom current field great allow subclass reader support custom behavior error handl custom xml tag 
+2
+tika-core.src.test.java.org.apache.tika.mime.CustomReaderTest.CustomReaderTest
+tika-core.src.main.java.org.apache.tika.mime.MimeTypesReader.MimeTypesReader
+
+TIKA-992
+meta tag allow multipl valu us properti method us og properti multivalu method overwrit previou entri doesn us 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.html.HtmlHandler.HtmlHandler
+
+TIKA-1211
+parser produc multipl event relat solr 4809 solr receiv multipl event pars parser prevent multipl multipl bug introduc ad pars tika 736 feed element xhtml output get multipl 
+1
+tika-core.src.main.java.org.apache.tika.sax.XHTMLContentHandler.XHTMLContentHandler
+
+TIKA-1210
+address tika parser test flash file afaic todo relat absenc suitabl file us method nutch current run test avail file us tika http svn apach org repo asf nutch branch src plugin pars swf sampl 
+1
+tika-parsers.src.test.java.org.apache.tika.mime.TestMimeTypes.TestMimeTypes
+
+TIKA-1202
+refactor enabl easier paramet set handi abl set paramet config file 
+5
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser
+tika-parsers.src.test.java.org.apache.tika.TikaTest.TikaTest
+
+TIKA-1201
+add possibl switch discuss improv pdf extract 45 fit more pdf specif parser integr pdfbox ref http issu apach org jira brows pdfbox 1104 http pdfbox apach org idea html provid extend parser paramet current 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser
+
+TIKA-1193
+allow access toi suit html5 capabl correctli handl strang quirk tabl insid anchor allow access schema applic modifi schema suit fly mean don reli tika 985 get commit chang from applic 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.html.HtmlParser.HtmlParser
+
+TIKA-1192
+pars pars file get follow except abl attach file privaci reason 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.rtf.RTFParserTest.RTFParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.rtf.TextExtractor.TextExtractor
+
+TIKA-1152
+process loop infinit pars file pars attach file ms microsoft help file java process stuck 
+1
+tika-parsers.src.main.java.org.apache.tika.parser.chm.lzx.ChmLzxBlock.ChmLzxBlock
+
+TIKA-1130
+docx text extract leav portion text pars portion text remain unextract attach docx file test grai portion text extract darker color text extract fine portion docx zip file show text 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.microsoft.ooxml.OOXMLParserTest.OOXMLParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator
+
+TIKA-1124
+nest document extract pdf file chain tika abl get attach from attach pdf trunk abl get attach from pdf pdf embed document doc embed pdf extract solut found two thing help diagnosi modifi code doesn wrap handler work trunk modifi us toi problem solv caus 
+3
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser
+
+TIKA-1110
+incorrectli declar link assign offici mime type file wild two type us us correct offici mime type declar support reason content us offici mime type come detector pars simpli declar metadata fail pars unknown mime type fix simpl declar type 
+3
+tika-parsers.src.main.java.org.apache.tika.parser.chm.ChmParser.ChmParser
+tika-parsers.src.main.java.org.apache.tika.parser.chm.CHM2XHTML.CHM2XHTML
+tika-parsers.src.test.java.org.apache.tika.parser.AutoDetectParserTest.AutoDetectParserTest
+
+TIKA-1109
+extract befor content process document metadata read after text mean imposs us medata process text more metadata popul first symptom output metadata 
+3
+tika-parsers.src.test.java.org.apache.tika.parser.microsoft.ooxml.OOXMLParserTest.OOXMLParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XSSFExcelExtractorDecorator.XSSFExcelExtractorDecorator
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.OOXMLExtractorFactory.OOXMLExtractorFactory
+
+TIKA-1078
+invalid charact embed document name caus save attach document hit window manag creat sub directori embed ha invalid window charact fail linux run fine sanit embed file name 
+3
+tika-app.src.main.java.org.apache.tika.cli.TikaCLI.TikaCLI
+tika-core.src.test.java.org.apache.tika.io.FilenameUtilsTest.FilenameUtilsTest
+tika-core.src.main.java.org.apache.tika.io.FilenameUtils.FilenameUtils
+
+TIKA-1070
+error error occur pars big xl file caus store time element start current elment newli overwritten exist element us parent element reset parent element after finish element method recurs travers parent caus understand method solv issu best 
+1
+src.main.java.org.apache.tika.sax.ToXMLContentHandler.ToXMLContentHandler
+
+TIKA-961
+whitespac ad properli ad marku includ 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.html.BoilerpipeContentHandler.BoilerpipeContentHandler
+
+TIKA-820
+unset call user content handler patch unit test attach 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest
+tika-core.src.main.java.org.apache.tika.sax.TextContentHandler.TextContentHandler
+

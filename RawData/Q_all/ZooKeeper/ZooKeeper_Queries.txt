@@ -1,0 +1,469 @@
+ZOOKEEPER-1861
+concurr hash map isn us properli quorum cnx manag queue send map concurr hash map line 210 queue send map contain kei sid queue send map put sid arrai block queue buffer send capac time control enter block concurr put sid concurr hash map put absent us similar issu occur line 307 
+1
+src.java.main.org.apache.zookeeper.server.quorum.QuorumCnxManager.QuorumCnxManager
+
+ZOOKEEPER-1860
+async version reconfig don keeper except interrupt except caught camil fournier async version reconfig java client don keeper except interrupt except unreleas code don issu chang api except thrown part api 
+1
+src.java.main.org.apache.zookeeper.ZooKeeper.ZooKeeper
+
+ZOOKEEPER-1815
+toler incorrectli set hostnam test bunch test fail unknown host except error hostnam incorrectli set run test 
+1
+src.java.test.org.apache.zookeeper.server.quorum.Zab1_0Test.Zab1_0Test
+
+ZOOKEEPER-1783
+distinguish initi configur from first establish configur distinguish initi config server initi config run ensembl befor reconfig happen current version version config increas reconfigur problem initi config 
+5
+src.java.test.org.apache.zookeeper.test.ReconfigTest.ReconfigTest
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeer.QuorumPeer
+src.java.main.org.apache.zookeeper.server.quorum.Leader.Leader
+src.java.test.org.apache.zookeeper.server.quorum.Zab1_0Test.Zab1_0Test
+src.java.main.org.apache.zookeeper.server.quorum.FastLeaderElection.FastLeaderElection
+
+ZOOKEEPER-1778
+us logger object logger declar class 
+1
+src.java.main.org.apache.zookeeper.server.ZooTrace.ZooTrace
+
+ZOOKEEPER-1769
+zoo inspector displai node data metadata acl bug trunk prevent zoo inspector load node viewer tab main window select zk node tree don show up more appar ha introduc year ago after refactor icon partial fix typo veiwer viewer note bug trunk fine 
+2
+src.contrib.zooinspector.src.java.org.apache.zookeeper.inspector.ZooInspector.ZooInspector
+src.contrib.zooinspector.src.java.org.apache.zookeeper.inspector.gui.nodeviewer.NodeViewerData.NodeViewerData
+
+ZOOKEEPER-1766
+consist log sever level guard statement log statement guard match sever level log statement log trace enabl log info session close 0x hex string session id doesn make sens log messag print trace level enabl inconsist possibl introduc develop demot origin log statement from info forgot chang log sever level 
+1
+src.java.main.org.apache.zookeeper.server.SessionTrackerImpl.SessionTrackerImpl
+
+ZOOKEEPER-1759
+ad abil allow read oper authent user versu keep acl wide open read todai sasl authent provid authent zookeep client access data base acl set znode choic set read acl world match string id string acl expr current implement mean unauthent user read data applic make creator znode read content propos introduc properti zookeep read user incom id match valu properti allow proce match method creator znode acl acl1 acl perm admin perm creat perm write perm delet id auth id acl acl2 acl perm read id id unsaf acl acl1 acl perm admin perm creat perm write perm delet id auth id acl acl2 acl perm read id sasl assum valu zookeep read user properti least read access znode ha authent 
+1
+src.java.main.org.apache.zookeeper.server.auth.SASLAuthenticationProvider.SASLAuthenticationProvider
+
+ZOOKEEPER-1718
+support line fix 
+1
+src.java.main.org.apache.zookeeper.JLineZNodeCompletor.JLineZNodeCompletor
+
+ZOOKEEPER-1700
+fle test consist fail set last quorum verifi hang consist failur laptop run fle test test join test happen call set last quorum verifi hang follow log from test notic 17 35 57 period question note turn debug log ad log messag call set last quorum verifi code enter leav note ve appli zookeep 1324 trunk code run test doesn help note test pass consist run branch 2013 05 07 17 35 57 859 myid info quorum peer myid 11221 follow 65 follow leader elect 16 2013 05 07 17 35 57 859 myid info quorum peer myid 11224 leader 436 lead leader elect 17 2013 05 07 17 35 57 863 myid info quorum peer myid 11224 file txn snap log 270 snapshot x0 home phunt dev zookeep trunk build test tmp test3690487600947307322 junit dir version snapshot 2013 05 07 17 35 57 873 myid info learner handler 127 34262 learner handler 269 follow sid info 11222 11223 particip 11221 2013 05 07 17 35 57 878 myid info learner handler 127 34262 learner handler 328 synchron follow sid max commit log x0 min commit log x0 peer last zxid x0 2013 05 07 17 35 57 878 myid debug learner handler 127 34262 learner handler 395 commit log empti leader follow sync zxid x0 2013 05 07 17 35 57 878 myid info learner handler 127 34262 learner handler 404 send diff 2013 05 07 17 35 57 879 myid debug learner handler 127 34262 learner handler 411 send newlead messag 2013 05 07 17 35 57 880 myid info quorum peer myid 11221 learner 331 get diff from leader x0 2013 05 07 17 35 57 885 myid info quorum peer myid 11221 learner 457 learner receiv newlead messag 2013 05 07 17 35 57 885 myid info quorum peer myid 11221 learner 460 newlead call configfromstr 2013 05 07 17 35 57 885 myid info quorum peer myid 11221 learner 462 newlead set quorum verifi 2013 05 07 17 35 57 886 myid warn quorum peer myid 11221 quorum peer 1218 set last quorum verifi call stale config current version 2013 05 07 17 36 01 880 myid info quorum peer myid 11224 leader 585 shut down 2013 05 07 17 36 01 881 myid info quorum peer myid 11224 leader 591 shutdown call java lang except shutdown leader reason wait quorum follow sync sid org apach zookeep server quorum leader shutdown leader java 591 org apach zookeep server quorum leader lead leader java 487 org apach zookeep server quorum quorum peer run quorum peer java 949 2013 05 07 17 36 01 881 myid info quorum peer myid 11224 zoo keeper server 398 shut down 2013 05 07 17 36 01 881 myid info learner cnx acceptor 11225 leader learner cnx acceptor 398 except shut down acceptor java net socket except socket close 2013 05 07 17 36 01 882 myid warn quorum peer myid 11224 quorum peer 979 peer state set 2013 05 07 17 36 01 882 myid info quorum peer myid 11224 quorum peer 863 2013 05 07 17 36 01 883 myid debug quorum peer myid 11224 quorum peer 792 initi leader elect protocol 
+1
+src.java.test.org.apache.zookeeper.test.FLETest.FLETest
+
+ZOOKEEPER-1691
+add flag disabl standalon mode current us dynam reconfigur bootstrap zookeep cluster server standalon mode on server cluster michi 
+5
+src.java.main.org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.FollowerZooKeeperServer
+src.java.main.org.apache.zookeeper.server.quorum.LeaderZooKeeperServer.LeaderZooKeeperServer
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerConfig.QuorumPeerConfig
+src.java.main.org.apache.zookeeper.cli.ReconfigCommand.ReconfigCommand
+src.java.main.org.apache.zookeeper.server.PrepRequestProcessor.PrepRequestProcessor
+
+ZOOKEEPER-1664
+kerbero auth doesn work platform gss integr java linux solari set up us librari gss implement configur set properti sun secur jgss featur zoo keeper sasl jgss authent doesn work reason explain http doc oracl com javas doc technot guid secur jgss jgss featur html gss addit perform oper subject subject subject privileg us gss credenti ad subject credenti set gss oper fail credenti found 
+2
+src.java.main.org.apache.zookeeper.server.ZooKeeperSaslServer.ZooKeeperSaslServer
+src.java.main.org.apache.zookeeper.client.ZooKeeperSaslClient.ZooKeeperSaslClient
+
+ZOOKEEPER-1628
+document list allow charact zk doc line code document set allow charact zoo keeper node name programm guid line code rang non printabl ascii charact doc end earli x19 x1f rang check code path util includ on error charact border unallow allow code 
+1
+src.java.main.org.apache.zookeeper.common.PathUtils.PathUtils
+
+ZOOKEEPER-1620
+nio server cnxn factori code introduc zk 1504 open selector close code commit zk 1504 open selector doesn close specif abstract select thread constructor selector selector open possibl test fail follow messag java io io except open file sun nio ch poll arrai wrapper epol creat method sun nio ch poll arrai wrapper init poll arrai wrapper java 69 sun nio ch poll selector impl init poll selector impl java 52 sun nio ch poll selector provid open selector poll selector provid java 18 java nio channel selector open selector java 209 org apach zookeep server nio server cnxn factori abstract select thread init nio server cnxn factori java 128 org apach zookeep server nio server cnxn factori accept thread init nio server cnxn factori java 177 org apach zookeep server nio server cnxn factori configur nio server cnxn factori java 663 org apach zookeep server server cnxn factori creat factori server cnxn factori java 127 org apach zookeep server quorum quorum peer init quorum peer java 709 org apach zookeep test quorum base start server quorum base java 177 org apach zookeep test quorum base set up quorum base java 113 org apach zookeep test quorum base set up quorum base java 71 org apach zookeep test reconfig test set up reconfig test java 56 
+1
+src.java.main.org.apache.zookeeper.server.NIOServerCnxnFactory.NIOServerCnxnFactory
+
+ZOOKEEPER-1619
+allow space url current space allow url format work 10 10 2181 10 10 2181 usergrid format notic space comma 10 10 2181 10 10 2181 usergrid add trim port hostnam pars 
+1
+src.java.main.org.apache.zookeeper.client.ConnectStringParser.ConnectStringParser
+
+ZOOKEEPER-1602
+chang quorum peer config api broke compat base follow patch broke api us base current trunk compil fine us hbase zookeep 1411 consolid membership manag distinguish dynam configur paramet alex shraer breed blocker even api add back get server method quorum peer config reduc friction hbase team 
+1
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerConfig.QuorumPeerConfig
+
+ZOOKEEPER-1572
+add async multi request current async multi request zoo keeper java client 
+3
+src.java.test.org.apache.zookeeper.test.MultiTransactionTest.MultiTransactionTest
+src.java.main.org.apache.zookeeper.ClientCnxn.ClientCnxn
+src.java.main.org.apache.zookeeper.ZooKeeper.ZooKeeper
+
+ZOOKEEPER-1505
+multi thread commit processor commit processor ha singl thread pull request queue run downstream processor notic ineffici read intens workload run concurr trick handl write transact propos multi thread code follow two constraint session request respond order commit transact handl zxid order session cover constraint honor relax follow matter read request on session befor after write request session constraint propos follow thread primari queue servic work dispatch thread assign worker thread session assign worker thread assign session worker thread simpl session id mod number worker thread guarante first constraint request push thread queue process order guarante second constraint allow singl commit transact flight time queue servic thread block commit transact flight transact complet clear flag 32 core machin run linux 38 achiev best perform 32 worker thread 56 improv throughput improv measur zookeep 1504 isol class introduc patch worker servic zookeep 1504 executor servic wrapper make worker thread daemon thread name easili debugg manner support assign thread us here non assign thread us nio server cnxn factori 
+3
+src.java.main.org.apache.zookeeper.server.quorum.Leader.Leader
+src.java.main.org.apache.zookeeper.server.FinalRequestProcessor.FinalRequestProcessor
+src.java.main.org.apache.zookeeper.server.quorum.CommitProcessor.CommitProcessor
+
+ZOOKEEPER-1499
+client port config chang backward compat reconfig logic client port 2181 zoo cfg file longer get read client connect ad 2181 end server line 
+1
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeer.QuorumPeer
+
+ZOOKEEPER-1413
+us disk transact log learner sync up motiv learner sync up leader retriev commit log from leader current leader keep 500 entri recent commit log memori learner fall more 500 updat leader send entir snapshot learner size snapshot zookeep deploy 10g prohibit expens send entir snapshot network addition zookeep serv more 4k updat second result network hiccup second caus learner us snapshot transfer design commit log memori leader transact log disk amount transact log kept disk configur current 100k allow zookeep toler longer tempor network failur befor initi snapshot transfer implement plan add persist layer us retriev propos from disk transact log propos us send learner exist protocol 
+3
+src.java.main.org.apache.zookeeper.server.persistence.FileTxnLog.FileTxnLog
+src.java.main.org.apache.zookeeper.server.quorum.LearnerHandler.LearnerHandler
+src.java.test.org.apache.zookeeper.test.FollowerResyncConcurrencyTest.FollowerResyncConcurrencyTest
+
+ZOOKEEPER-1411
+consolid membership manag distinguish dynam configur paramet current server ha differ configur file patch distinguish dynam paramet separ dynam configur file paramet usual file config file point dynam config file specifi dynam config file first stage patch cluster membership definit dynam config file futur addit paramet move dynam file backward compat make us singl config file config chang zk 107 dynam file automat creat necessari paramet move patch move membership pars manag quorum verifi class remov quorum peer quorum peer cluster membership contain quorum peer quorum verifi quorum verifi expand ha method get member get vote member get observ member 
+13
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerConfig.QuorumPeerConfig
+src.java.main.org.apache.zookeeper.server.quorum.QuorumCnxManager.QuorumCnxManager
+src.java.test.org.apache.zookeeper.test.QuorumBase.QuorumBase
+src.java.main.org.apache.zookeeper.server.quorum.flexible.QuorumMaj.QuorumMaj
+src.java.main.org.apache.zookeeper.server.quorum.Leader.Leader
+src.java.main.org.apache.zookeeper.server.quorum.FastLeaderElection.FastLeaderElection
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeer.QuorumPeer
+src.java.main.org.apache.zookeeper.server.quorum.flexible.QuorumHierarchical.QuorumHierarchical
+src.java.test.org.apache.zookeeper.test.HierarchicalQuorumTest.HierarchicalQuorumTest
+src.java.main.org.apache.zookeeper.server.quorum.LearnerHandler.LearnerHandler
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerMain.QuorumPeerMain
+src.java.test.org.apache.zookeeper.server.quorum.QuorumPeerMainTest.QuorumPeerMainTest
+src.java.main.org.apache.zookeeper.server.quorum.QuorumZooKeeperServer.QuorumZooKeeperServer
+
+ZOOKEEPER-1147
+add support local session improv bucket make zoo keeper work larg scale plan million client connect zoo keeper ensembl set 50 100 observ major client read updat creat ephemer node zoo keeper todai client creat session session creation handl updat us session creat drop workload easili overwhelm ensembl follow propos local session support larger number connect idea introduc type session local session local session doesn full function normal session local session creat ephemer node local session lost establish session id password session watch good local session connect session info maintain zookeep server observ connect leader awar creation session state written disk ping expir handl server session connect chang make zoo keeper scale larger number client make core ensembl bottleneck term api two option consid let client specifi connect time kind session session connect local session automat get promot global session oper requir global session creat ephemer node chubbi approach lazili promot session global don work keep session creat ephemer node local option make more broadli usabl option easier implement think implement option first cut client flag local session current read flag us determin creat local session global session 
+21
+src.java.test.org.apache.zookeeper.test.QuorumBase.QuorumBase
+src.java.test.org.apache.zookeeper.server.quorum.QuorumPeerMainTest.QuorumPeerMainTest
+src.java.test.org.apache.zookeeper.test.QuorumUtil.QuorumUtil
+src.java.main.org.apache.zookeeper.server.PrepRequestProcessor.PrepRequestProcessor
+src.java.main.org.apache.zookeeper.server.quorum.FollowerRequestProcessor.FollowerRequestProcessor
+src.java.main.org.apache.zookeeper.server.quorum.Learner.Learner
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerConfig.QuorumPeerConfig
+src.java.main.org.apache.zookeeper.server.quorum.ReadOnlyZooKeeperServer.ReadOnlyZooKeeperServer
+src.java.main.org.apache.zookeeper.server.quorum.LeaderZooKeeperServer.LeaderZooKeeperServer
+src.java.main.org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.LearnerZooKeeperServer
+src.java.main.org.apache.zookeeper.server.Request.Request
+src.java.main.org.apache.zookeeper.KeeperException.KeeperException
+src.java.main.org.apache.zookeeper.server.ZooKeeperServer.ZooKeeperServer
+src.java.main.org.apache.zookeeper.server.FinalRequestProcessor.FinalRequestProcessor
+src.java.main.org.apache.zookeeper.server.quorum.CommitProcessor.CommitProcessor
+src.java.main.org.apache.zookeeper.server.quorum.LearnerHandler.LearnerHandler
+src.java.main.org.apache.zookeeper.server.quorum.ObserverRequestProcessor.ObserverRequestProcessor
+src.java.main.org.apache.zookeeper.cli.CreateCommand.CreateCommand
+src.java.main.org.apache.zookeeper.server.SessionTrackerImpl.SessionTrackerImpl
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerMain.QuorumPeerMain
+src.java.main.org.apache.zookeeper.server.quorum.LearnerSessionTracker.LearnerSessionTracker
+
+ZOOKEEPER-876
+unnecessari snapshot transfer leader follow start leadership unnecessari snapshot transfer happen leader follow multipl small bug comparison zxid done base propos last log zxid learner handler java 297 follow on zxid check interv commit log exclud follow learner handler java 277 bug report zookeep 874 commit log empti after recov 
+0
+
+ZOOKEEPER-442
+remov watch longer interest current watch clear trigger enumer outstand watch object find watch event object watch remov interest event 
+0
+
+ZOOKEEPER-1873
+unnecessarili instanc found except come unregist fail jmxbean bean registri keep bean fail complet registr unregistr time fail bean result follow except junit 2014 01 29 08 34 56 667 myid warn main bean registri 134 error unregist junit javax manag instanc found except org apach zoo keeper servic name0 standalon server port junit com sun jmx interceptor bean server interceptor get bean bean server interceptor java 1095 junit com sun jmx interceptor bean server interceptor exclus unregist bean bean server interceptor java 427 junit com sun jmx interceptor bean server interceptor unregist bean bean server interceptor java 415 junit com sun jmx mbeanserv jmx bean server unregist bean jmx bean server java 536 junit org apach zookeep jmx bean registri unregist bean registri java 115 
+1
+src.java.main.org.apache.zookeeper.jmx.MBeanRegistry.MBeanRegistry
+
+ZOOKEEPER-1867
+bug zk databas corrupt test read test test corrupt right depend server elect fail wait server up 
+1
+src.java.test.org.apache.zookeeper.test.ZkDatabaseCorruptionTest.ZkDatabaseCorruptionTest
+
+ZOOKEEPER-1858
+jmx check potenti race condit stop start server ve notic on potenti previous creat zkclient session immedi reconnect publish bean start back zkserver affect zk startup jmx check befor stop server zk client session x143576544 c50000 exist start back server possibl client session jmx follow on log ha from build http build apach org job zoo keeper trunk win vs2008 java 642 junit 2014 01 03 09 18 12 809 myid info main send thread 127 11222 client cnxn send thread 1228 session establish complet server 127 127 11222 sessionid x143576544 c50000 negoti timeout 30000 junit 2014 01 03 09 18 12 809 myid info nio server cxn factori 11222 zoo keeper server 617 establish session x143576544 c50000 negoti timeout 30000 client 127 55377 junit 2014 01 03 09 18 12 391 myid info main jmx env 135 ensur junit 2014 01 03 09 18 12 395 myid info main client base 438 start server junit 2014 01 03 09 18 12 395 myid info main client base 359 creat server instanc 127 11222 junit 2014 01 03 09 18 12 395 myid info main nio server cnxn factori 94 bind port 11222 junit 2014 01 03 09 18 12 395 myid info main client base 334 start server instanc 127 11222 junit 2014 01 03 09 18 19 030 myid info main jmx env 142 unexpect org apach zoo keeper servic name0 standalon server port name1 connect name2 127 name3 x143576544 c50000 junit 2014 01 03 09 18 19 030 myid info main jmx env 142 unexpect org apach zoo keeper servic name0 standalon server port junit 2014 01 03 09 18 19 030 myid info main unit4 zk test runner log invok method 62 test method fail test watcher reset chroot junit junit framework assert fail error expect junit junit framework fail java 47 junit junit framework fail equal java 283 junit junit framework equal java 64 junit junit framework equal java 195 junit junit framework equal java 201 junit org apach zookeep test jmx env ensur jmx env java 144 junit org apach zookeep test client base start server client base java 443 junit org apach zookeep test disconnect watcher test test watcher reset chroot disconnect watcher test java 123 junit sun reflect method accessor impl invoke0 method 
+1
+src.java.test.org.apache.zookeeper.test.ClientBase.ClientBase
+
+ZOOKEEPER-1852
+server cnxn factori instanc properli cleanedup client base creat server instanc startup server fail initi server factori flow teardown shutdown bypass stop server instanc follow check affect test verif jmx check jmx env ensur client base shutdown server instanc shutdown server instanc server cnxn factori factori string host port factori shutdown logic 
+1
+src.java.test.org.apache.zookeeper.test.ClientBase.ClientBase
+
+ZOOKEEPER-1844
+truncat test fail window truncat test ha fail consist window http build apach org job zoo keeper trunk win vs2008 java 627 test report junit org apach zookeep test truncat test test truncat 
+4
+src.java.main.org.apache.zookeeper.server.persistence.FileTxnSnapLog.FileTxnSnapLog
+src.java.main.org.apache.zookeeper.server.persistence.FileTxnLog.FileTxnLog
+src.java.main.org.apache.zookeeper.server.quorum.LearnerHandler.LearnerHandler
+src.java.main.org.apache.zookeeper.server.ZKDatabase.ZKDatabase
+
+ZOOKEEPER-1841
+problem quorum test quorum test test log befor leader establish fail assert follow 
+1
+src.java.test.org.apache.zookeeper.test.QuorumTest.QuorumTest
+
+ZOOKEEPER-1839
+deadlock netti server cnxn deadlock found netti server cnxn closur attach threaddump 
+2
+src.java.main.org.apache.zookeeper.server.NettyServerCnxnFactory.NettyServerCnxnFactory
+src.java.main.org.apache.zookeeper.server.NettyServerCnxn.NettyServerCnxn
+
+ZOOKEEPER-1837
+fix jmx env check potenti race condit follow failur zoo keeper win vs2008 java zoo keeper trunk win vs2008 java requir fix junit junit framework assert fail error expect junit junit framework fail java 47 junit junit framework fail equal java 283 junit junit framework equal java 64 junit junit framework equal java 195 junit junit framework equal java 201 junit org apach zookeep test jmx env ensur jmx env java 138 junit org apach zookeep test client base start server client base java 417 junit org apach zookeep test zoo keeper quota test test quota zoo keeper quota test java 80 junit sun reflect method accessor impl invoke0 method junit sun reflect method accessor impl invok method accessor impl java 39 junit sun reflect deleg method accessor impl invok deleg method accessor impl java 25 junit java lang reflect method invok method java 597 junit org junit runner model framework method run reflect call framework method java 44 junit org junit intern runner model reflect callabl run reflect callabl java 15 junit org junit runner model framework method invok explos framework method java 41 junit org junit intern runner statement invok method evalu invok method java 20 junit junit framework assert fail error expect junit junit framework fail java 47 junit junit framework fail equal java 283 junit junit framework equal java 64 junit junit framework equal java 195 junit junit framework equal java 201 junit org apach zookeep test jmx env ensur jmx env java 138 junit org apach zookeep test client base start server client base java 417 junit org apach zookeep test zoo keeper quota test test quota zoo keeper quota test java 80 junit sun reflect method accessor impl invoke0 method junit sun reflect method accessor impl invok method accessor impl java 39 junit sun reflect deleg method accessor impl invok deleg method accessor impl java 25 junit java lang reflect method invok method java 597 junit org junit runner model framework method run reflect call framework method java 44 junit org junit intern runner model reflect callabl run reflect callabl java 15 junit org junit runner model framework method invok explos framework method java 41 junit org junit intern runner statement invok method evalu invok method java 20 junit org apach zookeep unit4 zk test runner log invok method evalu unit4 zk test runner java 52 junit framework assert fail error expect x142 e5 f027 b50001 expect org apach zookeep test jmx env ensur jmx env java 115 org apach zookeep test client base creat client client base java 197 org apach zookeep test client base creat client client base java 171 org apach zookeep test client base creat client client base java 156 org apach zookeep test client base creat client client base java 149 org apach zookeep zoo keeper test test delet recurs zoo keeper test java 45 org apach zookeep unit4 zk test runner log invok method evalu unit4 zk test runner java 52 
+2
+src.java.test.org.apache.zookeeper.test.ClientBase.ClientBase
+src.java.test.org.apache.zookeeper.test.JMXEnv.JMXEnv
+
+ZOOKEEPER-1834
+io except file txn log io except file txn log next log file open remain open caus test case least buffer size test fail add block 
+1
+src.java.main.org.apache.zookeeper.server.persistence.FileTxnLog.FileTxnLog
+
+ZOOKEEPER-1817
+fix don care b3 umbrella jira 
+3
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeer.QuorumPeer
+src.java.main.org.apache.zookeeper.server.quorum.Vote.Vote
+src.java.main.org.apache.zookeeper.server.quorum.FastLeaderElection.FastLeaderElection
+
+ZOOKEEPER-1812
+zoo inspector reconnect fail first connect fail step reproduc connect localhost 2181 zoo keeper server down after second zoo inspector warn connect ha fail start zoo keeper server reconnect localhost 2181 zoo inspector abl connect server workaround relaunch zoo inspector 
+1
+src.contrib.zooinspector.src.java.org.apache.zookeeper.inspector.manager.ZooInspectorManagerImpl.ZooInspectorManagerImpl
+
+ZOOKEEPER-1798
+fix race condit test normal observ run output messg noformat testcas test normal observ run 221 sec fail expect data data junit framework assert fail error expect data data org apach zookeep server quorum zab1 test convers observ zab1 test java 1118 org apach zookeep server quorum zab1 test test observ convers zab1 test java 546 org apach zookeep server quorum zab1 test test normal observ run zab1 test java 994 noformat 
+1
+src.java.main.org.apache.zookeeper.server.SyncRequestProcessor.SyncRequestProcessor
+
+ZOOKEEPER-1781
+zoo keeper server fail snap count set snap count set zoo keeper server start fail error 2013 10 02 18 09 07 600 myid error sync thread sync request processor 151 sever unrecover error exit java lang illeg argument except posit java util random next random java 300 org apach zookeep server sync request processor run sync request processor java 93 sourc code suppos snap count more org apach zookeep server sync request processor java 91 attempt ensur ofth server 92 ensembl snapshot time 93 rand roll next snap count supposit bad snap count realist set better mention restrict document add valid sourc code 
+1
+src.java.main.org.apache.zookeeper.server.ZooKeeperServer.ZooKeeperServer
+
+ZOOKEEPER-1774
+quorum peer main test fail consist complain host assert failur quorum peer main test fail consist complain host assert failur 2013 10 01 16 09 17 962 myid info main unit4 zk test runner log invok method 54 test method fail test bad peer address quorum java lang assert error complain host org junit fail java 91 org junit java 43 org apach zookeep server quorum quorum peer main test test bad peer address quorum quorum peer main test java 434 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 39 sun reflect deleg method accessor impl invok deleg method accessor impl java 25 java lang reflect method invok method java 597 org junit runner model framework method run reflect call framework method java 44 org junit intern runner model reflect callabl run reflect callabl java 15 org junit runner model framework method invok explos framework method java 41 org junit intern runner statement invok method evalu invok method java 20 org apach zookeep unit4 zk test runner log invok method evalu unit4 zk test runner java 52 org junit rule test watchman evalu test watchman java 48 org junit runner block unit4 runner run child block unit4 runner java 76 org junit runner block unit4 runner run child block unit4 runner java 50 org junit runner parent runner run parent runner java 193 org junit runner parent runner schedul parent runner java 52 org junit runner parent runner run children parent runner java 191 org junit runner parent runner access 000 parent runner java 42 org junit runner parent runner evalu parent runner java 184 org junit runner parent runner run parent runner java 236 junit framework unit4 test adapt run unit4 test adapt java 39 org apach tool ant taskdef option junit unit test runner run unit test runner java 518 org apach tool ant taskdef option junit unit test runner launch unit test runner java 1052 org apach tool ant taskdef option junit unit test runner main unit test runner java 906 2013 10 01 16 09 17 963 myid info main zk test 65 fail test bad peer address quorum java lang assert error complain host org junit fail java 91 org junit java 43 org apach zookeep server quorum quorum peer main test test bad peer address quorum quorum peer main test java 434 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 39 sun reflect deleg method accessor impl invok deleg method accessor impl java 25 java lang reflect method invok method java 597 org junit runner model framework method run reflect call framework method java 44 org junit intern runner model reflect callabl run reflect callabl java 15 org junit runner model framework method invok explos framework method java 41 org junit intern runner statement invok method evalu invok method java 20 org apach zookeep unit4 zk test runner log invok method evalu unit4 zk test runner java 52 org junit rule test watchman evalu test watchman java 48 org junit runner block unit4 runner run child block unit4 runner java 76 org junit runner block unit4 runner run child block unit4 runner java 50 org junit runner parent runner run parent runner java 193 org junit runner parent runner schedul parent runner java 52 org junit runner parent runner run children parent runner java 191 org junit runner parent runner access 000 parent runner java 42 org junit runner parent runner evalu parent runner java 184 org junit runner parent runner run parent runner java 236 junit framework unit4 test adapt run unit4 test adapt java 39 org apach tool ant taskdef option junit unit test runner run unit test runner java 518 org apach tool ant taskdef option junit unit test runner launch unit test runner java 1052 org apach tool ant taskdef option junit unit test runner main unit test runner java 906 
+1
+src.java.test.org.apache.zookeeper.server.quorum.QuorumPeerMainTest.QuorumPeerMainTest
+
+ZOOKEEPER-1771
+zoo inspector authent zoo inspector doesn support authent connect anonym ensembl nice abl configur authent scheme data order brows node acl set 
+1
+src.contrib.zooinspector.src.java.org.apache.zookeeper.inspector.manager.ZooInspectorManagerImpl.ZooInspectorManagerImpl
+
+ZOOKEEPER-1770
+pointer except snapshot formatt snapshot formatt fail pointer except pars on snapshot data on znode except thread main java lang pointer except org apach zookeep server snapshot formatt print znode snapshot formatt java 90 org apach zookeep server snapshot formatt print znode snapshot formatt java 95 org apach zookeep server snapshot formatt print znode snapshot formatt java 95 org apach zookeep server snapshot formatt print znode snapshot formatt java 95 org apach zookeep server snapshot formatt print znode detail snapshot formatt java 79 org apach zookeep server snapshot formatt print detail snapshot formatt java 71 org apach zookeep server snapshot formatt run snapshot formatt java 67 org apach zookeep server snapshot formatt main snapshot formatt java 51 
+1
+src.java.main.org.apache.zookeeper.server.SnapshotFormatter.SnapshotFormatter
+
+ZOOKEEPER-1755
+concurr oper four letter dump ephemer command kill session caus npe potenti problem occur execut four letter dump command meantim zkserver ha trigger session closur remov relat inform from data tree except java lang pointer except org apach zookeep server data tree dump ephemer data tree java 1278 org apach zookeep server data tree test run data tree test java 82 
+1
+src.java.main.org.apache.zookeeper.server.DataTree.DataTree
+
+ZOOKEEPER-1753
+client cnxn properli releas resourc us ping rw server ping rw server client cnxn open socket buffer reader properli close block caus leak except case client cnxn ping rw server socket sock socket addr get host name addr get port buffer reader br buffer reader input stream reader sock get input stream sock close br close connect except ignor mean server up io except unexpect error warn log warn except seek server get messag 
+1
+src.java.main.org.apache.zookeeper.ClientCnxn.ClientCnxn
+
+ZOOKEEPER-1751
+client cnxn run miss second ping connect get drop befor ping session timeout except except even time next ping neg depend time follow line execut thread check time befor send ping read timeout client cnxn socket get idl recv addit ping twice matter session time valu exampl set session time 60 min ping twice 40 min window connect drop os after idl time issu caus randomli connect loss session expir issu client side bad applic base 
+1
+src.java.main.org.apache.zookeeper.ClientCnxn.ClientCnxn
+
+ZOOKEEPER-1750
+race condit produc npe nio server cnxn string socket close variabl sock set normal reason string method call befor sock set produc pointer except stack trace 2013 08 29 01 49 19 991 6277 commit proc work thread warn org apach zookeep server worker servic unexpect except java lang pointer except org apach zookeep server nio server cnxn string nio server cnxn java 961 java lang string valu string java 2854 java lang string builder append string builder java 128 org apach zookeep server nio server cnxn process nio server cnxn java 1104 org apach zookeep server watch manag trigger watch watch manag java 120 org apach zookeep server watch manag trigger watch watch manag java 92 org apach zookeep server data tree creat node data tree java 544 org apach zookeep server data tree process txn data tree java 805 org apach zookeep server zk databas process txn zk databas java 319 org apach zookeep server zoo keeper server process txn zoo keeper server java 967 org apach zookeep server request processor process request request processor java 115 org apach zookeep server quorum leader appli request processor process request leader java 859 org apach zookeep server quorum commit processor commit work request work commit processor java 271 org apach zookeep server worker servic schedul work request run worker servic java 152 java util concurr thread pool executor run worker thread pool executor java 1145 java util concurr thread pool executor worker run thread pool executor java 615 java lang thread run thread java 722 
+1
+src.java.main.org.apache.zookeeper.server.NIOServerCnxn.NIOServerCnxn
+
+ZOOKEEPER-1733
+fle test test le flaki window box fle test test le fail intermitt window box reason le thread run leader obj success count success count count obj notifi basic confirm leader leader thread di loop verif step check leader thread aliv follow thread get leader aliv fail leader hasn join leader window box verif step fail frequent leader thread most exit leader aliv verif step lead thread bump up success count count 
+1
+src.java.test.org.apache.zookeeper.test.FLETest.FLETest
+
+ZOOKEEPER-1732
+zoo keeper server unabl join establish ensembl test roll restart three zoo keeper server fail from time time ran test loop failur point on server unabl join enssembl form two 
+3
+src.java.main.org.apache.zookeeper.server.quorum.Leader.Leader
+src.java.main.org.apache.zookeeper.server.quorum.Learner.Learner
+src.java.main.org.apache.zookeeper.server.quorum.FastLeaderElection.FastLeaderElection
+
+ZOOKEEPER-1715
+upgrad netti version upgrad netti version 
+2
+src.java.main.org.apache.zookeeper.server.NIOServerCnxn.NIOServerCnxn
+src.java.main.org.apache.zookeeper.server.NettyServerCnxn.NettyServerCnxn
+
+ZOOKEEPER-1696
+fail run zookeep client weblog applic server problem detail describ here http comment gmane org gmane comp java zookeep user 2897 provid link contain refer fix implement apr 24 2013 03 28 pm msk warn org apach zookeep client cnxn devapp090 clust2 activ execut thread queue weblog kernel devapp090 2182 intern 1366794208810 bea 000000 warn org apach zookeep client cnxn session x0 server unexpect error close socket connect attempt reconnect java lang illeg argument except configur regist handl configur name client com bea common secur jdkutil jaa configur get app configur entri jaa configur java 130 org apach zookeep client zoo keeper sasl client init zoo keeper sasl client java 97 org apach zookeep client cnxn send thread start connect client cnxn java 943 org apach zookeep client cnxn send thread run client cnxn java 993 
+1
+src.java.main.org.apache.zookeeper.client.ZooKeeperSaslClient.ZooKeeperSaslClient
+
+ZOOKEEPER-1667
+watch event isn handl correctli client reestablish server client reestablish server send watch trigger code data tree handl correctli obviou notic scenario client set data watch disconnect client delet creat client reestablish zk receiv node creat node data chang client set exist watch exist disconnect client creat client reestablish zk receiv node data chang node creat 
+1
+src.java.main.org.apache.zookeeper.server.DataTree.DataTree
+
+ZOOKEEPER-1666
+avoid revers dn lookup hostnam connect string liter ip address env inet socket address get host name call host name connect string liter ip address call trigger revers dn lookup slow situat host name simpli set ip caus problem 
+1
+src.java.main.org.apache.zookeeper.client.StaticHostProvider.StaticHostProvider
+
+ZOOKEEPER-1657
+increas cpu usag unnecessari sasl check profil on java environ found interest footprint zoo keeper sasl support trigger lot time client even us disabl sasl complet attach screenshot show 10 minut profil session on product jetti server jetti server handl 1k web request minut averag respons time web request milli second profil perform machin run 24h notic signific cpu increas server deploi updat from zoo keeper zoo keeper start investig screenshot show 32 cpu time spent jetti contrast 65 spend zoo keeper note thought client cnxn send thread client tunnel authent progress culprit javax secur auth login configur get configur call bit reflect involv java secur access control privileg secur manag activ jvm tend place check code befor call access control privileg sm instal runnabl call directli safe cycl 
+1
+src.java.main.org.apache.zookeeper.ClientCnxn.ClientCnxn
+
+ZOOKEEPER-1648
+fix watcher test jdk7 jdk7 run unit test random order caus intermitt watcher test failur fix clean up variabl interfer test 
+1
+src.java.test.org.apache.zookeeper.test.WatcherTest.WatcherTest
+
+ZOOKEEPER-1642
+leader load databas twice leader server current load databas befor run leader elect figur zxid us elect start lead problemat larger databas remov redund load code refer get last log zxid quorum peer load data zoo keeper server 
+1
+src.java.main.org.apache.zookeeper.server.ZooKeeperServer.ZooKeeperServer
+
+ZOOKEEPER-1633
+introduc protocol version connect initi messag current first messag server send server includ on field server id quorum cnx manag java make chang inform pass initi connect difficult patch chang first field messag protocol version neg number server id second field server id third field number byte remaind messag server read first field befor neg number read second field find server id remov remaind messag from stream affect earlier server send server id code patch run server connect provid necessari flexibl futur releas upgrad path from 
+1
+src.java.main.org.apache.zookeeper.server.quorum.QuorumCnxManager.QuorumCnxManager
+
+ZOOKEEPER-1629
+test transact log corrupt occasion fail test transact log corrupt flaki exampl fail here http build apach org job zoo keeper trunk jdk7 500 http build apach org job zoo keeper trunk jdk7 502 http build apach org job zoo keeper trunk jdk7 503 show failur link fail older build longer websit exampl build from 381 399 
+1
+src.java.test.org.apache.zookeeper.server.TruncateCorruptionTest.TruncateCorruptionTest
+
+ZOOKEEPER-1624
+prep request processor abort multi oper incorrectli found issu issu multipl instanc follow multi op concurr multi creat sequenti node creat node expect result first multi op request success rest request fail exist report result subsequ multi op fail sequenti node creation fail code sub op issu instanc multi op asynchron zok zok zok znodeexist znodeexist zruntimeinconsist ad more debug log caus prep request processor rollback outstand chang second multi op incorrectli caus sequenti node name gener incorrect sequenti node name gener prep request processor creat 0001 creat 0003 creat 0001 bug get pend chang method fail copi chang record parent node rollback pend chang restor right previou chang record parent node abort second multi op impact bug sequenti node creation parent node fail previou on commit implic 
+1
+src.java.main.org.apache.zookeeper.server.PrepRequestProcessor.PrepRequestProcessor
+
+ZOOKEEPER-1622
+session id neg year 2022 decid us larg number myid file caus session id neg softwar apach accumulo handl diagnos problem notic session impl initi next session id next sid next sid current time milli 24 next sid next sid id 56 next sid 40 th bit current time milli on sign extens fill upper byte next sid id make session id uniqu recommend chang right shift logic shift initi next session id next sid next sid current time milli 24 next sid next sid id 56 next sid year 2022 befor worri 
+1
+src.java.main.org.apache.zookeeper.server.SessionTrackerImpl.SessionTrackerImpl
+
+ZOOKEEPER-1610
+class compar string object equal class org apach zookeep client zoo keeper sasl client java org apach zookeep server quorum flexibl quorum hierarch java compar string long referenti equal problem long cach string intern problem kind comparison past on product jvm didn reus object 
+2
+src.java.main.org.apache.zookeeper.server.quorum.flexible.QuorumHierarchical.QuorumHierarchical
+src.java.main.org.apache.zookeeper.client.ZooKeeperSaslClient.ZooKeeperSaslClient
+
+ZOOKEEPER-1606
+intermitt failur zk databas corrupt test jenkin zk databas corrupt test fail intermitt jenkin error messag last server leader jdk7 openjdk7 solari time last month http build apach org view view zoo keeper job zoo keeper trunk openjdk7 test report junit org apach zookeep test zk databas corrupt test test corrupt 
+1
+src.java.test.org.apache.zookeeper.test.ZkDatabaseCorruptionTest.ZkDatabaseCorruptionTest
+
+ZOOKEEPER-1603
+host provid test test updat client migrat hang host provid test method test updat client migrat hang forev laptop get host name 10 10 10 take second call result method effect run forev time run test hang consist 
+2
+src.java.main.org.apache.zookeeper.client.StaticHostProvider.StaticHostProvider
+src.java.test.org.apache.zookeeper.test.StaticHostProviderTest.StaticHostProviderTest
+
+ZOOKEEPER-1578
+org apach zookeep server quorum zab1 test fail hard code 33556 port org apach zookeep server quorum zab1 test fail sun jdk open jdk junit run org apach zookeep server quorum zab1 test junit test run failur error time elaps 18 334 sec junit test org apach zookeep server quorum zab1 test fail zab1 test log zab1 test log 2012 07 11 23 17 15 579 myid info main leader 427 shutdown call java lang except shutdown leader reason end test org apach zookeep server quorum leader shutdown leader java 427 org apach zookeep server quorum zab1 test test last accept epoch zab1 test java 211 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 48 2012 07 11 23 17 15 584 myid error main leader 139 couldn bind port 33556 java net bind except address us java net plain socket impl bind plain socket impl java 402 java net server socket bind server socket java 328 java net server socket bind server socket java 286 org apach zookeep server quorum leader init leader java 137 org apach zookeep server quorum zab1 test creat leader zab1 test java 810 org apach zookeep server quorum zab1 test test leader elect follow zab1 test java 224 sun reflect method accessor impl invoke0 method 2012 07 11 23 17 20 202 myid error learner handler bdvm039 svl ibm com 30 122 48 40153 learner handler 559 unex pect except caus shutdown sock open java net socket timeout except read time java net socket input stream read socket input stream java 129 java io buffer input stream fill buffer input stream java 218 java io buffer input stream read buffer input stream java 237 java io data input stream read data input stream java 370 org apach jute binari input archiv read binari input archiv java 63 org apach zookeep server quorum quorum packet deseri quorum packet java 83 org apach jute binari input archiv read record binari input archiv java 108 org apach zookeep server quorum learner handler run learner handler java 291 2012 07 11 23 17 20 203 myid warn learner handler bdvm039 svl ibm com 30 122 48 40153 learner handler 569 goodby bdvm039 svl ibm com 30 122 48 40153 2012 07 11 23 17 20 204 myid info thread 20 leader 421 shut down 2012 07 11 23 17 20 204 myid info thread 20 leader 427 shutdown call java lang except shutdown leader reason lead end failur 33556 port us us command check fact hard code unit test improv code patch 
+1
+src.java.test.org.apache.zookeeper.server.quorum.Zab1_0Test.Zab1_0Test
+
+ZOOKEEPER-1573
+unabl load databas miss parent node replai txnlog data tree server ha code detect miss parent node code block last modifi part zookeep 1333 product found check posit sequenc txn follow zxid creat prefix zxid creat prefix zxid delet prefix zxid delet prefix server start captur snapshot zxid time travers data tree down prefix txn appli prefix children server restor from snapshot process txnlog start from zxid txn gener miss parent error server refus start up check allow discov bug zookeep 1551 don option remov check solv issu 
+1
+src.java.main.org.apache.zookeeper.server.persistence.FileTxnSnapLog.FileTxnSnapLog
+
+ZOOKEEPER-1564
+allow unit test build ibm java org apach zookeep test client base org apach zookeep test client test org apach zookeep test quorum base org apach zookeep test quorum util class com sun manag unix oper mx bean fail build ibm java sr 11 issu resolv osmx bean propos jira zookeep 1474 osmx bean org apach zookeep server util osmx bean wrapper implement com sun manag unix oper mx bean decid us sun api implement depend runtim vendor us 
+2
+src.java.test.org.apache.zookeeper.test.ClientBase.ClientBase
+src.java.test.org.apache.zookeeper.test.QuorumBase.QuorumBase
+
+ZOOKEEPER-1558
+leader snapshot uncommit state leader current take snapshot call load data begin lead method load data contain uncommit state 
+2
+src.java.main.org.apache.zookeeper.server.SyncRequestProcessor.SyncRequestProcessor
+src.java.main.org.apache.zookeeper.server.ZooKeeperServer.ZooKeeperServer
+
+ZOOKEEPER-1552
+enabl sync request processor observ observ doesn forward txn sync request processor persist txn disk period creat snapshot increas start up time get entir snapshot observ ha run time 
+4
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerConfig.QuorumPeerConfig
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerMain.QuorumPeerMain
+src.java.main.org.apache.zookeeper.server.quorum.ObserverZooKeeperServer.ObserverZooKeeperServer
+src.java.main.org.apache.zookeeper.server.SyncRequestProcessor.SyncRequestProcessor
+
+ZOOKEEPER-1551
+observ ignor txn after snapshot uptod learner java txn after learner ha snapshot after newlead packet store packet commit follow ha special logic appli txn end sync leader method observ ignor txn complet caus data inconsist 
+2
+src.java.main.org.apache.zookeeper.server.quorum.Leader.Leader
+src.java.main.org.apache.zookeeper.server.quorum.Learner.Learner
+
+ZOOKEEPER-1535
+zk shell cli execut last command exit zk releas version zk cli sh last command execut execut ctrl shell snippet ls execut ctrl trigger insert illustr output from ls appear command run zk zookeep exampl com 2181 connect ls blah foo zk zookeep exampl com 2181 connect ctrl foo 
+1
+src.java.main.org.apache.zookeeper.ZooKeeperMain.ZooKeeperMain
+
+ZOOKEEPER-1495
+zk client hang function avail server exampl zk multi client server issu server side server drop packet unknown op code zoo keeper server submit request submit request request si snip touch si cnxn validpacket request valid si type check op code validpacket snip log warn drop packet server type si type invalid packet drop packet miss session except log debug enabl log debug drop request get messag solut discuss zookeep 1381 get except client side close session 
+1
+src.java.main.org.apache.zookeeper.server.ZooKeeperServer.ZooKeeperServer
+
+ZOOKEEPER-1478
+small bug quorum test test follow start after leader follow code appear quorum test test follow start after leader 30 zk creat test test get byte zoo def id open acl unsaf creat mode persist keeper except connect loss except thread sleep 1000 test fail connect quorum after 30 second fail client connect reestablish quorum give up after 30 second from comment intent reconnect 30 time trigger after fail connect thread sleep execut fail execut retri creat 
+1
+src.java.test.org.apache.zookeeper.test.QuorumTest.QuorumTest
+
+ZOOKEEPER-1474
+build zookeep ibm java us sun mx bean class zookeep server nio server cnxn zookeep server netti server cnxn import com sun manag unix oper mx bean oper mx bean implement ibm open java ibm java run zookeep power ppc64 server 
+2
+src.java.main.org.apache.zookeeper.server.NIOServerCnxn.NIOServerCnxn
+src.java.main.org.apache.zookeeper.server.NettyServerCnxn.NettyServerCnxn
+
+ZOOKEEPER-1459
+standalon zoo keeper server close transact log file shutdown shutdown standalon zk server clear zkdatabas close transact log stream delet temporari file unit test window fail zoo keeper server java zk db zk db clear suggest close zk db follow inturn care transact log zk db zk db clear zk db close io except log warn error close log 
+1
+src.java.main.org.apache.zookeeper.server.ZooKeeperServerMain.ZooKeeperServerMain
+
+ZOOKEEPER-1448
+node quota creation transact log crash leader startup ve found bug zookeep relat quota creation shutdown zookeep leader startup step reproduc creat quota bug setquota 10000 quota bug stop ensembl previou oper transact log start server elect leader shutdown except miss stat node count zookeep quota quota bug zookeep stat ve debug bit happen found follow problem startup server load last snapshot replai last transact log fill up trie variabl data tree path node quota after leader elect leader server load snapshot last transact log doesn clean up trie variabl mean contain quota bug path creat quota bug process from transact log data tree think quota node zookeep quota quota bug zookeep limit zookeep quota quota bug zookeep stat creat node creation transact log lead miss stat node except clear trie solv problem 
+1
+src.java.main.org.apache.zookeeper.server.DataTree.DataTree
+
+ZOOKEEPER-1414
+quorum peer main test test quorum test bad packet fail intermitt quorum peer main test test quorum test bad packet testcas fail intermitt wrong zk client usag pattern follow connect loss version keeper error code connect loss foo q1 org apach zookeep keeper except connect loss except keeper error code connect loss foo q1 org apach zookeep keeper except creat keeper except java 90 org apach zookeep keeper except creat keeper except java 42 org apach zookeep zoo keeper creat zoo keeper java 657 org apach zookeep server quorum quorum peer main test test bad packet quorum peer main test java 212 zoo keeper connect happen async client cnxn client wait keeper state sync connect event befor start test case wait connect zoo keeper zk zoo keeper 127 client port qp1 client base connect timeout zk creat foo q1 foobar1 get byte id open acl unsaf creat mode persist 
+1
+src.java.test.org.apache.zookeeper.server.quorum.QuorumPeerMainTest.QuorumPeerMainTest
+
+ZOOKEEPER-1388
+client side path valid miss multi transact api multi op op creat path op delet path op set data path op check path api perform client side path valid call server side throw except back client good provid zoo keeper client side path valid multi transact api present get err code from server properli convei caus exampl specifi invalid znode path op creat give follow except actual caus org apach zookeep keeper except node except keeper error code node org apach zookeep keeper except creat keeper except java 115 org apach zookeep zoo keeper multi intern zoo keeper java 1174 org apach zookeep zoo keeper multi zoo keeper java 1115 
+1
+src.java.main.org.apache.zookeeper.ZooKeeper.ZooKeeper
+
+ZOOKEEPER-1387
+wrong epoch file creat line 443 quorum peer chang from write file current epoch filenam accept epoch write file accept epoch filenam accept epoch notic read code wrong don affect runtim http github com apach zookeep blob trunk src java main org apach zookeep server quorum quorum peer java l443 
+1
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeer.QuorumPeer
+
+ZOOKEEPER-1382
+zookeep server hold dead expir session id watch data structur ve observ zookeep server hold expir session id watcher data structur result wchp command report session id found con dump expir session id sit server restart here snippet from client server log lead state on session id x134485 fd7 bcb26f server zookeep cluster 223 224 225 leader 226 zk client connect cluster from applic log applic log 2012 01 26 325 gz 2012 01 26 04 56 36 177 info client cnxn main send thread 223 prod 12913 applic session establish complet server 223 prod 172 17 135 38 12913 sessionid x134485 fd7 bcb26f negoti timeout 6000 applic log 2012 01 27 gz 2012 01 27 09 52 37 714 info client cnxn main send thread 223 prod 12913 applic client session time heard from server 9827 ms sessionid x134485 fd7 bcb26f close socket connect attempt reconnect applic log 2012 01 27 gz 2012 01 27 09 52 38 191 info client cnxn main send thread 226 prod 12913 applic unabl reconnect zoo keeper servic session x134485 fd7 bcb26f ha expir close socket connect leader zk 225 zookeep log 2012 01 27 leader 225 gz 2012 01 27 09 52 34 010 info session tracker zoo keeper server 314 expir session x134485 fd7 bcb26f timeout 6000 ms exceed zookeep log 2012 01 27 leader 225 gz 2012 01 27 09 52 34 010 info process thread prep request processor 391 process session termin sessionid x134485 fd7 bcb26f server client initi connect 223 zookeep log 2012 01 26 223 gz 2012 01 26 04 56 36 173 info commit processor nio server cnxn 1580 establish session x134485 fd7 bcb26f negoti timeout 6000 client 172 17 136 82 45020 zookeep log 2012 01 27 223 gz 2012 01 27 09 52 34 018 info commit processor nio server cnxn 1435 close socket connect client 172 17 136 82 45020 sessionid x134485 fd7 bcb26f here log snippet from 226 server client reconnect befor get session expir event 2012 01 27 09 52 38 190 info nio server cxn factori 12913 nio server cnxn 770 client attempt renew session x134485 fd7 bcb26f 172 17 136 82 49367 2012 01 27 09 52 38 191 info quorum peer 12913 nio server cnxn 1573 invalid session x134485 fd7 bcb26f client 172 17 136 82 49367 expir 2012 01 27 09 52 38 191 info nio server cxn factori 12913 nio server cnxn 1435 close socket connect client 172 17 136 82 49367 sessionid x134485 fd7 bcb26f wchp output from 226 01 30 nnarkh ld zk con wchp 2012013000 nnarkh grep x134485 fd7 bcb26f 226 wchp wc wchp output from 223 01 30 nnarkh ld zk con wchp 2012013000 nnarkh grep x134485 fd7 bcb26f 223 wchp wc con output from 223 226 01 30 nnarkh ld zk con wchp 2012013000 nnarkh grep x134485 fd7 bcb26f 226 con wc nnarkh ld zk con wchp 2012013000 nnarkh grep x134485 fd7 bcb26f 223 con wc happen client abl watch server 226 after disconnect from 223 inspit expir session id nio server cnxn after suspect session expir server remov cnxn watch from intern data structur befor allow more request process even session expir session readi start receiv packet factori sk selector wakeup enabl recv except log warn except establish session close close wonder client sneak set watch right after server remov connect remov cnxn api 
+1
+src.java.main.org.apache.zookeeper.server.ZooKeeperServer.ZooKeeperServer
+
+ZOOKEEPER-1379
+printwatch redo histori connect client command print usag necessari execut command printwatch redo histori connect usag get print basic print usag user ha enter command wrong command time usag get print zk localhost 2181 connect printwatch printwatch zoo keeper server host port cmd arg connect host port get path watch ls path watch set path data version delquota path quit printwatch creat path data acl stat path watch close ls2 path watch histori listquota path set acl path acl get acl path sync path redo cmdno addauth scheme auth delet path version setquota val path 
+1
+src.java.main.org.apache.zookeeper.ZooKeeperMain.ZooKeeperMain
+
+ZOOKEEPER-1179
+netti server cnxn properli close socket letter word request call letter word server configur us netti server cnxn factori factori properli cancel kei close socket after send respons lw close request except thread shut down 2011 09 13 12 14 17 546 warn server worker netti server cnxn factori cnxn channel handler 117 except caught id x009300 cc 38542 139 172 114 138 2181 except java io io except non block socket oper complet immedi java io io except non block socket oper complet immedi sun nio ch socket dispatch close0 method sun nio ch socket dispatch pre close socket dispatch java 44 sun nio ch socket channel impl impl close select channel socket channel impl java 684 java nio channel spi abstract select channel impl close channel abstract select channel java 201 java nio channel spi abstract interrupt channel close abstract interrupt channel java 97 org jboss netti channel socket nio nio worker close nio worker java 593 org jboss netti channel socket nio nio server socket pipelin sink handl accept socket nio server socket pipelin sink java 119 org jboss netti channel socket nio nio server socket pipelin sink event sunk nio server socket pipelin sink java 76 org jboss netti channel channel close channel java 720 org jboss netti channel abstract channel close abstract channel java 208 org apach zookeep server netti server cnxn close netti server cnxn java 116 org apach zookeep server netti server cnxn cleanup writer socket netti server cnxn java 241 org apach zookeep server netti server cnxn access netti server cnxn java 231 org apach zookeep server netti server cnxn command thread run netti server cnxn java 314 org apach zookeep server netti server cnxn command thread start netti server cnxn java 305 org apach zookeep server netti server cnxn check four letter word netti server cnxn java 674 org apach zookeep server netti server cnxn receiv messag netti server cnxn java 791 org apach zookeep server netti server cnxn factori cnxn channel handler process messag netti server cnxn factori java 217 org apach zookeep server netti server cnxn factori cnxn channel handler messag receiv netti server cnxn factori java 141 org jboss netti channel channel fire messag receiv channel java 274 org jboss netti channel channel fire messag receiv channel java 261 org jboss netti channel socket nio nio worker read nio worker java 350 org jboss netti channel socket nio nio worker process select kei nio worker java 281 org jboss netti channel socket nio nio worker run nio worker java 201 org jboss netti util intern io worker runnabl run io worker runnabl java 46 java util concurr thread pool executor worker run task thread pool executor java 886 java util concurr thread pool executor worker run thread pool executor java 908 java lang thread run thread java 619 
+1
+src.java.main.org.apache.zookeeper.server.NettyServerCnxn.NettyServerCnxn
+
+ZOOKEEPER-1096
+leader commun listen specifi ip wildcard address server specifi local address us leader commun leader elect us listen interfac similar client port address paramet ad year ago after review code reason port us wildcard server connect specif submit patch account leader elect algorithm option toggl backward compat bug chang broke thing more inform make option here http mail archiv apach org mod mbox hadoop zookeep dev 201008 mbox caan lk tikk t97 djqt3 cu h2 gnj p28 hg xjh345 hiyn mail gmail com 3e 
+5
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeer.QuorumPeer
+src.java.main.org.apache.zookeeper.server.quorum.Leader.Leader
+src.java.main.org.apache.zookeeper.server.quorum.QuorumCnxManager.QuorumCnxManager
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerConfig.QuorumPeerConfig
+src.java.main.org.apache.zookeeper.server.quorum.QuorumPeerMain.QuorumPeerMain
+
+ZOOKEEPER-87
+follow shut down leader current follow lag keep send ping leader stai aliv keep get leader follow shut down abl keep up leader limit gurante updat made client connect differ server 
+1
+src.java.main.org.apache.zookeeper.server.quorum.LearnerHandler.LearnerHandler
+

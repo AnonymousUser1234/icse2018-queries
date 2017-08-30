@@ -1,0 +1,40 @@
+1755161
+lenient chronolog issu spring dst bug undocu behavior construct date lenient calendar time miss hour dai chang from standard daylight time enter result time 01 30 equival 03 30 exampl construct date 11 2007 02 00 00 cst result time 11 2007 01 00 00 cst expect 11 2007 03 00 00 cdt equival time relat id 1747219 1755158 attach program reproduc issu 
+1
+JodaTime.src.java.org.joda.time.field.LenientDateTimeField
+
+1788282
+problem pars text part date check code test date septemb get except last line problem french month end work fine 
+1
+JodaTime.src.java.org.joda.time.format.DateTimeFormatterBuilder
+
+1877843
+method handl immut line 451 v1 oper done input method requir list bad design list clone even fed unit fail work type list support add remov follow code fail workaround clone wrap feed argument mail reinier zwitserloot com question 
+1
+JodaTime.src.java.org.joda.time.format.ISODateTimeFormat
+
+2025928
+print expect caus zero print month week dai hour minut second field first field output correctli command us follow code output expect chang formatt add year zero print year valu expect command zero print ad code loop run incorrect direct check field after field check field befor field year work correctli enter loop correct ad test case ad 
+1
+JodaTime.src.java.org.joda.time.format.PeriodFormatterBuilder
+
+2111763
+interv databas transform interv databas start end column return 
+1
+JodaTimeContrib.hibernate.src.java.org.joda.time.contrib.hibernate.PersistentInterval
+
+2487417
+except comput dai interv specifi convert object interv repres dai work perfectli on except daylight cut dai brazilian timezon except thrown illeg instant time zone offset transit specif convert object interv repres dai 00 00 00 exist dai interv exist 
+1
+JodaTime.src.java.org.joda.time.LocalDate
+
+2783325
+typo ha method call 
+1
+JodaTime.src.java.org.joda.time.format.DateTimeFormatter
+
+2903029
+wrong time zone correct date time specifc date caus time zone chang check follow two exampl expect dai month chang calcul start dai 2008 03 16 time zone america argentina catamarca result 2008 03 15 t23 00 00 000 03 00 1205632800000 expect 2008 03 16 t00 00 00 000 03 00 1205636400000 calcul start dai 2008 06 24 time zone america rio branco result 2008 06 23 t23 00 00 000 05 00 1214280000000 expect 2008 06 24 t01 00 00 000 04 00 1214283600000 attach test case more detail dst time zone chang test case fail joda 
+1
+JodaTime.src.java.org.joda.time.DateTimeZone
+

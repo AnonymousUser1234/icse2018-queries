@@ -1,0 +1,259 @@
+PIG-3512
+reduc estimat broken pig 3497 pig 3497 move stage revert right 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.JobControlCompiler
+
+PIG-3510
+filter extractor fail more on filter statement regress from pig 3461 rewrit partit filter optim here exampl demonstr problem dateint event id partit column filter express push down filter push down 
+1
+src.org.apache.pig.newplan.logical.optimizer.LogicalPlanOptimizer.LogicalPlanOptimizer
+
+PIG-3485
+remov method from pig 1876 ad type map annot follow method remov replac method take type inform 
+2
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.expressionOperators.POCast.POCast
+src.org.apache.pig.impl.util.CastUtils.CastUtils
+
+PIG-3495
+stream test failur window jython script absolut path fail exampl 
+1
+src.org.apache.pig.scripting.ScriptEngine.ScriptEngine
+
+PIG-3470
+print configur variabl paramet handl limit design pig 2122 find abl list properti test statement debug script line line patch set command analogu hive call kei valu paramet print configur variabl properti prefix 
+0
+
+PIG-3468
+pig 3123 break e2 test jython diagnost pig 3123 optim ad flag prune flag us illustr visual output from loader jython diagnost broken 
+6
+src.org.apache.pig.newplan.logical.rules.LoadTypeCastInserter.LoadTypeCastInserter
+src.org.apache.pig.newplan.logical.relational.LOStream.LOStream
+src.org.apache.pig.newplan.logical.rules.TypeCastInserter.TypeCastInserter
+src.org.apache.pig.pen.util.DisplayExamples.DisplayExamples
+src.org.apache.pig.newplan.logical.rules.StreamTypeCastInserter.StreamTypeCastInserter
+src.org.apache.pig.newplan.logical.relational.LOLoad.LOLoad
+
+PIG-3461
+rewrit make work case current algorithm partit filter pushdown identif fail corner case rewrit logic work case maximum filter pushdown 
+3
+src.org.apache.pig.backend.hadoop.executionengine.HExecutionEngine.HExecutionEngine
+src.org.apache.pig.newplan.logical.rules.PartitionFilterOptimizer.PartitionFilterOptimizer
+src.org.apache.pig.newplan.logical.optimizer.LogicalPlanOptimizer.LogicalPlanOptimizer
+
+PIG-3455
+pig 11 error run pig larg script 5k line 85 assign pig fail follow error even befor job fire pig stack trace script work fine pig 10 
+1
+src.org.apache.pig.newplan.logical.relational.LogicalPlan.LogicalPlan
+
+PIG-3445
+make format avail box add jar packag make avail box user add list packag search udf altern jar contain class name user us simpli type 
+0
+
+PIG-3424
+list name first even pass current pass add begin list name defin push end list case pig deploy contain predefin resolut befor fulli qualifi name defin load 
+1
+src.org.apache.pig.impl.PigContext.PigContext
+
+PIG-3405
+chang sourc code 
+0
+
+PIG-3390
+make pig work chang api incompat follow api pig us longer avail addit longer avail on monolith archiv entir function broken down smaller piec 
+1
+src.org.apache.pig.backend.hadoop.hbase.HBaseStorage.HBaseStorage
+
+PIG-3379
+alia reus nest caus pig script fail follow script fail error distinct alia name nd fix problem observ remov last filter statement fix problem 
+3
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder
+src.org.apache.pig.newplan.logical.relational.LOInnerLoad.LOInnerLoad
+src.org.apache.pig.newplan.logical.expression.ProjectExpression.ProjectExpression
+
+PIG-3360
+intermitt neg e2 test fail on exampl here stack get error messag 
+2
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.Launcher.Launcher
+src.org.apache.pig.backend.hadoop.executionengine.Launcher.Launcher
+
+PIG-3355
+bug bug immedi follow result ha least on column prune test show exampl script submit patch 
+1
+src.org.apache.pig.newplan.logical.rules.ColumnPruneHelper.ColumnPruneHelper
+
+PIG-3339
+move pattern compil variabl pattern compil costli current done tupl variabl 
+1
+src.org.apache.pig.builtin.ToDate.ToDate
+
+PIG-3335
+fail mr2 test fail test mr2 
+0
+
+PIG-3331
+valu store file specif schema store script store predefin schema store valu file open file show follow schema problem store schema viraj 
+1
+src.main.java.org.apache.pig.piggybank.storage.avro.PigSchema2Avro.PigSchema2Avro
+
+PIG-3329
+rank fail work split job fail error messag 
+2
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MRCompiler.MRCompiler
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceOper.MapReduceOper
+
+PIG-3327
+pig hit oom fetch task report gc overhead limit exceed hit 23 script launch job ha 80k map arrai caus oom 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.Launcher.Launcher
+
+PIG-3322
+npe read file level schema get npe load file file ha schema e2 style test fail 
+2
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroRecordReader.PigAvroRecordReader
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage
+
+PIG-3321
+support user specifi schema load user abl explicitli specifi schema us read input allow user exactli specifi resolv input multipl schema depend guess done set 
+5
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroInputFormat.PigAvroInputFormat
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroRecordReader.PigAvroRecordReader
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorageUtils.AvroStorageUtils
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroDatumReader.PigAvroDatumReader
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage
+
+PIG-3318
+valu honor merg schema load merg multipl schema valu specifi schema put null merg data set 
+4
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroInputFormat.PigAvroInputFormat
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroRecordReader.PigAvroRecordReader
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorageUtils.AvroStorageUtils
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage
+
+PIG-3316
+pig fail interpret valu special case queri input data pig gener follow output seemingli incorrectli interpret dai month part time zone 
+1
+src.org.apache.pig.builtin.ToDate.ToDate
+
+PIG-3313
+pig job hang job tracker bounc execut run pig job after mapreduc job submit job tracker bounc doesn get back up pig job hang reason pig keep object non deamon thread keep connect jobtrack job tracker down pig fail jobcontrol thread keep run on stop 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher.MapReduceLauncher
+
+PIG-3310
+gener uid nest schema field lead miscomput follow exampl bit weird written minim reproduct real tuplifi phase from multi kei group input data wrong output second column member id initi filter after comput fail optim mistakenli move oper befor join place work tupl fail understand issu creat correctli reset schema regener uid field d1 d2 tupl member logic plan after simplifi 
+1
+src.org.apache.pig.newplan.logical.relational.LOSplitOutput.LOSplitOutput
+
+PIG-3309
+fail ibm jdk fail small differ print specif http doc oracl com javas doc api java util hash map html mention make guarante order map guarante order remain constant time pig testcas reli order item print explicitli comparison 
+1
+test.org.apache.pig.test.utils.TestHelper.TestHelper
+
+PIG-3292
+plan invalid state duplic uid schema self join get cross product pig 3020 work differ pig version apach pig version 10 cdh4 rexport compil feb 15 2013 12 20 54 accor releas note pig 3020 includ cdh dist http archiv cloudera com cdh4 cdh pig 10 cdh4 chang txt problem self join get cross product error here workaround 
+1
+src.org.apache.pig.newplan.logical.relational.LOCross.LOCross
+
+PIG-3290
+fail trunk reproduc local except 
+1
+src.org.apache.pig.newplan.logical.expression.DereferenceExpression.DereferenceExpression
+
+PIG-3267
+fail limit queri follow queri fail error befor launch second job error messag 
+1
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.POStore.POStore
+
+PIG-3255
+found bug fix 
+0
+
+PIG-3247
+function mimic claus sql order test hive written mimic behavior sql claus thought share 
+0
+
+PIG-3210
+pig fail start write log log file pig check befor set properti place forget check place 
+1
+src.org.apache.pig.Main.Main
+
+PIG-3204
+chang script pars pars entir script line line current lot nn call made determin schema file path load statement slow nn caus bunch issu take lot time found script spend from min 40 min depend script good place optim 
+2
+src.org.apache.pig.PigServer.PigServer
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser
+
+PIG-3199
+provid method retriev name loader storer expos user order on make valid base on get load store path oper abl perform check path valid 
+0
+
+PIG-3173
+partit filter push down happen partit kei condit includ construct warn scan tabl 2013 02 06 22 22 16 233 partit filter push down partit column region construct pcond condit partit column partit filter push down partit column datestamp construct pcond pcond pcond condit partit column 
+1
+src.org.apache.pig.newplan.PColFilterExtractor.PColFilterExtractor
+
+PIG-3168
+fail trunk pig 2994 made explain alia equival explain previou alia break previou alia gener alia user defin alia follow fix test 
+1
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser
+
+PIG-3114
+duplic macro name error usin test pig script macro defin pig run fine cluster get pars error basic pig script macro get similar error remov macro work fine even defin macro result pars error 
+0
+
+PIG-3097
+doesn correctli load partit hive tabl partit hive tabl follow pig script correct schema command produc first column record tabl four column expect 
+1
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.storage.HiveColumnarLoader.HiveColumnarLoader
+
+PIG-3065
+pig output format committ support recoveri 23 23 output committ option support recoveri handl applic master get restart fail attempt pig outputformat committ support recoveri 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigOutputCommitter.PigOutputCommitter
+
+PIG-3060
+flatten nest foreach fail input contain empti bag flatten insid foreach statement produc wrong result input contain empti bag easi workaround filter empti bag 
+3
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.POForEach.POForEach
+test.org.apache.pig.test.TestEvalPipelineLocal.TestEvalPipelineLocal
+src.org.apache.pig.data.DefaultAbstractBag.DefaultAbstractBag
+
+PIG-3048
+add mapreduc workflow inform job configur ad workflow properti job configur enabl log analysi workflow addit individu job suggest properti includ workflow id workflow name adjac list connect node workflow name current node uniqu id workflow ideal prepend applic name name workflow distinguish workflow from workflow group differ run workflow pig command line adjac list workflow graph encod name node job workflow adjac list 
+2
+src.org.apache.pig.tools.pigstats.ScriptState.ScriptState
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher.MapReduceLauncher
+
+PIG-2970
+nest foreach get incorrect schema unrel inner queri pig 2968 hit weird error messag 
+2
+src.org.apache.pig.backend.hadoop.executionengine.HExecutionEngine.HExecutionEngine
+src.org.apache.pig.PigServer.PigServer
+
+PIG-2956
+invalid cach specif stream statement categori failur e2 test here stack error 6003 invalid cach specif file doesn exist error 2017 intern error creat job configur 
+1
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.JobControlCompiler
+
+PIG-2828
+handl null contain valu compar gener follow except reason field1 script fail judg field1 
+2
+src.org.apache.pig.data.DataType.DataType
+src.org.apache.pig.builtin.TOP.TOP
+
+PIG-2767
+pig creat wrong schema after dereferenc nest tupl field follow script fail nstead dump us data form correct schema ex problem describ schema incorrect refer statement consid invalid script fail run error invalid field project project exist schema f1 f2 
+1
+src.org.apache.pig.newplan.logical.expression.DereferenceExpression.DereferenceExpression
+
+PIG-2606
+join oper accept alia multipl input project refer 
+1
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder
+
+PIG-2265
+test failur error messag testcas 53 076 sec caus error unabl open iter alia backend error 
+2
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MRCompiler.MRCompiler
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.SecondaryKeyOptimizer.SecondaryKeyOptimizer
+

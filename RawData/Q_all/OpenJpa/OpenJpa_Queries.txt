@@ -1,0 +1,107 @@
+OPENJPA-2255
+couldn load referenc column definit creat join tabl join column couldn referenc column definit includ length definit length assign valu 255 entiti student id column name id length 128 nullabl string id column name name length 255 string name join tabl name student cours map join column join column name student id referenc column name id nullabl invers join column join column name cours id referenc column name id nullabl collect get cours entiti cours id column name id length 128 nullabl string id column name name length 255 string name student id length ha defin 128 definit length join column student id join column set valu 255 warn messag occur warn schema exist column student id tabl test student cours map incompat column schema definit exist column full name student cours map student id type varchar size 128 column full name student cours map student id type varchar size 255 
+1
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingInfo.MappingInfo
+
+OPENJPA-2229
+persist entiti recogn deploi boss ve found guid oen jpa boss minor issu report page easili solv except thrown jpa queri openjpa r422266 1244990 nonfat user error org apach openjpa persist argument except error occur pars queri filter select from extern resourc error messag name extern resourc recogn entiti identifi meant extern resourc close match known entiti name extern resourc abstract schema attr uniqu valu abstract vir attr membership task exec syncop conf report attr abstract exec syncop logger schema attr password polici schema schema attr valu attr uniqu valu abstract attr abstract der schema abstract vir schema attr account polici attr valu attr valu report exec syncop user notif conn instanc abstract der attr abstract attr valu syncop role sync polici polici reportlet conf instanc task attr uniqu valu entitl schema map user request org apach openjpa kernel exp abstract express builder pars except abstract express builder java 119 openjpa kernel jar org apach openjpa kernel jpql jpql express builder get meta data jpql express builder java 194 openjpa kernel jar org apach openjpa kernel jpql jpql express builder resolv meta data jpql express builder java 167 openjpa kernel jar org apach openjpa kernel jpql jpql express builder get candid meta data jpql express builder java 242 openjpa kernel jar org apach openjpa kernel jpql jpql express builder get candid meta data jpql express builder java 212 openjpa kernel jar org apach openjpa kernel jpql jpql express builder get candid type jpql express builder java 205 openjpa kernel jar org apach openjpa kernel jpql jpql express builder access 200 jpql express builder java 80 openjpa kernel jar org apach openjpa kernel jpql jpql express builder pars jpql popul jpql express builder java 2417 openjpa kernel jar org apach openjpa kernel jpql jpql parser popul jpql parser java 61 openjpa kernel jar after deeper investig ve found problem resid vf boss url current manag http commun jboss org thread 201329 
+2
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.AbstractCFMetaDataFactory.AbstractCFMetaDataFactory
+iopenjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository
+
+OPENJPA-2197
+method compar annot persist meta data parser compar paramet annot persist meta data parser contain method compar compar method name bad method name entiti listen pre updat updat chang log object entiti updat chang log base entiti chang log entri cle helper method bug method compar pre updat didn get detect 
+1
+openjpa-persistence.src.main.java.org.apache.openjpa.persistence.AnnotationPersistenceMetaDataParser.AnnotationPersistenceMetaDataParser
+
+OPENJPA-2131
+miss paramet except oracl dictionari gener queri queri em creat queri select name id sum statu pend count end from except historti guid guid set parament pend select guid call set max result 100 db2 work fine db dictionari get select sql buffer append invok correctli set paramet pend oracl implement oracl dictionari get select select sel distinct identifi updat invok sql buffer get sql get call two check satisfi go creat sql buffer instanc time pend paramet miss add param list eventu ll get miss paramet except from execut queri prepar statement bug exist branch trunk work after sql buffer get sql call add code reset param list 
+2
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.SQLBuffer.SQLBuffer
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.OracleDictionary.OracleDictionary
+
+OPENJPA-428
+bad error messag openjpa id bug report confus misplac error messag problem describ feel free request more info from run project open jpa get follow error messag 140 info http 8080 processor23 openjpa runtim start open jpa 380 info http 8080 processor23 openjpa jdbc jdbc dictionari org apach openjpa jdbc sql db2 dictionari 20 warn http 8080 processor25 openjpa runtim properti name openjpa id recogn ignor name close match valid properti call openjpa id 100 info http 8080 processor25 openjpa runtim start open jpa 300 info http 8080 processor25 openjpa jdbc jdbc dictionari org apach openjpa jdbc sql db2 dictionari two properti name print differ similar retyp id annot make special charact on come from copi past abl identifi error messag print remov id annot from on class class id here sampl id annot entiti tabl name tax schema jpa sc tax variabl taxamount tax tax taxamount taxamount taxamount plu getter setter taxamount vitor rodrigu 
+2
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.Configurations.Configurations
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.ConfigurationImpl.ConfigurationImpl
+
+OPENJPA-2275
+extend schema tool propos access level chang attribut method schema tool order improv extend http openjpa 208410 n2 nabbl com overrid schema tool td7581315 html 
+0
+
+OPENJPA-2257
+concurreni org apach openjpa persist entiti manag impl get properti lead pointer concurr modif except call entiti manag get properti lead pointer concurr modif except issu occur right after start up overli jee applic multipl entiti manag instanc creat time find issu stack trace caus java lang pointer except java lang string compar string java 482 java lang string compar string java 31 java util tree map cmp tree map java 4514 java util tree map put impl tree map java 4556 java util tree map put tree map java 4536 java util tree set add tree set java 122 org apach openjpa lib conf configur impl get properti kei configur impl java 708 org apach openjpa kernel broker impl get support properti broker impl java 729 org apach openjpa kernel deleg broker get support properti deleg broker java 223 org apach openjpa persist entiti manag impl get properti entiti manag impl java 1624 33 more 
+1
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.ConfigurationImpl.ConfigurationImpl
+
+OPENJPA-2247
+join column annot ignor map unidirect own on on secondari tabl runtim incorrectli ignor join column name map unidirect own on on secondari tabl problem exist run persist xml set version exampl entiti secondari tabl name parent secondari tabl pk join column primari kei join column name id parent referenc column name id parent parent id gener valu id parent string child ref on on join column name child ref tabl parent secondari tabl referenc column name id child child child column child ref ignor runtim fk non exist column parent secondari tabl child idchild 
+1
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository
+
+OPENJPA-2231
+jest token replac stream us reader inputstream order preserv utf charact replac function us reader inputstream token replac stream replac input stream writer string pr io except replac reader writer string pr io except type input stream servlet context get resourc stream rsrc buffer reader br buffer reader input stream reader utf token replac stream replac br token 
+1
+openjpa-jest.src.main.java.org.apache.openjpa.persistence.jest.TokenReplacedStream.TokenReplacedStream
+
+OPENJPA-2227
+open jpa doesn find custom sequenc gener us custom sequenc gener enterpris applic open jpa provid web sphere defin custom sequenc found except sequenc thrown insert data databas exampl configur entiti sequenc gener name sequenc sequenc name org apach openjpa gener uid gener custom serializ id gener valu strategi gener type sequenc gener sequenc id exampl produc stacktrac attach wrong loader us instanti custom sequenc similar issu openjpa 758 java se unit work fine after deploi except occur method sequenc meta data instanti classload env loader java type name method paramet exist us pure name call metadata paramet need method call 
+1
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.SequenceMetaData.SequenceMetaData
+
+OPENJPA-2196
+creat sequenc postgr bad english annot entiti sequenc gener alloc size initi valu method db dictionari common creat alter sequenc sql creat alter sequenc sql invalid postgr document postgr inform paramet option http www postgresql org doc sql altersequ html error occur execut sql alter sequenc schema experimento usuario sq attribut even method jdbc seq udpat sql fault toler connect mark rollback allow run next val sequenc ndi marco 
+2
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.NativeJDBCSeq.NativeJDBCSeq
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DBDictionary.DBDictionary
+
+OPENJPA-2174
+result set map look up retriev column data from name queri invalid index except thrown retriev column data from result set name queri attribut name defin entiti differ from actual column ala name defin queri didn up result set map correct column name befor retriev data fix test attach 
+2
+src.main.java.org.apache.openjpa.jdbc.kernel.MappedQueryResultObjectProvider.MappedQueryResultObjectProvider
+src.main.java.org.apache.openjpa.jdbc.sql.ResultSetResult.ResultSetResult
+
+OPENJPA-2163
+lifecycl event callback occur more expect problem uncov scenario multipl entiti manag instanc creat from entiti manag factori instanc initi instanc lifecycl listen instanc entiti manag em factori creat entiti manag entiti manag em2 factori creat entiti manag lifecycl listen l1 lifecycl listen lifecycl listen l2 lifecycl listen open jpa entiti manag spi em add lifecycl listen l1 open jpa entiti manag spi em2 add lifecycl listen l2 life cycl event occur specif entiti manag listen creat emf invok expect behavior listen regist em from life cycl event relat call 
+1
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl
+
+OPENJPA-2151
+improv perform state manag impl initi run perform test found state manag impl initi improv cach addit meta data found improv ad pc state initi transit pc state transit concept state come from instanc work unnecessari work exampl find entiti activ transact clean bitset call clean state initi state doesn fresh instanc don touch dirti bitset 
+5
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.StateManagerImpl.StateManagerImpl
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.TCleanState.TCleanState
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.ClassMetaData.ClassMetaData
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PNonTransState.PNonTransState
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.ENonTransState.ENonTransState
+
+OPENJPA-2149
+criteria function add wrong cast paramet make unsuabl criteria function gener sql last paramet cast wrong type express string st point func cb function db2 gse st point string cb liter cb liter cb liter 1003 express distanc func cb function db2 gse st distanc st point func user locat get locat criteria queri select user locat cb distanc func cb liter 50 gener follow sql db2 gse st distanc db2 gse st point cast t0 locat notic rd paramet integ cast problem org apach openjpa jdbc kernel exp datastor function append line 54 arg append sel ctx state sql append sql buffer db2 gse st distanc db2 gse st point loop line 56 58 val length sql add cast param get val db2 gse st distanc db2 gse st point cast start second paramet first on whil sql add cast param work last sql buffer mean cast param index ad last method issu leav criteria function useless extend db dictionari remov cast work function ambigu advanc found temporari work ugli workaround express string st point func cb function db2 gse st point string cb coalesc cb liter cb liter cb coalesc cb liter cb liter cb coalesc cb liter 1003 cb liter 1003 coalesc us raw valu paramet make work valu twice becuas put cb liter get pointer except bug 
+3
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.exps.Args.Args
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.exps.UnaryOp.UnaryOp
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.exps.DatastoreFunction.DatastoreFunction
+
+OPENJPA-2133
+open jpa doesn find custom map applic loader jira openjpa 758 address loader issu valu handler found applic loader fix specif valu handler issu occur custom map strategi discrimin strategi basic map handl map repositori attach patch propos chang fix pattern done fix jira openjpa 758 jira more detail 
+1
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository
+
+OPENJPA-2107
+manag cach conflict ad entiti time queri complex queri creat follow error openjpa tiss rexport nonfat user error org apach openjpa persist argument except load object id 26301 instanc ac tuwien tiss curriculum entiti cours e267 b76 id exist l1 cach occur assign exist id instanc befor flush attempt load exist instanc id fail object ac tuwien tiss curriculum entiti cours 26301 org apach openjpa kernel manag cach add manag cach java 126 org apach openjpa kernel broker impl set state manag broker impl java 4117 org apach openjpa kernel state manag impl initi state manag impl java 391 org apach openjpa kernel state manag impl initi state manag impl java 340 org apach openjpa jdbc kernel jdbc store manag initi state jdbc store manag java 378 entiti get load from db twice queri hit problem state manag follow flag orig flag 602 0010 0101 1010 save load read lock oid assign flush sm flag 16 0000 0001 0000 read lock instanc make problem set orig variabl debugg test run fine 
+1
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.BrokerImpl.BrokerImpl
+
+OPENJPA-1682
+test simpl xml entiti test id fail invalid db2 creat tabl sql statement test simpl xml entiti test id start fail follow except db2 test simpl xml entiti test id view test detail org apach openjpa persist xml openjpa snapshot r422266 951071 nonfat gener error org apach openjpa persist persist except db2 sql error sqlcode 542 sqlstate 42831 sqlerrmc nicknam xml driver 50 152 stmnt 65405926 creat tabl nick name xml id xml integ nick name xml varchar 20 constraint ncknxml id xml uniqu id xml nick name xml code 542 state 42831 org apach openjpa jdbc meta map tool record map tool java 556 org apach openjpa jdbc meta map tool record map tool java 456 wait show detail hide detail openjpa snapshot r422266 951071 nonfat gener error org apach openjpa persist persist except db2 sql error sqlcode 542 sqlstate 42831 sqlerrmc nicknam xml driver 50 152 stmnt 65405926 creat tabl nick name xml id xml integ nick name xml varchar 20 constraint ncknxml id xml uniqu id xml nick name xml code 542 state 42831 org apach openjpa jdbc meta map tool record map tool java 556 org apach openjpa jdbc meta map tool record map tool java 456 org apach openjpa jdbc kernel jdbc broker factori synchron map jdbc broker factori java 155 org apach openjpa jdbc kernel jdbc broker factori synchron map jdbc broker factori java 159 org apach openjpa jdbc kernel jdbc broker factori broker impl jdbc broker factori java 117 org apach openjpa kernel abstract broker factori broker abstract broker factori java 199 org apach openjpa kernel deleg broker factori broker deleg broker factori java 156 org apach openjpa persist entiti manag factori impl creat entiti manag entiti manag factori impl java 213 org apach openjpa persist entiti manag factori impl creat entiti manag entiti manag factori impl java 151 org apach openjpa persist test singl em test set up singl em test java 47 org apach openjpa persist xml test simpl xml entiti set up test simpl xml entiti java 28 junit framework test run bare test java 125 org apach openjpa persist test abstract persist test run bare abstract persist test java 503 org apach openjpa persist test abstract persist test run bare abstract persist test java 479 junit framework test result protect test result java 106 junit framework test result run test result java 124 junit framework test result run test result java 109 junit framework test run test java 118 org apach openjpa persist test abstract persist test run abstract persist test java 179 junit framework test suit run test test suit java 208 junit framework test suit run test suit java 203 sun reflect gener method accessor52 invok unknown sourc sun reflect deleg method accessor impl invok deleg method accessor impl java 37 java lang reflect method invok method java 600 org apach maven surefir junit unit test set execut unit test set java 213 org apach maven surefir suit abstract directori test suit execut test set abstract directori test suit java 140 org apach maven surefir suit abstract directori test suit execut abstract directori test suit java 127 org apach maven surefir surefir run surefir java 177 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 48 sun reflect deleg method accessor impl invok deleg method accessor impl java 37 java lang reflect method invok method java 600 org apach maven surefir booter surefir booter run suit process surefir booter java 345 org apach maven surefir booter surefir booter main surefir booter java 1009 caus org apach openjpa lib jdbc report sql except db2 sql error sqlcode 542 sqlstate 42831 sqlerrmc nicknam xml driver 50 152 stmnt 65405926 creat tabl nick name xml id xml integ nick name xml varchar 20 constraint ncknxml id xml uniqu id xml nick name xml code 542 state 42831 org apach openjpa lib jdbc log connect decor wrap log connect decor java 257 org apach openjpa lib jdbc log connect decor wrap log connect decor java 241 org apach openjpa lib jdbc log connect decor access 700 log connect decor java 70 org apach openjpa lib jdbc log connect decor log connect log statement execut updat log connect decor java 951 org apach openjpa lib jdbc deleg statement execut updat deleg statement java 136 org apach openjpa jdbc schema schema tool execut sql schema tool java 1200 org apach openjpa jdbc schema schema tool creat tabl schema tool java 956 org apach openjpa jdbc schema schema tool add schema tool java 533 org apach openjpa jdbc schema schema tool add schema tool java 348 org apach openjpa jdbc schema schema tool run schema tool java 325 org apach openjpa jdbc meta map tool record map tool java 504 33 more creat tabl constraint requir nick name xml albert lee 
+8
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DBDictionary.DBDictionary
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.nullity.TestBasicFieldNullity.TestBasicFieldNullity
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.RowImpl.RowImpl
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DB2Dictionary.DB2Dictionary
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.ForeignKey.ForeignKey
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.LocalConstraint.LocalConstraint
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DerbyDictionary.DerbyDictionary
+

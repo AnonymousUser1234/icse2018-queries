@@ -1,0 +1,516 @@
+DERBY-6150
+add automat cleanup connect open connect automat roll back close connect open stai open hold lock affect test databas clean lock held good clean up connect 
+0
+
+DERBY-6138
+fail seal violat seal depend classpath order depend classpath order derbycli jar befor derbi jar classpath fail seal violat error take derbyrun jar derbi test jar resolv issu 
+0
+
+DERBY-6131
+select from view upper list issu reproduc creat tabl tbl1 name varchar 1000 creat tabl tbl2 name varchar 1000 creat view view name select t1 name from tbl1 t1 select t2 name from tbl2 t2 select name from view upper name aa bb fail view creat creat view name select t1 name from tbl1 t1 queri work fine 
+1
+java.engine.org.apache.derby.impl.sql.compile.PredicateList.PredicateList
+
+DERBY-6108
+suit longer run weme revis 1454647 suit longer kick weme stack trace get copi apach locat test doesn finish fail invok 
+0
+
+DERBY-6092
+fail error http peopl apach org myrnavl derbi test result main window testlog ibm15 1449432 suit diff txt 
+1
+java.engine.org.apache.derby.impl.jdbc.LOBStreamControl.LOBStreamControl
+
+DERBY-6086
+factor logic creat custom connect bit common boilerpl code relat get custom connect more on logic connect from singl pool physic connect factor make test method shorter make test method more focus test 
+0
+
+DERBY-6064
+failur relat index cardin statist failur relat index cardin statist upgrad test fail run 10 reason fix ha backport 10 older branch back 10 fix invalid assumpt made test changes10 exampl failur http build apach org job derbi 10 suit 60 test report side note wonder don good routin make run upgrad test mainten releas older branch befor releas don avoid situat gener least requir care consider write upgrad test 
+0
+
+DERBY-6063
+access variabl name variabl instanc caus troubl code analysi applic access variabl recommend chang code access variabl name remov unus method 
+3
+java.engine.org.apache.derby.impl.sql.catalog.TabInfoImpl.TabInfoImpl
+java.engine.org.apache.derby.impl.sql.execute.InsertResultSet.InsertResultSet
+java.engine.org.apache.derby.impl.store.access.btree.ControlRow.ControlRow
+
+DERBY-6058
+failur trunk ibm weme6 build 1433263 build 1433263 trunk follow test failur thing fine build 1432788 thing fine ibm http peopl apach org myrnavl derbi test result main window test summari 1433263 html 
+0
+
+DERBY-6053
+client us prepar statement regular statement us statement build up time call better perform avoid garbag collect issu singl prepar statement paramet marker 
+1
+java.client.org.apache.derby.client.am.Connection.Connection
+
+DERBY-6008
+allow order fetch offset set operand current derbi doesn allow order nest set operand follow construct select from t1 order offset row select from t2 order desc offset row allow standard understand cf quot from section 12 sql 2011 
+8
+java.engine.org.apache.derby.impl.sql.compile.CursorNode.CursorNode
+java.engine.org.apache.derby.impl.sql.compile.InsertNode.InsertNode
+java.engine.org.apache.derby.impl.sql.compile.IntersectOrExceptNode.IntersectOrExceptNode
+java.engine.org.apache.derby.impl.sql.compile.OrderByColumn.OrderByColumn
+java.engine.org.apache.derby.impl.sql.compile.RowResultSetNode.RowResultSetNode
+java.engine.org.apache.derby.impl.sql.compile.SelectNode.SelectNode
+java.engine.org.apache.derby.impl.sql.compile.SetOperatorNode.SetOperatorNode
+java.engine.org.apache.derby.impl.sql.compile.UnionNode.UnionNode
+
+DERBY-5996
+creat readm file caution user modifi databas file databas hard upgrad timestart 10 10 releas creat readm file databas creation time file caution user touch databas file good creat readm file databas get hard upgrad 10 10 higher 
+2
+java.engine.org.apache.derby.impl.sql.catalog.DD_Version.DD_Version
+java.engine.org.apache.derby.impl.store.raw.log.LogToFile.LogToFile
+
+DERBY-5995
+add test check readm file get creat even log directori ha chang jdbc url attribut derbi 5322 ad three readm file databas warn user touch file databas directori jira test three readm file get properli creat even log directori ha set non locat attribut jdbc url 
+0
+
+DERBY-5955
+prepar derbi run compact profil jep 161 wait java modul aka project jigsaw ha decid defin subset java se platform specif cf jep 161 http openjdk java net jep 161 quot from jep more broadli featur intend enabl migrat applic current built java connect devic configur cdc appropri profil java se platform part term effort converg cdc java se good make derbi run limit profil current propos place jdbc compact profil cf link librari us derbi javax name jndi profil larger good derbi run smallest posibl platform profil involv chang make derbi gracefulli limit function librari miss 
+0
+
+DERBY-5948
+updat includ jdk updat jvm info java includ jdk file current assign jvm higher version valu version earli access version java se avail time add valu version 
+0
+
+DERBY-5937
+file handl leak slave replic shutdown failov file handl leak slave replic shutdown failov part us derbi replic shut slave down detect reachabl issu master shut down bring back up regular databas read mode master push fresh copi back slave failov shutdown slave log file name log log1 dat open open file least window imposs move databas file instal fresh copi from master 
+1
+java.engine.org.apache.derby.impl.store.raw.log.LogToFile.LogToFile
+
+DERBY-5933
+sql sort error sql sort errori simpl databas 100 record run sql queri from netbean gui jdbc queri gener hibern orm circumst result rowset sort us condit morefld2 mf id result unsort us condit morefld2 mf id result sort properli 
+1
+java.engine.org.apache.derby.impl.sql.compile.ColumnReference.ColumnReference
+
+DERBY-5916
+connect network server report except connect databas absolut path network server databas name attribut haven inform derbi version platform url receiv charact replac ij connect jdbc derbi localhost 1527 databas name home uxxxx instal hxxx ext mxxxxxxxx db creat 
+1
+java.engine.org.apache.derby.impl.store.raw.data.BaseDataFileFactory.BaseDataFileFactory
+
+DERBY-5914
+incorrect list compat jre version client trace list compat jre version sync current trunk remov add 10 chang keep support befor releas 10 right issu log derbi 5078 previou time sync 
+0
+
+DERBY-5912
+fail slow run machin configur follow test ha fail run machin heavi load slow run option specifi call take more second assum on second embed paramet implement pass network implement timeout perform queri part implement 
+0
+
+DERBY-5854
+test method unus method issu add test 
+0
+
+DERBY-5816
+fail os fail os two failur test encod issu failur test run 290 failur error 
+1
+java.engine.org.apache.derby.impl.services.monitor.StorageFactoryService.StorageFactoryService
+
+DERBY-5775
+upgrad test print full stack trace fail access old version upgrad test fail access old version messag clear output print except stack trace possibl even fail 
+0
+
+DERBY-5750
+send empti string tabl name compress tabl procedur empti string index name updat statist procedur make parser except empti string pass index name updat statist procedur follow except pass empti string tabl compress tabl procedur simiar except store procedur creat derbi 4115 drop statist gave similar except issu help command gener inform ij command syntax unrecogn command treat potenti sql command execut directli consult dbm server refer document detail sql syntax support server 
+1
+java.engine.org.apache.derby.catalog.SystemProcedures.SystemProcedures
+
+DERBY-5663
+get set derbi ha larg data suit run small data size larg data size embed network server configur larg data suit run follow made simpl chang suit log statement text shown attach patch derby5663 patch1 txt caus larg data suit run wrong set properti result 
+0
+
+DERBY-5622
+reduc chanc hash collis check boot time chang password two issu derbi 2687 boot issu 16 chanc wrong allow boot proce decod kei wrong boot fail password chang issu similarli chanc wrong accept chang least algorithm check iv initi vector addit digest lead data corrupt cf derbi 2687 discuss risk fairli low on execut permiss chang properti sql author us most scenario suppli exist password correct result bad good reduc elimin risk 
+1
+java.engine.org.apache.derby.impl.services.jce.JCECipherFactory.JCECipherFactory
+
+DERBY-5561
+race condit check physic connect race condit after call return us member set close call us member method time call check physic connect check member occur method chang race condit return race condit affect clear 
+0
+
+DERBY-5424
+os releas candid 10 1170221 follow two failur os test connect wrong subprotoctestol properti failur test newli convert derbi 5084 regress more encod issu relat test 
+1
+java.engine.org.apache.derby.impl.services.monitor.StorageFactoryService.StorageFactoryService
+
+DERBY-5232
+put stern readm file log seg0 directori warn user corrput caus touch file user bad advic desper touch delet file log seg0 directori log good databas upgrad file creat directori name touch file here corrupt db readm txt warn peril corrupt effect elimin possibl salvag encourag user make zip backup databas directori jvm current access befor databas appear corrupt point backup restor document encourag restor good backup empti directori databas corrupt help couldn hurt 
+4
+java.engine.org.apache.derby.impl.services.monitor.StorageFactoryService.StorageFactoryService
+java.engine.org.apache.derby.impl.store.raw.log.LogToFile.LogToFile
+org.apache.derby.impl.services.monitor.BaseMonitor.BaseMonitor
+java.engine.org.apache.derby.impl.store.access.RAMAccessManager.RAMAccessManager
+
+DERBY-5172
+fail intermitt ve follow stack trace instanc 26 2011 http peopl apach org myrnavl derbi test result v10 window testlog ibm16 1085854 suit diff txt exampl fromhttp peopl apach org myrnavl derbi test result v10 window testlog ibm16 1085628 suit diff txt happen two differ code line linux window ve recent updat jvm jvm issu verifi 
+0
+
+DERBY-4279
+statement cach deadlock applic embed derbi driver applic ha two thread thread us connect tabl name mytabl column mycolumn thread prepar execut queri select mycolumn from mytabl prepar statement store statement cach after time prepar statement invalid date reason thread begin transact execut lock tabl mytabl exclus mode thread begin transact execut select mycolumn from mytabl statement statement cach date thread begin recompil statement compil statement thread share lock mytabl thread ha exclus lock mytabl thread wait thread execut select mycolumn from mytabl statement statement cach compil thread wait statement monitor deadlock derbi eventu detect lock timeout error messag descript stack time deadlock deadlock uniqu occur properli design databas safe transact simpl interleav sequenc caus deadlock statement requir tabl lock compil sake simplic us lock tabl exampl updat statement fit 
+4
+java.engine.org.apache.derby.impl.sql.compile.ResultColumnList.ResultColumnList
+java.engine.org.apache.derby.impl.sql.GenericActivationHolder.GenericActivationHolder
+java.engine.org.apache.derby.impl.sql.GenericPreparedStatement.GenericPreparedStatement
+java.engine.org.apache.derby.impl.sql.GenericStatement.GenericStatement
+
+DERBY-4269
+failov succe min failov succe http dbtg thresher com derbi test daili jvm1 test testlog vista 64 782274 suit diff txt 
+1
+java.engine.org.apache.derby.impl.db.SlaveDatabase.SlaveDatabase
+
+DERBY-2461
+convert junit convert test from old har junit 
+0
+
+DERBY-2076
+rewrit conform current unit usag ha fail nightli run old test har reason properti grant permiss read pick up properli old har abl resolv problem grant permiss read test refactor run rest junit test need old har 
+0
+
+DERBY-1400
+cleanup code network server follow cleanup task identifi part derbi 1002 http issu apach org jira brows derbi 1002 purpos method confirm modifi comment place current call 
+1
+java.drda.org.apache.derby.impl.drda.DRDAStatement.DRDAStatement
+
+DERBY-6147
+close object test fail 10 branch run java http mail archiv apach org mod mbox db derbi dev 201304 mbox cca dj em jj dw dj ve swq6 xv kd018 zzff kgapf tch pu9 h3 pug 40 mail gmail com 3e 
+0
+
+DERBY-6133
+simpl arrai index typo 
+1
+java.engine.org.apache.derby.impl.sql.execute.HashTableResultSet.HashTableResultSet
+
+DERBY-6094
+derbi ignor set login timeout derbi ignor set 
+13
+java.build.org.apache.derbyBuild.splitmessages.splitmessages
+java.engine.org.apache.derby.jdbc.Driver20.Driver20
+java.client.org.apache.derby.client.am.SQLExceptionFactory40.SQLExceptionFactory40
+java.client.org.apache.derby.client.net.NetConnection.NetConnection
+java.engine.org.apache.derby.catalog.SystemProcedures.SystemProcedures
+java.engine.org.apache.derby.impl.jdbc.authentication.NativeAuthenticationServiceImpl.NativeAuthenticationServiceImpl
+java.engine.org.apache.derby.impl.db.SlaveDatabase.SlaveDatabase
+java.engine.org.apache.derby.impl.jdbc.LOBStoredProcedure.LOBStoredProcedure
+java.engine.org.apache.derby.impl.jdbc.SQLExceptionFactory40.SQLExceptionFactory40
+java.engine.org.apache.derby.jdbc.Driver169.Driver169
+java.engine.org.apache.derby.jdbc.EmbeddedBaseDataSource.EmbeddedBaseDataSource
+java.engine.org.apache.derby.jdbc.EmbeddedSimpleDataSource.EmbeddedSimpleDataSource
+java.engine.org.apache.derby.jdbc.InternalDriver.InternalDriver
+
+DERBY-6089
+client lack check legal type cf attach neg test patch jdbc javadoc data type jdbc driver support data type overload embed check insid similar client check 
+8
+java.client.org.apache.derby.client.am.CallableStatement.CallableStatement
+java.engine.org.apache.derby.impl.jdbc.ConnectionChild.ConnectionChild
+java.engine.org.apache.derby.impl.jdbc.EmbedCallableStatement42.EmbedCallableStatement42
+java.engine.org.apache.derby.impl.jdbc.EmbedPreparedStatement.EmbedPreparedStatement
+java.engine.org.apache.derby.impl.jdbc.EmbedPreparedStatement42.EmbedPreparedStatement42
+java.engine.org.apache.derby.impl.jdbc.EmbedResultSet42.EmbedResultSet42
+java.engine.org.apache.derby.impl.jdbc.Util42.Util42
+java.engine.org.apache.derby.impl.sql.GenericParameterValueSet.GenericParameterValueSet
+
+DERBY-6085
+improv error report server port unavail fail doesn report port host us attempt creat server socket 
+0
+
+DERBY-6079
+100 error nightli test run weme after jacoco properti priviledg checkin 100 error nightli test pointer process polici file setup problem jvm code specif weme6 jvm 
+0
+
+DERBY-6073
+test order instabl assum client side statement cach prime previou test java java test order determinist first test run fail error fail java run 10 branch trunk 
+0
+
+DERBY-6065
+lock tabl api link document broken lock tabl api link document broken happen notic link document broken exampl http db apach org derbi doc 10 devguid cdevconcepts50894 html link lock tabl api document broken broken link document wiki track jira issu nice figur clean up link easili exampl http wiki apach org db derbi lock debug broken link lock tabl api document sysc diag tabl document 
+0
+
+DERBY-6044
+fix poor word break tabl download page fix poor word break tabl download page derbi releas download page tabl contain jira issu id descript descript contain test name natur point browser up derbi xxxx hyphen make page harder read address 
+2
+java.build.org.apache.derbyBuild.GeneratorBase.GeneratorBase
+java.build.org.apache.derbyBuild.ReleaseNotesGenerator.ReleaseNotesGenerator
+
+DERBY-6033
+lift arbitrari limit number routin paramet number paramet derbi routin arbitrarili limit 90 limit caus difficulti user http apach databas 10148 n7 nabbl com number paramet td126108 html safe lift limit chang made 
+1
+java.engine.org.apache.derby.impl.sql.compile.CreateAliasNode.CreateAliasNode
+
+DERBY-6027
+order cast express follow pull up order express seemingli compil phase problem 
+1
+java.engine.org.apache.derby.impl.sql.compile.OrderByColumn.OrderByColumn
+
+DERBY-6009
+stricter check order claus valu express support column number order claus valu express check let unsupport express produc strang result 
+1
+java.engine.org.apache.derby.impl.sql.compile.OrderByColumn.OrderByColumn
+
+DERBY-6000
+implement support jdbc open jdk includ mainten rev jdbc discuss jdbc place here http openjdk java net jep 170 build derbi support jdbc after spec appear time unclear derbi releas carri support 
+17
+java.client.org.apache.derby.jdbc.ClientDriver.ClientDriver
+java.engine.org.apache.derby.impl.jdbc.ConnectionChild.ConnectionChild
+java.engine.org.apache.derby.impl.jdbc.EmbedPreparedStatement.EmbedPreparedStatement
+java.engine.org.apache.derby.impl.sql.execute.DeleteResultSet.DeleteResultSet
+java.engine.org.apache.derby.impl.jdbc.EmbedResultSet42.EmbedResultSet42
+java.engine.org.apache.derby.impl.jdbc.EmbedCallableStatement42.EmbedCallableStatement42
+java.engine.org.apache.derby.impl.sql.execute.TemporaryRowHolderResultSet.TemporaryRowHolderResultSet
+java.engine.org.apache.derby.impl.sql.execute.NoRowsResultSetImpl.NoRowsResultSetImpl
+java.client.org.apache.derby.client.am.PreparedStatement42.PreparedStatement42
+java.engine.org.apache.derby.impl.sql.execute.InsertResultSet.InsertResultSet
+java.client.org.apache.derby.client.am.Agent.Agent
+java.engine.org.apache.derby.impl.jdbc.EmbedStatement.EmbedStatement
+java.engine.org.apache.derby.impl.sql.execute.RealResultSetStatisticsFactory.RealResultSetStatisticsFactory
+java.engine.org.apache.derby.impl.sql.execute.UpdateResultSet.UpdateResultSet
+java.engine.org.apache.derby.jdbc.InternalDriver.InternalDriver
+java.engine.org.apache.derby.impl.jdbc.EmbedDatabaseMetaData.EmbedDatabaseMetaData
+java.client.org.apache.derby.client.am.CallableStatement42.CallableStatement42
+
+DERBY-5989
+stop produc code non exist qualifi result set node predic list derbi compil lai code field hold qualifi code reiniti valu field execut even qualifi method check qualifi skip code gener chang skip code gener qualifi 
+1
+java.engine.org.apache.derby.impl.sql.compile.PredicateList.PredicateList
+
+DERBY-5954
+involv subselect window function user report verifi 
+1
+java.engine.org.apache.derby.impl.sql.compile.SelectNode.SelectNode
+
+DERBY-5934
+convert convert old style java test unit 
+0
+
+DERBY-5930
+reformat incorrectli indent replac tab reformat code correct typo adjust comment ve creat sub task derbi 5792 method chang decrypt featur implement 
+1
+java.engine.org.apache.derby.impl.store.raw.RawStore.RawStore
+
+DERBY-5927
+add util method queri state url attribut add util method determin url attribut set valu motiv chang improv readabl format code 
+1
+java.engine.org.apache.derby.impl.jdbc.EmbedConnection.EmbedConnection
+
+DERBY-5918
+doesn work tabl column us from tabl column limit put ad time creat user tabl column peopl abl subvert restrict from tabl column 
+1
+java.engine.org.apache.derby.iapi.types.DataTypeDescriptor.DataTypeDescriptor
+
+DERBY-5911
+condit get push sub queri fetch derbi push queri condit down subqueri fetch limit creat wrong result row result first queri show up supposedli filter condit ha evalu befor fetch limit 
+1
+java.engine.org.apache.derby.impl.sql.compile.ProjectRestrictNode.ProjectRestrictNode
+
+DERBY-5896
+chang sourc code us space tab clean up tab creep chang network server code us space tab mix tab space confus irrit time consum develop network code client space server tab option svn merg svn diff merg reason even chang tab space file script object chang pend chang get befor make chang 
+0
+
+DERBY-5885
+order argument name wrong argument occur messag sequenc most derbi messag argument appear ascend order occur messag first argument occur sequenc name arg sub element agre order argument occur messag caus garbl dita sourc refer guid page titl rise follow garbl text gener refer guid page start posit locat invalid posit integ index start search from from string string search start index string search from search string order arg sub element first arg sub lement correspond second arg sub element correspond 
+1
+java.testing.org.apache.derbyTesting.junit.JDBC.JDBC
+
+DERBY-5878
+add messag argument name comment english messag file produc program turn two output file dita sourc refer guid section error messag file engin messag translat dealt us english input translat translat written tool tool expect work properti file messag argument argument appear sub element messag argument turn up thrown awai help translat better job write argument comment 
+1
+java.build.org.apache.derbyBuild.MessageBuilder.MessageBuilder
+
+DERBY-5871
+invok logic statement exist statement test code coverag logic statement improv invok exist statement test done decor make us pool connect 
+0
+
+DERBY-5851
+inconsist code coverag shown inconsist code coverag shown run jdbc4 environ run 
+0
+
+DERBY-5838
+prevent from boot databas show problem fail boot connect 
+1
+java.engine.org.apache.derby.impl.sql.LanguageDbPropertySetter.LanguageDbPropertySetter
+
+DERBY-5836
+move factor move better home method 
+0
+
+DERBY-5834
+remov unus method 
+0
+
+DERBY-5833
+remov unus method 
+0
+
+DERBY-5828
+remov unus method 
+0
+
+DERBY-5827
+remov unus method 
+0
+
+DERBY-5826
+remov unus method 
+0
+
+DERBY-5740
+remov unus code 
+0
+
+DERBY-5688
+track task need produc 10 releas master task track product 10 releas 
+2
+java.engine.org.apache.derby.impl.sql.catalog.DD_Version.DD_Version
+java.engine.org.apache.derby.impl.sql.catalog.DataDictionaryImpl.DataDictionaryImpl
+
+DERBY-5638
+intermitt test failur run ve follow failur run largedata suit fail directori creat directori innoc start up shut down databas ha typic note suit exit expect 20 21 window derbi 5624 reason skip linux instal 1024 max open file get 15 16 test run test doesn fail run last fixtur network server 
+0
+
+DERBY-5567
+fail drop view perform depend 
+1
+java.engine.org.apache.derby.iapi.sql.dictionary.ViewDescriptor.ViewDescriptor
+
+DERBY-5546
+real column underflow check column expect error underflow cf attach repro program 
+2
+java.engine.org.apache.derby.iapi.types.SQLReal.SQLReal
+java.engine.org.apache.derby.iapi.types.SQLDouble.SQLDouble
+
+DERBY-5531
+failur insert index column territori base collat 
+1
+java.engine.org.apache.derby.impl.store.access.btree.OpenBTree.OpenBTree
+
+DERBY-5407
+run network dblook produc unus ddl varchar bit data column correspond mani afschar yazdi report dblook omit length specif varchar bit data column run network embed dblook run fine reproduc problem follow bring up server here port 8246 creat databas follow ij script connect jdbc derbi localhost 8246 memori db creat creat tabl varchar 20 bit data run dblook network java org apach derbi tool dblook jdbc derbi localhost 8246 memori db produc follow ddl tabl creat tabl app varchar bit data similar experi embed databas produc usabl ddl includ length specif varchar bit data column 
+1
+java.engine.org.apache.derby.catalog.types.BaseTypeIdImpl.BaseTypeIdImpl
+
+DERBY-5377
+failur 
+0
+
+DERBY-5357
+shouldn us identifi file name instal jar file procedur copi jar file subdirectori databas directori name store jar file base qualifi name specifi second paramet procedur name scheme problemat qualifi name jar file sql identifi contain charact charact special mean underli file unix system instal jar subdirectori databas directori parent directori unfortun databas directori self contain assumpt us take backup databas oper command move databas locat possibl fail identifi contain charact allow file name platform better jar store file name independ identifi us valid sql identifi us name jar file databas caus problem 
+8
+java.engine.org.apache.derby.impl.sql.catalog.DD_Version.DD_Version
+java.tools.org.apache.derby.impl.tools.dblook.DB_Jar.DB_Jar
+java.engine.org.apache.derby.impl.store.raw.data.RFResource.RFResource
+java.engine.org.apache.derby.iapi.sql.dictionary.DataDescriptorGenerator.DataDescriptorGenerator
+java.engine.org.apache.derby.impl.sql.execute.JarUtil.JarUtil
+java.tools.org.apache.derby.tools.dblook.dblook
+java.engine.org.apache.derby.impl.db.BasicDatabase.BasicDatabase
+java.engine.org.apache.derby.impl.store.raw.RawStore.RawStore
+
+DERBY-5342
+make script test doesn support properti better two properti support chang subclass adapt 
+1
+java.tools.org.apache.derby.impl.tools.ij.utilMain.utilMain
+
+DERBY-5252
+make pass non english local 
+0
+
+DERBY-5251
+make non english local fail chines local 
+0
+
+DERBY-5045
+failur failur run suit revis 1070949 1b patch attach derbi 642 
+1
+java.engine.org.apache.derby.impl.services.daemon.IndexStatisticsDaemonImpl.IndexStatisticsDaemonImpl
+
+DERBY-5040
+window cascad error after fail distinct from error after enabl statist refresh patch 
+0
+
+DERBY-5037
+assert failur from run follow assert failur consol run automat index statist test standalon debug jar relat derbi 5026 derbi 5030 derbi 5031 test complet successfulli 
+0
+
+DERBY-5014
+test restor timeout valu after done run coupl more test chang lock time test run don restor end test knut fix behavior part derbi 4273 follow addit test fix 
+0
+
+DERBY-4873
+ibm jvm line skip test boundari fixtur comment get follow stack run test ibm after latest check derbi 4836 revis 1028035 
+1
+java.engine.org.apache.derby.impl.store.raw.data.BaseDataFileFactory.BaseDataFileFactory
+
+DERBY-4789
+appli bulk insert optim insert from tabl function insert from tabl function lot import from file derbi ha limit visibl size extern data sourc user larg data set procedur assum derbi appli bulk insert optim import from file assumpt reason tabl function appear sourc stream insert 
+0
+
+DERBY-4669
+fail derbycli jar befor derbi jar classpath derbycli jar befor derbi jar classpath build sane test fail 
+0
+
+DERBY-4647
+work weme spawn java process work weme boot classpath get pass issu up derbi 4179 after issu fix enabl weme error pick up j9 execut pass set script invok test j9 ha lot legaci properti need suppos pass properti don get pass old har current method us replic network server 
+0
+
+DERBY-4631
+wrong join column return right outer join natur territori base collat sql 2003 join column natur join name column join ad select list coalesc column from left tabl column from right tabl section join tabl syntax rule let tr1 first tabl refer let tr2 tabl refer tabl factor second operand join tabl let rt1 rt2 row type tr1 tr2 let ta tb rang variabl tr1 tr2 natur specifi join specif immedi contain name column join specifi least on join column let slcc select list deriv column form coalesc ta tb column join column order ordin posit rt1 right outer join derbi doesn us coalesc ta tb tb column right tabl directli most case coalesc ta tb tb invari right outer join ta equal tb databas territori base collat equal two valu mean ident strength collat specifi derbi 1748 instanc join from small t1 natur right outer join big t2 row select expect result from queri first column valu last column first column contain 
+3
+java.engine.org.apache.derby.impl.sql.compile.JoinNode.JoinNode
+java.engine.org.apache.derby.impl.sql.compile.ResultColumn.ResultColumn
+java.engine.org.apache.derby.impl.sql.compile.ResultColumnList.ResultColumnList
+
+DERBY-4066
+allow function procedur blob clob argument derbi object declar function procedur argument type blob clob kind argument allow sql standard match java type java sql blob java sql clob summari attach derbi 3652 lift restrict allow function procedur larg object argument 
+8
+java.drda.org.apache.derby.impl.drda.DRDAResultSet.DRDAResultSet
+java.client.org.apache.derby.client.net.NetCursor.NetCursor
+java.drda.org.apache.derby.impl.drda.EXTDTAInputStream.EXTDTAInputStream
+java.engine.org.apache.derby.iapi.types.DataValueDescriptor.DataValueDescriptor
+java.drda.org.apache.derby.impl.drda.DRDAConnThread.DRDAConnThread
+java.engine.org.apache.derby.impl.sql.compile.MethodCallNode.MethodCallNode
+java.engine.org.apache.derby.impl.sql.compile.CreateAliasNode.CreateAliasNode
+java.engine.org.apache.derby.impl.jdbc.EmbedCallableStatement.EmbedCallableStatement
+
+DERBY-3808
+convert junit place holder convert junit intermitt failur derbyal 
+0
+
+DERBY-3652
+derbi follow sql standard map sql routin java method test 10 trunk suspect affect previou releas derbi resolv method signatur function procedur invoc sql standard make follow definit part 13 section paramet map definit turn refer tabl jdbc specif releas octob 2001 jdbc simpli mappabl refer correspond sql java type describ jdbc tabl tabl defin map sql type java primit object mappabl refer correspond sql java type describ jdbc tabl tabl defin map sql type java wrapper object output mappabl inout paramet refer singl element arrai cell simpli mappabl object mappabl integ mappabl mean simpli object output mappabl result set mappabl mean singl element arrai cell type java sql result set sqlj runtim result set iter put section continu java method paramet mappabl sql zero data type first paramet mappabl last paramet result set mappabl result type simpli mappabl object mappabl section more detail rule hard follow section resolv routin invoc derbi expect find on on mappabl method expect extern name java method name fair descript rule least databas appear instanc http infocent sybas com help index jsp topic com sybas help as 15 java html java java126 htm http www servic architectur com databas articl map sql java data type html regress test verifi derbi appli sql standard resolut rule diverg from standard jira place track discrep here on notic follow sql signatur return mappabl follow java signatur observ derbi abl resolv first third signatur primit argument attach test show problem attach html tabl summar simpli object mappabl rule 
+5
+java.tools.org.apache.derby.iapi.tools.run.run
+java.engine.org.apache.derby.iapi.sql.dictionary.IndexRowGenerator.IndexRowGenerator
+java.engine.org.apache.derby.catalog.types.IndexDescriptorImpl.IndexDescriptorImpl
+java.engine.org.apache.derby.impl.sql.compile.UnaryComparisonOperatorNode.UnaryComparisonOperatorNode
+java.engine.org.apache.derby.iapi.services.loader.ClassInspector.ClassInspector
+
+DERBY-3069
+derbi resolv function bound method vararg vararg ad java nice derbi let invok function bound method variabl length argument list refer guid state small number restrict method invok derbi function argument datatyp reason derbi shouldn abl resolv invok function bound method don suffer limit variabl argument list 
+3
+java.engine.org.apache.derby.impl.sql.compile.MethodCallNode.MethodCallNode
+java.engine.org.apache.derby.impl.sql.compile.StaticMethodCallNode.StaticMethodCallNode
+java.engine.org.apache.derby.iapi.services.loader.ClassInspector.ClassInspector
+
+DERBY-3024
+valid share plan hurt scalabl investig sql execut layer prevent scale multi cpu machin wrote multi thread test continu execut ran test machin cpu expect throughput proport number concurr client up client number cpu throughput small increas from client ad more client increas throughput test profil thread spend lot time wait enter synchron block chang test slightli append comment uniqu thread id statement mean thread work thread plan statement cach didn regard sql text string ident made chang test scale more perfectli up concurr thread find make scalabl thread share plan 
+2
+java.engine.org.apache.derby.impl.sql.GenericPreparedStatement.GenericPreparedStatement
+java.engine.org.apache.derby.impl.sql.execute.BaseActivation.BaseActivation
+
+DERBY-2354
+unabl perform select queri distinct read databas perform queri distinct read databas packag zip file gener follow error problem reproduc attach java program follow databas file http ftp2 bigcat unimaa nl thoma kelder derbytest testdb zip properti set writabl locat advis help file derbi user mail list thread http articl gmane org gmane comp apach db derbi user 6123 appear bug possibl regress convert db to10 work fine even set properti temp directori error file hmmm switch 10 10 jar access databas 40 xd1 error happen stanlei bradburi 
+4
+java.engine.org.apache.derby.impl.store.raw.data.TempRAFContainer.TempRAFContainer
+java.engine.org.apache.derby.impl.store.access.btree.index.B2IFactory.B2IFactory
+java.engine.org.apache.derby.impl.store.access.heap.HeapConglomerateFactory.HeapConglomerateFactory
+java.engine.org.apache.derby.impl.store.raw.data.FileContainer.FileContainer
+
+DERBY-2141
+fail nightli regress test http dbtg thresher com derbi test daili jvm1 test testlog lin 481811 org apach derbi test function test suit diff txt http dbtg thresher com derbi test daili jvm1 test testlog lin 480626 org apach derbi test function test suit diff txt 
+3
+java.engine.org.apache.derby.impl.jdbc.SQLExceptionFactory40.SQLExceptionFactory40
+java.engine.org.apache.derby.impl.store.raw.data.D_BaseContainerHandle.D_BaseContainerHandle
+java.engine.org.apache.derby.impl.store.raw.data.BaseContainerHandle.BaseContainerHandle
+
+DERBY-1914
+test garbag output os run test output tmp file show non charact most test test har specif problem on execut simpl statist gather command ij problem note test produc readabl output imposs actual problem 
+0
+

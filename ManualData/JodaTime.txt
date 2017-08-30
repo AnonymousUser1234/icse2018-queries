@@ -1,0 +1,122 @@
+YodaTime
+1755161
+3b10dff8172473fd6695b4ee3a34f4dc51d3b72d
+Lenient Chronology issue with Spring DST?" I\'m not sure if this is a bug, or just undocumented behavior.  When constructing dates using a lenient calendar, and a time within the \'missing\' hour on the day of the change from standard to daylight time is entered, the resulting time is 01:30 instead of the \'equivalent\' 03:30. Example:  Constructing a new date of 3/11/2007 02:00:00 CST results in a time of 3/11/2007 01:00:00 CST.  I would expect 3/11/2007 03:00:00 CDT to be the\'equivalent\' time. May be related to ID#1747219 and 1755158? Attached program reproduces the issue.
+Lenient Chronology issue with Spring DST?" I\'m not sure if this is a bug, or just undocumented behavior.  When constructing dates using a lenient calendar, and a time within the \'missing\' hour on the day of the change from standard to daylight time is entered, the resulting time is 01:30 instead of the \'equivalent\' 03:30. Example:  Constructing a new date of 3/11/2007 02:00:00 CST results in a time of 3/11/2007 01:00:00 CST.  I would expect 3/11/2007 03:00:00 CDT to be the\'equivalent\' time. May be related to ID#1747219 and 1755158? Attached program reproduces the issue.
+******
+JodaTime/src/test/org/joda/time/MockZone.MockZone(long, int),False,new_method
+JodaTime/src/test/org/joda/time/MockZone.getOffset(long),False,new_method
+JodaTime/src/test/org/joda/time/MockZone.getStandardOffset(long),False,new_method
+JodaTime/src/test/org/joda/time/MockZone.nextTransition(long),False,new_method
+previousTransition(long),False,new_method
+JodaTime/src/test/org/joda/time/MockZone.isFixed(),False,new_method
+JodaTime/src/test/org/joda/time/MockZone.getNameKey(long),False,new_method
+JodaTime/src/test/org/joda/time/MockZone.equals(Object),False,new_method
+JodaTime/src/test/org/joda/time/chrono/TestLenientChronology.test_setYear(),False,test_method
+JodaTime/src/test/org/joda/time/chrono/TestLenientChronology.test_setMonthOfYear(),False,test_method
+JodaTime/src/test/org/joda/time/chrono/TestLenientChronology.test_setDayOfMonth(),False,test_method
+JodaTime/src/test/org/joda/time/chrono/TestLenientChronology.test_setHourOfDay(),False,test_method
+JodaTime/src/test/org/joda/time/chrono/TestLenientChronology.test_MockTurkIsCorrect(),False,test_method
+JodaTime/src/test/org/joda/time/chrono/TestLenientChronology.test_lenientChrononolgy_Chicago(),False,test_method
+JodaTime/src/test/org/joda/time/chrono/TestLenientChronology.test_lenientChrononolgy_Turk(),False,test_method
+JodaTime/src/test/org/joda/time/chrono/TestLenientChronology.test_strictChrononolgy_Chicago(),False,test_method
+JodaTime/src/test/org/joda/time/chrono/TestLenientChronology.test_isoChrononolgy_Chicago(),False,test_method
+JodaTime/src/java/org/joda/time/field/LenientDateTimeField.set(long, int),True
+#####
+YodaTime
+1788282
+4568771d82b6f6528df6a00a4dfd308d84965e46
+Problems parsing text parts of dates"> Check out this code (test it with date in September):DateTimeFormatter formatter =DateTimeFormat.forPattern("dd.MMM.yyyy").withLocale(Locale.FRENCH); System.out.println(formatter.print(System.currentTimeMillis())); formatter.parseDateTime("11.sept..2007"); you will get exception on the last line. The problem is that some of the French short months end with \'.\' This works fine with the SimpleDateFormat.
+Problems parsing text parts of dates"> Check out this code (test it with date in September): you will get exception on the last line. The problem is that some of the French short months end with \'.\' This works fine with the .
+******
+JodaTime/src/java/org/joda/time/format/DateTimeFormatterBuilder.parseInto(DateTimeParserBucket, String, int),True
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textMonthJanShort_UK(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testParse_textMonthJanLong_UK(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textMonthJanShort_France(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textMonthJanLong_France(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textMonthApr_France(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textMonthAtEnd_France(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textMonthApr_Korean(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textHalfdayAM_UK(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textHalfdayAM_France(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textEraAD_UK(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textEraAD_France(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textEraBC_France(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textYear_UK(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textYear_France(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textAdjoiningHelloWorld_UK(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.testFormatParse_textAdjoiningMonthDOW_UK(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormat.check(DateTime, int, int, int),False,test_method
+#####
+YodaTime
+1877843
+b4370721a180fe3c428aed40a3345d817ecf3013
+DateTimeFormat.forFields(List) method can\'t handle immutable"> line 451 of ISODateTimeFormat (v1.4) is: [method time(DateTimeFormatterBuilder, Collection, bool, bool, bool, bool)] boolean hour = fields.remove(DateTimeFieldType.hourOfDay()); as this operation is done on the input to the forFields() method, it requires the list to be mutable. This is clearly bad design. The list should be cloned. Even Arrays.asList-fed units will fail to work, as Arrays.asList type lists do not support add or remove. Thus, the following code fails: private static final DateTimeFormatter TIME_FORMAT = ISODateTimeFormat.forFields(Arrays.asList( DateTimeFieldType.hourOfDay(), DateTimeFieldType.minuteOfHour(), DateTimeFieldType.secondOfMinute()), true, false); Workaround: do the cloning yourself by wrapping whatever you feed to forFields in a new ArrayList&lt;DateTimeFieldType&gt;(the argument). you can mail me at reinier@zwitserloot.com for further questions.
+method can\'t handle immutable"> line 451 of (v1.4) is: as this operation is done on the input to the method, it requires the list to be mutable. This is clearly bad design. The list should be cloned. Even -fed units will fail to work, as type lists do not support add or remove. Thus, the following code fails: Workaround: do the cloning yourself by wrapping whatever you feed to  in a (the argument). you can mail me at reinier@zwitserloot.com for further questions.
+******
+JodaTime/src/test/org/joda/time/format/TestISODateTimeFormat_Fields.testForFields_calBased_YMD_unmodifiable(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestISODateTimeFormat_Fields.testForFields_calBased_YMD_duplicates(),False,test_method
+JodaTime/src/java/org/joda/time/format/ISODateTimeFormat.forFields(Collection, boolean, boolean),True
+#####
+YodaTime
+2025928
+6a8fe2b399c31b450e9175048a451569c0adc3a7
+printZeroRarelyFirst() is not always printing as expected"> PeriodFormatterBuilder.printZeroRarelyFirst() is not causing a zero to be printed for the months, weeks, days, hours, minutes, and seconds fields if they are the first field. These all output correctly for the printZeroRarelyLast() command. If I use the following code, nothing will be output, I would expect "0". {    Period testPeriod = new Period(0, 0, 0, 0, 0, 0, 0, 0);    PeriodFormatter formatter = new PeriodFormatterBuilder().printZeroRarelyFirst().appendMonths().toFormatter();    System.out.println(formatter.print(testPeriod));} If I change the formatter to add years, as below, a zero will be printed for the years value, as expected.{    Period testPeriod = new Period(0, 0, 0, 0, 0, 0, 0, 0);    PeriodFormatter formatter = new PeriodFormatterBuilder().printZeroRarelyFirst().appendMonths().appendYears().toFormatter();    System.out.println(formatter.print(testPeriod));} The same is true for appendWeeks(), appendDays(), appendHours(), appendMinutes(), and appendSeconds() commands.  A zero will only be printed if appendYears() is also added.   Looking at the PeriodFormatterBuilder.getFieldValue() code, it looks like the for loop for the PRINT_ZERO_RARELY_LAST case is running in the incorrect direction, checking all fields after the given field for null, rather than checking all fields before the given field.  Years is working correctly since it never enters the for loop. Possible correction added to PeriodFormatterBuilder.java long getFieldValue(ReadablePeriod period) {   ...   if (value == 0){     ...     switch (iPrintZeroSetting) {       ...       case PRINT_ZERO_RARELY_FIRST:         if (isZero(period) &amp;&amp; iFieldFormatters[iFieldType] == this) {	   int i = Math.min(iFieldType, 8);           i--;           //Switched loop to i-- instead of i++           for (; i &gt;= 0 &amp;&amp; i &lt;= MAX_FIELD; i--) { 	     if (isSupported(type, i) &amp;&amp; iFieldFormatters[i] != null) {	       return Long.MAX_VALUE;	     }	   }	 } else {	   return Long.MAX_VALUE;	 }       break;     }   } }Test cases added to TestPeriodFormatterBuilder.java    public void testFormatPrintZeroRarelyFirstMonths() {        PeriodFormatter f =            new PeriodFormatterBuilder()                .printZeroRarelyFirst()                .appendMonths().toFormatter();        assertEquals("0", f.print(EMPTY_PERIOD));    }        public void testFormatPrintZeroRarelyFirstWeeks() {        PeriodFormatter f =            new PeriodFormatterBuilder()                .printZeroRarelyFirst()                .appendWeeks().toFormatter();        assertEquals("0", f.print(EMPTY_PERIOD));    }        public void testFormatPrintZeroRarelyFirstDays() {        PeriodFormatter f =            new PeriodFormatterBuilder()                .printZeroRarelyFirst()                .appendDays().toFormatter();        assertEquals("0", f.print(EMPTY_PERIOD));    }    public void testFormatPrintZeroRarelyFirstHours() {        PeriodFormatter f =            new PeriodFormatterBuilder()                .printZeroRarelyFirst()                .appendHours().toFormatter();        assertEquals("0", f.print(EMPTY_PERIOD));    }    public void testFormatPrintZeroRarelyFirstMinutes() {        PeriodFormatter f =            new PeriodFormatterBuilder()                .printZeroRarelyFirst()                .appendMinutes().toFormatter();        assertEquals("0", f.print(EMPTY_PERIOD));    }    public void testFormatPrintZeroRarelyFirstSeconds() {        PeriodFormatter f =            new PeriodFormatterBuilder()                .printZeroRarelyFirst()                .appendSeconds().toFormatter();        assertEquals("0", f.print(EMPTY_PERIOD));    }
+is not always printing as expected is not causing a zero to be printed for the months, weeks, days, hours, minutes, and seconds fields if they are the first field. These all output correctly for the command. If I use the following code, nothing will be output, I would expect "0". If I change the formatter to add years, as below, a zero will be printed for the years value, as expected. The same is true for , and commands.  A zero will only be printed if  is also added. Looking at the  code, it looks like the for loop for the case is running in the incorrect direction, checking all fields after the given field for null, rather than checking all fields before the given field.  Years is working correctly since it never enters the for loop. Possible correction added to  Test cases added to 
+******
+JodaTime/src/test/org/joda/time/format/TestPeriodFormatterBuilder.testFormatPrintZeroRarelyFirstYears(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestPeriodFormatterBuilder.testFormatPrintZeroRarelyFirstMonths(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestPeriodFormatterBuilder.testFormatPrintZeroRarelyFirstWeeks(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestPeriodFormatterBuilder.testFormatPrintZeroRarelyFirstDays(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestPeriodFormatterBuilder.testFormatPrintZeroRarelyFirstHours(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestPeriodFormatterBuilder.testFormatPrintZeroRarelyFirstMinutes(),False,test_method
+JodaTime/src/test/org/joda/time/format/TestPeriodFormatterBuilder.testFormatPrintZeroRarelyFirstSeconds(),False,test_method
+JodaTime/src/java/org/joda/time/format/PeriodFormatterBuilder.getFieldValue(ReadablePeriod),True
+#####
+YodaTime
+2111763
+444f721247b5cf74f7a6a71c50eb8fae052beb49
+Null interval in database transform with defaultInterval Null interval in database (i.e start and end column are null). The class PersistentIntervall returns a not null Intervall.
+Null interval in database transform with Null interval in database (i.e start and end column are null). The class returns a not null.
+******
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.setUp(),False,new_method|test_method
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.store(),False,new_method|test_method
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.openAndBegin(),False,new_method|test_method
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.commitAndClose(),False,new_method|test_method
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.testQueryById(),False,new_method|test_method
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.assertPlanPeriod(Interval),False,new_method|test_method
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.queryPlan(),False,new_method|test_method
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.setupConfiguration(Configuration),False,new_method|test_method
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.tearDown(),False,new_method|test_method
+JodaTimeContrib/hibernate/src/test/org/joda/time/contrib/hibernate/TestPersistentIntervalNull.remove(),False,new_method|test_method
+JodaTimeContrib/hibernate/src/java/org/joda/time/contrib/hibernate/PersistentInterval.nullSafeGet(ResultSet, String[], SessionImplementor, Object),True
+#####
+YodaTime
+2487417
+1aa95ec7646ef444ac502c1e99dd2528aecbfe70
+LocalDate.toInterval() exception I am using LocalDate.toInterval() to compute \'all day\' intervals as specified: "Converts this object to an Interval representing the whole day."  This works perfectly with one exception: on daylight cut days in a Brazilian timezone:  import org.joda.time.DateTimeZone; import org.joda.time.Interval; import org.joda.time.LocalDate;  import junit.framework.TestCase; public class JodaTest extends TestCase { public void testBrazil() { DateTimeZone dtz = DateTimeZone.forID("America/Sao_Paulo"); LocalDate date = new LocalDate(2009, 10, 18); Interval interval = date.toInterval(dtz); } } ... were an exception is thrown: java.lang.IllegalArgumentException: Illegal instant due to time zone offset transition: 2009-10-18T03:00:00.000 at org.joda.time.chrono.ZonedChronology.localToUTC(ZonedChronology.java:143) at org.joda.time.chrono.ZonedChronology.getDateTimeMillis(ZonedChronology.java:119) at org.joda.time.chrono.AssembledChronology.getDateTimeMillis(AssembledChronology.java:133) at org.joda.time.base.BaseDateTime.&lt;init&gt;(BaseDateTime.java:254) at org.joda.time.DateMidnight.&lt;init&gt;(DateMidnight.java:268) at org.joda.time.LocalDate.toDateMidnight(LocalDate.java:740) at org.joda.time.LocalDate.toInterval(LocalDate.java:847) ... LocalDate.toInterval() specification is "Converts this object to an Interval representing the whole day". While "00:00:00" does not exist, the all-day interval does exist I think.
+exception I am using to compute \'all day\' intervals as specified: "Converts this object to an Interval representing the whole day." This works perfectly with one exception: on daylight cut days in a Brazilian timezone: ... were an exception is thrown:  Illegal instant due to time zone offset transition ... specification is "Converts this object to an Interval representing the whole day". While "00:00:00" does not exist, the all-day interval does exist I think.
+******
+JodaTime/src/test/org/joda/time/TestLocalDate_Basics.testToInterval_Zone_noMidnight(),False,test_method
+JodaTime/src/java/org/joda/time/LocalDate.toInterval(DateTimeZone),True
+JodaTime/src/java/org/joda/time/LocalDate.toInterval(),False,comments
+#####
+YodaTime
+2783325
+a6bda7719ad30aa54b22ba5dabe99890ca6bd88c
+Typo in DateTimeFormatter DateTimeFormatter has a method called getChronolgy instead of getChronology
+Typo in   has a method called  instead of 
+******
+JodaTime/src/test/org/joda/time/format/TestDateTimeFormatter.testWithGetChronology(),False,test_method
+JodaTime/src/java/org/joda/time/format/DateTimeFormatter.getChronology(),False,new_method
+JodaTime/src/java/org/joda/time/format/DateTimeFormatter.getChronolgy(),True
+#####
+YodaTime
+2903029
+91a5ec766faf9a8f7d2c8a7aacfa566c9db8584c
+toDateTimeAtStartOfDay() and roundFloorCopy() is wrong"> There are many time zones where LocalDate.toDateTimeAtStartOfDay(DateTimeZone) and DateTime.dayOfMonth().roundFloorCopy() do not return the correct date time at specifc dates. This seems to be caused by DST or time zone changes. Check following two examples. It is expected that the day of month does not change. 1)    Calculate the start of day 2008-03-16 in time zone America/Argentina/Catamarca    Result:   2008-03-15T23:00:00.000-03:00 (1205632800000)    Expected: 2008-03-16T00:00:00.000-03:00 (1205636400000) 2)    Calculate the start of day 2008-06-24 in time zone America/Rio_Branco.    Result:   2008-06-23T23:00:00.000-05:00 (1214280000000)    Expected: 2008-06-24T01:00:00.000-04:00 (1214283600000) See attached test cases for more details on DST and time zone changes. Both test cases fail for joda-1.6
+and is wrong"> There are many time zones where and do not return the correct date time at specifc dates. This seems to be caused by or time zone changes. Check following two examples. It is expected that the day of month does not change. 1)    Calculate the start of day 2008-03-16 in time zone America/Argentina/Catamarca    Result:   2008-03-15T23:00:00.000-03:00 (1205632800000)    Expected: 2008-03-16T00:00:00.000-03:00 (1205636400000) 2)    Calculate the start of day 2008-06-24 in time zone America/Rio_Branco.    Result:   2008-06-23T23:00:00.000-05:00 (1214280000000)    Expected: 2008-06-24T01:00:00.000-04:00 (1214283600000) See attached test cases for more details on DST and time zone changes. Both test cases fail for joda-1.6
+******
+JodaTime/src/java/org/joda/time/DateTimeZone.convertLocalToUTC(long, boolean),True
+JodaTime/src/test/org/joda/time/TestDateTimeZoneCutover.test_DateTime_JustAfterLastEverOverlap(),False,test_method|new_method
+#####

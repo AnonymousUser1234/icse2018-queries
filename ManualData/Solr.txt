@@ -1,0 +1,766 @@
+solr-4.4.0
+SOLR-5296
+https://issues.apache.org/jira/browse/SOLR-5296
+Creating a collection with implicit router adds shard ranges to each shard Creating a collection with implicit router adds shard ranges to each shard. Using the Example A from SolrCloud wiki: http://localhost:8983/solr/admin/collections?action=CREATE&name=myimplicitcollection3&numShards=2&maxShardsPerNode=5&router.name=implicit&shards=s1,s2&replicationFactor=2 The following clusterstate is created: "myimplicitcollection3":{ "shards":{ "s1":{ "range":"80000000-ffffffff", "state":"active", "replicas":{ "core_node1": Unknown macro: { "state"} , "core_node3": Unknown macro: { "state"} }}, "s2":{ "range":"0-7fffffff", "state":"active", "replicas":{ "core_node2": Unknown macro: { "state"} , "core_node4":{ "state":"active", "base_url":"http://192.168.1.5:7574/solr", "core":"myimplicitcollection3_s2_replica1", "node_name":"192.168.1.5:7574_solr", "leader":"true"}}}}, "maxShardsPerNode":"5", "router": Unknown macro: {"name"} , "replicationFactor":"2"} Collections with implicit router should not have shard ranges at all. Note that the createshard API does the right thing.
+Creating a collection with implicit router adds shard ranges to each shard Creating a collection with implicit router adds shard ranges to each shard. Using the Example A from  wiki: http://localhost:8983/solr/admin/collections?action=CREATE&name=myimplicitcollection3&numShards=2&maxShardsPerNode=5&router.name=implicit&shards=s1,s2&replicationFactor=2 The following clusterstate is created:  Collections with implicit router should not have shard ranges at all. Note that the createshard API does the right thing.
+******
+solr.core.src.java.org.apache.solr.cloud.Overseer.Overseer.createCollection(ClusterState, String, List<String>, ZkNodeProps), true
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.testCustomCollectionsAPI(), false, test_method
+#####
+solr-4.4.0
+SOLR-5295
+https://issues.apache.org/jira/browse/SOLR-5295
+The createshard collection API creates maxShardsPerNode number of replicas if replicationFactor is not specified As reported by Brett Hoerner on solr-user: http://www.mail-archive.com/solr-user@lucene.apache.org/msg89545.html It seems that changes in 4.5 collection configuration now require users to set a maxShardsPerNode (or it defaults to 1). Maybe this was the case before, but with the new CREATESHARD API it seems a very restrictive. I've just created a very simple test collection on 3 machines where I set maxShardsPerNode at collection creation time to 1, and I made 3 shards. Everything is good. Now I want a 4th shard, it seems impossible to create because the cluster "knows" I should only have 1 shard per node. Yet my problem doesn't require more hardware, I just my new shard to exist on one of the existing servers. So I try again - I create a collection with 3 shards and set maxShardsPerNode to 1000 (just as a silly test). Everything is good. Now I add shard4 and it immediately tries to add 1000 replicas of shard4...
+The createshard collection API creates  number of replicas if is not specified As reported by Brett Hoerner on solr-user: http://www.mail-archive.com/solr-user@lucene.apache.org/msg89545.html It seems that changes in 4.5 collection configuration now require users to set a (or it defaults to 1). Maybe this was the case before, but with the new API it seems a very restrictive. I've just created a very simple test collection on 3 machines where I set at collection creation time to 1, and I made 3 shards. Everything is good. Now I want a 4th shard, it seems impossible to create because the cluster "knows" I should only have 1 shard per node. Yet my problem doesn't require more hardware, I just my new shard to exist on one of the existing servers. So I try again - I create a collection with 3 shards and set to 1000 (just as a silly test). Everything is good. Now I add shard4 and it immediately tries to add 1000 replicas of shard4...
+******
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.setDistributedParams(ModifiableSolrParams), false, test_method
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.testCreateShardRepFactor(), false, new_method
+solr.core.src.java.org.apache.solr.cloud.OverseerCollectionProcessor.OverseerCollectionProcessor.createShard(ClusterState, ZkNodeProps, NamedList), true
+#####
+solr-4.4.0
+SOLR-5291
+https://issues.apache.org/jira/browse/SOLR-5291
+Solrj does not propagate the root cause to the user for many errors. This is a frustrating little bug because it forces you to look at the logs for any insight into what happened - the error message in the exception you get with Solrj is very generic.
+does not propagate the root cause to the user for many errors. This is a frustrating little bug because it forces you to look at the logs for any insight into what happened - the error message in the exception you get with is very generic.
+******
+solr.core.src.java.org.apache.solr.response.BinaryResponseWriter.BinaryResponseWriter.getContentType(SolrQueryRequest, SolrQueryResponse), true
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.HttpSolrServer.HttpSolrServer.request(SolrRequest, ResponseParser), true
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.BinaryResponseParser.BinaryResponseParser.getContentType(), false, new_method
+solr.solrj.src.java.org.apache.solr.client.solrj.ResponseParser.ResponseParser.getContentType(), false, new_method
+solr.core.src.java.org.apache.solr.handler.ReplicationHandler.ReplicationHandler.getContentType(SolrQueryRequest, SolrQueryResponse), true
+solr.core.src.java.org.apache.solr.response.XMLResponseWriter.XMLResponseWriter.getContentType(), false, new_method
+solr.core.src.test.org.apache.solr.schema.TestCloudManagedSchema.TestCloudManagedSchema.assertFileNotInZooKeeper(String), false, test_method
+solr.core.src.java.org.apache.solr.response.SchemaXmlResponseWriter.SchemaXmlResponseWriter.getContentType(SolrQueryRequest, SolrQueryResponse), true
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.XMLResponseParser.XMLResponseParser.getContentType(SolrQueryRequest, SolrQueryResponse), true
+#####
+solr-4.4.0
+SOLR-5274
+https://issues.apache.org/jira/browse/SOLR-5274
+Updating org.apache.httpcomponents above 4.2.2 causes tests using SSL to fail. It seems like the system properties are no longer being cleaned up properly, or some such test contamination. Tests run fine in isolation. To get around, I've added the ability to add specific settings rather than use System properties - at some point I'd like to be able to load jetties in parallel, and in this is a required step for that anyway.
+Updating above 4.2.2 causes tests using SSL to fail. It seems like the system properties are no longer being cleaned up properly, or some such test contamination. Tests run fine in isolation. To get around, I've added the ability to add specific settings rather than use System properties - at some point I'd like to be able to load jetties in parallel, and in this is a required step for that anyway.
+******
+solr.core.src.java.org.apache.solr.client.solrj.embedded.JettySolrRunner.JettySolrRunner.JettySolrRunner(String, String, int, String, String, boolean, SortedMap<ServletHolder, String>, SSLConfig), false, new_method
+solr.core.src.java.org.apache.solr.client.solrj.embedded.JettySolrRunner.JettySolrRunner.sslInit(boolean, SslContextFactory), false, new_method
+solr.test-framework.src.java.org.apache.solr.SolrJettyTestBase.SolrJettyTestBase.initSSLConfig(SSLConfig, String), false, refactoring
+solr.test-framework.src.java.org.apache.solr.SolrJettyTestBase.SolrJettyTestBase.beforeSolrJettyTestBase(), false, test_method
+solr.test-framework.src.java.org.apache.solr.SolrJettyTestBase.SolrJettyTestBase.getSSLConfig(), false, new_method
+solr.test-framework.src.java.org.apache.solr.SolrJettyTestBase.SolrJettyTestBase.createJetty(String, String, String, String, boolean, SortedMap<ServletHolder, String>), false, refactoring
+solr.test-framework.src.java.org.apache.solr.SolrJettyTestBase.SolrJettyTestBase.afterSolrJettyTestBase(), false, test_method
+#####
+solr-4.4.0
+SOLR-5264
+https://issues.apache.org/jira/browse/SOLR-5264
+New method on NamedList to return one or many config arguments as collection In the FieldMutatingUpdateProcessorFactory is a method called "oneOrMany" that takes all of the entries in a NamedList and pulls them out into a Collection. I'd like to use that in a custom update processor I'm building. It seems as though this functionality would be right at home as part of NamedList itself. Here's a patch that moves the method.
+New method on to return one or many config arguments as collection In the is a method called "oneOrMany" that takes all of the entries in a and pulls them out into a Collection. I'd like to use that in a custom update processor I'm building. It seems as though this functionality would be right at home as part of itself. Here's a patch that moves the method.
+******
+solr.core.src.java.org.apache.solr.update.processor.AddSchemaFieldsUpdateProcessorFactory.AddSchemaFieldsUpdateProcessorFactory.parseTypeMappings(NamedList), true
+solr.core.src.java.org.apache.solr.update.processor.FieldMutatingUpdateProcessorFactory.FieldMutatingUpdateProcessorFactory.getSelector(), true
+solr.core.src.java.org.apache.solr.update.processor.FieldMutatingUpdateProcessorFactory.FieldMutatingUpdateProcessorFactory.parseSelectorParams(NamedList), true
+solr.core.src.java.org.apache.solr.update.processor.FieldMutatingUpdateProcessorFactory.FieldMutatingUpdateProcessorFactory.parseSelectorExclusionParams(NamedList), true
+solr.core.src.java.org.apache.solr.update.processor.FieldMutatingUpdateProcessorFactory.FieldMutatingUpdateProcessorFactory.init(NamedList), true
+solr.core.src.java.org.apache.solr.update.processor.FieldMutatingUpdateProcessorFactory.FieldMutatingUpdateProcessorFactory.oneOrMany(NamedList, String), true
+solr.core.src.java.org.apache.solr.update.processor.FieldMutatingUpdateProcessorFactory.FieldMutatingUpdateProcessorFactory.getBooleanArg(NamedList, String), true
+solr.core.src.java.org.apache.solr.update.processor.ParseBooleanFieldUpdateProcessorFactory.ParseBooleanFieldUpdateProcessorFactory.init(NamedList), true
+solr.core.src.java.org.apache.solr.update.processor.CloneFieldUpdateProcessorFactory.CloneFieldUpdateProcessorFactory.init(NamedList), true
+solr.solrj.src.test.org.apache.solr.common.util.NamedListTest.NamedListTest.testRemove(), false, test_method
+solr.solrj.src.test.org.apache.solr.common.util.NamedListTest.NamedListTest.testRemoveArgs(), false, new_method
+solr.solrj.src.test.org.apache.solr.common.util.NamedListTest.NamedListTest.testRemoveAll(), false, new_method
+solr.core.src.java.org.apache.solr.update.processor.ParseDateFieldUpdateProcessorFactory.ParseDateFieldUpdateProcessorFactory.init(NamedList), true
+solr.core.src.java.org.apache.solr.update.processor.StatelessScriptUpdateProcessorFactory.StatelessScriptUpdateProcessorFactory.init(NamedList), true
+solr.solrj.src.java.org.apache.solr.common.util.NamedList.NamedList.killAll(String), false, new_method
+solr.solrj.src.java.org.apache.solr.common.util.NamedList.NamedList.removeAll(String), false, new_method
+solr.solrj.src.java.org.apache.solr.common.util.NamedList.NamedList.removeConfigArgs(String), false, new_method
+solr.solrj.src.java.org.apache.solr.common.util.NamedList.NamedList.removeBooleanArg(String), false, new_method
+#####
+solr-4.4.0
+SOLR-5263
+https://issues.apache.org/jira/browse/SOLR-5263
+CloudSolrServer URL cache update race In CloudSolrServer.request, urlLists (and the like) is updated if lastClusterStateHashCode is different from the current hash code of clusterState. However, each time this happen, only the cache entry for the current collection being requested is updated. In the following condition this causes a race: query collection A so a cache entry exists update collection A query collection B, request method notices the hash code changed and update cache for collection B, updates lastClusterStateHashCode query collection A, since lastClusterStateHashCode has been updated, no update for cache for collection A even though it's stale Can fix one of two ways: 1. Track lastClusterStateHashCode per collection and lazily update each entry 2. Every time we notice lastClusterStateHashCode != clusterState.hashCode(), 2a. rebuild the entire cache for all collections 2b. clear all current cache for collections
+URL cache update race In (and the like) is updated if is different from the current hash code of. However, each time this happen, only the cache entry for the current collection being requested is updated. In the following condition this causes a race: query collection A so a cache entry exists update collection A query collection B, request method notices the hash code changed and update cache for collection B, updates query collection A, since has been updated, no update for cache for collection A even though it's stale Can fix one of two ways: 1. Track per collection and lazily update each entry 2. Every time we notice, 2a. rebuild the entire cache for all collections 2b. clear all current cache for collections
+******
+solr.solrj.src.test.org.apache.solr.client.solrj.impl.CloudSolrServerTest.CloudSolrServerTest.stripTrailingSlash(String), false, test_method
+solr.solrj.src.test.org.apache.solr.client.solrj.impl.CloudSolrServerTest.CloudSolrServerTest.doTest(), false, test_method
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.CloudSolrServer.CloudSolrServer.request(SolrRequest), true
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.CloudSolrServer.CloudSolrServer.getUrlLists(), true
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.CloudSolrServer.CloudSolrServer.getLeaderUrlLists(), true
+solr.solrj.src.java.org.apache.solr.client.solrj.impl.CloudSolrServer.CloudSolrServer.getReplicasLists(), true
+#####
+solr-4.4.0
+SOLR-5258
+https://issues.apache.org/jira/browse/SOLR-5258
+router.field support for compositeId router Although there is code to support router.field for CompositeId, it only calculates a simple (non-compound) hash, which isn't that useful unless you don't use compound ids (this is why I changed the docs to say router.field is only supported for the implicit router). The field value should either be used to calculate the full compound hash be used to calculate the prefix bits, and the uniqueKey will still be used for the lower bits. For consistency, I'd suggest the former. If we want to be able to specify a separate field that is only used for the prefix bits, then perhaps that should be "router.prefixField"
+support for router Although there is code to support for, it only calculates a simple (non-compound) hash, which isn't that useful unless you don't use compound ids (this is why I changed the docs to say is only supported for the implicit router). The field value should either be used to calculate the full compound hash be used to calculate the prefix bits, and the will still be used for the lower bits. For consistency, I'd suggest the former. If we want to be able to specify a separate field that is only used for the prefix bits, then perhaps that should be
+******
+solr.solrj.src.java.org.apache.solr.common.cloud.CompositeIdRouter.CompositeIdRouter.sliceHash(String, SolrInputDocument, SolrParams, DocCollection), true
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.testRouteFieldForHashRouter(), false, test_method
+#####
+solr-4.4.0
+SOLR-5246
+https://issues.apache.org/jira/browse/SOLR-5246
+Shard splitting should support collections configured with a hash router and routeField. Follow up with work done in SOLR-5017: Shard splitting doesn't support collections configured with a hash router and routeField.
+Shard splitting should support collections configured with a hash router and. Follow up with work done in SOLR-5017: Shard splitting doesn't support collections configured with a hash router and.
+******
+solr.core.src.test.org.apache.solr.cloud.ShardSplitTest.ShardSplitTest.doTest(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.ShardSplitTest.ShardSplitTest.splitShard(String), true
+solr.core.src.test.org.apache.solr.cloud.ShardSplitTest.ShardSplitTest.indexAndUpdateCount(DocRouter, List<DocRouter.Range>, int[], String, int), true
+solr.core.src.test.org.apache.solr.cloud.ShardSplitTest.ShardSplitTest.deleteAndUpdateCount(DocRouter, List<DocRouter.Range>, int[], String), true
+solr.core.src.test.org.apache.solr.cloud.ShardSplitTest.ShardSplitTest.getHashRangeIdx(DocRouter, List<DocRouter.Range>, int[], String), true
+solr.core.src.test.org.apache.solr.cloud.ChaosMonkeyShardSplitTest.ChaosMonkeyShardSplitTest.doTest(), false, test_method
+solr.core.src.java.org.apache.solr.update.SolrIndexSplitter.SolrIndexSplitter.SolrIndexSplitter(SplitIndexCommand), true
+solr.core.src.java.org.apache.solr.update.SplitIndexCommand.SplitIndexCommand.SplitIndexCommand(SolrQueryRequest, List<String>, List<SolrCore>, List<DocRouter.Range>, DocRouter), true
+solr.core.src.java.org.apache.solr.update.SplitIndexCommand.SplitIndexCommand.testSplitByPaths(), false, test_method
+solr.core.src.java.org.apache.solr.update.SplitIndexCommand.SplitIndexCommand.testSplitDeletes(), false, test_method
+solr.core.src.java.org.apache.solr.update.SplitIndexCommand.SplitIndexCommand.testSplitByCores(), false, test_method
+solr.core.src.java.org.apache.solr.update.SplitIndexCommand.SplitIndexCommand.testSplitAlternately(), false, test_method
+solr.core.src.java.org.apache.solr.handler.admin.CoreAdminHandler.CoreAdminHandler.handleSplitAction(SolrQueryRequest, SolrQueryResponse), true
+solr.core.src.java.org.apache.solr.cloud.OverseerCollectionProcessor.OverseerCollectionProcessor.splitShard(ClusterState, ZkNodeProps, NamedList), true
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.testCustomCollectionsAPI(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.testRouteFieldForHashRouter(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.getUrlFromZk(String), true
+#####
+solr-4.4.0
+SOLR-5241
+https://issues.apache.org/jira/browse/SOLR-5241
+SimplePostToolTest is slow on some systmes - likely due to hostname resolution of "example.com" As noted by Shai on the dev @lucene list, SimplePostToolTest is ridiculously slow when he ran from ant, but only takes 1 second in his IDE. problem seems to be relate to the URL class attempting to response "example.com"
+is slow on some systmes - likely due to hostname resolution of "example.com" As noted by Shai on the dev @lucene list, is ridiculously slow when he ran from ant, but only takes 1 second in his IDE. problem seems to be relate to the URL class attempting to response "example.com"
+******
+solr.core.src.test.org.apache.solr.util.SimplePostToolTest.SimplePostToolTest.setUp(), false, test_method
+solr.core.src.test.org.apache.solr.util.SimplePostToolTest.SimplePostToolTest.testNormalizeUrlEnding(), false, test_method
+solr.core.src.test.org.apache.solr.util.SimplePostToolTest.SimplePostToolTest.testComputeFullUrl(), false, test_method
+solr.core.src.test.org.apache.solr.util.SimplePostToolTest.SimplePostToolTest.testAppendParam(), false, test_method
+solr.core.src.test.org.apache.solr.util.SimplePostToolTest.SimplePostToolTest.testAppendUrlPath(), false, test_method
+solr.core.src.test.org.apache.solr.util.SimplePostToolTest.SimplePostToolTest.testDoWebMode(), false, test_method
+solr.core.src.test.org.apache.solr.util.SimplePostToolTest.SimplePostToolTest.testRobotsExclusion(), false, test_method
+solr.core.src.test.org.apache.solr.util.SimplePostToolTest.SimplePostToolTest.MockPageFetcher(), true
+#####
+solr-4.4.0
+SOLR-5167
+https://issues.apache.org/jira/browse/SOLR-5167
+Ability to use AnalyzingInfixSuggester in Solr We should be able to use AnalyzingInfixSuggester in Solr by defining it in solrconfig.xml
+Ability to use in Solr We should be able to use in Solr by defining it in
+******
+solr.core.src.test.org.apache.solr.spelling.suggest.TestAnalyzeInfixSuggestions.TestAnalyzeInfixSuggestions.testMultiple(), false, test_method
+solr.core.src.test.org.apache.solr.spelling.suggest.TestAnalyzeInfixSuggestions.TestAnalyzeInfixSuggestions.beforeClass(), true
+solr.core.src.test.org.apache.solr.spelling.suggest.TestAnalyzeInfixSuggestions.TestAnalyzeInfixSuggestions.testSingle(), false, test_method
+solr.core.src.java.org.apache.solr.spelling.suggest.fst.AnalyzingInfixLookupFactory.AnalyzingInfixLookupFactory.storeFileName(), true
+solr.core.src.java.org.apache.solr.spelling.suggest.fst.AnalyzingInfixLookupFactory.AnalyzingInfixLookupFactory.create(NamedList, SolrCore), true
+#####
+solr-4.4.0
+SOLR-5121
+https://issues.apache.org/jira/browse/SOLR-5121
+zkcli usage for makepath doesn't match actual command. After the patch for SOLR-4972 was introduced, the usage for zkcli.sh -cmd makepath changed to zkcli.sh -zkhost localhost:9983 -cmd makepath /apache/solr/data.txt 'config data' Yet that is not what the command expects, it expects just a single path to create, no data can be supplied. "put" is the new way to create an actual file in ZK. Am assuming makepath should have stayed as it was (so command is correct, but usage is wrong), alternatively usage might be right and makepath could be a superset of PUT (but that seems unlikely)
+usage for makepath doesn't match actual command. After the patch for SOLR-4972 was introduced, the usage for -cmd makepath changed to Yet that is not what the command expects, it expects just a single path to create, no data can be supplied. "put" is the new way to create an actual file in. Am assuming makepath should have stayed as it was (so command is correct, but usage is wrong), alternatively usage might be right and makepath could be a superset of PUT (but that seems unlikely)
+******
+solr.core.src.java.org.apache.solr.cloud.ZkCLI.ZkCLI.main(String[]), true
+#####
+solr-4.4.0
+SOLR-4882
+https://issues.apache.org/jira/browse/SOLR-4882
+Restrict SolrResourceLoader to only classloader accessible files and instance dir SolrResourceLoader currently allows to load files from any absolute/CWD-relative path, which is used as a fallback if the resource cannot be looked up via the class loader. We should limit this fallback to sub-dirs below the instanceDir passed into the ctor. The CWD special case should be removed, too (the virtual CWD is instance's config or root dir). The reason for this is security related. Some Solr components allow to pass in resource paths via REST parameters (e.g. XSL stylesheets, velocity templates,...) and load them via resource loader. By this it is possible to limit the whole thing to not allow loading e.g. /etc/passwd as a stylesheet. In 4.4 we should add a solrconfig.xml setting to enable the old behaviour, but disable it by default, if your existing installation requires the files from outside the instance dir which are not available via the URLClassLoader used internally. In Lucene 5.0 we should not support this anymore.
+Restrict to only classloader accessible files and instance dir currently allows to load files from any absolute/CWD-relative path, which is used as a fallback if the resource cannot be looked up via the class loader. We should limit this fallback to sub-dirs below the passed into the ctor. The CWD special case should be removed, too (the virtual CWD is instance's config or root dir). The reason for this is security related. Some Solr components allow to pass in resource paths via REST parameters (e.g. XSL stylesheets, velocity templates,...) and load them via resource loader. By this it is possible to limit the whole thing to not allow loading e.g. /etc/passwd as a stylesheet. In 4.4 we should add a setting to enable the old behaviour, but disable it by default, if your existing installation requires the files from outside the instance dir which are not available via the used internally. In Lucene 5.0 we should not support this anymore.
+******
+solr.core.src.test.org.apache.solr.util.TestSystemIdResolver.TestSystemIdResolver.setUp(), false, new_method
+solr.core.src.test.org.apache.solr.util.TestSystemIdResolver.TestSystemIdResolver.tearDown(), false, new_method
+solr.contrib.velocity.src.java.org.apache.solr.response.VelocityResponseWriter.VelocityResponseWriter.write(Writer, SolrQueryRequest, SolrQueryResponse), true
+solr.contrib.velocity.src.java.org.apache.solr.response.VelocityResponseWriter.VelocityResponseWriter.getEngine(SolrQueryRequest), true
+solr.core.src.java.org.apache.solr.cloud.ZkSolrResourceLoader.ZkSolrResourceLoader.openResource(String), true
+solr.core.src.java.org.apache.solr.core.SolrResourceLoader.SolrResourceLoader.getConfigDir(), true
+solr.core.src.java.org.apache.solr.core.SolrResourceLoader.SolrResourceLoader.openResource(String), true
+solr.core.src.test.org.apache.solr.schema.PrimitiveFieldTypeTest.PrimitiveFieldTypeTest.setUp(), false, test_method
+solr.core.src.test.org.apache.solr.schema.PrimitiveFieldTypeTest.PrimitiveFieldTypeTest.tearDown(), false, new_method
+solr.core.src.test.org.apache.solr.core.ResourceLoaderTest.ResourceLoaderTest.testInstanceDir(), false, test_method
+solr.core.src.test.org.apache.solr.core.ResourceLoaderTest.ResourceLoaderTest.testEscapeInstanceDir(), false, new_method
+solr.core.src.test.org.apache.solr.core.ResourceLoaderTest.ResourceLoaderTest.testAwareCompatibility(), false, test_method
+solr.core.src.test.org.apache.solr.core.ResourceLoaderTest.ResourceLoaderTest.testBOMMarkers(), false, test_method
+solr.core.src.test.org.apache.solr.core.ResourceLoaderTest.ResourceLoaderTest.testWrongEncoding(), false, test_method
+#####
+solr-4.4.0
+SOLR-4511
+https://issues.apache.org/jira/browse/SOLR-4511
+Repeater doesn't return correct index version to slaves Related to SOLR-4471. I have a master-repeater-2slaves architecture. The replication between master and repeater is working fine but slaves aren't able to replicate because their master (repeater node) is returning an old index version, but in admin UI the version that repeater have is correct. When I do http://localhost:17045/solr/replication?command=indexversion response is: <long name="generation">29037</long> when the version should be 29042 If I restart the repeater node this URL returns the correct index version, but after a while it fails again.
+Repeater doesn't return correct index version to slaves Related to SOLR-4471. I have a master-repeater-2slaves architecture. The replication between master and repeater is working fine but slaves aren't able to replicate because their master (repeater node) is returning an old index version, but in admin UI the version that repeater have is correct. When I do http://localhost:17045/solr/replication?command=indexversion response is: <long name="generation">29037</long> when the version should be 29042 If I restart the repeater node this URL returns the correct index version, but after a while it fails again.
+******
+solr.core.src.java.org.apache.solr.handler.SnapPuller.SnapPuller.fetchLatestIndex(SolrCore, boolean), false, refactoring
+solr.core.src.java.org.apache.solr.handler.SnapPuller.SnapPuller.fetchLatestIndex(SolrCore, boolean), false, test_method
+solr.core.src.test.org.apache.solr.handler.TestReplicationHandler.TestReplicationHandler.doTestSnapPullWithMasterUrl(), false, test_method
+solr.core.src.test.org.apache.solr.handler.TestReplicationHandler.TestReplicationHandler.assertVersions(), true
+solr.core.src.test.org.apache.solr.handler.TestReplicationHandler.TestReplicationHandler.pullFromSlaveToMaster(), true
+#####
+solr-4.4.0
+SOLR-3615
+https://issues.apache.org/jira/browse/SOLR-3615
+JMX Mbeans disappear on core reload https://issues.apache.org/jira/browse/SOLR-3616 This fix solves the issue of MBeans disappearing after core reload
+JMX disappear on core reload https://issues.apache.org/jira/browse/SOLR-3616 This fix solves the issue of  disappearing after core reload
+******
+#####
+solr-4.4.0
+SOLR-5281
+https://issues.apache.org/jira/browse/SOLR-5281
+Incorrect access core.properties in IndexSchema.java IndexSchema use core name for logging. But core name always output "[null] Schema..", the following.  "3814 [coreLoadExecutor-3-thread-1] INFO org.apache.solr.schema.IndexSchema - Reading Solr Schema from schema.xml 3926 [coreLoadExecutor-3-thread-1] INFO org.apache.solr.schema.IndexSchema - [null] Schema name=example  Maybe, property name pattern changed "name" to "solr.core.name" at SOLR-5162.  IndexSchema.java ... public static final String NAME = "name"; ... if (loader.getCoreProperties() != null) { sb.append(loader.getCoreProperties().getProperty(NAME)); } else { sb.append("null"); }
+Incorrect access  in use core name for logging. But core name always output "[null] Schema..", the following Maybe, property name pattern changed "name" to
+******
+solr.core.src.java.org.apache.solr.schema.IndexSchema.IndexSchema.readSchema(InputSource), true
+#####
+solr-4.4.0
+SOLR-5279
+https://issues.apache.org/jira/browse/SOLR-5279
+Implicit properties don't seem to exist on core RELOAD The implicit properties (specifically solr.core.name) work fine for Solr startup, but on core RELOAD, they no longer exist, so configurations that use them result in the core not initializing. Problem discovered on 4.5.0 RC4, works fine in 4.4.0.
+Implicit properties don't seem to exist on core RELOAD The implicit properties work fine for Solr startup, but on core RELOAD, they no longer exist, so configurations that use them result in the core not initializing. Problem discovered on 4.5.0 RC4, works fine in 4.4.0.
+******
+solr.core.src.java.org.apache.solr.core.CoreDescriptor.CoreDescriptor.buildSubstitutableProperties(), true
+solr.core.src.java.org.apache.solr.core.CoreDescriptor.CoreDescriptor.CoreDescriptor(String, CoreDescriptor), true
+solr.core.src.test.org.apache.solr.core.TestImplicitCoreProperties.TestImplicitCoreProperties.testImplicitPropertiesAreSubstitutedInSolrConfig(), false, test_method
+#####
+solr-4.4.0
+SOLR-5261
+https://issues.apache.org/jira/browse/SOLR-5261
+can't update current trunk or 4x with 4.4 or earlier binary protocol Seems back compat in the binary protocol was broke broke sometime after 4.4
+can't update current trunk or 4x with 4.4 or earlier binary protocol Seems back compat in the binary protocol was broke broke sometime after 4.4
+******
+solr.solrj.src.java.org.apache.solr.common.util.JavaBinCodec.JavaBinCodec.readSolrInputDocument(DataInputInputStream), true
+solr.solrj.src.java.org.apache.solr.common.util.JavaBinCodec.JavaBinCodec.writeSolrInputDocument(SolrInputDocument), true
+#####
+solr-4.4.0
+SOLR-5243
+https://issues.apache.org/jira/browse/SOLR-5243
+killing a shard in one collection can result in leader election in a different collection Discovered while doing some more ad-hoc testing... if I create two collections with the same shard name and then kill the leader in one, it can sometimes cause a leader election in the other (leaving the first leaderless).
+killing a shard in one collection can result in leader election in a different collection Discovered while doing some more ad-hoc testing... if I create two collections with the same shard name and then kill the leader in one, it can sometimes cause a leader election in the other (leaving the first leaderless).
+******
+solr.core.src.java.org.apache.solr.cloud.ZkController.ZkController.ContextKey(String, String), false, new_method
+solr.core.src.java.org.apache.solr.cloud.ZkController.ZkController.hashCode(), false, new_method
+solr.core.src.java.org.apache.solr.cloud.ZkController.ZkController.equals(Object), false, new_method
+solr.core.src.java.org.apache.solr.cloud.ZkController.ZkController.joinElection(CoreDescriptor, boolean), true
+solr.core.src.java.org.apache.solr.cloud.ZkController.ZkController.unregister(String, CoreDescriptor), true
+#####
+solr-4.4.0
+SOLR-5240
+https://issues.apache.org/jira/browse/SOLR-5240
+SolrCloud node doesn't (quickly) come all the way back Killing a single node and bringing it back up can result in "waiting until we see more replicas up..."
+node doesn't (quickly) come all the way back Killing a single node and bringing it back up can result in "waiting until we see more replicas up..."
+******
+solr.core.src.java.org.apache.solr.core.CoreContainer.CoreContainer.load(), true
+#####
+solr-4.4.0
+SOLR-5233
+https://issues.apache.org/jira/browse/SOLR-5233
+admin/collections?action=DELETESHARD broken The problem we saw was that deleting a shard did not actually delete it, although it semi-claimed to have done so. ... o.a.s.c.OverseerCollectionProcessor [OverseerCollectionProcessor.java:723] Delete shard invoked ... o.a.s.c.OverseerCollectionProcessor [OverseerCollectionProcessor.java:781] Successfully deleted collection collection1, shard: null ...
+broken The problem we saw was that deleting a shard did not actually delete it, although it semi-claimed to have done so. ...
+******
+solr.core.src.java.org.apache.solr.handler.admin.CollectionsHandler.CollectionsHandler.handleDeleteShardAction(SolrQueryRequest, SolrQueryResponse), true
+solr.core.src.java.org.apache.solr.cloud.Overseer.Overseer.removeShard(ClusterState, ZkNodeProps), true
+solr.core.src.test.org.apache.solr.cloud.DeleteShardTest.DeleteShardTest.confirmShardDeletion(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.DeleteShardTest.DeleteShardTest.doTest(), false, test_method
+solr.core.src.java.org.apache.solr.cloud.OverseerCollectionProcessor.OverseerCollectionProcessor.deleteShard(ClusterState, ZkNodeProps, NamedList), true
+#####
+solr-4.4.0
+SOLR-5231
+https://issues.apache.org/jira/browse/SOLR-5231
+When a boolean field is missing from a doc it is sometimes treated as "true" by the "if" function (based on other docs in segment?) This issue is hard to explain with out a long example. crux of the problem is that the behavior of the if function, wrapped arround a boolean field (ie: "if(fieldName,x,y)" ) is not consistent for documents that do not have any value for that functio - the behavior seems to depend on whether or not other documents in the same segment have a value for that field. for brevity, details will follow in a comment - but i've been able to reproduce on trunk, 4.3, and 4.3 (didn't look back farther then that) the work around is to explicitly use the exists() function in the if condition (ie: "if(exists(fieldName),x,y)" ) (Thanks to Elodie Sannier for reporting the initial symptoms of this on the mailing list)
+When a boolean field is missing from a doc it is sometimes treated as "true" by the "if" function (based on other docs in segment?) This issue is hard to explain with out a long example. crux of the problem is that the behavior of the if function, wrapped arround a boolean field is not consistent for documents that do not have any value for that functio - the behavior seems to depend on whether or not other documents in the same segment have a value for that field. for brevity, details will follow in a comment - but i've been able to reproduce on trunk, 4.3, and 4.3 (didn't look back farther then that) the work around is to explicitly use the function in the if condition (Thanks to Elodie Sannier for reporting the initial symptoms of this on the mailing list)
+******
+solr.core.src.java.org.apache.solr.schema.BoolField.BoolField.getValues(Map, AtomicReaderContext), true
+solr.core.src.test.org.apache.solr.search.function.TestFunctionQuery.TestFunctionQuery.testMissingFieldFunctionBehavior(), false, new_method
+#####
+solr-4.4.0
+SOLR-5227
+https://issues.apache.org/jira/browse/SOLR-5227
+attempting to configured a dynamicField as required, or using a default value, should fail. In SOLR-5222 Pascal noted that he did not get the behavior expected when using sortMissingLast with a dynamicField using docValues in Solr < 4.5 - but up to Solr 4.4, docValues required a default value, so he should have gotten a hard error as soon as he tried specifying a default value on a dynamicField.
+attempting to configured a as required, or using a default value, should fail. In SOLR-5222 Pascal noted that he did not get the behavior expected when using with a using in Solr < 4.5 - but up to Solr 4.4, required a default value, so he should have gotten a hard error as soon as he tried specifying a default value on a.
+******
+solr.core.src.test.org.apache.solr.schema.BadIndexSchemaTest.BadIndexSchemaTest.testSevereErrorsForUnsupportedAttributesOnDynamicField(), false, test_method
+solr.core.src.java.org.apache.solr.schema.IndexSchema.IndexSchema.loadFields(Document, XPath), true
+#####
+solr-4.4.0
+SOLR-5206
+https://issues.apache.org/jira/browse/SOLR-5206
+OpenExchangeRatesOrgProvider never refreshes the rates The OpenExchangeRatesOrgProvider never reloads the rates after the initial load, no matter what refreshInterval is set.
+never refreshes the rates The never reloads the rates after the initial load, no matter what refreshInterval is set.
+******
+solr.core.src.java.org.apache.solr.schema.OpenExchangeRatesOrgProvider.OpenExchangeRatesOrgProvider.getExchangeRate(String, String), true
+solr.core.src.java.org.apache.solr.schema.OpenExchangeRatesOrgProvider.OpenExchangeRatesOrgProvider.setTimestamp(long), false, new_method
+solr.core.src.java.org.apache.solr.schema.OpenExchangeRatesOrgProvider.OpenExchangeRatesOrgProvider.init(Map<String, String>), true
+solr.core.src.test.org.apache.solr.schema.OpenExchangeRatesOrgProviderTest.OpenExchangeRatesOrgProviderTest.testGetExchangeRate(), false, test_method
+solr.core.src.test.org.apache.solr.schema.OpenExchangeRatesOrgProviderTest.OpenExchangeRatesOrgProviderTest.testReload(), false, test_method
+solr.core.src.test.org.apache.solr.schema.OpenExchangeRatesOrgProviderTest.OpenExchangeRatesOrgProviderTest.testInit(), false, test_method
+#####
+solr-4.4.0
+SOLR-5201
+https://issues.apache.org/jira/browse/SOLR-5201
+UIMAUpdateRequestProcessor should reuse the AnalysisEngine As reported in http://markmail.org/thread/2psiyl4ukaejl4fx UIMAUpdateRequestProcessor instantiates an AnalysisEngine for each request which is bad for performance therefore it'd be nice if such AEs could be reused whenever that's possible.
+should reuse the  As reported in http://markmail.org/thread/2psiyl4ukaejl4fx  instantiates an for each request which is bad for performance therefore it'd be nice if such AEs could be reused whenever that's possible.
+******
+solr.contrib.uima.src.java.org.apache.solr.uima.processor.UIMAUpdateRequestProcessor.UIMAUpdateRequestProcessor.UIMAUpdateRequestProcessor(UpdateRequestProcessor, String, SolrUIMAConfiguration), true
+solr.contrib.uima.src.java.org.apache.solr.uima.processor.UIMAUpdateRequestProcessor.UIMAUpdateRequestProcessor.initialize(String, SolrUIMAConfiguration), true
+solr.contrib.uima.src.java.org.apache.solr.uima.processor.UIMAUpdateRequestProcessor.UIMAUpdateRequestProcessor.processAdd(AddUpdateCommand), true
+solr.contrib.uima.src.java.org.apache.solr.uima.processor.UIMAUpdateRequestProcessor.UIMAUpdateRequestProcessor.getTextsToAnalyze(SolrInputDocument), true
+solr.contrib.uima.src.java.org.apache.solr.uima.processor.UIMAUpdateRequestProcessor.UIMAUpdateRequestProcessor.processText(String), true
+solr.contrib.uima.src.java.org.apache.solr.uima.processor.UIMAUpdateRequestProcessorFactory.UIMAUpdateRequestProcessorFactory.UpdateRequestProcessor(SolrQueryRequest, SolrQueryResponse, UpdateRequestProcessor), true
+solr.contrib.uima.src.test.org.apache.solr.uima.processor.UIMAUpdateRequestProcessorTest.UIMAUpdateRequestProcessorTest.testMultiplierProcessing(), false, new_method
+#####
+solr-4.4.0
+SOLR-5190
+https://issues.apache.org/jira/browse/SOLR-5190
+SolrEntityProcessor substitutes variables only once in child entities As noted by users on the mailing list and elsewhere, SolrEntityProcessor cannot be used in a child entity because it substitutes variables only once. http://www.mail-archive.com/solr-user@lucene.apache.org/msg88002.html http://stackoverflow.com/questions/15734308/solrentityprocessor-is-called-only-once-for-sub-entities?lq=1 SOLR-3336 attempted to fix the problem by moving variable substitution to the doQuery method but that fix is not complete because the doQuery method is called only once.
+substitutes variables only once in child entities As noted by users on the mailing list and elsewhere cannot be used in a child entity because it substitutes variables only once. http://www.mail-archive.com/solr-user@lucene.apache.org/msg88002.html http://stackoverflow.com/questions/15734308/solrentityprocessor-is-called-only-once-for-sub-entities?lq=1 SOLR-3336 attempted to fix the problem by moving variable substitution to the method but that fix is not complete because the method is called only once.
+******
+solr.contrib.dataimporthandler.src.test.org.apache.solr.handler.dataimport.TestSolrEntityProcessorEndToEnd.TestSolrEntityProcessorEndToEnd.testFullImportInnerEntity(), false, test_method
+solr.contrib.dataimporthandler.src.java.org.apache.solr.handler.dataimport.SolrEntityProcessor.SolrEntityProcessor.buildIterator(), true
+#####
+solr-4.4.0
+SOLR-5188
+https://issues.apache.org/jira/browse/SOLR-5188
+Logging isn't working in branch_4x or trunk The logging section of the UI isn't working on branch_4x or trunk. The /solr/admin/info/logging handler response has an error tag saying Logging Not Initialized. The problem can be seen by starting the example in the latest checkout from branch_4x or trunk. The logging UI in the version 4.4 example is working fine.
+Logging isn't working in branch_4x or trunk The logging section of the UI isn't working on branch_4x or trunk. The handler response has an error tag saying Logging Not Initialized. The problem can be seen by starting the example in the latest checkout from branch_4x or trunk. The logging UI in the version 4.4 example is working fine.
+******
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr.getLogWatcherConfig(), true
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr.newRegisteredLogWatcher(LogWatcherConfig, SolrResourceLoader), true
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr.createWatcher(LogWatcherConfig, SolrResourceLoader), true
+solr.core.src.java.org.apache.solr.core.CoreContainer.CoreContainer.load(), true
+#####
+solr-4.4.0
+SOLR-5156
+https://issues.apache.org/jira/browse/SOLR-5156
+Provide a way to move the contents of a file to ZooKeeper with ZkCLI Spinoff from SOLR-4718. We don't have any good way of putting solr.xml up in Zookeeper in the first place. So while we can fake getting the file up there we need a way consistent with ZkCLI
+Provide a way to move the contents of a file to  with from SOLR-4718. We don't have any good way of putting  up in Zookeeper in the first place. So while we can fake getting the file up there we need a way consistent with
+******
+solr.core.src.test.org.apache.solr.cloud.ZkCLITest.ZkCLITest.testPutFile(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.ZkCLITest.ZkCLITest.testPutFileNotExists(), false, test_method
+solr.core.src.java.org.apache.solr.cloud.ZkCLI.ZkCLI.main(String[]), true
+#####
+solr-4.4.0
+SOLR-5150
+https://issues.apache.org/jira/browse/SOLR-5150
+HdfsIndexInput may not fully read requested bytes. Patrick Hunt noticed that our HdfsDirectory code was a bit behind Blur here - the read call we are using may not read all of the requested bytes - it returns the number of bytes actually written - which we ignore. Blur moved to using a seek and then readFully call - synchronizing across the two calls to deal with clones. We have seen that really kills performance, and using the readFully call that lets you pass the position rather than first doing a seek, performs much better and does not require the synchronization. I also noticed that the seekInternal impl should not seek but be a no op since we are seeking on the read.
+may not fully read requested bytes. Patrick Hunt noticed that our code was a bit behind Blur here - the read call we are using may not read all of the requested bytes - it returns the number of bytes actually written - which we ignore. Blur moved to using a seek and then call - synchronizing across the two calls to deal with clones. We have seen that really kills performance, and using the call that lets you pass the position rather than first doing a seek, performs much better and does not require the synchronization. I also noticed that the seekInternal impl should not seek but be a no op since we are seeking on the read.
+******
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.openInput(String, int), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.HdfsNormalIndexInput(String, FileSystem, Path, int), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.readInternal(byte[], int, int), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.seekInternal(long), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.clone(), true
+#####
+solr-4.4.0
+SOLR-5148
+https://issues.apache.org/jira/browse/SOLR-5148
+SolrInputDocument children field should be lazy Currently this field is initialized in constructor, it is better to initialize it lazilly.
+children field should be lazy Currently this field is initialized in constructor, it is better to initialize it lazilly.
+******
+solr.core.src.java.org.apache.solr.update.AddUpdateCommand.AddUpdateCommand.recUnwrapp(List<SolrInputDocument>, SolrInputDocument), true
+solr.core.src.test.org.apache.solr.update.AddBlockUpdateTest.AddBlockUpdateTest.testJavaBinCodec(), false, test_method
+solr.solrj.src.java.org.apache.solr.common.util.JavaBinCodec.JavaBinCodec.writeSolrInputDocument(SolrInputDocument), true
+solr.solrj.src.java.org.apache.solr.common.SolrInputDocument.SolrInputDocument.SolrInputDocument(), true
+solr.solrj.src.java.org.apache.solr.common.SolrInputDocument.SolrInputDocument.SolrInputDocument(Map<String, SolrInputField>), true
+solr.solrj.src.java.org.apache.solr.common.SolrInputDocument.SolrInputDocument.clear(), true
+solr.solrj.src.java.org.apache.solr.common.SolrInputDocument.SolrInputDocument.toString(), true
+solr.solrj.src.java.org.apache.solr.common.SolrInputDocument.SolrInputDocument.deepCopy(), true
+solr.solrj.src.java.org.apache.solr.common.SolrInputDocument.SolrInputDocument.addChildDocument(SolrInputDocument), true
+solr.solrj.src.java.org.apache.solr.common.SolrInputDocument.SolrInputDocument.getChildDocuments(), true
+solr.solrj.src.java.org.apache.solr.client.solrj.util.ClientUtils.ClientUtils.writeXML(SolrInputDocument, Writer), true
+#####
+solr-4.4.0
+SOLR-5134
+https://issues.apache.org/jira/browse/SOLR-5134
+Have HdfsIndexOutput extend BufferedIndexOutput Upstream Blur has moved HdfsIndexOutput to use BufferedIndexOutput and the simple FS IndexOutput does as well - seems we should do the same.
+Have  extend Upstream Blur has moved to use and the simple FS In does as well - seems we should do the same.
+******
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.writeBytes(byte[], int, int), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.writeByte(byte), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.length(), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.getFilePointer(), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.flush(), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.close(), true
+solr.core.src.java.org.apache.solr.store.hdfs.HdfsDirectory.HdfsDirectory.HdfsDirectory(Path, Configuration), false, refactoring
+#####
+solr-4.4.0
+SOLR-5122
+https://issues.apache.org/jira/browse/SOLR-5122
+spellcheck.collateMaxCollectDocs estimates seem to be meaninless -- can lead to "ArithmeticException: / by zero" As part of SOLR-4952 SpellCheckCollatorTest started using RandomMergePolicy, and this (aparently) led to a failure in testEstimatedHitCounts. As far as i can tell: the test assumes that specific values would be returned as the estimated "hits" for a colleation, and it appears that the change in MergePolicy however resulted in different segments with different term stats, causing the estimation code to produce different values then what is expected. I made a quick attempt to improve the test to: expect explicit exact values only when spellcheck.collateMaxCollectDocs is set such that the "estimate' should actually be exact (ie: collateMaxCollectDocs == 0 or collateMaxCollectDocs greater then the num docs in the index randomize the values used for collateMaxCollectDocs and confirm that the estimates are never more then the num docs in the index This lead to an odd "ArithmeticException: / by zero" error in the test, which seems to suggest that there is a genuine bug in the code for estimating the hits that only gets tickled in certain mergepolicy/segment/collateMaxCollectDocs combinations. Update: This appears to be a general problem with collecting docs out of order and the estimation of hits - i believe even if there is no divide by zero error, the estimates are largely meaningless since the docs are collected out of order.
+estimates seem to be meaninless -- can lead to "ArithmeticException: / by zero" As part of SOLR-4952 started using, and this (aparently) led to a failure in. As far as i can tell: the test assumes that specific values would be returned as the estimated "hits" for a colleation, and it appears that the change in however resulted in different segments with different term stats, causing the estimation code to produce different values then what is expected. I made a quick attempt to improve the test to: expect explicit exact values only when is set such that the "estimate' should actually be exact (ie: greater then the num docs in the index randomize the values used for and confirm that the estimates are never more then the num docs in the index This lead to an odd ": / by zero" error in the test, which seems to suggest that there is a genuine bug in the code for estimating the hits that only gets tickled in certain combinations. Update: This appears to be a general problem with collecting docs out of order and the estimation of hits - i believe even if there is no divide by zero error, the estimates are largely meaningless since the docs are collected out of order.
+******
+solr.core.src.test.org.apache.solr.spelling.SpellCheckCollatorTest.SpellCheckCollatorTest.testEstimatedHitCounts(), false, test_method
+solr.core.src.test.org.apache.solr.spelling.SpellCheckCollatorTest.SpellCheckCollatorTest.beforeClass(), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollectorException.EarlyTerminatingCollectorException.EarlyTerminatingCollectorException(int, int), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollectorException.EarlyTerminatingCollectorException.getLastDocId(), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollectorException.EarlyTerminatingCollectorException.getNumberCollected(), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollectorException.EarlyTerminatingCollectorException.setLastDocId(int), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollectorException.EarlyTerminatingCollectorException.setNumberCollected(int), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollector.EarlyTerminatingCollector.acceptsDocsOutOfOrder(), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollector.EarlyTerminatingCollector.collect(int), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollector.EarlyTerminatingCollector.EarlyTerminatingCollector(Collector, int), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollector.EarlyTerminatingCollector.getLastDocId(), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollector.EarlyTerminatingCollector.getNumCollected(), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollector.EarlyTerminatingCollector.setLastDocId(int), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollector.EarlyTerminatingCollector.setNextReader(AtomicReaderContext), true
+solr.core.src.java.org.apache.solr.search.EarlyTerminatingCollector.EarlyTerminatingCollector.setNumCollected(int), true
+solr.core.src.java.org.apache.solr.spelling.SpellCheckCollator.SpellCheckCollator.collate(SpellingResult, String, ResponseBuilder), true
+#####
+solr-4.4.0
+SOLR-5119
+https://issues.apache.org/jira/browse/SOLR-5119
+Managed schema problems after adding fields via Schema Rest API  After adding fields with the Schema API the schema cannot be shown on the Admin UI anymore and reloading the Collection/Core throws an NullPointerException. The schema itself seems to work. Steps to reproduce: 1. enable managed schema in example/solr/collection1/conf/solrconfig.xml 2. upload that config sh example/cloud-scripts/zkcli.sh -z localhost:8575 -cmd upconfig -d example/solr/collection1/conf/ -n myconfig 3. create a new collection curl "http://localhost:8983/solr/admin/collections?action=CREATE&name=mycollection&numShards=1&replicationFactor=1&collection.configName=myconfig" 4. add some fields curl http://localhost:8983/solr/mycollection/schema/fields -X POST -H 'Content-type:application/json' --data-binary '[ {   "name": "my_field",   "type": "string",   "stored": true,   "indexed": true }, {   "name": "my_field2",   "type": "string",   "stored": true,   "indexed": true } ]' 5. Problem 1: http://localhost:8983/solr/#/mycollection_shard1_replica1/schema <?xml version="1.0" encoding="UTF-8"?> <response> <lst name="responseHeader"><int name="status">404</int><int name="QTime">2</int></lst><lst name="error"><str name="msg">Can not find: /configs/myconfig/null</str><int name="code">404</int></lst> </response> 6. Problem 2: http://localhost:8983/solr/admin/collections?action=RELOAD&name=mycollection <response> <lst name="responseHeader"><int name="status">0</int><int name="QTime">845</int></lst><lst name="failure"><str name="10.147.252.2:8983_solr">org.apache.solr.client.solrj.impl.HttpSolrServer$RemoteSolrException:Server at http://10.147.252.2:8983/solr returned non ok status:500, message:Server Error</str></lst> </response> 7. when restarting Solr, both 5 and 6 work
+Managed schema problems after adding fields via Schema Rest API  After adding fields with the Schema API the schema cannot be shown on the Admin UI anymore and reloading the Collection/Core throws an. The schema itself seems to work. Steps to reproduce: 1. enable managed schema in 2. upload that config 3. create a new collection curl 4. add some fields 5. Problem 1: http://localhost:8983/solr/#/mycollection_shard1_replica1/schema 6. Problem 2: http://localhost:8983/solr/admin/collections?action=RELOAD&name=mycollection 7. when restarting Solr, both 5 and 6 work
+******
+solr.core.src.java.org.apache.solr.schema.ManagedIndexSchema.ManagedIndexSchema.shallowCopy(boolean), true
+solr.core.src.test.org.apache.solr.schema.TestManagedSchema.TestManagedSchema.testAddFieldThenReload(), false, new_method
+#####
+solr-4.4.0
+SOLR-5108
+https://issues.apache.org/jira/browse/SOLR-5108
+plugin loading should fail if mor then one instance of a singleton plugin is found Continuing from the config parsing/validation work done in SOLR-4953, we should improve SolrConfig so that parsing fails if multiple instances of a "plugin" are found for types of plugins where only one is allowed to be used at a time. at the moment, SolrConfig.loadPluginInfo happily initializes a List<PluginInfo> for whatever xpath it's given, and then later code can either call List<PluginInfo> getPluginInfos(String) or PluginInfo getPluginInfo(String) (the later just being shorthand for getting the first item in the list. we could make getPluginInfo(String) throw an error if the list has multiple items, but i think we should also change the signature of loadPluginInfo to be explicit about how many instances we expect to find, so we can error earlier, and have a redundant check.
+plugin loading should fail if mor then one instance of a singleton plugin is found Continuing from the config parsing/validation work done in SOLR-4953, we should improve so that parsing fails if multiple instances of a "plugin" are found for types of plugins where only one is allowed to be used at a time. at the moment, happily initializes a for whatever xpath it's given, and then later code can either call  or (the later just being shorthand for getting the first item in the list. we could make throw an error if the list has multiple items, but i think we should also change the signature of to be explicit about how many instances we expect to find, so we can error earlier, and have a redundant check.
+******
+solr.core.src.java.org.apache.solr.core.SolrConfig.SolrConfig.SolrConfig(SolrResourceLoader, String, InputSource), true
+solr.core.src.java.org.apache.solr.core.SolrConfig.SolrConfig.loadPluginInfo(Class, String, boolean, boolean), true
+solr.core.src.java.org.apache.solr.core.SolrConfig.SolrConfig.getPluginInfo(String), true
+solr.core.src.test.org.apache.solr.core.TestBadConfig.TestBadConfig.testMultipleDirectoryFactories(), false, new_method
+#####
+solr-4.4.0
+SOLR-5107
+https://issues.apache.org/jira/browse/SOLR-5107
+LukeRequestHandler throws NullPointerException when numTerms=0 Defaults example http://localhost:8983/solr/collection1/admin/luke?fl=cat&numTerms=0 yields ERROR org.apache.solr.core.SolrCore - java.lang.NullPointerException at org.apache.solr.handler.admin.LukeRequestHandler.getDetailedFieldInfo(LukeRequestHandler.java:610) at org.apache.solr.handler.admin.LukeRequestHandler.getIndexedFieldsInfo(LukeRequestHandler.java:378) at org.apache.solr.handler.admin.LukeRequestHandler.handleRequestBody(LukeRequestHandler.java:160) at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135) at org.apache.solr.core.SolrCore.execute(SolrCore.java:1845) at org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:666) at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:369) at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:158) at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419) at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075) at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384) at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009) at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:255) at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) at org.eclipse.jetty.server.Server.handle(Server.java:368) at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489) at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53) at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:942) at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1004) at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640) at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72) at org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264) at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) at java.lang.Thread.run(Thread.java:722)
+throws when Defaults example http://localhost:8983/solr/collection1/admin/luke?fl=cat&numTerms=0 yields
+******
+solr.core.src.test.org.apache.solr.handler.admin.LukeRequestHandlerTest.LukeRequestHandlerTest.testNumTerms(), false, new_method
+solr.core.src.java.org.apache.solr.handler.admin.LukeRequestHandler.LukeRequestHandler.getDetailedFieldInfo(SolrQueryRequest, String, SimpleOrderedMap<Object>), true
+#####
+solr-4.4.0
+SOLR-5094
+https://issues.apache.org/jira/browse/SOLR-5094
+TestJmxIntegration makes no sense for reasons i can't explain, TestJmxIntegration stoped working on my machine today, and when i started looking into it, i realized that there's no logical reason why it should be working on any machine at all. Back when this test was first written, it was setup to ensure that an MBean server was up and running prior to initializing the SolrCore, and then the configuration used by the test was designed to use JMX if and only if an existing MBean server was running. in r1402613 this was (inadvertantly?) changed so that the SolrCore was initialized @BeforeClass, but there was no certainty that the Mbean server was started until later - so the test fails in a variety of confusing ways because there is no JMX running at all. The only reason it can succeed is if an MBean server already happens to be running. I've got a patch that should fix this in general, or at least make it fail with a clear error if hte problem is that a JMX server isn't found on core init
+makes no sense for reasons i can't explain, stoped working on my machine today, and when i started looking into it, i realized that there's no logical reason why it should be working on any machine at all. Back when this test was first written, it was setup to ensure that an MBean server was up and running prior to initializing the, and then the configuration used by the test was designed to use JMX if and only if an existing MBean server was running. in r1402613 this was (inadvertantly?) changed so that the SolrCore was initialized, but there was no certainty that the Mbean server was started until later - so the test fails in a variety of confusing ways because there is no JMX running at all. The only reason it can succeed is if an MBean server already happens to be running. I've got a patch that should fix this in general, or at least make it fail with a clear error if hte problem is that a JMX server isn't found on core init
+******
+solr.core.src.java.org.apache.solr.core.JmxMonitoredMap.JmxMonitoredMap.getServer(), false, new_method
+solr.core.src.test.org.apache.solr.core.TestJmxIntegration.TestJmxIntegration.beforeClass(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestJmxIntegration.TestJmxIntegration.setUp(), true
+solr.core.src.test.org.apache.solr.core.TestJmxIntegration.TestJmxIntegration.tearDown(), true
+solr.core.src.test.org.apache.solr.core.TestJmxIntegration.TestJmxIntegration.testJmxOnCoreReload(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestJmxIntegration.TestJmxIntegration.testJmxRegistration(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestJmxIntegration.TestJmxIntegration.testJmxUpdate(), false, test_method
+#####
+solr-4.4.0
+SOLR-5083
+https://issues.apache.org/jira/browse/SOLR-5083
+Move JDK-1.0-style hidden classes into inner classes of SolrRequestParsers (to prevent uptodate javac bugs) This is one place in Solr where we have crazy Java 1.0 classes which are not inner classes but in the same Java file but next to each other. This leads to problems on updating, because javac cannot determine if the class files needs updating. All those classes should be either in separate java files or should be inner classes
+Move JDK-1.0-style hidden classes into inner classes of (to prevent uptodate javac bugs) This is one place in Solr where we have crazy Java 1.0 classes which are not inner classes but in the same Java file but next to each other. This leads to problems on updating, because javac cannot determine if the class files needs updating. All those classes should be either in separate java files or should be inner classes
+******
+#####
+solr-4.4.0
+SOLR-5082
+https://issues.apache.org/jira/browse/SOLR-5082
+Implement ie=charset parameter Allow a user to send a query or update to Solr in a character set other than UTF-8 and inform Solr what charset to use with an "ie" parameter, for input encoding. This was discussed in SOLR-4265 and SOLR-4283. Changing the default charset is a bad idea because distributed search (SolrCloud) relies on UTF-8.
+Implement ie=charset parameter Allow a user to send a query or update to Solr in a character set other than UTF-8 and inform Solr what charset to use with an "ie" parameter, for input encoding. This was discussed in SOLR-4265 and SOLR-4283. Changing the default charset is a bad idea because distributed search relies on UTF-8.
+******
+solr.core.src.java.org.apache.solr.servlet.SolrRequestParsers.SolrRequestParsers.parseParamsAndFillStreams(HttpServletRequest, ArrayList<ContentStream>), false, refactoring
+#####
+solr-4.4.0
+SOLR-5017
+https://issues.apache.org/jira/browse/SOLR-5017
+Allow sharding based on the value of a field We should be able to create a collection where sharding is done based on the value of a given field collections can be created with shardField=fieldName, which will be persisted in DocCollection in ZK implicit DocRouter would look at this field instead of shard field CompositeIdDocRouter can also use this field instead of looking at the id field.
+Allow sharding based on the value of a field We should be able to create a collection where sharding is done based on the value of a given field collections can be created with, which will be persisted in in ZK implicit would look at this field instead of shard field can also use this field instead of looking at the id field.
+******
+solr.core.src.test.org.apache.solr.cloud.ShardSplitTest.ShardSplitTest.getHashRangeIdx(DocRouter, List<DocRouter.Range>, int[], String), false, test_method
+solr.core.src.java.org.apache.solr.update.SolrIndexSplitter.SolrIndexSplitter.split(AtomicReaderContext), true
+solr.solrj.src.java.org.apache.solr.common.cloud.CompositeIdRouter.CompositeIdRouter.sliceHash(String, SolrInputDocument, SolrParams), true
+solr.solrj.src.java.org.apache.solr.common.cloud.HashBasedRouter.HashBasedRouter.getTargetSlice(String, SolrInputDocument, SolrParams, DocCollection), true
+solr.solrj.src.java.org.apache.solr.common.cloud.HashBasedRouter.HashBasedRouter.isTargetSlice(String, SolrInputDocument, SolrParams, String, DocCollection), true
+solr.solrj.src.java.org.apache.solr.common.cloud.HashBasedRouter.HashBasedRouter.sliceHash(String, SolrInputDocument, SolrParams), true
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.doTest(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.testCustomCollectionsAPI(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.testRouteFieldForHashRouter(), false, new_method
+#####
+solr-4.4.0
+SOLR-4953
+https://issues.apache.org/jira/browse/SOLR-4953
+Config XML parsing should fail hard if an xpath is expect to match at most one node/string/int/boolean and multiple values are found while reviewing some code i think i noticed that if there are multiple <indexConfig/> blocks in solrconfig.xml, one just "wins" and hte rest are ignored. this should be a hard failure situation, and we should have a "TestBadConfig" method to verify it.  broadened goal of issue to fail if configuration contains multiple nodes/values for any option where only one value is expected.
+Config XML parsing should fail hard if an xpath is expect to match at most one and multiple values are found while reviewing some code i think i noticed that if there are multiple blocks in, one just "wins" and hte rest are ignored. this should be a hard failure situation, and we should have a method to verify it.  broadened goal of issue to fail if configuration contains multiple nodes/values for any option where only one value is expected.
+******
+solr.core.src.java.org.apache.solr.core.SolrConfig.SolrConfig.SolrConfig(SolrResourceLoader, String, InputSource), true
+solr.core.src.java.org.apache.solr.update.SolrIndexConfig.SolrIndexConfig.SolrIndexConfig(SolrConfig, String, SolrIndexConfig), true
+solr.core.src.java.org.apache.solr.core.Config.Config.getNode(String, Document, boolean), true
+solr.core.src.test.org.apache.solr.core.TestBadConfig.TestBadConfig.testMultipleIndexConfigs(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestBadConfig.TestBadConfig.testMultipleCFS(), false, test_method
+#####
+solr-4.4.0
+SOLR-4909
+https://issues.apache.org/jira/browse/SOLR-4909
+Solr and IndexReader Re-opening on Replication Slave I've been experimenting with caching filter data per segment in Solr using a CachingWrapperFilter & FilteredQuery within a custom query parser (as suggested by Yonik Seeley in SOLR-3763) and encountered situations where the value of getCoreCacheKey() on the AtomicReader for each segment can change for a given segment on disk when the searcher is reopened. As CachingWrapperFilter uses the value of the segment's getCoreCacheKey() as the key in the cache, there are situations where the data cached on that segment is not reused when the segment on disk is still part of the index. This affects the Lucene field cache and field value caches as well as they are cached per segment. When Solr first starts it opens the searcher's underlying DirectoryReader in StandardIndexReaderFactory.newReader by calling DirectoryReader.open(indexDir, termInfosIndexDivisor), and the reader is subsequently reopened in SolrCore.openNewSearcher by calling DirectoryReader.openIfChanged(currentReader, writer.get(), true). The act of reopening the reader with the writer when it was first opened without a writer results in the value of getCoreCacheKey() changing on each of the segments even though some of the segments have not changed. Depending on the role of the Solr server, this has different effects: On a SolrCloud node or free-standing index and search server the segment cache is invalidated during the first DirectoryReader reopen - subsequent reopens use the same IndexWriter instance and as such the value of getCoreCacheKey() on each segment does not change so the cache is retained. For a master-slave replication set up the segment cache invalidation occurs on the slave during every replication as the index is reopened using a new IndexWriter instance which results in the value of getCoreCacheKey() changing on each segment when the DirectoryReader is reopened using a different IndexWriter instance. I can think of a few approaches to alter the re-opening behavior to allow reuse of segment level caches in both cases, and I'd like to get some input on other ideas before digging in: To change the cloud node/standalone first commit issue it might be possible to create the UpdateHandler and IndexWriter before the DirectoryReader, and use the writer to open the reader. There is a comment in the SolrCore constructor by Yonik Seeley that the searcher should be opened before the update handler so that may not be an acceptable approach. To change the behavior of a slave in a replication set up, one solution would be to not open a writer from the SnapPuller when the new index is retrieved if the core is enabled as a slave only. The writer is needed on a server configured as a master & slave that is functioning as a replication repeater so downstream slaves can see the changes in the index and retrieve them. I'll attach a unit test that demonstrates the behavior of reopening the DirectoryReader and it's effects on the value of getCoreCacheKey. My assumption is that the behavior of Lucene during the various reader reopen operations is correct and that the changes are necessary on the Solr side of things.
+Solr and Re-opening on Replication Slave I've been experimenting with caching filter data per segment in Solr using a within a custom query parser (as suggested by Yonik Seeley in SOLR-3763) and encountered situations where the value of on the for each segment can change for a given segment on disk when the searcher is reopened. As uses the value of the segment's as the key in the cache, there are situations where the data cached on that segment is not reused when the segment on disk is still part of the index. This affects the Lucene field cache and field value caches as well as they are cached per segment. When Solr first starts it opens the searcher's underlying by calling and the reader is subsequently reopened in by calling The act of reopening the reader with the writer when it was first opened without a writer results in the value of changing on each of the segments even though some of the segments have not changed. Depending on the role of the Solr server, this has different effects: On a node or free-standing index and search server the segment cache is invalidated during the first DirectoryReader reopen - subsequent reopens use the same instance and as such the value of on each segment does not change so the cache is retained. For a master-slave replication set up the segment cache invalidation occurs on the slave during every replication as the index is reopened using a new instance which results in the value of changing on each segment when the is reopened using a different instance. I can think of a few approaches to alter the re-opening behavior to allow reuse of segment level caches in both cases, and I'd like to get some input on other ideas before digging in: To change the cloud node/standalone first commit issue it might be possible to create the before the and use the writer to open the reader. There is a comment in the constructor by Yonik Seeley that the searcher should be opened before the update handler so that may not be an acceptable approach. To change the behavior of a slave in a replication set up, one solution would be to not open a writer from the when the new index is retrieved if the core is enabled as a slave only. The writer is needed on a server configured as a master & slave that is functioning as a replication repeater so downstream slaves can see the changes in the index and retrieve them. I'll attach a unit test that demonstrates the behavior of reopening the and it's effects on the value of. My assumption is that the behavior of Lucene during the various reader reopen operations is correct and that the changes are necessary on the Solr side of things.
+******
+solr.core.src.java.org.apache.solr.core.SolrConfig.SolrConfig.SolrConfig(SolrResourceLoader, String, InputSource), false, refactoring
+solr.core.src.java.org.apache.solr.update.SolrIndexConfig.SolrIndexConfig.openNewSearcher(boolean, boolean), false, refactoring
+solr.core.src.test.org.apache.solr.core.TestNonNRTOpen.TestNonNRTOpen.afterClass(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestNonNRTOpen.TestNonNRTOpen.assertNotNRT(int), true
+solr.core.src.test.org.apache.solr.core.TestNonNRTOpen.TestNonNRTOpen.beforeClass(), true
+solr.core.src.test.org.apache.solr.core.TestNonNRTOpen.TestNonNRTOpen.getCoreCacheKeys(), true
+solr.core.src.test.org.apache.solr.core.TestNonNRTOpen.TestNonNRTOpen.setUp(), true
+solr.core.src.test.org.apache.solr.core.TestNonNRTOpen.TestNonNRTOpen.testReaderIsNotNRT(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestNonNRTOpen.TestNonNRTOpen.testSharedCores(), false, test_method
+solr.core.src.java.org.apache.solr.core.SolrCore.SolrCore.SolrCore(String, String, SolrConfig, IndexSchema, CoreDescriptor, UpdateHandler, IndexDeletionPolicyWrapper, SolrCore), true
+solr.core.src.java.org.apache.solr.core.SolrCore.SolrCore.openNewSearcher(boolean, boolean), true
+solr.core.src.test.org.apache.solr.core.TestArbitraryIndexDir.TestArbitraryIndexDir.beforeClass(), false, refactoring
+solr.core.src.test.org.apache.solr.core.TestArbitraryIndexDir.TestArbitraryIndexDir.afterClass(), false, refactoring
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.afterClass(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.assertNRT(), true
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.beforeClass(), true
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.getCoreCacheKeys(), false, new_method
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.setUp(), false, new_method
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.testReaderIsNRT(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.testSharedCores(), false, new_method
+solr.core.src.test.org.apache.solr.handler.TestReplicationHandler.TestReplicationHandler.testNoWriter(), false, refactoring
+#####
+solr-4.4.0
+SOLR-4817
+https://issues.apache.org/jira/browse/SOLR-4817
+Solr should not fall back to the back compat built in solr.xml in SolrCloud mode. A hard error is much more useful, and this built in solr.xml is not very good for solrcloud - with the old style solr.xml with cores in it, you won't have persistence and with the new style, it's not really ideal either. I think it makes it easier to debug solr.home to fail on this instead - but just in solrcloud mode for now due to back compat. We might want to pull the whole internal solr.xml for 5.0.
+Solr should not fall back to the back compat built in mode. A hard error is much more useful, and this built in is not very good for - with the old style with cores in it, you won't have persistence and with the new style, it's not really ideal either. I think it makes it easier to debug to fail on this instead - but just in mode for now due to back compat. We might want to pull the whole internal for 5.0.
+******
+solr.test-framework.src.java.org.apache.solr.SolrTestCaseJ4.SolrTestCaseJ4.copyMinFullSetup(File), false, new_method
+solr.test-framework.src.java.org.apache.solr.SolrTestCaseJ4.SolrTestCaseJ4.copySolrHomeToTemp(File, String), false, new_method
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistor.TestSolrXmlPersistor.simpleCoreDescriptorIsPersisted(), false, test_method
+solr.contrib.dataimporthandler.src.test.org.apache.solr.handler.dataimport.TestContentStreamDataSource.TestContentStreamDataSource.getSolrXmlFile(), false, new_method
+solr.contrib.dataimporthandler.src.test.org.apache.solr.handler.dataimport.TestContentStreamDataSource.TestContentStreamDataSource.setUp(), true
+solr.core.src.test.org.apache.solr.TestSolrCoreProperties.TestSolrCoreProperties.beforeTest(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.ClusterStateUpdateTest.ClusterStateUpdateTest.afterClass(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.ClusterStateUpdateTest.ClusterStateUpdateTest.beforeClass(), true
+solr.core.src.test.org.apache.solr.cloud.ClusterStateUpdateTest.ClusterStateUpdateTest.setUp(), true
+solr.core.src.test.org.apache.solr.cloud.ClusterStateUpdateTest.ClusterStateUpdateTest.testCoreRegistration(), false, test_method
+solr.core.src.test.org.apache.solr.schema.TestBinaryField.TestBinaryField.beforeTest(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.ZkControllerTest.ZkControllerTest.afterClass(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.ZkControllerTest.ZkControllerTest.beforeClass(), true
+solr.core.src.test.org.apache.solr.cloud.ZkControllerTest.ZkControllerTest.getCoreContainer(), true
+solr.core.src.test.org.apache.solr.request.TestRemoteStreaming.TestRemoteStreaming.beforeTest(), false, test_method
+solr.core.src.test.org.apache.solr.request.TestRemoteStreaming.TestRemoteStreaming.afterTest(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testBadSysProp(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testNotInZkAndShouldBe(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testNotInZkOrOnDisk(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testZkHostDiscovery(), false, test_method
+solr.core.src.test.org.apache.solr.handler.TestReplicationHandler.TestReplicationHandler.createJetty(SolrInstance), false, test_method
+solr.core.src.java.org.apache.solr.servlet.SolrDispatchFilter.SolrDispatchFilter.doFilter(ServletRequest, ServletResponse, FilterChain, boolean), false, refactoring
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr.fromFile(SolrResourceLoader, File), true
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistence.TestSolrXmlPersistence.testPersist(), false, test_method
+solr.contrib.dataimporthandler.src.test.org.apache.solr.handler.dataimport.TestSolrEntityProcessorEndToEnd.TestSolrEntityProcessorEndToEnd.getSolrXmlFile(), false, new_method
+solr.contrib.dataimporthandler.src.test.org.apache.solr.handler.dataimport.TestSolrEntityProcessorEndToEnd.TestSolrEntityProcessorEndToEnd.setUp(), true
+solr.core.src.test.org.apache.solr.servlet.CacheHeaderTest.CacheHeaderTest.beforeTest(), false, test_method
+solr.core.src.test.org.apache.solr.servlet.CacheHeaderTest.CacheHeaderTest.afterTest(), false, new_method
+solr.solrj.src.test.org.apache.solr.client.solrj.TestLBHttpSolrServer.TestLBHttpSolrServer.getSolrXmlFile(), false, new_method
+solr.solrj.src.test.org.apache.solr.client.solrj.TestLBHttpSolrServer.TestLBHttpSolrServer.etUp(), true
+solr.test-framework.src.java.org.apache.solr.SolrJettyTestBase.SolrJettyTestBase.cleanUpJettyHome(File), false, new_method
+solr.test-framework.src.java.org.apache.solr.SolrJettyTestBase.SolrJettyTestBase.setupJettyTestHome(File, String), false, new_method
+#####
+solr-4.4.0
+SOLR-4808
+https://issues.apache.org/jira/browse/SOLR-4808
+Persist and use router,replicationFactor and maxShardsPerNode at Collection and Shard level The replication factor for a collection as of now is not persisted and used while adding replicas. We should save the replication factor at collection factor as well as shard level.
+=== skipped, because found only one commit which solves 5 issues (e5045d5: SOLR-4221 SOLR-4808 SOLR-5006 SOLR-5017 SOLR-4222) ===
+******
+#####
+solr-4.4.0
+SOLR-4764
+https://issues.apache.org/jira/browse/SOLR-4764
+When using NRT, just init the reader from IndexWriter Spinoff from SOLR-4761 Solr first opens a DirectoryReader from the directory, then later will pass this to IW openIfChanged. I noticed this when i was confused that mergedsegmentwarmer doesn't appear to work at first until after you've reopened... I'm not totally sure what the current behavior causes (does IW's pool reuse segments from this passed-in "external" reader, or is this causing some horrible doubling-up/inefficient stuff etc?). To some extent i think we should change it even if its actually performant: I think its confusing. I think ideally we'd change IndexReaderFactory's method to take writer instead of directory so that custom DirectoryReaders can still work.
+When using NRT, just init the reader from Spinoff from SOLR-4761 Solr first opens a from the directory, then later will pass this to IW. I noticed this when i was confused that doesn't appear to work at first until after you've reopened... I'm not totally sure what the current behavior causes (does IW's pool reuse segments from this passed-in "external" reader, or is this causing some horrible doubling-up/inefficient stuff etc?). To some extent i think we should change it even if its actually performant: I think its confusing. I think ideally we'd change method to take writer instead of directory so that custom can still work.
+******
+solr.core.src.test.org.apache.solr.core.TestArbitraryIndexDir.TestArbitraryIndexDir.beforeClass(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestArbitraryIndexDir.TestArbitraryIndexDir.afterClass(), true
+solr.core.src.test.org.apache.solr.handler.TestReplicationHandler.TestReplicationHandler.testNoWriter(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.beforeClass(), false, new_method
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.afterClass(), false, new_method
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.testReaderIsNRT(), false, new_method
+solr.core.src.test.org.apache.solr.core.TestNRTOpen.TestNRTOpen.assertNRT(), false, new_method
+solr.solrj.src.test.org.apache.solr.client.solrj.MultiCoreExampleTestBase.MultiCoreExampleTestBase.setupCoreContainer(), false, test_method
+solr.solrj.src.test.org.apache.solr.client.solrj.MultiCoreExampleTestBase.MultiCoreExampleTestBase.tearDown(), true
+solr.solrj.src.test.org.apache.solr.client.solrj.embedded.MultiCoreEmbeddedTest.MultiCoreEmbeddedTest.setUp(), false, test_method
+solr.solrj.src.test.org.apache.solr.client.solrj.embedded.MultiCoreEmbeddedTest.MultiCoreEmbeddedTest.setupCoreContainer(), false, new_method
+solr.solrj.src.test.org.apache.solr.client.solrj.embedded.MultiCoreEmbeddedTest.MultiCoreEmbeddedTest.tearDown(), false, new_method
+solr.core.src.java.org.apache.solr.core.StandardIndexReaderFactory.StandardIndexReaderFactory.newReader(IndexWriter, SolrCore), false, new_method
+solr.core.src.test.org.apache.solr.core.AlternateDirectoryTest.AlternateDirectoryTest.newReader(IndexWriter, SolrCore), false, new_method
+solr.core.src.java.org.apache.solr.core.SolrCore.SolrCore.SolrCore(String, String, SolrConfig, IndexSchema, CoreDescriptor, UpdateHandler, IndexDeletionPolicyWrapper, SolrCore), true
+solr.core.src.java.org.apache.solr.core.SolrCore.SolrCore.openNewSearcher(boolean, boolean), true
+#####
+solr-4.4.0
+SOLR-4718
+https://issues.apache.org/jira/browse/SOLR-4718
+Allow solr.xml to be stored in zookeeper So the near-final piece of this puzzle is to make solr.xml be storable in Zookeeper. Code-wise in terms of Solr, this doesn't look very difficult, I'm working on it now. More interesting is how to get the configuration into ZK in the first place, enhancements to ZkCli? Or boostrap-conf? Other? I'm punting on that for this patch. Second level is how to tell Solr to get the file from ZK. Some possibilities: 1> A system prop, -DzkSolrXmlPath=blah where blah is the path on zk where the file is. Would require -DzkHost or -DzkRun as well. > pros - simple, I can wrap my head around it. easy to script > cons - can't run multiple JVMs pointing to different files. Is this really a problem? 2> New solr.xml element. Something like: <solr> <solrcloud> <str name="zkHost">zkurl</str> <str name="zkSolrXmlPath">whatever</str> </solrcloud> <solr> Really, this form would hinge on the presence or absence of zkSolrXmlPath. If present, go up and look for the indicated solr.xml file on ZK. Any properties in the ZK version would overwrite anything in the local copy. NOTE: I'm really not very interested in supporting this as an option for old-style solr.xml unless it's really easy. For instance, what if the local solr.xml is new-style and the one in ZK is old-style? Or vice-versa? Since old-style is going away, this doesn't seem like it's worth the effort. pros - No new mechanisms cons - once again requires that there be a solr.xml file on each client. Admittedly for installations that didn't care much about multiple JVMs, it could be a stock file that didn't change... For now, I'm going to just manually push solr.xml to ZK, then read it based on a sysprop. That'll get the structure in place while we debate. Not going to check this in until there's some consensus though.
+Allow to be stored in zookeeper So the near-final piece of this puzzle is to make be storable in Zookeeper. Code-wise in terms of Solr, this doesn't look very difficult, I'm working on it now. More interesting is how to get the configuration into ZK in the first place, enhancements to? Or boostrap-conf? Other? I'm punting on that for this patch. Second level is how to tell Solr to get the file from ZK. Some possibilities: 1> A system prop,  where blah is the path on zk where the file is. Would require- simple, I can wrap my head - can't run multiple JVMs pointing to different files. Is this really a problem? 2> New element. Something like: Really, this form would hinge on the presence or absence of. If present, go up and look for the indicated file on ZK. Any properties in the ZK version would overwrite anything in the local copy. NOTE: I'm really not very interested in supporting this as an option for old-style unless it's really easy. For instance, what if the local is new-style and the one in ZK is old-style? Or vice-versa? Since old-style is going away, this doesn't seem like it's worth the - No new mechanisms cons - once again requires that there be a file on each client. Admittedly for installations that didn't care much about multiple JVMs, it could be a stock file that didn't change... For now, I'm going to just manually push to ZK, then read it based on a sysprop. That'll get the structure in place while we debate. Not going to check this in until there's some consensus though.
+******
+solr.core.src.java.org.apache.solr.core.SolrXMLCoresLocator.SolrXMLCoresLocator.SolrXMLCoresLocator(File, String, ConfigSolrXmlOld), true
+solr.core.src.java.org.apache.solr.core.SolrXMLCoresLocator.SolrXMLCoresLocator.doPersist(String), true
+solr.core.src.java.org.apache.solr.core.SolrXMLCoresLocator.SolrXMLCoresLocator.NonPersistingLocator(File, String, ConfigSolrXmlOld), true
+solr.core.src.java.org.apache.solr.core.ConfigSolrXmlOld.ConfigSolrXmlOld.ConfigSolrXmlOld(Config, File, String), true
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistor.TestSolrXmlPersistor.complexXmlIsParsed(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistor.TestSolrXmlPersistor.emptyCoresTagIsPersisted(), true
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistor.TestSolrXmlPersistor.emptySolrXmlIsPersisted(), true
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistor.TestSolrXmlPersistor.selfClosingCoresTagIsPersisted(), true
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistor.TestSolrXmlPersistor.shardHandlerInfoIsPersisted(), true
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistor.TestSolrXmlPersistor.simpleCoreDescriptorIsPersisted(), true
+solr.core.src.test.org.apache.solr.core.TestSolrXmlPersistor.TestSolrXmlPersistor.simpleShardHandlerInfoIsPersisted(), true
+solr.core.src.java.org.apache.solr.servlet.SolrDispatchFilter.SolrDispatchFilter.loadConfigSolr(SolrResourceLoader), false, new_method
+solr.core.src.java.org.apache.solr.servlet.SolrDispatchFilter.SolrDispatchFilter.createCoreContainer(), true
+solr.core.src.test.org.apache.solr.core.TestLazyCores.TestLazyCores.init(), false, test_method
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr.fromConfig(Config, File, String), true
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr.fromFile(SolrResourceLoader, File), true
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr.fromInputStream(SolrResourceLoader, InputStream, File, String), true
+solr.core.src.java.org.apache.solr.core.ConfigSolr.ConfigSolr.fromString(String), true
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.beforeClass(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.closeZK(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.setUpZkAndDiskXml(boolean, boolean), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testBadSysProp(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testNotInZkAndShouldBe(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testNotInZkOrOnDisk(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testOnDiskOnly(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testXmlInZkOnly(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testXmlOnBoth(), false, new_method
+solr.core.src.test.org.apache.solr.cloud.SolrXmlInZkTest.SolrXmlInZkTest.testZkHostDiscovery(), false, new_method
+#####
+solr-4.4.0
+SOLR-4688
+https://issues.apache.org/jira/browse/SOLR-4688
+add tests related to reporting core init failures and lazy loaded cores Spin off of SOLR-4672 zince Erick said he would worry about this so i don't have to... we should have more tests that sanity check the behvaior of lazy loaded cores, and reporting back core init failures - both as part of CoreAdmin "STATUS" requests and in the error message returned when trying to use these cores.
+add tests related to reporting core init failures and lazy loaded cores Spin off of SOLR-4672 zince Erick said he would worry about this so i don't have to... we should have more tests that sanity check the behvaior of lazy loaded cores, and reporting back core init failures - both as part of "STATUS" requests and in the error message returned when trying to use these cores.
+******
+solr.test-framework.src.java.org.apache.solr.SolrTestCaseJ4.SolrTestCaseJ4.copyMinConf(File), false, test_method
+solr.core.src.test.org.apache.solr.core.TestLazyCores.TestLazyCores.checkSearch(SolrCore), false, new_method
+solr.core.src.test.org.apache.solr.core.TestLazyCores.TestLazyCores.testLazySearch(), false, test_method
+solr.core.src.test.org.apache.solr.core.TestLazyCores.TestLazyCores.checkStatus(CoreContainer, Boolean, String), false, new_method
+solr.core.src.test.org.apache.solr.core.TestLazyCores.TestLazyCores.copyGoodConf(String, String, String), false, new_method
+solr.core.src.test.org.apache.solr.core.TestLazyCores.TestLazyCores.initGoodAndBad(List<String>, List<String>, List<String>), false, new_method
+solr.core.src.test.org.apache.solr.core.TestLazyCores.TestLazyCores.testBadConfigsGenerateErrors(), false, new_method
+solr.core.src.test.org.apache.solr.core.TestLazyCores.TestLazyCores.testMessage(Map<String, Exception>, String), false, new_method
+solr.core.src.test.org.apache.solr.core.TestLazyCores.TestLazyCores.writeCustomConfig(String, String, String, String), false, new_method
+solr.core.src.java.org.apache.solr.schema.IndexSchema.IndexSchema.readSchema(InputSource), true
+solr.core.src.java.org.apache.solr.core.CoreContainer.CoreContainer.createFromLocal(String, CoreDescriptor), true
+#####
+solr-4.4.0
+SOLR-4679
+https://issues.apache.org/jira/browse/SOLR-4679
+HTML line breaks (<br>) are removed during indexing; causes wrong search results HTML line breaks (<br>, <BR>, <br/>, ...) seem to be removed during extraction of content from HTML-Files. They need to be replaced with a empty space. Test-File: <html> <head> <title>Test mit HTML-Zeilenschaltungen</title> </head> <p> word1<br>word2<br/> Some other words, a special name like linz<br>and another special name - vienna </p> </html> The Solr-content-attribute contains the following text: Test mit HTML-Zeilenschaltungen word1word2 Some other words, a special name like linzand another special name - vienna So we are not able to find the word "linz". We use the ExtractingRequestHandler to put content into Solr. (wiki.apache.org/solr/ExtractingRequestHandler)
+HTML line breaks (<br>) are removed during indexing; causes wrong search results HTML line breaks (<br>, <BR>, <br/>, ...) seem to be removed during extraction of content from HTML-Files. They need to be replaced with a empty space. Test-File:  Some other words, a special name like linz<br>and another special name - vienna The Solr-content-attribute contains the following text: Test mit HTML-Zeilenschaltungen word1word2 Some other words, a special name like linzand another special name - vienna So we are not able to find the word "linz". We use the to put content into
+******
+solr.contrib.extraction.src.test.org.apache.solr.handler.extraction.ExtractingRequestHandlerTest.ExtractingRequestHandlerTest.testExtraction(), false, test_method
+solr.contrib.extraction.src.java.org.apache.solr.handler.extraction.SolrContentHandler.SolrContentHandler.ignorableWhitespace(char[], int, int), false, new_method
+#####
+solr-4.4.0
+SOLR-4489
+https://issues.apache.org/jira/browse/SOLR-4489
+StringIndexOutOfBoundsException in SpellCheckComponent  My SOLR request params are as shown below. spellcheck=true&enableElevation=true&facet=true&spellcheck.q=minecraft&spellcheck.extendedResults=true&spellcheck.maxCollations=10&spellcheck.collate=true&wt=javabin&defType=edismax&spellcheck.onlyMorePopular=true etc. Note: this work fine many use cases, however it fails for some query terms. Feb 22, 2013 11:06:04 AM org.apache.solr.common.SolrException log SEVERE: null:java.lang.StringIndexOutOfBoundsException: String index out of range: -5 at java.lang.AbstractStringBuilder.replace(AbstractStringBuilder.java:797) at java.lang.StringBuilder.replace(StringBuilder.java:271) at org.apache.solr.spelling.SpellCheckCollator.getCollation(SpellCheckCollator.java:190) at org.apache.solr.spelling.SpellCheckCollator.collate(SpellCheckCollator.java:75) at org.apache.solr.handler.component.SpellCheckComponent.addCollationsToResponse(SpellCheckComponent.java:203) at org.apache.solr.handler.component.SpellCheckComponent.process(SpellCheckComponent.java:180) at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:206) at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:129) at org.apache.solr.core.SolrCore.execute(SolrCore.java:1699) at org.apache.solr.servlet.SolrDispatchFilter.execute(SolrDispatchFilter.java:455) at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:276) at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1337) at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:484) at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:119) at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:524) at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:233) at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1065) at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:413) at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:192) at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:999) at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117) at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:250) at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:149) at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:111) at org.eclipse.jetty.server.Server.handle(Server.java:351) at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:454) at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:47) at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:890) at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:944) at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:634) at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:230) at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:66) at org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:254) at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:599) at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:534) at java.lang.Thread.run(Thread.java:680)
+My SOLR request params are as shown below. Note: this work fine many use cases, however it fails for some query terms. Feb 22, 2013 11:06:04 AM
+******
+solr.core.src.test.org.apache.solr.spelling.WordBreakSolrSpellCheckerTest.WordBreakSolrSpellCheckerTest.beforeClass(), false, test_method
+solr.core.src.test.org.apache.solr.spelling.WordBreakSolrSpellCheckerTest.WordBreakSolrSpellCheckerTest.testCollate(), false, test_method
+solr.core.src.java.org.apache.solr.spelling.SpellCheckCollator.SpellCheckCollator.getCollation(String, List<SpellCheckCorrection>), true
+#####
+solr-4.4.0
+SOLR-4249
+https://issues.apache.org/jira/browse/SOLR-4249
+change UniqFieldsUpdateProcessorFactory to subclass FieldValueSubsetUpdateProcessorFactory UniqFieldsUpdateProcessorFactory has been arround for a while, but if we change it to subclass FieldValueSubsetUpdateProcessorFactory, a lot of redundent code could be eliminated from that class, and the factory could be made more configurable by supporting all of the field matching logic in FieldMutatingUpdateProcessorFactory, not just a list of field names. (the only new code that would be needed is handling the legacy config case currently supported by UniqFieldsUpdateProcessorFactory)  For users of 4.x starting with 4.5, the existing init param syntax will still be supported, but a warning will be logged recommending they switch to using <arr name="fieldName">...</arr> instead of <lst name="fields">..</lst>. Starting with 5.0, the "fields" option won't be recognized at all.
+change to subclass has been arround for a while, but if we change it to subclass a lot of redundent code could be eliminated from that class, and the factory could be made more configurable by supporting all of the field matching logic in not just a list of field names. (the only new code that would be needed is handling the legacy config case currently supported by  For users of 4.x starting with 4.5, the existing init param syntax will still be supported, but a warning will be logged recommending they switch to using instead of Starting with 5.0, the "fields" option won't be recognized at all.
+******
+solr.core.src.test.org.apache.solr.update.processor.FieldMutatingUpdateProcessorTest.FieldMutatingUpdateProcessorTest.testUniqValues(), false, test_method
+solr.core.src.java.org.apache.solr.update.processor.UniqFieldsUpdateProcessorFactory.UniqFieldsUpdateProcessorFactory.getDefaultSelector(SolrCore), false, new_method
+solr.core.src.java.org.apache.solr.update.processor.UniqFieldsUpdateProcessorFactory.UniqFieldsUpdateProcessorFactory.init(NamedList), true
+solr.core.src.java.org.apache.solr.update.processor.UniqFieldsUpdateProcessorFactory.UniqFieldsUpdateProcessorFactory.processAdd(AddUpdateCommand), true
+solr.core.src.java.org.apache.solr.update.processor.UniqFieldsUpdateProcessorFactory.UniqFieldsUpdateProcessorFactory.UniqFieldsUpdateProcessor(UpdateRequestProcessor, Set<String>), true
+solr.core.src.java.org.apache.solr.update.processor.UniqFieldsUpdateProcessorFactory.UniqFieldsUpdateProcessorFactory.UpdateRequestProcessor(SolrQueryRequest, SolrQueryResponse, UpdateRequestProcessor), true
+#####
+solr-4.4.0
+SOLR-4221
+https://issues.apache.org/jira/browse/SOLR-4221
+Custom sharding Features to let users control everything about sharding/routing.
+Custom sharding Features to let users control everything about sharding/routing.
+******
+solr.core.src.test.org.apache.solr.cloud.SliceStateUpdateTest.SliceStateUpdateTest.testSliceStateUpdate(), false, test_method
+solr.solrj.src.java.org.apache.solr.common.cloud.DocCollection.DocCollection.DocCollection(String, Map<String, Slice>, Map<String, Object>, DocRouter), true
+solr.solrj.src.java.org.apache.solr.common.cloud.ClusterState.ClusterState.collectionFromObjects(String, Map<String, Object>), true
+solr.core.src.java.org.apache.solr.cloud.ZkController.ZkController.createCollectionZkNode(CloudDescriptor), true
+solr.solrj.src.java.org.apache.solr.common.cloud.ZkNodeProps.ZkNodeProps.makeMap(Object...), true
+solr.test-framework.src.java.org.apache.solr.cloud.AbstractFullDistribZkTestBase.AbstractFullDistribZkTestBase.createCollection(Map<String, List<Integer>>, String, int, int, int, SolrServer, String), false, test_method
+solr.solrj.src.java.org.apache.solr.common.cloud.CompositeIdRouter.CompositeIdRouter.sliceHash(String, SolrInputDocument, SolrParams, DocCollection), true
+solr.core.src.java.org.apache.solr.handler.admin.CollectionsHandler.CollectionsHandler.copyIfNotNull(SolrParams, Map<String, Object>, String...), true
+solr.core.src.java.org.apache.solr.handler.admin.CollectionsHandler.CollectionsHandler.handleCreateAction(SolrQueryRequest, SolrQueryResponse), true
+solr.core.src.java.org.apache.solr.handler.admin.CollectionsHandler.CollectionsHandler.handleCreateShard(SolrQueryRequest, SolrQueryResponse), true
+solr.core.src.java.org.apache.solr.cloud.Overseer.Overseer.buildCollection(ClusterState, ZkNodeProps), true
+solr.core.src.java.org.apache.solr.cloud.Overseer.Overseer.createCollection(ClusterState, String, List<String>, ZkNodeProps), true
+solr.core.src.java.org.apache.solr.cloud.Overseer.Overseer.updateSlice(ClusterState, String, Slice), true
+solr.solrj.src.java.org.apache.solr.common.cloud.ImplicitDocRouter.ImplicitDocRouter.getTargetSlice(String, SolrInputDocument, SolrParams, DocCollection), true
+solr.solrj.src.java.org.apache.solr.common.cloud.DocRouter.DocRouter.getRouterSpec(ZkNodeProps), false, new_method
+solr.solrj.src.java.org.apache.solr.common.cloud.DocRouter.DocRouter.getDocRouter(Object), true
+solr.solrj.src.java.org.apache.solr.common.cloud.DocRouter.DocRouter.getRouteField(DocCollection), false, new_method
+solr.core.src.java.org.apache.solr.cloud.OverseerCollectionProcessor.OverseerCollectionProcessor.createCollection(ClusterState, ZkNodeProps, NamedList), true
+solr.core.src.java.org.apache.solr.cloud.OverseerCollectionProcessor.OverseerCollectionProcessor.asMap(Object...), true
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.testCustomCollectionsAPI(), false, test_method
+solr.core.src.test.org.apache.solr.cloud.CustomCollectionTest.CustomCollectionTest.testRouteFieldForHashRouter(), false, test_method
+#####
+solr-4.4.0
+SOLR-4059
+https://issues.apache.org/jira/browse/SOLR-4059
+Allow forwarding updates to replicas based on an update param rather than hashing. Had not fully thought through this one yet, but Yonik caught me up at ApacheCon. We need to be able to skip hashing and let the client choose the shard, but still send to replicas. Ideas for the interface? hash=false?
+=not found issue fix commit=
+******
+#####
+solr-4.4.0
+SOLR-3936
+https://issues.apache.org/jira/browse/SOLR-3936
+QueryElevationComponent: Wrong order when result grouping is activated When I use elevation together with grouping I got not the expected result order. I tried it with the standard solr example: http://localhost:8983/solr/elevate?enableElevation=true&fl=score%2C[elevated]%2Cid%2Cname&forceElevation=true&group.field=manu&group=on&indent=on&q=ipod&wt=json but the results ignored the elevation: { "responseHeader":{ "status":0, "QTime":2, "params":{ "enableElevation":"true", "fl":"score,[elevated],id,name", "indent":"on", "q":"ipod", "forceElevation":"true", "group.field":"manu", "group":"on", "wt":"json"}}, "grouped":{ "manu":{ "matches":2, "groups":[{ "groupValue":"belkin", "doclist":{"numFound":1,"start":0,"maxScore":0.7698604,"docs":[ { "id":"F8V7067-APL-KIT", "name":"Belkin Mobile Power Cord for iPod w/ Dock", "score":0.7698604, "[elevated]":false} ] }}, { "groupValue":"inc", "doclist":{"numFound":1,"start":0,"maxScore":0.28869766,"docs":[ { "id":"MA147LL/A", "name":"Apple 60 GB iPod with Video Playback Black", "score":0.28869766, "[elevated]":true} ] }}]}}} the elevate.xml defines the following rules : <query text="ipod"> <doc id="MA147LL/A" /> <!-- put the actual ipod at the top --> <doc id="IW-02" exclude="true" /> <!-- exclude this cable --> </query> </elevate>
+Wrong order when result grouping is activated. When I use elevation together with grouping I got not the expected result order. I tried it with the standard solr example: http://localhost:8983/solr/elevate?enableElevation=true&fl=score%2C[elevated]%2Cid%2Cname&forceElevation=true&group.field=manu&group=on&indent=on&q=ipod&wt=json but the results ignored the elevation: defines the following rules
+******
+solr.core.src.java.org.apache.solr.handler.component.QueryElevationComponent.QueryElevationComponent.prepare(ResponseBuilder), true
+solr.core.src.java.org.apache.solr.handler.component.QueryElevationComponent.QueryElevationComponent.modifySort(SortField[], boolean, ElevationComparatorSource), false, new_method
+solr.core.src.test.org.apache.solr.handler.component.QueryElevationComponentTest.QueryElevationComponentTest.testGroupedQuery(), false, test_method
+#####
+solr-4.4.0
+SOLR-3852
+https://issues.apache.org/jira/browse/SOLR-3852
+Admin UI - Cloud Tree ArrayIndexOutOfBoundsException if binary files anywhere in ZK tree Original bug description indicated that when using Solr with embedded ZK everything was fine, but with an external ZK you'd get an ArrayIndexOutOfBoundsException. Crux of the problem is some bad assumptions about any ZK node containing data - the ZookeeperInfoServlet powering the tree view of the Cloud Admin UI assumed that any data would be utf8 text. If you are using extenral ZK, and other systems are writing data into ZK, then you are more likely to see this problem, because those other systems might be writing binary data in to ZK nodes - if you are using ZK embedded in solr, or using solr with it's own private (external) ZK instance, then you would only see this problem if you explicitly put binary files into solr configs and upconfig them into ZK. One workarround for people encountering this problem when using Solr with a ZK instance shared by other tools is to make sure you use a "chroot" patch when pointing Solr at ZK, so that it won't know about any other paths in your ZK tree that might have binary data... https://wiki.apache.org/solr/SolrCloud#Zookeeper_chroot If you are having this problem because you put binay files into your own config dir (ie: images for velocity or something like that) then there is no straight forward workarround. Example stack trace for this bug... 43242 [qtp965223859-14] WARN org.eclipse.jetty.servlet.ServletHandler /solr/zookeeper java.lang.ArrayIndexOutOfBoundsException: 213 at org.apache.lucene.util.UnicodeUtil.UTF8toUTF16(UnicodeUtil.java:620) at org.apache.lucene.util.BytesRef.utf8ToString(BytesRef.java:168) at org.apache.solr.servlet.ZookeeperInfoServlet$ZKPrinter.printTree(ZookeeperInfoServlet.java:303) at org.apache.solr.servlet.ZookeeperInfoServlet$ZKPrinter.printTree(ZookeeperInfoServlet.java:339) at org.apache.solr.servlet.ZookeeperInfoServlet$ZKPrinter.printTree(ZookeeperInfoServlet.java:339) ... org.apache.solr.servlet.ZookeeperInfoServlet$ZKPrinter.print(ZookeeperInfoServlet.java:228) at org.apache.solr.servlet.ZookeeperInfoServlet.doGet(ZookeeperInfoServlet.java:106)
+Admin UI - Cloud Tree if binary files anywhere in ZK tree Original bug description indicated that when using Solr with embedded ZK everything was fine, but with an external ZK you'd get an Crux of the problem is some bad assumptions about any ZK node containing data - the powering the tree view of the Cloud Admin UI assumed that any data would be utf8 text. If you are using extenral ZK, and other systems are writing data into ZK, then you are more likely to see this problem, because those other systems might be writing binary data in to ZK nodes - if you are using ZK embedded in solr, or using solr with it's own private (external) ZK instance, then you would only see this problem if you explicitly put binary files into solr configs and upconfig them into ZK. One workarround for people encountering this problem when using Solr with a ZK instance shared by other tools is to make sure you use a "chroot" patch when pointing Solr at ZK, so that it won't know about any other paths in your ZK tree that might have binary data... https://wiki.apache.org/solr/SolrCloud#Zookeeper_chroot If you are having this problem because you put binay files into your own config dir (ie: images for velocity or something like that) then there is no straight forward workarround. Example stack trace for this bug...
+******
+solr.core.src.java.org.apache.solr.servlet.ZookeeperInfoServlet.ZookeeperInfoServlet.printTree(JSONWriter, String), true
+solr.core.src.java.org.apache.solr.servlet.ZookeeperInfoServlet.ZookeeperInfoServlet.printZnode(JSONWriter, String), true
+#####
+solr-4.4.0
+SOLR-2570
+https://issues.apache.org/jira/browse/SOLR-2570
+randomize indexwriter settings in solr tests we should randomize indexwriter settings like lucene tests do, to vary # of segments and such.
+randomize indexwriter settings in solr tests we should randomize indexwriter settings like lucene tests do, to vary # of segments and such.
+******
+solr.test-framework.src.java.org.apache.solr.SolrTestCaseJ4.SolrTestCaseJ4.beforeClass(), false, test_method
+solr.test-framework.src.java.org.apache.solr.SolrTestCaseJ4.SolrTestCaseJ4.newRandomConfig(), false, new_method
+solr.core.src.test.org.apache.solr.core.TestConfig.TestConfig.testSanityCheckTestSysPropsAreUsed(), false, test_method
+#####
+solr-4.4.0
+SOLR-2548
+https://issues.apache.org/jira/browse/SOLR-2548
+Multithreaded faceting Add multithreading support for faceting.
+Multithreaded faceting Add multithreading support for faceting.
+******
+solr.core.src.java.org.apache.solr.request.SimpleFacets.SimpleFacets.getTermCounts(String), true
+solr.core.src.java.org.apache.solr.request.SimpleFacets.SimpleFacets.getFacetFieldCounts(), true
+solr.core.src.java.org.apache.solr.request.SimpleFacets.SimpleFacets.getListedTermCounts(String, String), true
+solr.core.src.java.org.apache.solr.request.SimpleFacets.SimpleFacets.getFieldMissingCount(SolrIndexSearcher, DocSet, String), true
+solr.core.src.java.org.apache.solr.request.UnInvertedField.UnInvertedField.UnInvertedField(), false, new_method
+solr.core.src.java.org.apache.solr.request.UnInvertedField.UnInvertedField.UnInvertedField(String, SolrIndexSearcher), true
+solr.core.src.java.org.apache.solr.request.UnInvertedField.UnInvertedField.getUnInvertedField(String, SolrIndexSearcher), true
+solr.core.src.test.org.apache.solr.request.TestFaceting.TestFaceting.add50ocs(), false, new_method
+solr.core.src.test.org.apache.solr.request.TestFaceting.TestFaceting.testMultiThreadedFacets(), false, new_method
+solr.core.src.test.org.apache.solr.request.TestFaceting.TestFaceting.testThreadWait(), false, new_method
+#####
+solr-4.4.0
+SOLR-2345
+https://issues.apache.org/jira/browse/SOLR-2345
+Extend geodist() to support MultiValued lat long field Extend geodist() and {!geofilt} to support a multiValued lat,long field without using geohash. sort=geodist() asc
+Extend  to support  lat long field Extend and to support a lat,long field without using
+******
+solr.core.src.java.org.apache.solr.search.function.distance.GeoDistValueSourceParser.GeoDistValueSourceParser.getConstants(MultiValueSource), true
+solr.core.src.java.org.apache.solr.search.function.distance.GeoDistValueSourceParser.GeoDistValueSourceParser.makeMV(List<ValueSource>, List<ValueSource>), true
+solr.core.src.java.org.apache.solr.search.function.distance.GeoDistValueSourceParser.GeoDistValueSourceParser.parsePoint(FunctionQParser), true
+solr.core.src.java.org.apache.solr.search.function.distance.GeoDistValueSourceParser.GeoDistValueSourceParser.parseSfield(FunctionQParser), true
+solr.core.src.java.org.apache.solr.search.function.distance.GeoDistValueSourceParser.GeoDistValueSourceParser.ValueSource(FunctionQParser), true
+solr.core.src.java.org.apache.solr.search.function.distance.GeoDistValueSourceParser.GeoDistValueSourceParser.parse(FunctionQParser), true
+solr.core.src.java.org.apache.solr.search.function.distance.GeoDistValueSourceParser.GeoDistValueSourceParser.getSources(), false, new_method
+solr.core.src.java.org.apache.solr.search.function.distance.GeoDistValueSourceParser.GeoDistValueSourceParser.SpatialStrategyMultiValueSource(SpatialStrategy), false, new_method
+solr.core.src.java.org.apache.solr.search.function.distance.HaversineConstFunction.HaversineConstFunction.getConstants(MultiValueSource), true
+solr.core.src.java.org.apache.solr.search.function.distance.HaversineConstFunction.HaversineConstFunction.parse(FunctionQParser), true
+solr.core.src.java.org.apache.solr.search.function.distance.HaversineConstFunction.HaversineConstFunction.parsePoint(FunctionQParser), true
+solr.core.src.java.org.apache.solr.search.function.distance.HaversineConstFunction.HaversineConstFunction.parseSfield(FunctionQParser), true
+solr.core.src.java.org.apache.solr.search.function.distance.HaversineConstFunction.HaversineConstFunction.VectorValueSource(List<ValueSource>, List<ValueSource>), true
+solr.core.src.test.org.apache.solr.search.function.distance.DistanceFunctionTest.DistanceFunctionTest.testLatLon(), false, test_method
+#####

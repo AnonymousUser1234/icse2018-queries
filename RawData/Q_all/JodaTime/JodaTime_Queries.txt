@@ -1,0 +1,40 @@
+1755161
+lenient chronolog issu spring dst bug undocu behavior construct date lenient calendar time miss hour dai chang from standard daylight time enter result time 01 30 equival 03 30 exampl construct date 11 2007 02 00 00 cst result time 11 2007 01 00 00 cst expect 11 2007 03 00 00 cdt equival time relat id 1747219 1755158 attach program reproduc issu 
+1
+JodaTime.src.java.org.joda.time.field.LenientDateTimeField
+
+1788282
+problem pars text part date check code test date septemb date time formatt formatt date time format pattern dd mmm yyyi local local french println formatt print current time milli formatt pars date time 11 sept 2007 get except last line problem french month end work fine simpl date format 
+1
+JodaTime.src.java.org.joda.time.format.DateTimeFormatterBuilder
+
+1877843
+date time format field list method handl immut line 451 iso date time format v1 method time date time formatt builder collect hour field remov date time field type hour dai oper done input field method requir list bad design list clone even arrai list fed unit fail work arrai list type list support add remov follow code fail date time formatt time format iso date time format field arrai list date time field type hour dai date time field type minut hour date time field type second minut workaround clone wrap feed field arrai list lt date time field type gt argument mail reinier zwitserloot com question 
+1
+JodaTime.src.java.org.joda.time.format.ISODateTimeFormat
+
+2025928
+print zero rare first print expect period formatt builder print zero rare first caus zero print month week dai hour minut second field first field output correctli print zero rare last command us follow code output expect period test period period period formatt formatt period formatt builder print zero rare first append month formatt println formatt print test period chang formatt add year zero print year valu expect period test period period period formatt formatt period formatt builder print zero rare first append month append year formatt println formatt print test period append week append dai append hour append minut append second command zero print append year ad period formatt builder get field valu code loop print zero rare last run incorrect direct check field after field check field befor field year work correctli enter loop correct ad period formatt builder java get field valu readabl period period valu print zero set print zero rare first zero period amp amp field formatt field type math min field type switch loop gt amp amp lt max field support type amp amp field formatt max valu max valu test case ad test period formatt builder java test format print zero rare first month period formatt period formatt builder print zero rare first append month formatt equal print empti period test format print zero rare first week period formatt period formatt builder print zero rare first append week formatt equal print empti period test format print zero rare first dai period formatt period formatt builder print zero rare first append dai formatt equal print empti period test format print zero rare first hour period formatt period formatt builder print zero rare first append hour formatt equal print empti period test format print zero rare first minut period formatt period formatt builder print zero rare first append minut formatt equal print empti period test format print zero rare first second period formatt period formatt builder print zero rare first append second formatt equal print empti period 
+1
+JodaTime.src.java.org.joda.time.format.PeriodFormatterBuilder
+
+2111763
+interv databas transform interv interv databas start end column persist interval return interval 
+1
+JodaTimeContrib.hibernate.src.java.org.joda.time.contrib.hibernate.PersistentInterval
+
+2487417
+local date interv except local date interv comput dai interv specifi convert object interv repres dai work perfectli on except daylight cut dai brazilian timezon org joda time date time zone org joda time interv org joda time local date junit framework test joda test test test brazil date time zone dtz date time zone id america sao paulo local date date local date 2009 10 18 interv interv date interv dtz except thrown java lang illeg argument except illeg instant time zone offset transit 2009 10 18 t03 00 00 000 org joda time chrono zone chronolog local utc zone chronolog java 143 org joda time chrono zone chronolog get date time milli zone chronolog java 119 org joda time chrono assembl chronolog get date time milli assembl chronolog java 133 org joda time base base date time lt init gt base date time java 254 org joda time date midnight lt init gt date midnight java 268 org joda time local date date midnight local date java 740 org joda time local date interv local date java 847 local date interv specif convert object interv repres dai 00 00 00 exist dai interv exist 
+1
+JodaTime.src.java.org.joda.time.LocalDate
+
+2783325
+typo date time formatt date time formatt ha method call get chronolgi get chronolog 
+1
+JodaTime.src.java.org.joda.time.format.DateTimeFormatter
+
+2903029
+date time start dai round floor copi wrong time zone local date date time start dai date time zone date time dai month round floor copi correct date time specifc date caus dst time zone chang check follow two exampl expect dai month chang calcul start dai 2008 03 16 time zone america argentina catamarca result 2008 03 15 t23 00 00 000 03 00 1205632800000 expect 2008 03 16 t00 00 00 000 03 00 1205636400000 calcul start dai 2008 06 24 time zone america rio branco result 2008 06 23 t23 00 00 000 05 00 1214280000000 expect 2008 06 24 t01 00 00 000 04 00 1214283600000 attach test case more detail dst time zone chang test case fail joda 
+1
+JodaTime.src.java.org.joda.time.DateTimeZone
+

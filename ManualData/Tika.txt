@@ -1,0 +1,305 @@
+tika-1.3
+TIKA-1126
+https://issues.apache.org/jira/browse/TIKA-1126
+text/html procuder for tika-server the /tika resource handler of tika-server can only produce text/plain. This patch adds support for producing text/html.
+text/html procuder for tika-server the /tika resource handler of tika-server can only produce text/plain. This patch adds support for producing text/html.
+******
+tika-server.src.test.java.org.apache.tika.server.TikaResourceTest.TikaResourceTest.testSimpleWordHTML(), false, new_method
+tika-server.src.test.java.org.apache.tika.server.TikaResourceTest.TikaResourceTest.testPasswordXLSHTML(), false, new_method
+tika-server.src.main.java.org.apache.tika.server.TikaResource.TikaResource.getHTML(InputStream, HttpHeaders, UriInfo), false, new_method
+#####
+tika-1.3
+TIKA-1090
+https://issues.apache.org/jira/browse/TIKA-1090
+Improve Java Documentation for Apache Tika Metadata As I described on user@ here [0], I was not happy with the Javadoc for Metadata (as it was not explicit about what to replace the legacy Tika Metadata vocabulary with) so I therefore thought it was important to provide a documentation patch to make it more clear to devs/users wishing to build on the Tika Metadata functionality. This simple patch merely substantiates on the Java documentation for the Metadata class further explaining how the Tika API has changed. In addition other methods now are explicit about what we SHOULD now use. Finally, it also introduces a Feed.java metadata interface (which I can remove if unnecessary/unrequired) which merely introduces some consistent fields we would expect Rome rss/atom/feed parser library to obtain. The final Feed class is a legacy class from the Apache Nutch metadata package. I will work on the patch today and submit it here in due course. [0] http://www.mail-archive.com/user%40tika.apache.org/msg01156.html
+=== No changed methods ===
+******
+#####
+tika-1.3
+TIKA-1083
+https://issues.apache.org/jira/browse/TIKA-1083
+Add Various links and UTI values in tika-metadata.xml In TIKA-1012 we added <tika:link> and <tika:uti> this patch fills in a few values
+Add Various links and UTI values in In TIKA-1012 we added <tika:link> and <tika:uti> this patch fills in a few values
+******
+tika-core.src.test.java.org.apache.tika.mime.MimeTypesReaderTest.MimeTypesReaderTest.testReadExtendedMetadata(), false, test_method
+#####
+tika-1.3
+TIKA-1074
+https://issues.apache.org/jira/browse/TIKA-1074
+Extraction should continue if an exception is hit visiting an embedded document Spinoff from TIKA-1072. In that issue, a problematic document (still not sure if document is corrupt, or possible POI bug) caused an exception when visiting the embedded documents. If I change Tika to suppress that exception, the rest of the document extracts fine. So somehow I think we should be more robust here, and maybe log the exception, or save/record the exception(s) somewhere so after parsing the app could decide what to do about them ...
+Extraction should continue if an exception is hit visiting an embedded document Spinoff from TIKA-1072. In that issue, a problematic document (still not sure if document is corrupt, or possible POI bug) caused an exception when visiting the embedded documents. If I change Tika to suppress that exception, the rest of the document extracts fine. So somehow I think we should be more robust here, and maybe log the exception, or save/record the exception(s) somewhere so after parsing the app could decide what to do about them ...
+******
+tika-app.src.main.java.org.apache.tika.cli.TikaCLI.TikaCLI.parseEmbedded(InputStream, ContentHandler, Metadata, boolean), true
+tika-parsers.src.test.java.org.apache.tika.parser.microsoft.WordParserTest.WordParserTest.testExceptions1(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.AbstractPOIFSExtractor.AbstractPOIFSExtractor.handleEmbeddedOfficeDoc(DirectoryEntry, XHTMLContentHandler), true
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.SummaryExtractor.SummaryExtractor.parseSummaryEntryIfExists(DirectoryNode, String), true
+#####
+tika-1.3
+TIKA-1053
+https://issues.apache.org/jira/browse/TIKA-1053
+Upgrade Tika Parsers to use ASM 4.x Right now Tika 1.2 uses ASM 3.1. However this is causing some issues for us on the XWiki project since we also bundle other framework that use a more recent version of ASM (we use pegdown which uses parboiled which draws ASM 4.0). The problem is that ASM 3.x and 4.0 are not compatible... See http://jira.xwiki.org/browse/XE-1269 for more details about the issue we're facing. Thanks for considering upgrading to ASM 4.x
+Upgrade Tika Parsers to use Right now Tika 1.2 uses ASM However this is causing some issues for us on the XWiki project since we also bundle other framework that use a more recent version of (we use pegdown which uses parboiled which draws). The problem is that are not compatible... See http://jira.xwiki.org/browse/XE-1269 for more details about the issue we're facing. Thanks for considering upgrading to
+******
+tika-parsers.src.main.java.org.apache.tika.parser.asm.XHTMLClassVisitor.XHTMLClassVisitor.XHTMLClassVisitor(ContentHandler, Metadata), true
+#####
+tika-1.3
+TIKA-1047
+https://issues.apache.org/jira/browse/TIKA-1047
+Provide a JAX-RS to detect only the mediatype Currently I can use the JAX-RS server to detect the mediatype using the meta endpoint. The problem I have with this is that I need to send the entire document to get all metadata. To detect the mediatype, only a few bytes are often necessary and so I'd like to only send, say 8K or so, to the server and let it tell me the mediatype. In order to accomplish this, it would be good to modify the /meta endpoint to address the individual fields that might be returned: /meta/mediatype /meta/author /meta/lastModified The parts currently following the path could be turned into a query parameter, which I think is more appropriate anyways (also easier to manipulate with tools like jquery). If sufficient data is not available, I'd just return with a BAD_REQUEST. If this would be of interest to TIKA, I think I could possibly implement this.
+Provide a JAX-RS to detect only the Currently I can use the JAX-RS server to detect the using the meta endpoint. The problem I have with this is that I need to send the entire document to get all metadata. To detect the only a few bytes are often necessary and so I'd like to only send, say 8K or so, to the server and let it tell me the In order to accomplish this, it would be good to modify the /meta endpoint to address the individual fields that might be returned: The parts currently following the path could be turned into a query parameter, which I think is more appropriate anyways (also easier to manipulate with tools like jquery). If sufficient data is not available, I'd just return with a If this would be of interest to TIKA, I think I could possibly implement this.
+******
+src.main.java.org.apache.tika.server.JSONMessageBodyWriter.JSONMessageBodyWriter.isWriteable(Class<?>, Type, Annotation[], MediaType), false, new_method
+src.main.java.org.apache.tika.server.JSONMessageBodyWriter.JSONMessageBodyWriter.getSize(Metadata, Class<?>, Type, Annotation[], MediaType), false, new_method
+src.main.java.org.apache.tika.server.JSONMessageBodyWriter.JSONMessageBodyWriter.writeTo(Metadata, Class<?>, Type, Annotation[], MediaType, MultivaluedMap<String, Object>, OutputStream), false, new_method
+tika-server.src.main.java.org.apache.tika.server.TikaServerCli.TikaServerCli.TikaServerCli.main(String[]), true
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.copy(InputStream, int), false, new_method
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.setUp(), false, new_method
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.tearDown(), false, new_method
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.testSimpleWord_CSV(), false, new_method
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.testSimpleWord_JSON(), false, new_method
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.testGetField_Author_TEXT(), false, new_method
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.testGetField_Author_JSON(), false, new_method
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.testGetField_XXX_NotFound(), false, new_method
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.testGetField_Author_TEXT_Partial_BAD_REQUEST(), false, new_method
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest.testGetField_Author_TEXT_Partial_Found(), false, new_method
+src.main.java.org.apache.tika.server.CSVMessageBodyWriter.CSVMessageBodyWriter.isWriteable(Class<?>, Type, Annotation[], MediaType), false, new_method
+src.main.java.org.apache.tika.server.CSVMessageBodyWriter.CSVMessageBodyWriter.getSize(Metadata, Class<?>, Type, Annotation[], MediaType), false, new_method
+src.main.java.org.apache.tika.server.CSVMessageBodyWriter.CSVMessageBodyWriter.writeTo(Metadata, Class<?>, Type, Annotation[], MediaType, MultivaluedMap<String, Object>, OutputStream), false, new_method
+tika-server.src.main.java.org.apache.tika.server.TikaResource.TikaResource.fillMetadata(AutoDetectParser, Metadata, HttpHeaders), false, new_method
+src.main.java.org.apache.tika.server.MetadataEP.MetadataEP.MetadataEP(HttpHeaders, UriInfo), false, new_method
+src.main.java.org.apache.tika.server.MetadataEP.MetadataEP.getMetadata(InputStream), false, new_method
+src.main.java.org.apache.tika.server.MetadataEP.MetadataEP.getSimpleMetadataField(String, InputStream), false, new_method
+src.main.java.org.apache.tika.server.MetadataEP.MetadataEP.getMetadataField(String, InputStream), false, new_method
+#####
+tika-1.3
+TIKA-1014
+https://issues.apache.org/jira/browse/TIKA-1014
+Allow custom MimeTypesReader The current MimeTypesReader is package protected with private fields. It would be great to allow subclassing this Reader to support custom behavior. In particular: error handling custom XML tags
+Allow custom The current is package protected with private fields. It would be great to allow subclassing this Reader to support custom behavior. In particular: error handling custom XML tags
+******
+tika-core.src.test.java.org.apache.tika.mime.CustomReaderTest.CustomReaderTest.CustomMimeTypesReader(MimeTypes), false, new_method
+tika-core.src.test.java.org.apache.tika.mime.CustomReaderTest.CustomReaderTest.startElement(String, String, String, Attributes), false, new_method
+tika-core.src.test.java.org.apache.tika.mime.CustomReaderTest.CustomReaderTest.endElement(String, String, String), false, new_method
+tika-core.src.test.java.org.apache.tika.mime.CustomReaderTest.CustomReaderTest.handleGlobError(MimeType, String, MimeTypeException, String, Attributes), false, new_method
+tika-core.src.test.java.org.apache.tika.mime.CustomReaderTest.CustomReaderTest.testCustomReader(), false, new_method
+tika-core.src.main.java.org.apache.tika.mime.MimeTypesReader.MimeTypesReader.read(InputStream), false, access_modifier
+tika-core.src.main.java.org.apache.tika.mime.MimeTypesReader.MimeTypesReader.MimeTypesReader(MimeTypes), false, access_modifier
+tika-core.src.main.java.org.apache.tika.mime.MimeTypesReader.MimeTypesReader.read(Document), false, access_modifier
+tika-core.src.main.java.org.apache.tika.mime.MimeTypesReader.MimeTypesReader.startElement(String, String, String, Attributes), false, refactoring
+tika-core.src.main.java.org.apache.tika.mime.MimeTypesReader.MimeTypesReader.handleMimeError(String, MimeTypeException, String, Attributes), false, new_method
+tika-core.src.main.java.org.apache.tika.mime.MimeTypesReader.MimeTypesReader.handleGlobError(MimeType, String, MimeTypeException, String, Attributes), false, new_method
+#####
+tika-1.3
+TIKA-992
+https://issues.apache.org/jira/browse/TIKA-992
+OpenGraph meta tags to allow multiple values HtmlHandler should use Metadata.add() for Open Graph properties instead of the HtmlHandler.addHtmlMetadata() method which uses Metadata.set(). The og:* properties can be multivalued. The Metadata.set() method overwrites previous entries because it doesn't use Metadata.appendedValues().
+meta tags to allow multiple values should use properties instead of the method which uses The og:* properties can be multivalued. The method overwrites previous entries because it doesn't use
+******
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest.testOpenGraphMetadata(), false, test_method
+tika-parsers.src.main.java.org.apache.tika.parser.html.HtmlHandler.HtmlHandler.startElement(String, String, String, Attributes), true
+#####
+tika-1.3
+TIKA-1211
+https://issues.apache.org/jira/browse/TIKA-1211
+OpenDocument (ODF) parser produces multiple startDocument() events Related to SOLR-4809: Solr receives multiple startDocument events when parsing OpenDocumentFiles. The parser already prevents multiple endDocuments, but not multiple startDocuments. The bug was introduced when we added parsing content.xml and meta.xml (TIKA-736, but both feed elements to the XHTML output, so we get multiple start/endDocuments).
+parser produces multiple events Related to SOLR-4809: Solr receives multiple events when parsing The parser already prevents multiple but not multiple The bug was introduced when we added parsing (TIKA-736, but both feed elements to the XHTML output, so we get multiple.
+******
+tika-core.src.main.java.org.apache.tika.sax.XHTMLContentHandler.XHTMLContentHandler.startDocument(), true
+#####
+tika-1.3
+TIKA-1210
+https://issues.apache.org/jira/browse/TIKA-1210
+Address tika-parsers o.a.t.mime.TestMimeTypes TODO: Need a test flash file AFAICS the TODO relates to the absence of suitable .swf/.SWF files to use within the assertTypeByData(String st, String st) method. Over in Nutch we currently run some tests and have available .swf files which can be used within Tika. https://svn.apache.org/repos/asf/nutch/branches/2.x/src/plugin/parse-swf/sample/
+Address tika-parsers Need a test flash file AFAICS the TODO relates to the absence of suitable files to use within the method. Over in Nutch we currently run some tests and have available files which can be used within Tika. https://svn.apache.org/repos/asf/nutch/branches/2.x/src/plugin/parse-swf/sample/
+******
+tika-parsers.src.test.java.org.apache.tika.mime.TestMimeTypes.TestMimeTypes.testSwfDetection(), false, test_method
+#####
+tika-1.3
+TIKA-1202
+https://issues.apache.org/jira/browse/TIKA-1202
+Refactor PDFParser to enable easier parameter setting It would be handy to be able to set PDFParser parameters (extractAnnotationText, etc) in a config file and via ParseContext.
+Refactor to enable easier parameter setting It would be handy to be able to set parameters in a config file and via
+******
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testSequentialParser(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testPdfParsing(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testCustomMetadata(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testTwoTextBoxes(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testVarious(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testAnnotations(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testPopupAnnotation(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testDisableAutoSpace(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testDuplicateOverlappingText(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testSortByPosition(), false, test_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.getText(File, PDFParser, Metadata), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML.PDF2XHTML(ContentHandler, ParseContext, Metadata, PDFParserConfig), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML.process(PDDocument, ContentHandler, ParseContext, Metadata, boolean, boolean, boolean, boolean), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML.endPage(PDPage), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.PDFParserConfig(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.PDFParserConfig(InputStream), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.init(InputStream), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.getEnableAutoSpace(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.setEnableAutoSpace(boolean), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.getSuppressDuplicateOverlappingText(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.setSuppressDuplicateOverlappingText(boolean), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.getExtractAnnotationText(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.setExtractAnnotationText(boolean), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.setSortByPosition(boolean), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.getUseNonSequentialParser(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.setUseNonSequentialParser(boolean), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.getProp(String, boolean), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.equals(Object), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig.toString(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.parse(InputStream, ContentHandler, Metadata, ParseContext), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.addMetadata(Metadata, String, COSBase), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.setPDFParserConfig(PDFParserConfig), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.getPDFParserConfig(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.setUseNonSequentialParser(boolean), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.getUseNonSequentialParser(), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.setEnableAutoSpace(boolean), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.getEnableAutoSpace(), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.setExtractAnnotationText(boolean), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.getExtractAnnotationText(), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.setSuppressDuplicateOverlappingText(boolean), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.getSuppressDuplicateOverlappingText(), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.setSortByPosition(boolean), false, refactoring
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.getSortByPosition(), false, refactoring
+tika-parsers.src.test.java.org.apache.tika.TikaTest.TikaTest.getText(InputStream, Parser, ParseContext, Metadata), false, new_method
+tika-parsers.src.test.java.org.apache.tika.TikaTest.TikaTest.getText(InputStream, Parser, Metadata), false, new_method
+tika-parsers.src.test.java.org.apache.tika.TikaTest.TikaTest.getText(InputStream, Parser, ParseContext), false, new_method
+tika-parsers.src.test.java.org.apache.tika.TikaTest.TikaTest.getText(InputStream, Parser), false, new_method
+#####
+tika-1.3
+TIKA-1201
+https://issues.apache.org/jira/browse/TIKA-1201
+Add possibility for switching to pdfbox NonSequentialPDFParser As discussing, we can improve PDF extraction by 45% with this new NonSequentialPDFParser and fit more with PDF specification. This parser will be integrated by default in pdfbox 2.0. ref.: https://issues.apache.org/jira/browse/PDFBOX-1104 http://pdfbox.apache.org/ideas.html We should provide an extended parser or parameter current PDFParser to call: PDDocument.loadNonSeq(file, scratchFile);
+Add possibility for switching to As discussing, we can improve PDF extraction by 45% with this new and fit more with PDF specification. This parser will be integrated by default in pdfbox 2.0. ref.: https://issues.apache.org/jira/browse/PDFBOX-1104 http://pdfbox.apache.org/ideas.html We should provide an extended parser or parameter current;
+******
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testSequentialParser(), false, new_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.getText(File, PDFParser, Metadata), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.parse(InputStream, ContentHandler, Metadata, ParseContext), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.addMetadata(Metadata, String, COSBase), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.setUseNonSequentialParser(boolean), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.getUseNonSequentialParser(), false, new_method
+#####
+tika-1.3
+TIKA-1193
+https://issues.apache.org/jira/browse/TIKA-1193
+Allow access to HtmlParser's HtmlSchema TagSoup's HTMLSchema is not really well suited for HTML5 nor is it capable of correctly handling some very strange quirks, e.g. table inside anchors. By allowing access to the schema applications can modify the schema to suit their needs on the fly. This would also mean that we don't have to rely on TIKA-985 getting committed, we can change it from our own applications.
+Allow access tois not really well suited for HTML5 nor is it capable of correctly handling some very strange quirks, e.g. table inside anchors. By allowing access to the schema applications can modify the schema to suit their needs on the fly. This would also mean that we don't have to rely on TIKA-985 getting committed, we can change it from our own applications.
+******
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest.testCustomHtmlSchema(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.html.HtmlParser.HtmlParser.parse(InputStream, ContentHandler, Metadata, ParseContext), true
+#####
+tika-1.3
+TIKA-1192
+https://issues.apache.org/jira/browse/TIKA-1192
+ArrayIndexOutOfBoundsException: 9 parsing RTF When trying to parse an RTF file I'm getting the following exception. I am not able to attach the file for privacy reasons: java.lang.ArrayIndexOutOfBoundsException: 9 TextExtractor.java:872 org.apache.tika.parser.rtf.TextExtractor.processControlWord TextExtractor.java:566 org.apache.tika.parser.rtf.TextExtractor.parseControlWord TextExtractor.java:492 org.apache.tika.parser.rtf.TextExtractor.parseControlToken TextExtractor.java:459 org.apache.tika.parser.rtf.TextExtractor.extract TextExtractor.java:448 org.apache.tika.parser.rtf.TextExtractor.extract RTFParser.java:56 org.apache.tika.parser.rtf.RTFParser.parse (Unknown Source) sun.reflect.NativeMethodAccessorImpl.invoke0 NativeMethodAccessorImpl.java:57 sun.reflect.NativeMethodAccessorImpl.invoke DelegatingMethodAccessorImpl.java:43 sun.reflect.DelegatingMethodAccessorImpl.invoke Method.java:606 java.lang.reflect.Method.invoke Reflector.java:93 clojure.lang.Reflector.invokeMatchingMethod Reflector.java:28 clojure.lang.Reflector.invokeInstanceMethod tika_parser.clj:20 rtf-parser.tika-parser/parse form-init2921349737948661927.clj:1 rtf-parser.tika-parser/eval4200 Compiler.java:6619 clojure.lang.Compiler.eval Compiler.java:6582 clojure.lang.Compiler.eval core.clj:2852 clojure.core/eval main.clj:259 clojure.main/repl[fn] main.clj:259 clojure.main/repl[fn] main.clj:277 clojure.main/repl[fn] main.clj:277 clojure.main/repl RestFn.java:1096 clojure.lang.RestFn.invoke interruptible_eval.clj:56 clojure.tools.nrepl.middleware.interruptible-eval/evaluate[fn] AFn.java:159 clojure.lang.AFn.applyToHelper AFn.java:151 clojure.lang.AFn.applyTo core.clj:617 clojure.core/apply core.clj:1788 clojure.core/with-bindings* RestFn.java:425 clojure.lang.RestFn.invoke interruptible_eval.clj:41 clojure.tools.nrepl.middleware.interruptible-eval/evaluate interruptible_eval.clj:171 clojure.tools.nrepl.middleware.interruptible-eval/interruptible-eval[fn] core.clj:2330 clojure.core/comp[fn] interruptible_eval.clj:138 clojure.tools.nrepl.middleware.interruptible-eval/run-next[fn] AFn.java:24 clojure.lang.AFn.run ThreadPoolExecutor.java:1145 java.util.concurrent.ThreadPoolExecutor.runWorker ThreadPoolExecutor.java:615 java.util.concurrent.ThreadPoolExecutor$Worker.run Thread.java:724 java.lang.Thread.run
+9 parsing When trying to parse an file I'm getting the following exception. I am not able to attach the file for privacy reasons:
+******
+tika-parsers.src.test.java.org.apache.tika.parser.rtf.RTFParserTest.RTFParserTest.testListOverride(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.rtf.TextExtractor.TextExtractor.processControlWord(), true
+#####
+tika-1.3
+TIKA-1152
+https://issues.apache.org/jira/browse/TIKA-1152
+Process loops infinitely on parsing of a CHM file By parsing the attachment CHM file (MS Microsoft Help Files), Java process stuck. Thread[main,5,main] org.apache.tika.parser.chm.lzx.ChmLzxBlock.extractContent(ChmLzxBlock.java:203) org.apache.tika.parser.chm.lzx.ChmLzxBlock.<init>(ChmLzxBlock.java:77) org.apache.tika.parser.chm.core.ChmExtractor.extractChmEntry(ChmExtractor.java:338) org.apache.tika.parser.chm.CHMDocumentInformation.getContent(CHMDocumentInformation.java:72) org.apache.tika.parser.chm.CHMDocumentInformation.getText(CHMDocumentInformation.java:141) org.apache.tika.parser.chm.CHM2XHTML.process(CHM2XHTML.java:34) org.apache.tika.parser.chm.ChmParser.parse(ChmParser.java:51) org.apache.tika.parser.ParserDecorator.parse(ParserDecorator.java:91) org.apache.tika.parser.CompositeParser.parse(CompositeParser.java:242) org.apache.tika.parser.AbstractParser.parse(AbstractParser.java:53) com.polyspot.document.converter.DocumentConverter.realizeConversion(DocumentConverter.java:192) ...
+Process loops infinitely on parsing of a file By parsing the attachment file (MS Microsoft Help Files), Java process stuck.
+******
+tika-parsers.src.main.java.org.apache.tika.parser.chm.lzx.ChmLzxBlock.ChmLzxBlock.extractContent(), true
+tika-parsers.src.main.java.org.apache.tika.parser.chm.lzx.ChmLzxBlock.ChmLzxBlock.decompressUncompressedBlock(int, byte[]), false, access_modifier
+tika-parsers.src.main.java.org.apache.tika.parser.chm.lzx.ChmLzxBlock.ChmLzxBlock.decompressAlignedBlock(int, byte[]), false, access_modifier
+#####
+tika-1.3
+TIKA-1130
+https://issues.apache.org/jira/browse/TIKA-1130
+.docx text extract leaves out some portions of text When parsing a Microsoft Word .docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document), certain portions of text remain unextracted. I have attached a .docx file that can be tested against. The 'gray' portions of text are what are not extracted, while the darker colored text extracts fine. Looking at the document.xml portion of the .docx zip file shows the text is all there.
+.docx text extract leaves out some portions of text When parsing a, certain portions of text remain unextracted. I have attached a .docx file that can be tested against. The 'gray' portions of text are what are not extracted, while the darker colored text extracts fine. Looking at the portion of the .docx zip file shows the text is all there.
+******
+tika-parsers.src.test.java.org.apache.tika.parser.microsoft.ooxml.OOXMLParserTest.OOXMLParserTest.disabledTestMissingText(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator.extractIBodyText(IBody, XHTMLContentHandler), true
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator.extractParagraph(XWPFParagraph, XHTMLContentHandler), true
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator.extractHeaderText(XHTMLContentHandler, XWPFHeaderFooter), true
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator.isBold(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator.TmpFormatting(boolean, boolean), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator.setBold(boolean), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator.isItalic(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator.setItalic(boolean), false, new_method
+#####
+tika-1.3
+TIKA-1124
+https://issues.apache.org/jira/browse/TIKA-1124
+Nested documents not extracted if a PDF file is in the chain Tika 1.3 is not able to get attachments from the attached PDF. The trunk is able to get attachments from the PDF. However, if that PDF is then embedded in another document, the docs embedded in the PDF are not extracted. I'm not sure of a solution, but I found two things that might help with the diagnosis: 1) If you modify the code in PDFParser so that it doesn't wrap the handler in a BodyContentHandler, everything works (in trunk). 2) If you modify BodyContentHandler to use my toy SimpleBodyMatchingContentHandler, the problem is also solved. The cause may be in the MatchingContentHandler.
+Nested documents not extracted if a PDF file is in the chain Tika 1.3 is not able to get attachments from the attached PDF. The trunk is able to get attachments from the PDF. However, if that PDF is then embedded in another document, the docs embedded in the PDF are not extracted. I'm not sure of a solution, but I found two things that might help with the diagnosis: 1) If you modify the code in so that it doesn't wrap the handler in a everything works (in trunk). 2) If you modify to use my toy the problem is also solved. The cause may be in the
+******
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML.process(PDDocument, ContentHandler, Metadata, boolean, boolean, boolean, boolean), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML.PDF2XHTML(ContentHandler, Metadata, boolean, boolean, boolean, boolean), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML.endDocument(PDDocument), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML.extractEmbeddedDocuments(PDDocument, ContentHandler), false, new_method
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest.testEmbeddedPDFEmbeddingAnotherDocument(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.parse(InputStream, ContentHandler, Metadata, ParseContext), true
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser.extractEmbeddedDocuments(ParseContext, PDDocument, ContentHandler), true
+#####
+tika-1.3
+TIKA-1110
+https://issues.apache.org/jira/browse/TIKA-1110
+Incorrectly declared SUPPORTED_TYPES in ChmParser. This link assigns the official mime type for these files to "application/vnd.ms-htmlhelp". In the wild there are also two other types used: application/chm application/x-chm tika-mimetypes.xml uses the correct official mime type, but ChmParser declares that it supports only "application/chm". For this reason content that uses the official mime type (e.g. coming via Detector or parsed using AutoDetectParser, or simply declared in metadata) fails to parse due to unknown mime type. The fix seems simple - ChmParser should declare also all of the above types in its SUPPORTED_TYPES.
+Incorrectly declared This link assigns the official mime type for these files to In the wild there are also two other types used: uses the correct official mime type, but declares that it supports only  For this reason content that uses the official mime type (e.g. coming via Detector or parsed using or simply declared in metadata) fails to parse due to unknown mime type. The fix seems simple -  should declare also all of the above types in its
+******
+tika-parsers.src.main.java.org.apache.tika.parser.chm.ChmParser.ChmParser.parse(InputStream, ContentHandler, Metadata, ParseContext), true
+tika-parsers.src.main.java.org.apache.tika.parser.chm.CHM2XHTML.CHM2XHTML.process(CHMDocumentInformation, ContentHandler), true
+tika-parsers.src.main.java.org.apache.tika.parser.chm.CHM2XHTML.CHM2XHTML.CHM2XHTML(CHMDocumentInformation, ContentHandler), true
+tika-parsers.src.test.java.org.apache.tika.parser.AutoDetectParserTest.AutoDetectParserTest.testChm(), false, new_method
+#####
+tika-1.3
+TIKA-1109
+https://issues.apache.org/jira/browse/TIKA-1109
+Metadata not extracted before the content in OOXML (pptx) It seems that when processing OOXML documents, the metadata is only read after the text. This means it's impossible to use the medata while processing the text. I think it would be more useful to have the metadata populated first. As a symptom: java -jar tika-app-1.3.jar test-classes/test-documents/testPPT.pptx outputs only as metadata: <meta name="Content-Length" content="36518"/> <meta name="Content-Type" content="application/vnd.openxmlformats-officedocument.presentationml.presentation"/> <meta name="resourceName" content="testPPT.pptx"/> while there is more medata in the file (e.g. <dc:title>Attachment Test</dc:title>).
+not extracted before the content in It seems that when processing documents, the metadata is only read after the text. This means it's impossible to use the medata while processing the text. I think it would be more useful to have the metadata populated first. As a symptom: outputs only as metadata:
+******
+tika-parsers.src.test.java.org.apache.tika.parser.microsoft.ooxml.OOXMLParserTest.OOXMLParserTest.testPowerPointMetadataEarly(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XSSFExcelExtractorDecorator.XSSFExcelExtractorDecorator.getXHTML(ContentHandler, Metadata, ParseContext), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XSSFExcelExtractorDecorator.XSSFExcelExtractorDecorator.processSheet(SheetContentsHandler, StylesTable, ReadOnlySharedStringsTable, InputStream), true
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XSSFExcelExtractorDecorator.XSSFExcelExtractorDecorator.getMetadataExtractor(), true
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.OOXMLExtractorFactory.OOXMLExtractorFactory.parse(InputStream, ContentHandler, Metadata, ParseContext), true
+#####
+tika-1.3
+TIKA-1078
+https://issues.apache.org/jira/browse/TIKA-1078
+TikaCLI: invalid characters in embedded document name causes FNFE when trying to save Attached document hits this on Windows: C:\>java.exe -jar tika-app-1.3.jar -z -x c:\data\idit\T-DS_Excel2003-PPT2003_1.xls Extracting 'file0.png' (image/png) to .\file0.png Extracting 'file1.emf' (application/x-emf) to .\file1.emf Extracting 'file2.jpg' (image/jpeg) to .\file2.jpg Extracting 'file3.emf' (application/x-emf) to .\file3.emf Extracting 'file4.wmf' (application/x-msmetafile) to .\file4.wmf Extracting 'MBD0016BDE4/?£.bin' (application/octet-stream) to .\MBD0016BDE4\?£.bin Exception in thread "main" org.apache.tika.exception.TikaException: TIKA-198: Illegal IOException from org.apache.tika.parser.microsoft.OfficeParser@75f875f8 at org.apache.tika.parser.CompositeParser.parse(CompositeParser.java:248) at org.apache.tika.parser.CompositeParser.parse(CompositeParser.java:242) at org.apache.tika.parser.AutoDetectParser.parse(AutoDetectParser.java:120) at org.apache.tika.cli.TikaCLI$OutputType.process(TikaCLI.java:139) at org.apache.tika.cli.TikaCLI.process(TikaCLI.java:415) at org.apache.tika.cli.TikaCLI.main(TikaCLI.java:109) Caused by: java.io.FileNotFoundException: .\MBD0016BDE4\?.bin (The filename, directory name, or volume label syntax is incorrect.) at java.io.FileOutputStream.<init>(FileOutputStream.java:205) at java.io.FileOutputStream.<init>(FileOutputStream.java:156) at org.apache.tika.cli.TikaCLI$FileEmbeddedDocumentExtractor.parseEmbedded(TikaCLI.java:722) at org.apache.tika.parser.microsoft.AbstractPOIFSExtractor.handleEmbeddedOfficeDoc(AbstractPOIFSExtractor.java:201) at org.apache.tika.parser.microsoft.ExcelExtractor.parse(ExcelExtractor.java:158) at org.apache.tika.parser.microsoft.OfficeParser.parse(OfficeParser.java:194) at org.apache.tika.parser.microsoft.OfficeParser.parse(OfficeParser.java:161) at org.apache.tika.parser.CompositeParser.parse(CompositeParser.java:242) ... 5 more TikaCLI manages to create the sub-directory, but because the embedded fileName has invalid (for Windows) characters, it fails. On Linux it runs fine. I think somehow ... we have to sanitize the embedded file name ...
+invalid characters in embedded document name causes when trying to save Attached document hits this on Windows: manages to create the sub-directory, but because the embedded has invalid (for Windows) characters, it fails. On Linux it runs fine. I think somehow ... we have to sanitize the embedded file name ...
+******
+tika-app.src.main.java.org.apache.tika.cli.TikaCLI.TikaCLI.parseEmbedded(InputStream, ContentHandler, Metadata, boolean), true
+tika-core.src.test.java.org.apache.tika.io.FilenameUtilsTest.FilenameUtilsTest.normalizeNothingTodo(), false, new_method
+tika-core.src.test.java.org.apache.tika.io.FilenameUtilsTest.FilenameUtilsTest.normalizeWithNull(), false, new_method
+tika-core.src.test.java.org.apache.tika.io.FilenameUtilsTest.FilenameUtilsTest.normalizeWithReservedChar(), false, new_method
+tika-core.src.test.java.org.apache.tika.io.FilenameUtilsTest.FilenameUtilsTest.normalizeWithReservedChars(), false, new_method
+tika-core.src.test.java.org.apache.tika.io.FilenameUtilsTest.FilenameUtilsTest.normalizeWithNotPrintableChars(), false, new_method
+tika-core.src.main.java.org.apache.tika.io.FilenameUtils.FilenameUtils.normalize(String), false, new_method
+#####
+tika-1.3
+TIKA-1070
+https://issues.apache.org/jira/browse/TIKA-1070
+StackOverflow error in org.apache.tika.sax.ToXMLContentHandler$ElementInfo.getPrefix(ToXMLContentHandler.java:58) The error occurs when parsing big "XLS" files and is caused by the ElementInfo stored in "currentElement". Each time a new element is started (method startElement) the current elment is newly overwritten with currentElement = new ElementInfo(currentElement, namespaces); where the existing element is used as the parent element. Since the currentElement is not reset to the parent element after finishing the element (method: endElement) the method getPrefix recursively traverses the parents and finally causes the StackOverFlowError For my understanding: something like: currentElement = currentElement.parent; in the endElement method solves the issue! Best
+error in The error occurs when parsing big "XLS" files and is caused by the stored in Each time a new element is started  the current elment is newly overwritten with where the existing element is used as the parent element. Since the is not reset to the parent element after finishing the element the method recursively traverses the parents and finally causes the For my understanding: something like: in the method solves the issue! Best
+******
+src.main.java.org.apache.tika.sax.ToXMLContentHandler.ToXMLContentHandler.endElement(String, String, String), true
+#####
+tika-1.3
+TIKA-961
+https://issues.apache.org/jira/browse/TIKA-961
+No whitespace added if BoilerpipeContentHandler.setIncludeMarkup(true) ignorableWhitespace is not properly added when using the BoilerpipeContentHandler and if markus is included.
+No whitespace added if is not properly added when using the and if markus is included.
+******
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest.XtestParseUTF8(), false, refactoring
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest.testBoilerplateWhitespace(), false, new_method
+tika-parsers.src.main.java.org.apache.tika.parser.html.BoilerpipeContentHandler.BoilerpipeContentHandler.endDocument(), true
+#####
+tika-1.3
+TIKA-820
+https://issues.apache.org/jira/browse/TIKA-820
+Locator is unset for HTML parser The HtmlParser does not call setDocumentLocator(Locator locator) on the user's content handler. Patch and unit test attached.
+is unset for The does not call on the user's content handler. Patch and unit test attached.
+******
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest.testLocator(), false, new_method
+tika-core.src.main.java.org.apache.tika.sax.TextContentHandler.TextContentHandler.setDocumentLocator(org.xml.sax.Locator), false, new_method
+#####

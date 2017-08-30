@@ -1,0 +1,764 @@
+pig-0.11.1
+PIG-3512
+https://issues.apache.org/jira/browse/PIG-3512
+Reducer estimater is broken by PIG-3497 PIG-3497 moves adjustNumReducers to a much later stage than should. We need to revert it and do it the right way.
+Reducer estimater is broken by PIG-3497 PIG-3497 moves to a much later stage than should. We need to revert it and do it the right way.
+******
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.JobControlCompiler.getJob(MROperPlan, MapReduceOper, Configuration, PigContext), true
+test.org.apache.pig.test.TestJobSubmission.TestJobSubmission.testReducerNumEstimationForOrderBy(), false, test_method
+#####
+pig-0.11.1
+PIG-3510
+https://issues.apache.org/jira/browse/PIG-3510
+New filter extractor fails with more than one filter statement This is a regression from PIG-3461 - rewrite of partition filter optimizer. Here is an example that demonstrates the problem: two filters b = FILTER a BY (dateint >= 20130901 AND dateint <= 20131001); c = FILTER b BY (event_id == 419 OR event_id == 418); one filter b = FILTER a BY (dateint >= 20130901 AND dateint <= 20131001) AND (event_id == 419 OR event_id == 418); Both dateint and event_id are partition columns. For the 1 filter case, the whole expression is pushed down whereas for the 2 filter case, only (event_id == 419 OR event_id == 418) is pushed down.
+New filter extractor fails with more than one filter statement This is a regression from PIG-3461 - rewrite of partition filter optimizer. Here is an example that demonstrates the problem: Both dateint and event_id are partition columns. For the 1 filter case, the whole expression is pushed down whereas for the 2 filter case, only  is pushed down.
+******
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.checkPushDown(BinaryExpression), false, comments
+src.org.apache.pig.newplan.logical.optimizer.LogicalPlanOptimizer.LogicalPlanOptimizer.buildRuleSets(), true
+#####
+pig-0.11.1
+PIG-3485
+https://issues.apache.org/jira/browse/PIG-3485
+Remove CastUtils.bytesToMap(byte[] b) method from LoadCaster interface PIG-1876 added typed map and annotated the following method as deprecated in 0.9: @Deprecated public Map<String, Object> bytesToMap(byte[] b) throws IOException; We should remove and replace it with the new method that takes type information: public Map<String, Object> bytesToMap(byte[] b, ResourceFieldSchema fieldSchema) throws IOException;
+Remove method from interface PIG-1876 added typed map and annotated the following method as We should remove and replace it with the new method that takes type information:
+******
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.expressionOperators.POCast.POCast.getNextMap(), true
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.expressionOperators.POCast.POCast.convertWithSchema(Object, ResourceFieldSchema), true
+src.org.apache.pig.LoadCaster.LoadCaster.bytesToMap(byte[]), false, test_method
+src.org.apache.pig.impl.util.CastUtils.CastUtils.convertToType(LoadCaster, byte[], ResourceFieldSchema, byte), true
+src.org.apache.pig.builtin.TextLoader.TextLoader.bytesToMap(byte[]), false, test_method
+src.org.apache.pig.builtin.TextLoader.TextLoader.bytesToMap(byte[], ResourceFieldSchema), false, test_method
+test.org.apache.pig.test.TestTextDataParser.TestTextDataParser.testMapStringValueType(), false, test_method
+test.org.apache.pig.test.TestTextDataParser.TestTextDataParser.testMapIntegerValueType(), false, test_method
+test.org.apache.pig.test.TestTextDataParser.TestTextDataParser.testMapLongValueType(), false, test_method
+test.org.apache.pig.test.TestTextDataParser.TestTextDataParser.testMapFloatValueType(), false, test_method
+test.org.apache.pig.test.TestTextDataParser.TestTextDataParser.testMapDoubleValueType(), false, test_method
+src.org.apache.pig.builtin.BinStorage.BinStorage.bytesToMap(byte[]), false, test_method
+src.org.apache.pig.backend.hadoop.hbase.HBaseBinaryConverter.HBaseBinaryConverter.bytesToMap(byte[]), false, test_method
+src.org.apache.pig.backend.hadoop.hbase.HBaseBinaryConverter.HBaseBinaryConverter.bytesToMap(byte[], ResourceFieldSchema), false, test_method
+src.org.apache.pig.builtin.Utf8StorageConverter.Utf8StorageConverter.bytesToMap(byte[]), false, test_method
+test.org.apache.pig.test.TestPOCast.TestPOCast.bytesToMap(byte[]), false, test_method
+test.org.apache.pig.test.utils.GenRandomData.GenRandomData.getRandMapFieldSchema(), false, test_method
+test.org.apache.pig.test.TestStore.TestStore.testStoreComplexData(), false, test_method
+test.org.apache.pig.test.TestConversions.TestConversions.testBytesToMap(), false, test_method
+test.org.apache.pig.test.TestConversions.TestConversions.testBytesToComplexTypeMisc(), false, test_method
+#####
+pig-0.11.1
+PIG-3495
+https://issues.apache.org/jira/browse/PIG-3495
+Streaming udf e2e tests failures on Windows Register a jython script with an absolute path fail. For Example: register 'D:\scriptingudf.py' using jython as myfuncs; a = load 'studenttab10k' using PigStorage() as (name, age:int, gpa:double); b = foreach a generate myfuncs.square(age); dump b;
+Streaming tests failures on Windows Register a jython script with an absolute path fail. For Example:
+******
+src.org.apache.pig.scripting.ScriptEngine.ScriptEngine.getScriptAsStream(String), true
+#####
+pig-0.11.1
+PIG-3470
+https://issues.apache.org/jira/browse/PIG-3470
+Print configuration variables in grunt However parameter handling is limited in grunt by design (PIG-2122), I would find it sometimes useful to be able to list the jobConf properties when testing statements or debugging scripts line by line. This patch extends the SET command; as an analogue to Hive when calling it itself without the key value parameters it prints all the configuration variables. System properties are prefixed with "system:"
+Print configuration variables in However parameter handling is limited in by design (PIG-2122), I would find it sometimes useful to be able to list the properties when testing statements or debugging scripts line by line. This patch extends the SET command; as an analogue to Hive when calling it itself without the key value parameters it prints all the configuration variables. System properties are prefixed with "system:"
+******
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processSet(), false, new_method
+src.org.apache.pig.parser.DryRunGruntParser.DryRunGruntParser.processSet(), false, new_method
+#####
+pig-0.11.1
+PIG-3468
+https://issues.apache.org/jira/browse/PIG-3468
+PIG-3123 breaks e2e test Jython_Diagnostics_2 PIG-3123 optimized TypeCastInserter by adding a castInserted flag for LOLoad which do not need a LOForEach just to do the pruning. However, this flag is also used in illustrate to visualize the output from the loader (DisplayExamples:110). That's why Jython_Diagnostics_2 is broken.
+PIG-3123 breaks e2e test Jython_Diagnostics_2 PIG-3123 optimized by adding a flag for which do not need a just to do the pruning. However, this flag is also used in illustrate to visualize the output from the loader. That's why Jython_Diagnostics_2 is broken.
+******
+src.org.apache.pig.newplan.logical.rules.LoadTypeCastInserter.LoadTypeCastInserter.markCastInserted(LogicalRelationalOperator), true
+src.org.apache.pig.newplan.logical.rules.LoadTypeCastInserter.LoadTypeCastInserter.isCastInserted(LogicalRelationalOperator), false, refactoring
+src.org.apache.pig.newplan.logical.rules.LoadTypeCastInserter.LoadTypeCastInserter.markCastNoNeed(LogicalRelationalOperator), false, new_method
+src.org.apache.pig.newplan.logical.relational.LOStream.LOStream.getSchema(), false, refactoring
+src.org.apache.pig.newplan.logical.relational.LOStream.LOStream.setCastInserted(boolean), false, refactoring
+src.org.apache.pig.newplan.logical.relational.LOStream.LOStream.getCastState(), false, new_method
+src.org.apache.pig.newplan.logical.relational.LOStream.LOStream.isCastInserted(), true
+src.org.apache.pig.newplan.logical.rules.TypeCastInserter.TypeCastInserter.check(OperatorPlan), true
+src.org.apache.pig.pen.util.DisplayExamples.DisplayExamples.printTabular(Operator, LogicalPlan, Map<Operator, DataBag>, Map<LOForEach, Map<LogicalRelationalOperator, DataBag>>, Set<Operator>, StringBuffer), true
+src.org.apache.pig.newplan.logical.rules.StreamTypeCastInserter.StreamTypeCastInserter.markCastInserted(LogicalRelationalOperator), true
+src.org.apache.pig.newplan.logical.rules.StreamTypeCastInserter.StreamTypeCastInserter.isCastInserted(LogicalRelationalOperator), false, refactoring
+src.org.apache.pig.newplan.logical.rules.StreamTypeCastInserter.StreamTypeCastInserter.markCastNoNeed(LogicalRelationalOperator), false, new_method
+src.org.apache.pig.newplan.logical.relational.LOLoad.LOLoad.getSchema(), false, refactoring
+src.org.apache.pig.newplan.logical.relational.LOLoad.LOLoad.setCastInserted(boolean), false, refactoring
+src.org.apache.pig.newplan.logical.relational.LOLoad.LOLoad.isCastInserted(), true
+#####
+pig-0.11.1
+PIG-3461
+https://issues.apache.org/jira/browse/PIG-3461
+Rewrite PartitionFilterOptimizer to make it work for all the cases Current algorithm for Partition Filter pushdown identification fails in several corner cases. We need to rewrite its logic so that it works in all cases and does the maximum possible filter pushdown.
+Rewrite to make it work for all the cases Current algorithm for Partition Filter pushdown identification fails in several corner cases. We need to rewrite its logic so that it works in all cases and does the maximum possible filter pushdown.
+******
+src.org.apache.pig.backend.hadoop.executionengine.HExecutionEngine.HExecutionEngine.compile(LogicalPlan, Properties), true
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.FilterExtractor(LogicalExpressionPlan, List<String>), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.visit(), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.getFilteredPlan(), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.canPushDown(), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.isFilterRemovable(), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.getPColCondition(), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.checkPushDown(LogicalExpression), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.addToFilterPlan(LogicalExpression), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.andLogicalExpressions(LogicalExpressionPlan, LogicalExpression, LogicalExpression), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.orLogicalExpressions(LogicalExpressionPlan, LogicalExpression, LogicalExpression), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.checkPushDown(BinaryExpression), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.checkPushDown(ProjectExpression), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.removeFromFilteredPlan(Operator), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.getExpression(LogicalExpression), false, new_method
+src.org.apache.pig.newplan.FilterExtractor.FilterExtractor.getExpression(BinaryExpression, OpType), false, new_method
+src.org.apache.pig.newplan.logical.rules.PartitionFilterOptimizer.PartitionFilterOptimizer.getNewTransformer(), true
+src.org.apache.pig.newplan.logical.rules.PartitionFilterOptimizer.PartitionFilterOptimizer.transform(OperatorPlan), false, new_method
+src.org.apache.pig.newplan.logical.rules.PartitionFilterOptimizer.PartitionFilterOptimizer.check(OperatorPlan), false, comments
+src.org.apache.pig.newplan.logical.rules.PartitionFilterOptimizer.PartitionFilterOptimizer.updateMappedColNames(Expression), false, access_modifier
+src.org.apache.pig.newplan.logical.rules.PartitionFilterOptimizer.PartitionFilterOptimizer.getMappedKeys(String[]), false, access_modifier
+src.org.apache.pig.newplan.logical.rules.PartitionFilterOptimizer.PartitionFilterOptimizer.setupColNameMaps(), false, access_modifier
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testSimpleMixed(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testNoPartFilter(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testOnlyPartFilter1(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testOnlyPartFilter2(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testOnlyPartFilter3(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixed1(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixed2(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixed3(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixed4(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixed5(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixed6(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixedArith(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixedNonPartitionTypeMap(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixedNonPartitionTypeMapComplex(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMixedNonPartitionTypeTuple(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testAndORConditionPartitionKeyCol(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testAndORConditionMixedCol(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.migrateAndOptimizePlan(String), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testFull(String, String, String, boolean), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testColNameMapping1(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testColNameMapping2(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testColNameMapping3(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testColNameMapping4(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testColNameMapping5(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testMatchOpPushDown(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testLargeAndOrCondition(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.testOrWithNonPartitionCondition(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.test(String, List<String>, String, String), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.test(String, List<String>, String, String, boolean), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.negativeTest(String, List<String>), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.TestLoader(String, String), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.getInputFormat(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.getNext(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.prepareToRead(RecordReader, PigSplit), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.setLocation(String, Job), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.getPartitionKeys(String, Job), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.getSchema(String, Job), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.getStatistics(String, Job), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.setPartitionFilter(Expression), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.MyPlanOptimizer(OperatorPlan, int), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.buildRuleSets(), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.buildPlan(PigServer, String), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.braketize(String), false, new_method
+test.org.apache.pig.test.TestNewPartitionFilterPushDown.TestNewPartitionFilterPushDown.getTestExpression(LogicalExpression), false, new_method
+src.org.apache.pig.newplan.logical.optimizer.LogicalPlanOptimizer.LogicalPlanOptimizer.buildRuleSets(), true
+#####
+pig-0.11.1
+PIG-3455
+https://issues.apache.org/jira/browse/PIG-3455
+Pig 0.11.1 OutOfMemory error When running Pig on a relatively large script (around 1.5k lines, 85 assignments), Pig fails with the following error even before any jobs are fired: Pig Stack Trace --------------- ERROR 2998: Unhandled internal error. Java heap space java.lang.OutOfMemoryError: Java heap space at java.util.Arrays.copyOf(Arrays.java:2882) at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:100) at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:390) at java.lang.StringBuilder.append(StringBuilder.java:119) at org.apache.pig.newplan.logical.optimizer.LogicalPlanPrinter.depthFirstLP(LogicalPlanPrinter.java:83) at org.apache.pig.newplan.logical.optimizer.LogicalPlanPrinter.visit(LogicalPlanPrinter.java:69) at org.apache.pig.newplan.logical.relational.LogicalPlan.getSignature(LogicalPlan.java:122) at org.apache.pig.PigServer.execute(PigServer.java:1237) at org.apache.pig.PigServer.executeBatch(PigServer.java:333) at org.apache.pig.tools.grunt.GruntParser.executeBatch(GruntParser.java:137) at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:198) at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:170) at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:84) at org.apache.pig.Main.run(Main.java:604) at org.apache.pig.Main.main(Main.java:157) at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) at java.lang.reflect.Method.invoke(Method.java:597) at org.apache.hadoop.util.RunJar.main(RunJar.java:160) The same script works fine with Pig-0.10.1.
+Pig 0.11.1 error When running Pig on a relatively large script (around 1.5k lines, 85 assignments), Pig fails with the following error even before any jobs are fired: Pig Stack Trace The same script works fine with Pig-0.10.1
+******
+src.org.apache.pig.newplan.logical.relational.LogicalPlan.LogicalPlan.getSignature(), true
+src.org.apache.pig.impl.util.HashOutputStream.HashOutputStream.HashOutputStream(HashFunction), false, new_method
+src.org.apache.pig.impl.util.HashOutputStream.HashOutputStream.write(int), false, new_method
+src.org.apache.pig.impl.util.HashOutputStream.HashOutputStream.getHashCode(), false, new_method
+#####
+pig-0.11.1
+PIG-3445
+https://issues.apache.org/jira/browse/PIG-3445
+Make Parquet format available out of the box in Pig We would add the Parquet jar in the Pig packages to make it available out of the box to pig users. On top of that we could add the parquet.pig package to the list of packages to search for UDFs. (alternatively, the parquet jar could contain classes name or.apache.pig.builtin.ParquetLoader and ParquetStorer) This way users can use Parquet simply by typing: A = LOAD 'foo' USING ParquetLoader(); STORE A INTO 'bar' USING ParquetStorer();
+Make format available out of the box in We would add the jar in the packages to make it available out of the box to users. On top of that we could add the package to the list of packages to search for UDFs. (alternatively, the jar could contain classes name This way users can use simply by typing:
+******
+test.org.apache.pig.TestLoadFuncMetadataWrapper.TestLoadFuncMetadataWrapper.testSucess(), false, new_method
+test.org.apache.pig.TestLoadFuncMetadataWrapper.TestLoadFuncMetadataWrapper.testError(), false, new_method
+test.org.apache.pig.TestLoadFuncMetadataWrapper.TestLoadFuncMetadataWrapper.MockWrapper(LoadMetadata), false, new_method
+test.org.apache.pig.TestLoadFuncMetadataWrapper.TestLoadFuncMetadataWrapper.getSchema(String, Job), false, new_method
+test.org.apache.pig.TestLoadFuncMetadataWrapper.TestLoadFuncMetadataWrapper.getStatistics(String, Job), false, new_method
+test.org.apache.pig.TestLoadFuncMetadataWrapper.TestLoadFuncMetadataWrapper.getPartitionKeys(String, Job), false, new_method
+test.org.apache.pig.TestLoadFuncMetadataWrapper.TestLoadFuncMetadataWrapper.setPartitionFilter(Expression), false, new_method
+src.org.apache.pig.impl.util.JarManager.JarManager.addDependencyJars(Job, Class<?>...), false, new_method
+src.org.apache.pig.impl.util.JarManager.JarManager.addQualifiedJarsName(FileSystem, Set<String>, Class<?>...), false, new_method
+src.org.apache.pig.builtin.ParquetStorer.ParquetStorer.ParquetStorer(), false, new_method
+src.org.apache.pig.builtin.ParquetStorer.ParquetStorer.init(StoreMetadata), false, new_method
+src.org.apache.pig.builtin.ParquetStorer.ParquetStorer.setStoreLocation(String, Job), false, new_method
+src.org.apache.pig.builtin.ParquetLoader.ParquetLoader.ParquetLoader(), false, new_method
+src.org.apache.pig.builtin.ParquetLoader.ParquetLoader.ParquetLoader(String), false, new_method
+src.org.apache.pig.builtin.ParquetLoader.ParquetLoader.init(LoadMetadata), false, new_method
+src.org.apache.pig.builtin.ParquetLoader.ParquetLoader.setLocation(String, Job), false, new_method
+src.org.apache.pig.builtin.ParquetLoader.ParquetLoader.getFeatures(), false, new_method
+src.org.apache.pig.builtin.ParquetLoader.ParquetLoader.pushProjection(RequiredFieldList), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.testSucess(), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.testError(), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.MockWrapper(), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.MockWrapper(LoadFunc), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.getLastMethodCalled(), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.setLastMethodCalled(), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.relativeToAbsolutePath(String, Path), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.setLocation(String, Job), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.getInputFormat(), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.getLoadCaster(), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.prepareToRead(RecordReader, PigSplit), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.getNext(), false, new_method
+test.org.apache.pig.TestLoadFuncWrapper.TestLoadFuncWrapper.setUDFContextSignature(String), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.LoadFuncWrapper(), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.setLoadFunc(LoadFunc), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.relativeToAbsolutePath(String, Path), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.setLocation(String, Job), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.getInputFormat(), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.getLoadCaster(), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.prepareToRead(RecordReader, PigSplit), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.getNext(), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.setUDFContextSignature(String), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.loadFunc(), false, new_method
+src.org.apache.pig.LoadFuncWrapper.LoadFuncWrapper.getMethodName(int), false, new_method
+src.org.apache.pig.LoadFuncMetadataWrapper.LoadFuncMetadataWrapper.LoadFuncMetadataWrapper(), false, new_method
+src.org.apache.pig.LoadFuncMetadataWrapper.LoadFuncMetadataWrapper.setLoadFunc(LoadMetadata), false, new_method
+src.org.apache.pig.LoadFuncMetadataWrapper.LoadFuncMetadataWrapper.getSchema(String, Job), false, new_method
+src.org.apache.pig.LoadFuncMetadataWrapper.LoadFuncMetadataWrapper.getStatistics(String, Job), false, new_method
+src.org.apache.pig.LoadFuncMetadataWrapper.LoadFuncMetadataWrapper.getPartitionKeys(String, Job), false, new_method
+src.org.apache.pig.LoadFuncMetadataWrapper.LoadFuncMetadataWrapper.setPartitionFilter(Expression), false, new_method
+src.org.apache.pig.LoadFuncMetadataWrapper.LoadFuncMetadataWrapper.loadMetadata(), false, new_method
+#####
+pig-0.11.1
+PIG-3424
+https://issues.apache.org/jira/browse/PIG-3424
+Package import list should consider class name as is first even if -Dudf.import.list is passed Currently if -Dudf.import.list is passed it adds them to the beginning of the list and "" (class name as is) which is defined by default always is pushed to end of list. In cases where the pig deployment itself contains predefined -Dudf.import.list, class resolution tries all of that before trying the fully qualified class name defined in LOAD as is.
+Package import list should consider class name as is first even if is passed Currently if is passed it adds them to the beginning of the list and "" (class name as is) which is defined by default always is pushed to end of list. In cases where the pig deployment itself contains predefined class resolution tries all of that before trying the fully qualified class name defined in LOAD as is.
+******
+test.org.apache.pig.test.TestPigContext.TestPigContext.testImportList(), false, test_method
+src.org.apache.pig.impl.PigContext.PigContext.initializeImportList(String), true
+#####
+pig-0.11.1
+PIG-3405
+https://issues.apache.org/jira/browse/PIG-3405
+Top UDF documentation indicates improper use The documentation in both the source code javadoc: http://svn.apache.org/repos/asf/pig/trunk/src/org/apache/pig/builtin/TOP.java and the Apache Pig Reference manual: http://pig.apache.org/docs/r0.8.1/piglatin_ref2.html#TOP indicates that the index that is passed to the TOP UDF should be 1-indexed. Reading the code and testing the results, this is false. Zero-indexing gives the correct behavior. Users should not be betrayed by the official documentation.
+=== No changes in source code ===
+******
+#####
+pig-0.11.1
+PIG-3390
+https://issues.apache.org/jira/browse/PIG-3390
+Make pig working with HBase 0.95 The HBase 0.95 changed API in incompatible way. Following APIs that HBaseStorage in Pig uses are no longer available: Mutation.setWriteToWAL(Boolean) Scan.write(DataOutput) Also in addition the HBase is no longer available as one monolithic archive with entire functionality, but was broken down into smaller pieces such as hbase-client, hbase-server, ...
+Make pig working with changed API in incompatible way. Following APIs that in Pig uses are no longer available: Also in addition the is no longer available as one monolithic archive with entire functionality, but was broken down into smaller pieces such as ...
+******
+src.org.apache.pig.backend.hadoop.hbase.HBaseStorage.HBaseStorage.HBaseStorage(String, String), true
+src.org.apache.pig.backend.hadoop.hbase.HBaseStorage.HBaseStorage.getInputFormat(), true
+src.org.apache.pig.backend.hadoop.hbase.HBaseStorage.HBaseStorage.setLocation(String, Job), true
+src.org.apache.pig.backend.hadoop.hbase.HBaseStorage.HBaseStorage.convertScanToString(Scan), true
+#####
+pig-0.11.1
+PIG-3379
+https://issues.apache.org/jira/browse/PIG-3379
+Alias reuse in nested foreach causes PIG script to fail The following script fails: temp.pig Events = LOAD 'x' AS (eventTime:long, deviceId:chararray, eventName:chararray); Events = FOREACH Events GENERATE eventTime, deviceId, eventName; EventsPerMinute = GROUP Events BY (eventTime / 60000); EventsPerMinute = FOREACH EventsPerMinute { DistinctDevices = DISTINCT Events.deviceId; nbDevices = SIZE(DistinctDevices); DistinctDevices = FILTER Events BY eventName == 'xuaHeartBeat'; nbDevicesWatching = SIZE(DistinctDevices); GENERATE $0*60000 as timeStamp, nbDevices as nbDevices, nbDevicesWatching as nbDevicesWatching; } EventsPerMinute = FILTER EventsPerMinute BY timeStamp >= 0 AND timeStamp < 100000; A = FOREACH EventsPerMinute GENERATE timeStamp; describe A; With the error: 2013-07-16 11:31:20,450 [main] ERROR org.apache.pig.tools.grunt.Grunt - ERROR 1025: <file /home/xzhang/Documents/temp.pig, line 14, column 37> Invalid field projection. Projected field [timeStamp] does not exist in schema: deviceId:chararray. Using distinct alias name for the 2nd "DistinctDevices" fixes the problem. As an observation, removing the last filter statement also fixes the problem.
+Alias reuse in nested causes PIG script to fail The following script fails: With the error: Using distinct alias name for the 2nd fixes the problem. As an observation, removing the last filter statement also fixes the problem.
+******
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder.convertCubeToFGPlan(SourceLocation, LOCube, String, List<String>, MultiMap<Integer, LogicalExpressionPlan>), true
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder.buildGenerateOp(SourceLocation, LOForEach, LOGenerate, Map<String, Operator>, List<LogicalExpressionPlan>, List<Boolean>, List<LogicalSchema>), true
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder.processExpressionPlan(LOForEach, LogicalPlan, LogicalExpressionPlan, Map<String, Operator>, ArrayList<Operator>), true
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder.buildProjectExpr(SourceLocation, LogicalExpressionPlan, LogicalRelationalOperator, Map<String, LogicalExpressionPlan>, String, int), true
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder.buildProjectExpr(SourceLocation, LogicalExpressionPlan, LogicalRelationalOperator, int, String, int), true
+src.org.apache.pig.newplan.logical.relational.LOInnerLoad.LOInnerLoad.LOInnerLoad(OperatorPlan, LOForEach, String), true
+src.org.apache.pig.newplan.logical.expression.ProjectExpression.ProjectExpression.ProjectExpression(OperatorPlan, int, String, LogicalRelationalOperator), true
+src.org.apache.pig.newplan.logical.expression.ProjectExpression.ProjectExpression.ProjectExpression(ProjectExpression, OperatorPlan), true
+src.org.apache.pig.newplan.logical.expression.ProjectExpression.ProjectExpression.getProjectedOperator(), false, new_method
+src.org.apache.pig.newplan.logical.expression.ProjectExpression.ProjectExpression.deepCopy(LogicalExpressionPlan), true
+test.org.apache.pig.test.TestEvalPipeline2.TestEvalPipeline2.testNestedOperatorReuse(), false, new_method
+#####
+pig-0.11.1
+PIG-3360
+https://issues.apache.org/jira/browse/PIG-3360
+Some intermittent negative e2e tests fail on hadoop 2 One example is StreamingErrors_2. Here is the stack we get: Backend error message --------------------- Error: org.apache.pig.backend.executionengine.ExecException: ERROR 2055: Received Error while processing the map plan: 'perl PigStreamingBad.pl middle ' failed with exit status: 2 at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigGenericMapBase.runPipeline(PigGenericMapBase.java:311) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigGenericMapBase.map(PigGenericMapBase.java:278) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigGenericMapBase.map(PigGenericMapBase.java:64) at org.apache.hadoop.mapreduce.Mapper.run(Mapper.java:145) at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:763) at org.apache.hadoop.mapred.MapTask.run(MapTask.java:339) at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:162) at java.security.AccessController.doPrivileged(Native Method) at javax.security.auth.Subject.doAs(Subject.java:396) at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1477) at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:157) Pig Stack Trace --------------- ERROR 2244: Job failed, hadoop does not return any error message org.apache.pig.backend.executionengine.ExecException: ERROR 2244: Job failed, hadoop does not return any error message at org.apache.pig.tools.grunt.GruntParser.executeBatch(GruntParser.java:145) at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:198) at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:170) at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:84) at org.apache.pig.Main.run(Main.java:604) at org.apache.pig.Main.main(Main.java:157) at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) at java.lang.reflect.Method.invoke(Method.java:597) at org.apache.hadoop.util.RunJar.main(RunJar.java:212) ================================================================================
+Some intermittent negative e2e tests fail on 2 One example is Here is the stack we get: error message
+******
+shims.src.hadoop20.org.apache.pig.backend.hadoop.executionengine.shims.HadoopShims.HadoopShims.isJobFailed(TaskReport), false, new_method
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.Launcher.Launcher.getErrorMessages(TaskReport[], String, boolean, PigContext), true
+src.org.apache.pig.backend.hadoop.executionengine.Launcher.Launcher.getErrorMessages(TaskReport[], String, boolean, PigContext), true
+shims.src.hadoop23.org.apache.pig.backend.hadoop.executionengine.shims.HadoopShims.HadoopShims.isJobFailed(TaskReport), false, new_method
+#####
+pig-0.11.1
+PIG-3355
+https://issues.apache.org/jira/browse/PIG-3355
+ColumnMapKeyPrune bug with distinct operator We came across a bug that happens when you have a distinct operator immediately followed by a union where the result of the union has at least one column that will be pruned by ColumnMapKeyPrune. There's a test showing an example script in the submitted patch.
+bug with operator We came across a bug that happens when you have a operator immediately followed by a union where the result of the union has at least one column that will be pruned by There's a test showing an example script in the submitted patch.
+******
+test.org.apache.pig.test.TestNewPlanColumnPrune.TestNewPlanColumnPrune.testDistinct(), false, new_method
+src.org.apache.pig.newplan.logical.rules.ColumnPruneHelper.ColumnPruneHelper.visit(LODistinct), true
+#####
+pig-0.11.1
+PIG-3339
+https://issues.apache.org/jira/browse/PIG-3339
+Move pattern compilation in ToDate as a static variable Pattern compilation is costly. It is currently being done for every tuple in ToDate.extractDateTimeZone(). Should be a static variable.
+Move pattern compilation in as a static variable Pattern compilation is costly. It is currently being done for every tuple in Should be a static variable.
+******
+src.org.apache.pig.builtin.ToDate.ToDate.extractDateTimeZone(String), true
+#####
+pig-0.11.1
+PIG-3335
+https://issues.apache.org/jira/browse/PIG-3335
+TestErrorHandling.tesNegative7 fails on MR2 This test case fails when being tested with MR2: junit.framework.AssertionFailedError at org.apache.pig.parser.TestErrorHandling.tesNegative7(TestErrorHandling.java:138)
+fails on MR2 This test case fails when being tested with MR2: at
+******
+test.org.apache.pig.parser.TestErrorHandling.TestErrorHandling.tesNegative7(), false, test_method
+src.org.apache.pig.newplan.logical.rules.InputOutputFileValidator.InputOutputFileValidator.visit(LOStore), false, refactoring
+#####
+pig-0.11.1
+PIG-3331
+https://issues.apache.org/jira/browse/PIG-3331
+Default values not stored in avro file when using specific schemas during store in AvroStorage Script which stores Avro using a predefined schema does not store the default values in the file a = LOAD 'numbers.txt' USING PigStorage (':') as (intnum1000: int,id: int,intnum5: int,intnum100: int,intnum: int,longnum: long,floatnum: float,doublenum: double); b2 = foreach a generate id, intnum5, intnum100; c2 = filter b2 by 110 <= id and id < 120; STORE c2 INTO '/tmp/TestAvroStorage/testDefaultValueWrite' USING org.apache.pig.piggybank.storage.avro.AvroStorage (' { "debug" : 5, "schema" : { "name" : "rmyrecord", "type" : "record", "fields" : [ { "name" : "id", "type" : "int" , "default" : 0 }, { "name" : "intnum5", "type" : "int", "default" : 0 }, { "name" : "intnum100", "type" : "int", "default" : 0 } ] } } '); Opening the file shows the following schema avro.schema {"type":"record","name":"rmyrecord","fields":[{"name":"id","type":"int"},{"name":"intnum5","type":"int"},{"name":"intnum100","type":"int"}]} There seems to be a problem storing the schema. Viraj
+Default values not stored in file when using specific schemas during store in Script which stores using a predefined schema does not store the default values in the file Opening the file shows the following schema There seems to be a problem storing the schema. Viraj
+******
+src.test.java.org.apache.pig.piggybank.test.storage.avro.TestAvroStorage.TestAvroStorage.testDefaultValueSchemaWrite(), false, new_method
+src.main.java.org.apache.pig.piggybank.storage.avro.PigSchema2Avro.PigSchema2Avro.validateAndConvertRecord(Schema, ResourceFieldSchema[]), true
+#####
+pig-0.11.1
+PIG-3329
+https://issues.apache.org/jira/browse/PIG-3329
+RANK operator failed when working with SPLIT  input.txt: 1 2 3 4 5 6 7 8 9 script: a = load 'input.txt' using PigStorage(' ') as (a:int, b:int, c:int); SPLIT a into b if a > 0, c if a > 5; d = RANK b; dump d; job will fail with error message: java.lang.RuntimeException: Unable to read counter pig.counters.counter_4929375455335572575_-1 at org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.PORank.addRank(PORank.java:161) at org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.PORank.getNext(PORank.java:134) at org.apache.pig.backend.hadoop.executionengine.physicalLayer.PhysicalOperator.processInput(PhysicalOperator.java:308) at org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.POSplit.getNext(POSplit.java:214) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigGenericMapBase.runPipeline(PigGenericMapBase.java:283) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigGenericMapBase.map(PigGenericMapBase.java:278) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigGenericMapBase.map(PigGenericMapBase.java:64) at org.apache.hadoop.mapreduce.Mapper.run(Mapper.java:157) at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:673) at org.apache.hadoop.mapred.MapTask.run(MapTask.java:324) at org.apache.hadoop.mapred.Child$4.run(Child.java:275) at java.security.AccessController.doPrivileged(Native Method) at javax.security.auth.Subject.doAs(Subject.java:396) at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1340) at org.apache.hadoop.mapred.Child.main(Child.java:269)
+RANK operator failed when working with SPLIT job will fail with error message
+******
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MRCompiler.MRCompiler.visitCounter(POCounter), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MRCompiler.MRCompiler.visitRank(PORank), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceOper.MapReduceOper.setIsCounterOperation(boolean), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceOper.MapReduceOper.isCounterOperation(), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceOper.MapReduceOper.setIsRowNumber(boolean), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceOper.MapReduceOper.isRowNumber(), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceOper.MapReduceOper.getOperationID(), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceOper.MapReduceOper.getCounterOperation(), false, new_method
+#####
+pig-0.11.1
+PIG-3327
+https://issues.apache.org/jira/browse/PIG-3327
+Pig hits OOM when fetching task Reports java.lang.OutOfMemoryError: GC overhead limit exceeded is hit with hadoop 23 by the pig script when a launched job has 80K+ maps. The TaskReport[] array is causing OOM.
+Pig hits OOM when fetching task Reports GC overhead limit exceeded is hit with 23 by the script when a launched job has 80K+ maps. The array is causing OOM.
+******
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.Launcher.Launcher.computeTimeSpent(TaskReport[]), false, refactoring
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.Launcher.Launcher.getStats(Job, JobClient, boolean, PigContext), true
+#####
+pig-0.11.1
+PIG-3322
+https://issues.apache.org/jira/browse/PIG-3322
+AVRO: AvroStorage give NPE on reading file with union as top level schema I am getting NPE when loading a file with AvroStorage a file that has schema like: ["null",{"type":"record","name":"TUPLE_0","fields":[{"name":"name","type":["null","string"],"doc":"autogenerated from Pig Field Schema"},{"name":"age","type":["null","int"],"doc":"autogenerated from Pig Field Schema"},{"name":"gpa","type":["null","double"],"doc":"autogenerated from Pig Field Schema"}]}] E.g. see the e2e style test, which fails on this: { 'num' => 4, # storing file with Pig type tuple relying on conversion to record # loading using stored schemas 'notmq' => 1, 'pig' => q\ a = load ':INPATH:/singlefile/studentcomplextab10k' using PigStorage() as (m:[], t:(name:chararray, age:int, gpa:double), b:{t:(name:chararray, age:int, gpa:double)}); b = foreach a generate t; describe b; store b into ':OUTPATH:.intermediate' USING org.apache.pig.piggybank.storage.avro.AvroStorage(); exec; -- Read back what was stored with Avro u = load ':OUTPATH:.intermediate' USING org.apache.pig.piggybank.storage.avro.AvroStorage(); describe u; store u into ':OUTPATH:'; \, 'verify_pig_script' => q\ a = load ':INPATH:/singlefile/studentcomplextab10k' using PigStorage() as (m:[], t:(name:chararray, age:int, gpa:double), b:{t:(name:chararray, age:int, gpa:double)}); b = foreach a generate t; describe b; store b into ':OUTPATH:'; \, },
+give NPE on reading file with union as top level schema I am getting NPE when loading a file with a file that has schema like: E.g. see the e2e style test, which fails on this
+******
+src.test.java.org.apache.pig.piggybank.test.storage.avro.TestAvroStorage.TestAvroStorage.testLoadwithNullValues(), false, new_method
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroRecordReader.PigAvroRecordReader.getCurrentValue(), true
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage.init(Map<String, Object>), true
+#####
+pig-0.11.1
+PIG-3321
+https://issues.apache.org/jira/browse/PIG-3321
+AVRO: Support user specified schema on load It would be useful for users to be able to explicitly specify the schema to use for reading avro input. This allows users to exactly specify how to resolve inputs with multiple schemas, rather than depending on the guessing done when 'multiple_schemas' is set.
+Support user specified schema on load It would be useful for users to be able to explicitly specify the schema to use for reading input. This allows users to exactly specify how to resolve inputs with multiple schemas, rather than depending on the guessing done when is set.
+******
+src.test.java.org.apache.pig.piggybank.test.storage.avro.TestAvroStorage.TestAvroStorage.testUserDefinedLoadSchema(), false, new_method
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroInputFormat.PigAvroInputFormat.PigAvroInputFormat(Schema, boolean, Map<Path, Map<Integer, Integer>>), true
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroInputFormat.PigAvroInputFormat.createRecordReader(InputSplit, TaskAttemptContext), true
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroRecordReader.PigAvroRecordReader.PigAvroRecordReader(TaskAttemptContext, FileSplit, Schema, boolean, Map<Path, Map<Integer, Integer>>), true
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorageUtils.AvroStorageUtils.getSchema(Path, FileSystem), true
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroDatumReader.PigAvroDatumReader.readRecord(Object, Schema, ResolvingDecoder), true
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage.setInputAvroSchema(Set<Path>, Configuration), true
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage.getSchema(Path, FileSystem), true
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage.init(Map<String, Object>), true
+#####
+pig-0.11.1
+PIG-3318
+https://issues.apache.org/jira/browse/PIG-3318
+AVRO: 'default value' not honored when merging schemas on load with AvroStorage Piggybank - AvroStorage. When merging multiple schemas where default values have been specified in the avro schema; The AvroStorage puts nulls in the merged data set. ==> Employee3.avro <== { "type" : "record", "name" : "employee", "fields":[ {"name" : "name", "type" : "string", "default" : "NU"} , {"name" : "age", "type" : "int", "default" : 0 } , {"name" : "dept", "type": "string", "default" : "DU"} ] } ==> Employee4.avro <== { "type" : "record", "name" : "employee", "fields":[ {"name" : "name", "type" : "string", "default" : "NU"} , {"name" : "age", "type" : "int", "default" : 0} , {"name" : "dept", "type": "string", "default" : "DU"} , {"name" : "office", "type": "string", "default" : "OU"} ] } ==> Employee6.avro <== { "type" : "record", "name" : "employee", "fields":[ {"name" : "name", "type" : "string", "default" : "NU"} , {"name" : "lastname", "type": "string", "default" : "LNU"} , {"name" : "age", "type" : "int","default" : 0} , {"name" : "salary", "type": "int", "default" : 0} , {"name" : "dept", "type": "string","default" : "DU"} , {"name" : "office", "type": "string","default" : "OU"} ] } The pig script: employee = load 'employee {3,4,6} .ser' using org.apache.pig.piggybank.storage.avro.AvroStorage('multiple_schemas'); describe employee; dump employee; Output Schema: employee: {name: chararray,age: int,dept: chararray,lastname: chararray,salary: int,office: chararray} (Milo,30,DH,,,) (Asmya,34,PQ,,,) (Baljit,23,RS,,,) (Pune,60,Astrophysics,Warriors,5466,UTA) (Rajsathan,20,Biochemistry,Royals,1378,Stanford) (Chennai,50,Microbiology,Superkings,7338,Hopkins) (Mumbai,20,Applied Math,Indians,4468,UAH) (Praj,54,RMX,,,Champaign) (Buba,767,HD,,,Sunnyvale) (Manku,375,MS,,,New York) Regards Viraj
+'default value' not honored when merging schemas on load with When merging multiple schemas where default values have been specified in the schema; The puts nulls in the merged data set.
+******
+src.test.java.org.apache.pig.piggybank.test.storage.avro.TestAvroStorage.TestAvroStorage.testMultipleSchemasWithDefaultValue(), false, new_method
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroInputFormat.PigAvroInputFormat.PigAvroInputFormat(Schema, boolean, Map<Path, Map<Integer, Integer>>), true
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroInputFormat.PigAvroInputFormat.createRecordReader(InputSplit, TaskAttemptContext), true
+src.main.java.org.apache.pig.piggybank.storage.avro.PigAvroRecordReader.PigAvroRecordReader.PigAvroRecordReader(TaskAttemptContext, FileSplit, Schema, boolean, Map<Path, Map<Integer, Integer>>), true
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorageUtils.AvroStorageUtils.mergeSchema(Schema, Schema), true
+src.main.java.org.apache.pig.piggybank.storage.avro.AvroStorage.AvroStorage.getInputFormat(), true
+#####
+pig-0.11.1
+PIG-3316
+https://issues.apache.org/jira/browse/PIG-3316
+Pig failed to interpret DateTime values in some special cases For the query A = load 'date.txt' as ( f1:int, f2:datetime ); dump A; with input data 1,1970-01-01 2,1970-01 pig generates the following output (1,1970-01-01T00:00:00.000-01:00) (2,1970-01-01T00:00:00.000-01:00) which seemingly incorrectly interprets the day or month part as time zone.
+Pig failed to interpret values in some special cases For the query with input data pig generates the following output which seemingly incorrectly interprets the day or month part as time zone
+******
+src.org.apache.pig.builtin.ToDate.ToDate.extractDateTimeZone(String), true
+test.org.apache.pig.test.TestDefaultDateTimeZone.TestDefaultDateTimeZone.testTimeZoneExtracting(), false, new_method
+#####
+pig-0.11.1
+PIG-3313
+https://issues.apache.org/jira/browse/PIG-3313
+pig job hang if the job tracker is bounced during execution When running a pig job through PigRunner, after the mapreduce job is submitted, if there is a job tracker bounce which doesn't get back up very soon, the pig job will hang there. The reason is pig is keeping all the JobControl objects, which are non-deamon threads, that keeps connecting to jobtracker. If the job tracker is down, pig will fail, but those jobcontrol threads keep running and there is no one who can stop them.
+pig job hang if the job tracker is bounced during execution When running a pig job through after the mapreduce job is submitted, if there is a job tracker bounce which doesn't get back up very soon, the pig job will hang there. The reason is pig is keeping all the objects, which are non-deamon threads, that keeps connecting to jobtracker. If the job tracker is down, pig will fail, but those jobcontrol threads keep running and there is no one who can stop them.
+******
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher.MapReduceLauncher.launchPig(PhysicalPlan, String, PigContext), true
+#####
+pig-0.11.1
+PIG-3310
+https://issues.apache.org/jira/browse/PIG-3310
+ImplicitSplitInserter does not generate new uids for nested schema fields, leading to miscomputations Hi, Consider the following example inp = LOAD '$INPUT' AS (memberId:long, shopId:long, score:int); tuplified = FOREACH inp GENERATE (memberId, shopId) AS tuplify, score; D1 = FOREACH tuplified GENERATE tuplify.memberId as memberId, tuplify.shopId as shopId, score AS score; D2 = FOREACH tuplified GENERATE tuplify.memberId as memberId, tuplify.shopId as shopId, score AS score; J = JOIN D1 By shopId, D2 by shopId; K = FOREACH J GENERATE D1::memberId AS member_id1, D2::memberId AS member_id2, D1::shopId as shop; EXPLAIN K; DUMP K; It is a bit weird written like that, but it provides a minimal reproduction case (in the real case, the "tuplified" phase came from a multi-key grouping). On input data: 1 1001 101 1 1002 103 1 1003 102 1 1004 102 2 1005 101 2 1003 101 2 1002 123 3 1042 101 3 1005 101 3 1002 133 This will give a wrongful output like .. (1,1001,1001) (1,1002,1002) (1,1002,1002) (1,1002,1002) The second column should be a member id so (1,2,3,4,5). In the initial case, there was a FILTER (member_id1 < member_id2) after K, and computation failed because of PushUpFilter optimization mistakenly moving the LOFilter operation before the join, at a place where it tried to work on a tuple and failed. My understanding of the issue is that when the ImplicitSplitInserter creates the LOSplitOutputs, it will correctly reset the schema, and the LOSplitOutput will regenerate uids for the fields of D1 and D2 ... but will not do that on the tuple members. The logical plan after the ImplicitSplitINserter will look like (simplified) |---D1: (Name: LOForEach Schema: memberId#124:long,shopId#125:long)ColumnPrune:InputUids=[127]ColumnPrune:OutputUids=[125, 124] |---tuplified: (Name: LOSplitOutput Schema: tuplify#127:tuple(memberId#124:long,shopId#125:long))ColumnPrune:InputUids=[123]ColumnPrune:OutputUids=[127] |---tuplified: (Name: LOSplit Schema: tuplify#123:tuple(memberId#124:long,shopId#125:long))ColumnPrune:InputUids=[123]ColumnPrune:OutputUids=[123] |---D2: (Name: LOForEach Schema: memberId#124:long,shopId#125:long)ColumnPrune:InputUids=[130]ColumnPrune:OutputUids=[125, 124] |---tuplified: (Name: LOSplitOutput Schema: tuplify#130:tuple(memberId#124:long,shopId#125:long))ColumnPrune:InputUids=[123]ColumnPrune:OutputUids=[130] |---tuplified: (Name: LOSplit Schema: tuplify#123:tuple(memberId#124:long,shopId#125:long))ColumnPrune:InputUids=[123]ColumnPrune:OutputUids=[123] tuplified correctly gets a new uid (127 and 130) but the members of the tuple don't. When they get reprojected, both branches have the same uid and the join looks like: |---J: (Name: LOJoin(HASH) Schema: D1::memberId#124:long,D1::shopId#125:long,D2::memberId#139:long,D2::shopId#132:long)ColumnPrune:InputUids=[125, 124, 132]ColumnPrune:OutputUids=[125, 124, 132] | | | shopId:(Name: Project Type: long Uid: 125 Input: 0 Column: 1) | | | shopId:(Name: Project Type: long Uid: 125 Input: 1 Column: 1) If for example instead of reprojecting "memberId", we project "memberId+0", a new node is created, and ultimately the two branches of the join will correctly get separate uids. My understanding is that LOSplitOutput.getSchema() should recurse on nested schema fields. However, I only have a light understanding of all of the logical plan handling, so I may be completely wrong. Attached is a draft of patch and a test reproducing the issue. Unfortunately, I haven't been able to run all unit tests with the "fix" (I have some weird hangs) I'd be happy if you could indicate if that looks like completely the wrong way to fix the issue.
+does not generate new uids for nested schema fields, leading to miscomputations Hi, Consider the following example It is a bit weird written like that, but it provides a minimal reproduction case (in the real case, the "tuplified" phase came from a multi-key grouping). On input data: This will give a wrongful output like .. The second column should be a member id so (1,2,3,4,5). In the initial case, there was a FILTER  after K, and computation failed because of optimization mistakenly moving the operation before the join, at a place where it tried to work on a tuple and failed. My understanding of the issue is that when the creates the it will correctly reset the schema, and the will regenerate uids for the fields of D1 and D2 ... but will not do that on the tuple members. The logical plan after the will look like (simplified)
+******
+test.org.apache.pig.newplan.logical.optimizer.TestImplicitSplitOnTuple.TestImplicitSplitOnTuple.testImplicitSplitterOnTuple(), false, new_method
+src.org.apache.pig.newplan.logical.relational.LOSplitOutput.LOSplitOutput.eassignUidRec(LogicalSchema), false, new_method
+src.org.apache.pig.newplan.logical.relational.LOSplitOutput.LOSplitOutput.getSchema(), true
+#####
+pig-0.11.1
+PIG-3309
+https://issues.apache.org/jira/browse/PIG-3309
+TestJsonLoaderStorage fails with IBM JDK 6/7 TestJsonStorageLoader fails due to small differences in the way HashMaps are printed out. The HashMap specification (http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html) mentions that "This class makes no guarantees as to the order of the map; in particular, it does not guarantee that the order will remain constant over time.", so PIG testcases should not rely on the order in which the HashMap items are printed out. testJsonLoaderStorage1 explicitly does this comparison: Testcase: testJsonLoaderStorage1 took 2.25 sec FAILED expected:<...3":"c","key2":"b","key1":"a"}} {"a0":2,"a1":[ {"a10":6,"a11":"cat"} , {"a10":7,"a11":"dog"} , {"a10":8,"a11":"pig"} ],"a2": {"a20":2.3,"a21":"moon"} ,"a3":{"key4":"value4","key1":"value1...> but was:<...1":"a","key2":"b","key3":"c"}} {"a0":2,"a1":[ {"a10":6,"a11":"cat"} , {"a10":7,"a11":"dog"} , {"a10":8,"a11":"pig"} ],"a2": {"a20":2.3,"a21":"moon"} ,"a3":{"key1":"value1","key4":"value4...> junit.framework.ComparisonFailure: expected:<...3":"c","key2":"b","key1":"a"}} {"a0":2,"a1":[ {"a10":6,"a11":"cat"} , {"a10":7,"a11":"dog"} , {"a10":8,"a11":"pig"} ],"a2": {"a20":2.3,"a21":"moon"} ,"a3":{"key4":"value4","key1":"value1...> but was:<...1":"a","key2":"b","key3":"c"}} {"a0":2,"a1":[ {"a10":6,"a11":"cat"} , {"a10":7,"a11":"dog"} , {"a10":8,"a11":"pig"} ],"a2": {"a20":2.3,"a21":"moon"} ,"a3":{"key1":"value1","key4":"value4...> at org.apache.pig.test.TestJsonLoaderStorage.testJsonLoaderStorage1(TestJsonLoaderStorage.java:63)
+fails with IBM JDK 6/7 fails due to small differences in the way are printed out. The specification (http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html) mentions that "This class makes no guarantees as to the order of the map; in particular, it does not guarantee that the order will remain constant over time.", so PIG testcases should not rely on the order in which the items are printed out. explicitly does this comparison:
+******
+test.org.apache.pig.test.TestJsonLoaderStorage.TestJsonLoaderStorage.testJsonLoaderStorage1(), false, test_method
+test.org.apache.pig.test.utils.TestHelper.TestHelper.sortStringList(String, String, String, String), false, new_method
+test.org.apache.pig.test.utils.TestHelper.TestHelper.getSchema(), true
+#####
+pig-0.11.1
+PIG-3292
+https://issues.apache.org/jira/browse/PIG-3292
+Logical plan invalid state: duplicate uid in schema during self-join to get cross product Hi. Looks like PIG-3020 but works in a different way. Our pig version is: Apache Pig version 0.10.0-cdh4.2.0 (rexported) compiled Feb 15 2013, 12:20:54 Accoring to release note, PIG-3020 is included into CDH 4.2 dist http://archive.cloudera.com/cdh4/cdh/4/pig-0.10.0-cdh4.2.0.CHANGES.txt The problem: We want to do self join to get cross-product a = load '/input' as (key, x); a_group = group a by key; b = foreach a_group { y = a.x; pair = cross a.x, y; generate flatten(pair); } dump b; And an error: ERROR org.apache.pig.tools.grunt.Grunt - ERROR 2270: Logical plan invalid state: duplicate uid in schema : 1-7::x#16:bytearray,y::x#16:bytearray Here is workaround a = load '/input' as (key, x:int); a_group = group a by key; b = foreach a_group { y = foreach a generate -(-x); pair = cross a.x, y; generate flatten(pair); } dump b;
+plan invalid state: duplicate uid in schema during self-join to get cross product Hi. Looks like PIG-3020 but works in a different way. Our pig version is: Apache Pig version 0.10.0-cdh4.2.0 (rexported) compiled Feb 15 2013, 12:20:54 Accoring to release note, PIG-3020 is included into CDH 4.2 dist http://archive.cloudera.com/cdh4/cdh/4/pig-0.10.0-cdh4.2.0.CHANGES.txt The problem: We want to do self join to get cross-product And an error: Here is workaround
+******
+src.org.apache.pig.newplan.logical.relational.LOCross.LOCross.getSchema(), true
+test.org.apache.pig.test.TestEvalPipelineLocal.TestEvalPipelineLocal.testSelfCross(), false, new_method
+#####
+pig-0.11.1
+PIG-3290
+https://issues.apache.org/jira/browse/PIG-3290
+TestLogicalPlanBuilder.testQuery85 fail in trunk I can reproduce it locally as well, the exception is junit.framework.AssertionFailedError: org.apache.pig.impl.plan.PlanValidationException: ERROR 1108: <line 1, column 79> Duplicate schema alias: group at org.apache.pig.test.TestLogicalPlanBuilder.buildPlan(TestLogicalPlanBuilder.java:2211) at org.apache.pig.test.TestLogicalPlanBuilder.testQuery85(TestLogicalPlanBuilder.java:1011)
+fail in trunk I can reproduce it locally as well, the exception is
+******
+src.org.apache.pig.newplan.logical.expression.DereferenceExpression.DereferenceExpression.getFieldSchema(), true
+#####
+pig-0.11.1
+PIG-3267
+https://issues.apache.org/jira/browse/PIG-3267
+HCatStorer fail in limit query The following query fail: data = LOAD 'student.txt' as (name:chararray, age:int, gpa:double); data_limited = limit data 10; samples = foreach data_limited generate age as number; store samples into 'samples' using org.apache.hcatalog.pig.HCatStorer('part_dt=20130101T010000T36'); Error happens before launching the second job. Error message: Message: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:8020/user/hive/warehouse/samples/part_dt=20130101T010000T36 already exists at org.apache.hadoop.mapred.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:121) at org.apache.hcatalog.mapreduce.FileOutputFormatContainer.checkOutputSpecs(FileOutputFormatContainer.java:135) at org.apache.hcatalog.mapreduce.HCatBaseOutputFormat.checkOutputSpecs(HCatBaseOutputFormat.java:72) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigOutputFormat.checkOutputSpecsHelper(PigOutputFormat.java:207) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigOutputFormat.checkOutputSpecs(PigOutputFormat.java:188) at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:887) at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:850) at java.security.AccessController.doPrivileged(Native Method) at javax.security.auth.Subject.doAs(Subject.java:396) at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1121) at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:850) at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:824) at org.apache.hadoop.mapred.jobcontrol.Job.submit(Job.java:378) at org.apache.hadoop.mapred.jobcontrol.JobControl.startReadyJobs(JobControl.java:247) at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) at java.lang.reflect.Method.invoke(Method.java:597) at org.apache.pig.backend.hadoop20.PigJobControl.mainLoopAction(PigJobControl.java:157) at org.apache.pig.backend.hadoop20.PigJobControl.run(PigJobControl.java:134) at java.lang.Thread.run(Thread.java:680) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher$1.run(MapReduceLauncher.java:257)
+fail in limit query The following query fail: Error happens before launching the second job. Error message:
+******
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.POStore.POStore.setSFile(FileSpec), true
+test.org.apache.pig.test.TestMRCompiler.TestMRCompiler.testStorerLimit(), false, new_method
+#####
+pig-0.11.1
+PIG-3255
+https://issues.apache.org/jira/browse/PIG-3255
+Avoid extra byte array copies in streaming PigStreaming.java: public Tuple deserialize(byte[] bytes) throws IOException { Text val = new Text(bytes); return StorageUtil.textToTuple(val, fieldDel); } Should remove new Text(bytes) copy and construct the tuple directly from the bytes
+=== Not found the Bug fix ===
+******
+#####
+pig-0.11.1
+PIG-3247
+https://issues.apache.org/jira/browse/PIG-3247
+Piggybank functions to mimic OVER clause in SQL In order to test Hive I have written some UDFs to mimic the behavior of SQL's OVER clause. I thought they would be useful to share.
+functions to mimic clause in SQL In order to test Hive I have written some to mimic the behavior of SQL's clause. I thought they would be useful to share.
+******
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.Over(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.Over(String), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.exec(Tuple), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.outputSchema(Schema), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.init(Tuple), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.OverBag(DataBag, int, int), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.size(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.isSorted(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.isDistinct(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.iterator(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.add(Tuple), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.addAll(DataBag), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.clear(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.markStale(boolean), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.readFields(java.io.DataInput), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.write(java.io.DataOutput), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.compareTo(Object), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.setCurrentRow(int), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.startPosition(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.endPosition(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.OverBagIterator(List<Tuple>, int, int, int), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.hasNext(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.next(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.remove(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.spill(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.getMemorySize(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.ResetableEvalFunc(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.reset(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.exec(Tuple), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.Lead(Object[]), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.Lag(Object[]), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.BaseRank(Object[]), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.Rank(Object[]), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.incrementRank(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.calculateRank(OverBag.OverBagIterator), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.DenseRank(Object[]), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.PercentRank(Object[]), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.CumeDist(Object[]), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Over.Over.Ntile(Object[]), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestStitch.TestStitch.testSchema(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestStitch.TestStitch.testSchema2(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestStitch.TestStitch.testNoInput(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestStitch.TestStitch.testBadInput(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestStitch.TestStitch.testSingleInput(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestStitch.TestStitch.testDoubleInput(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestStitch.TestStitch.testSecondShort(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestStitch.TestStitch.testFirstShort(), false, new_method
+src.org.apache.pig.data.DataType.DataType.findTypeByName(String), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testSchema(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testSchema(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testBagFunc(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testCountNoWindow(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testCountPrecedingUnboundedToCurrent(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testCountCurrentToUnboundedFollowing(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testThreeBeforeAndAfter(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testSumDouble(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testSumByteArray(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testSumFloat(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testSumInt(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testSumLong(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testAvgDouble(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testAvgByteArray(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testAvgFloat(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testAvgInt(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testAvgLong(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMinDouble(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMinByteArray(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMinFloat(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMinInt(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMinLong(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMinString(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMaxDouble(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMaxByteArray(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMaxFloat(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMaxInt(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMaxLong(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testMaxString(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testRowNumber(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testFirstValue(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testLastValue(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testLeadDefaults(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testLeadWithRowsAheadNoDefault(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testLeadWithRowsAheadDefault(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testLagDefaults(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testLagWithRowsBehindNoDefault(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testLagWithRowsBehindDefault(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testRankNoArgs(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testRankBadArgs(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testRankSimple(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testRankWithRepeatValues(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testRankWithMultiKey(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testDenseRankSimple(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testDenseRankWithRepeatValues(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testDenseRankWithMultiKey(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testNtileNoArgs(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testNtileBadArgs(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testNtileFour(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testNtileTen(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testNtileHundred(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testPercentRankSimple(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testPercentRankWithRepeatValues(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testCumeDistSimple(), false, new_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.evaluation.TestOver.TestOver.testCumeDistWithRepeatValues(), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Stitch.Stitch.exec(Tuple), false, new_method
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.evaluation.Stitch.Stitch.outputSchema(Schema), false, new_method
+#####
+pig-0.11.1
+PIG-3210
+https://issues.apache.org/jira/browse/PIG-3210
+Pig fails to start when it cannot write log to log files Pig will check whether logFileName is null or not before setting to pig.logfile property in some places. But forget to check in other places. 381 pigContext.getProperties().setProperty("pig.logfile", (logFileName == null? "": logFileName)); ... 451 pigContext.getProperties().setProperty("pig.logfile", logFileName); 12/12/25 16:38:00 WARN pig.Main: Need write permission in the directory: /opt/trend/hadooppet/sanity-tm-6/result to create log file. 14 2012-12-25 16:38:00,372 [main] INFO org.apache.pig.Main - Apache Pig version 0.10.1.tm6 (rexported) compiled Oct 22 2012, 11:11:02 15 2012-12-25 16:38:01,712 [main] WARN org.apache.pig.Main - Cannot write to log file: /opt/trend/hadooppet/sanity-tm-6/result//akamai.pig1356453481712.log 16 2012-12-25 16:38:01,727 [main] ERROR org.apache.pig.Main - ERROR 2999: Unexpected internal error. null 17 2012-12-25 16:38:01,727 [main] WARN org.apache.pig.Main - There is no log file to write to. 18 2012-12-25 16:38:01,727 [main] ERROR org.apache.pig.Main - java.lang.NullPointerException 19 at java.util.Hashtable.put(Hashtable.java:394) 20 at java.util.Properties.setProperty(Properties.java:143) 21 at org.apache.pig.Main.run(Main.java:542) 22 at org.apache.pig.Main.main(Main.java:115) 23 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) 24 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) 25 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) 26 at java.lang.reflect.Method.invoke(Method.java:597) 27 at org.apache.hadoop.util.RunJar.main(RunJar.java:208)
+Pig fails to start when it cannot write log to log files Pig will check whether is null or not before setting to property in some places. But forget to check in other places.
+******
+src.org.apache.pig.Main.Main.run(String[], PigProgressNotificationListener), true
+#####
+pig-0.11.1
+PIG-3204
+https://issues.apache.org/jira/browse/PIG-3204
+Change script parsing to parse entire script instead of line by line  Currently there are a lot of NN calls made to determine if there is a schema file for a path in a LOAD statement. When there is a slow NN(caused by whole bunch of other issues), it takes a lot of time for this and we found the scripts spending anywhere from 5 mins to 40 mins depending upon the script. It seems to be a good place for optimization.
+Change script parsing to parse entire script instead of line by line  Currently there are a lot of NN calls made to determine if there is a schema file for a path in a LOAD statement. When there is a slow NN(caused by whole bunch of other issues), it takes a lot of time for this and we found the scripts spending anywhere from 5 mins to 40 mins depending upon the script. It seems to be a good place for optimization.
+******
+src.org.apache.pig.PigServer.PigServer.registerQuery(String, int), true
+src.org.apache.pig.PigServer.PigServer.registerQuery(String, int, boolean), true
+src.org.apache.pig.PigServer.PigServer.setSkipParseInRegisterForBatch(boolean), false, new_method
+src.org.apache.pig.PigServer.PigServer.duplicate(), true
+test.org.apache.pig.test.TestPigServer.TestPigServer.testSkipParseInRegisterForBatch(), false, new_method
+test.org.apache.pig.test.TestPigServer.TestPigServer._testSkipParseInRegisterForBatch(boolean, int, int), false, new_method
+test.org.apache.pig.test.TestPigServer.TestPigServer.MockTrackingStorage(), false, new_method
+test.org.apache.pig.test.TestPigServer.TestPigServer.getSchema(String, Job), false, new_method
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.parseStopOnError(boolean), true
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processDescribe(String), true
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processExplain(String, String, boolean, String, String, List<String>, List<String>), true
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processCD(String), true
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processDump(String), true
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processIllustrate(String, String, String, List<String>, List<String>), true
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processLS(String), true
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processPWD(), true
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processMkdir(String), true
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.processSQLCommand(String), true
+test.org.apache.pig.test.TestGrunt.TestGrunt.testBagSchemaFail(), false, test_method
+test.org.apache.pig.test.TestGrunt.TestGrunt.testErrorLineNumber(), false, test_method
+test.org.apache.pig.test.TestGrunt.TestGrunt.testShellCommand(), false, test_method
+test.org.apache.pig.test.TestGrunt.TestGrunt.testShellCommandOrder(), false, refactoring
+test.org.apache.pig.test.TestGrunt.TestGrunt.validateGruntCheckFail(String, String), false, refactoring
+#####
+pig-0.11.1
+PIG-3199
+https://issues.apache.org/jira/browse/PIG-3199
+Provide a method to retriever name of loader/storer in PigServer LogicalPlan could be exposed to user in order for one to make validations based on it. For eg, one could get Load/Store paths or other operators and be able to perform checks such as whether I/O paths are valid etc.
+Provide a method to retriever name of loader/storer in could be exposed to user in order for one to make validations based on it. For eg, one could get Load/Store paths or other operators and be able to perform checks such as whether I/O paths are valid etc.
+******
+src.org.apache.pig.newplan.logical.relational.LogicalPlanData.LogicalPlanData.LogicalPlanData(LogicalPlan), false, new_method
+src.org.apache.pig.newplan.logical.relational.LogicalPlanData.LogicalPlanData.getSources(), false, new_method
+src.org.apache.pig.newplan.logical.relational.LogicalPlanData.LogicalPlanData.getSinks(), false, new_method
+src.org.apache.pig.newplan.logical.relational.LogicalPlanData.LogicalPlanData.getLoadFuncs(), false, new_method
+src.org.apache.pig.newplan.logical.relational.LogicalPlanData.LogicalPlanData.getStoreFuncs(), false, new_method
+src.org.apache.pig.newplan.logical.relational.LogicalPlanData.LogicalPlanData.getLOLoads(), false, new_method
+src.org.apache.pig.newplan.logical.relational.LogicalPlanData.LogicalPlanData.getLOStores(), false, new_method
+test.org.apache.pig.test.TestLogicalPlanBuilder.TestLogicalPlanBuilder.testLogicalPlanData(), false, new_method
+src.org.apache.pig.PigServer.PigServer.getLogicalPlanData(), false, new_method
+#####
+pig-0.11.1
+PIG-3173
+https://issues.apache.org/jira/browse/PIG-3173
+Partition filter push down does not happen partition keys condition include a AND and OR construct A = load 'db.table' using org.apache.hcatalog.pig.HCatLoader(); B = filter A by (region=='usa' AND dt=='201302051800') OR (region=='uk' AND dt=='201302051800'); C = foreach B generate name, age; DUMP C; gives the below warning and scans the whole table. 2013-02-06 22:22:16,233 [main] WARN org.apache.pig.newplan.PColFilterExtractor - No partition filter push down: You have an partition column (region ) in a construction like: (pcond and ...) or (pcond and ...) where pcond is a condition on a partition column. 2013-02-06 22:22:16,233 [main] WARN org.apache.pig.newplan.PColFilterExtractor - No partition filter push down: You have an partition column (datestamp ) in a construction like: (pcond and ...) or (pcond and ...) where pcond is a condition on a partition column.
+Partition filter push down does not happen partition keys condition include a AND and OR construct gives the below warning and scans the whole table. 2013-02-06 22:22:16,233 - No partition filter push down: You have an partition column (region ) in a construction like where pcond is a condition on a partition column. No partition filter push down: You have an partition column (datestamp ) in a construction like: (pcond and ...) or (pcond and ...) where pcond is a condition on a partition column.
+******
+test.org.apache.pig.test.TestPartitionFilterPushDown.TestPartitionFilterPushDown.testAndORConditionPartitionKeyCol(), false, new_method
+test.org.apache.pig.test.TestPartitionFilterPushDown.TestPartitionFilterPushDown.testAndORConditionMixedCol(), false, new_method
+src.org.apache.pig.newplan.PColFilterExtractor.PColFilterExtractor.visit(BinaryExpression), true
+src.org.apache.pig.newplan.PColFilterExtractor.PColFilterExtractor.visit(ProjectExpression), true
+#####
+pig-0.11.1
+PIG-3168
+https://issues.apache.org/jira/browse/PIG-3168
+TestMultiQueryBasic.testMultiQueryWithSplitInMapAndMultiMerge fails in trunk PIG-2994 made explain with no alias be equivalent to explain on the previous alias. This breaks TestMultiQueryBasic.testMultiQueryWithSplitInMapAndMultiMerge because the previous alias is an auto-generated alias not a user-defined alias. The following fixes the test: "I = GROUP F2 BY (f7, f8);" + "STORE I into 'foo4' using BinStorage();" + - "explain;"; + "explain I;";
+fails in trunk PIG-2994 made explain with no alias be equivalent to explain on the previous alias. This breaks because the previous alias is an auto-generated alias not a user-defined alias. The following fixes the test:
+******
+test.org.apache.pig.test.TestShortcuts.TestShortcuts.testExplainShortcutNoAlias(), false, comments
+test.org.apache.pig.test.TestShortcuts.TestShortcuts.testExplainShortcutNoAliasDefined(), false, comments
+src.org.apache.pig.tools.grunt.GruntParser.GruntParser.rocessExplain(String, String, boolean, String, String, List<String>, List<String>), true
+test.org.apache.pig.test.TestMultiQueryBasic.TestMultiQueryBasic.testMultiQueryWithSplitInMapAndMultiMerge(), false, test_method
+#####
+pig-0.11.1
+PIG-3114
+https://issues.apache.org/jira/browse/PIG-3114
+Duplicated macro name error when using pigunit I'm using PigUnit to test a pig script within which a macro is defined. Pig runs fine on cluster but getting parsing error with pigunit. So I tried very basic pig script with macro and getting similar error. org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1000: Error during parsing. <line 9> null. Reason: Duplicated macro name 'my_macro_1' at org.apache.pig.PigServer$Graph.parseQuery(PigServer.java:1607) at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1546) at org.apache.pig.PigServer.registerQuery(PigServer.java:516) at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:988) at org.apache.pig.pigunit.pig.GruntParser.processPig(GruntParser.java:61) at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:412) at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:194) at org.apache.pig.pigunit.pig.PigServer.registerScript(PigServer.java:56) at org.apache.pig.pigunit.PigTest.registerScript(PigTest.java:160) at org.apache.pig.pigunit.PigTest.assertOutput(PigTest.java:231) at org.apache.pig.pigunit.PigTest.assertOutput(PigTest.java:261) at FirstPigTest.MyPigTest.testTop2Queries(MyPigTest.java:32) at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) at java.lang.reflect.Method.invoke(Method.java:597) at junit.framework.TestCase.runTest(TestCase.java:176) at junit.framework.TestCase.runBare(TestCase.java:141) at junit.framework.TestResult$1.protect(TestResult.java:122) at junit.framework.TestResult.runProtected(TestResult.java:142) at junit.framework.TestResult.run(TestResult.java:125) at junit.framework.TestCase.run(TestCase.java:129) at junit.framework.TestSuite.runTest(TestSuite.java:255) at junit.framework.TestSuite.run(TestSuite.java:250) at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84) at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50) at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38) at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467) at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683) at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390) at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197) Caused by: Failed to parse: <line 9> null. Reason: Duplicated macro name 'my_macro_1' at org.apache.pig.parser.QueryParserDriver.makeMacroDef(QueryParserDriver.java:406) at org.apache.pig.parser.QueryParserDriver.expandMacro(QueryParserDriver.java:277) at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:178) at org.apache.pig.PigServer$Graph.parseQuery(PigServer.java:1599) ... 30 more Pig script which is failing : test.pig DEFINE my_macro_1 (QUERY, A) RETURNS C { $C = ORDER $QUERY BY total DESC, $A; } ; data = LOAD 'input' AS (query:CHARARRAY); queries_group = GROUP data BY query; queries_count = FOREACH queries_group GENERATE group AS query, COUNT(data) AS total; queries_ordered = my_macro_1(queries_count, query); queries_limit = LIMIT queries_ordered 2; STORE queries_limit INTO 'output'; If I remove macro pigunit works fine. Even just defining macro without using it results in parsing error.
+Duplicated macro name error when usin I'm using to test a pig script within which a macro is defined. Pig runs fine on cluster but getting parsing error with. So I tried very basic pig script with macro and getting similar error.If I remove macro works fine. Even just defining macro without using it results in parsing error.
+******
+test.org.apache.pig.pigunit.PigTest.PigTest.getAliasFromCache(String), false, new_method
+test.org.apache.pig.pigunit.PigTest.PigTest.getAlias(), false, refactoring
+test.org.apache.pig.pigunit.PigTest.PigTest.assertOutput(String[]), false, refactoring
+test.org.apache.pig.pigunit.PigTest.PigTest.assertOutput(String, String[]), false, refactoring
+test.org.apache.pig.pigunit.PigTest.PigTest.assertOutput(File), false, refactoring
+test.org.apache.pig.pigunit.PigTest.PigTest.assertOutput(String, File), false, refactoring
+test.org.apache.pig.test.pigunit.TestPigTest.TestPigTest.testStore(), false, test_method
+test.org.apache.pig.test.pigunit.TestPigTest.TestPigTest.testMacro(), false, new_method
+#####
+pig-0.11.1
+PIG-3097
+https://issues.apache.org/jira/browse/PIG-3097
+HiveColumnarLoader doesn't correctly load partitioned Hive table   Given a partitioned Hive table: hive> describe mytable; OK f1 string f2 string f3 string partition_dt string The following Pig script gives the correct schema: grunt> A = load '/hive/warehouse/mytable' using org.apache.pig.piggybank.storage.HiveColumnarLoader('f1 string,f2string,f3 string'); grunt> describe A A: {f1: chararray,f2: chararray,f3: chararray,partition_dt: chararray} But, the command grunt> dump A only produces the first column of all records in the table (all four columns are expected).
+doesn't correctly load partitioned Hive table Given a partitioned Hive table The following Pig script gives the correct schema: But, the command only produces the first column of all records in the table (all four columns are expected).
+******
+contrib.piggybank.java.src.main.java.org.apache.pig.piggybank.storage.HiveColumnarLoader.HiveColumnarLoader.prepareToRead(RecordReader, PigSplit), true
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.test.storage.TestHiveColumnarLoader.TestHiveColumnarLoader.testYearMonthDayHourPartitionedFilesWithProjection(), false, test_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.test.storage.TestHiveColumnarLoader.TestHiveColumnarLoader.testYearMonthDayHourPartitionedFilesWithProjectionAndPartitionColumns(), false, test_method
+contrib.piggybank.java.src.test.java.org.apache.pig.piggybank.test.storage.TestHiveColumnarLoader.TestHiveColumnarLoader.testNumerOfColumnsWhenDatePartitionedFiles(), false, new_method
+#####
+pig-0.11.1
+PIG-3065
+https://issues.apache.org/jira/browse/PIG-3065
+pig output format/committer should support recovery for hadoop 0.23 In hadoop 0.23 the output committer can optionally support recovery to handle the application master getting restarted (failing some # of attempts). If its possible the pig outputformat/committer should support recovery.
+pig output format/committer should support recovery for  0.23 In 0.23 the output committer can optionally support recovery to handle the application master getting restarted (failing some # of attempts). If its possible the pig outputformat/committer should support recovery.
+******
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigOutputCommitter.PigOutputCommitter.igOutputCommitter(TaskAttemptContext, List<POStore>, List<POStore>), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigOutputCommitter.PigOutputCommitter.isRecoverySupported(), false, new_method
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigOutputCommitter.PigOutputCommitter.recoverTask(TaskAttemptContext), false, new_method
+#####
+pig-0.11.1
+PIG-3060
+https://issues.apache.org/jira/browse/PIG-3060
+FLATTEN in nested foreach fails when the input contains an empty bag FLATTEN inside a foreach statement produces wrong results, if the input contains an empty bag. A = load 'flatten.txt' as (a0:int, a1:bag{(t:chararray)}); B = group A by a0; C = foreach B { c1 = foreach A generate FLATTEN(a1); generate COUNT(c1); }; The easy workaround is to filter out empty bags.
+FLATTEN in nested foreach fails when the input contains an empty bag FLATTEN inside a foreach statement produces wrong results, if the input contains an empty bag. The easy workaround is to filter out empty bags.
+******
+src.org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.POForEach.POForEach.processPlan(), true
+test.org.apache.pig.test.TestEvalPipelineLocal.TestEvalPipelineLocal.testFlattenEmptyBag(), false, new_method
+test.org.apache.pig.test.TestEvalPipelineLocal.TestEvalPipelineLocal.exec(Tuple), true
+test.org.apache.pig.test.TestEvalPipelineLocal.TestEvalPipelineLocal.testFlattenTwice(), false, test_method
+src.org.apache.pig.data.DefaultAbstractBag.DefaultAbstractBag.sampleContents(), true
+#####
+pig-0.11.1
+PIG-3048
+https://issues.apache.org/jira/browse/PIG-3048
+Add mapreduce workflow information to job configuration Adding workflow properties to the job configuration would enable logging and analysis of workflows in addition to individual MapReduce jobs. Suggested properties include a workflow ID, workflow name, adjacency list connecting nodes in the workflow, and the name of the current node in the workflow. mapreduce.workflow.id - a unique ID for the workflow, ideally prepended with the application name e.g. pig_<pigScriptId> mapreduce.workflow.name - a name for the workflow, to distinguish this workflow from other workflows and to group different runs of the same workflow e.g. pig command line mapreduce.workflow.adjacency - an adjacency list for the workflow graph, encoded as mapreduce.workflow.adjacency.<source node> = <comma-separated list of target nodes> mapreduce.workflow.node.name - the name of the node corresponding to this MapReduce job in the workflow adjacency list
+Add mapreduce workflow information to job configuration Adding workflow properties to the job configuration would enable logging and analysis of workflows in addition to individual jobs. Suggested properties include a workflow ID, workflow name, adjacency list connecting nodes in the workflow, and the name of the current node in the- a unique ID for the workflow, ideally prepended with the application name e.g. - a name for the workflow, to distinguish this workflow from other workflows and to group different runs of the same workflow e.g. pig command line - an adjacency list for the workflow graph, encoded as- the name of the node corresponding to this job in the workflow adjacency list
+******
+src.org.apache.pig.tools.pigstats.ScriptState.ScriptState.addWorkflowAdjacenciesToConf(MROperPlan, Configuration), false, new_method
+src.org.apache.pig.tools.pigstats.ScriptState.ScriptState.addSettingsToConf(MapReduceOper, Configuration), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher.MapReduceLauncher.launchPig(PhysicalPlan, String, PigContext), true
+#####
+pig-0.11.1
+PIG-2970
+https://issues.apache.org/jira/browse/PIG-2970
+Nested foreach getting incorrect schema when having unrelated inner query While looking at PIG-2968, hit a weird error message. $ cat -n test/foreach2.pig 1 daily = load 'nyse' as (exchange, symbol); 2 grpd = group daily by exchange; 3 unique = foreach grpd { 4 sym = daily.symbol; 5 uniq_sym = distinct sym; 6 --ignoring uniq_sym result 7 generate group, daily; 8 }; 9 describe unique; 10 zzz = foreach unique generate group; 11 explain zzz; % pig -x local -t ColumnMapKeyPrune test/foreach2.pig ... unique: {symbol: bytearray} 2012-10-12 16:55:44,226 [main] ERROR org.apache.pig.tools.grunt.Grunt - ERROR 1025: <file test/foreach2.pig, line 10, column 30> Invalid field projection. Projected field [group] does not exist in schema: symbol:bytearray. ...
+Nested foreach getting incorrect schema when having unrelated inner query While looking at PIG-2968, hit a weird error message.
+******
+src.org.apache.pig.backend.hadoop.executionengine.HExecutionEngine.HExecutionEngine.compile(LogicalPlan, Properties), true
+test.org.apache.pig.test.TestEvalPipelineLocal.TestEvalPipelineLocal.testDescribeDanglingBranch(), false, new_method
+src.org.apache.pig.PigServer.PigServer.getOperatorForAlias(String), true
+src.org.apache.pig.PigServer.PigServer.compile(LogicalPlan), true
+#####
+pig-0.11.1
+PIG-2956
+https://issues.apache.org/jira/browse/PIG-2956
+Invalid cache specification for some streaming statement Another category of failure in e2e tests, such as ComputeSpec_1, ComputeSpec_2, ComputeSpec_3, RaceConditions_1, RaceConditions_3, RaceConditions_4, RaceConditions_7, RaceConditions_8. Here is stack: ERROR 6003: Invalid cache specification. File doesn't exist: C:/Program Files (x86)/GnuWin32/bin/head.exe org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobCreationException: ERROR 2017: Internal error creating job configuration. at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.getJob(JobControlCompiler.java:723) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.compile(JobControlCompiler.java:258) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher.launchPig(MapReduceLauncher.java:151) at org.apache.pig.PigServer.launchPlan(PigServer.java:1318) at org.apache.pig.PigServer.executeCompiledLogicalPlan(PigServer.java:1303) at org.apache.pig.PigServer.execute(PigServer.java:1293) at org.apache.pig.PigServer.executeBatch(PigServer.java:364) at org.apache.pig.tools.grunt.GruntParser.executeBatch(GruntParser.java:133) at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:194) at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:166) at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:84) at org.apache.pig.Main.run(Main.java:561) at org.apache.pig.Main.main(Main.java:111) Caused by: org.apache.pig.backend.executionengine.ExecException: ERROR 6003: Invalid cache specification. File doesn't exist: C:/Program Files (x86)/GnuWin32/bin/head.exe at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.setupDistributedCache(JobControlCompiler.java:1151) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.setupDistributedCache(JobControlCompiler.java:1129) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.getJob(JobControlCompiler.java:447)
+Invalid cache specification for some streaming statement Another category of failure in e2e tests, such as Here is stack: ERROR 6003: Invalid cache specification. File doesn't exist: ERROR 2017: Internal error creating job configuration.
+******
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.JobControlCompiler.JobControlCompiler.toURI(Path), true
+test.org.apache.pig.test.TestJobSubmission.TestJobSubmission.testToUri(), false, test_method
+#####
+pig-0.11.1
+PIG-2828
+https://issues.apache.org/jira/browse/PIG-2828
+Handle nulls in DataType.compare While using TOP, and if the DataBag contains null value to compare, it will generate the following exception: Caused by: java.lang.NullPointerException at org.apache.pig.data.DataType.compare(DataType.java:427) at org.apache.pig.builtin.TOP$TupleComparator.compare(TOP.java:97) at org.apache.pig.builtin.TOP$TupleComparator.compare(TOP.java:1) at java.util.PriorityQueue.siftUpUsingComparator(PriorityQueue.java:649) at java.util.PriorityQueue.siftUp(PriorityQueue.java:627) at java.util.PriorityQueue.offer(PriorityQueue.java:329) at java.util.PriorityQueue.add(PriorityQueue.java:306) at org.apache.pig.builtin.TOP.updateTop(TOP.java:141) at org.apache.pig.builtin.TOP.exec(TOP.java:116) code: (TOP.java, starts with line 91) Object field1 = o1.get(fieldNum); Object field2 = o2.get(fieldNum); if (!typeFound) { datatype = DataType.findType(field1); typeFound = true; } return DataType.compare(field1, field2, datatype, datatype); The reason is that if the typeFound is true , and the dataType is not null, and field1 is null, the script failed. So we need to judge the field1 whether is null.
+Handle nulls in While using, and if the contains null value to compare, it will generate the following exception: The reason is that if the is true , and the is not null, and field1 is null, the script failed. So we need to judge the field1 whether is null.
+******
+src.org.apache.pig.data.DataType.DataType.compare(Object, Object, byte, byte), true
+test.org.apache.pig.test.TestNull.TestNull.testCompare(), false, test_method
+src.org.apache.pig.builtin.TOP.TOP.compare(Tuple, Tuple), true
+#####
+pig-0.11.1
+PIG-2767
+https://issues.apache.org/jira/browse/PIG-2767
+Pig creates wrong schema after dereferencing nested tuple fields The following script fails: data = LOAD 'test_data.txt' USING PigStorage() AS (f1: int, f2: int, f3: int, f4: int); nested = FOREACH data GENERATE f1, (f2, f3, f4) AS nested_tuple; dereferenced = FOREACH nested GENERATE f1, nested_tuple.(f2, f3); DESCRIBE dereferenced; uses_dereferenced = FOREACH dereferenced GENERATE nested_tuple.f3; DESCRIBE uses_dereferenced; The schema of "dereferenced" should be {f1: int, nested_tuple: (f2: int, f3: int)} . DESCRIBE thinks it is {f1: int, f2: int} instead. When dump is used, the data is actually in form of the correct schema however, ex. (1,(2,3)) (5,(6,7)) ... This is not just a problem with DESCRIBE. Because the schema is incorrect, the reference to "nested_tuple" in the "uses_dereferenced" statement is considered to be invalid, and the script fails to run. The error is: Invalid field projection. Projected field [nested_tuple] does not exist in schema: f1:int,f2:int.
+Pig creates wrong schema after dereferencing nested tuple fields The following script fails: nstead. When dump is used, the data is actually in form of the correct schema however, ex. (1,(2,3)) (5,(6,7)) ... This is not just a problem with DESCRIBE. Because the schema is incorrect, the reference to  in  statement is considered to be invalid, and the script fails to run. The error is: Invalid field projection. Projected does not exist in schema: f1:int,f2:int.
+******
+src.org.apache.pig.newplan.logical.expression.DereferenceExpression.DereferenceExpression.getFieldSchema(), true
+test.org.apache.pig.test.TestPigServer.TestPigServer.testDescribeTuple2Elem(), false, new_method
+#####
+pig-0.11.1
+PIG-2606
+https://issues.apache.org/jira/browse/PIG-2606
+union/ join operations are not accepting same alias as multiple inputs grunt> l = load 'x'; grunt> u = union l, l; 2012-03-16 18:48:45,687 [main] ERROR org.apache.pig.tools.grunt.Grunt - ERROR 2998: Unhandled internal error. Union with Count(Operand) < 2 grunt> a = load 'a0.txt' as (a0, a1); grunt> b = join a by a0, a by a1; 2013-08-27 13:36:21,807 [main] ERROR org.apache.pig.tools.grunt.Grunt - ERROR 2225: Projection with nothing to reference!
+union/ join operations are not accepting same alias as multiple inputs Projection with nothing to reference!
+******
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder.buildUnionOp(SourceLocation, String, List<String>, boolean), true
+src.org.apache.pig.parser.LogicalPlanBuilder.LogicalPlanBuilder.checkDuplicateAliases(List<String>, SourceLocation, String), false, new_method
+test.org.apache.pig.parser.TestErrorHandling.TestErrorHandling.testNegative14(), false, new_method
+test.org.apache.pig.parser.TestErrorHandling.TestErrorHandling.testNegative15(), false, new_method
+#####
+pig-0.11.1
+PIG-2265
+https://issues.apache.org/jira/browse/PIG-2265
+Test case TestSecondarySort failure Error message: Testcase: testNestedSortEndToEnd3 took 53.076 sec Caused an ERROR Unable to open iterator for alias E. Backend error : org.apache.pig.data.DataByteArray cannot be cast to org.apache.pig.data.Tuple org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1066: Unable to open iterator for alias E. Backend error : org.apache.pig.data.DataByteArray cannot be cast to org.apache.pig.data.Tuple at org.apache.pig.PigServer.openIterator(PigServer.java:742) at org.apache.pig.test.TestSecondarySort.testNestedSortEndToEnd3(TestSecondarySort.java:550) Caused by: java.lang.ClassCastException: org.apache.pig.data.DataByteArray cannot be cast to org.apache.pig.data.Tuple at org.apache.pig.backend.hadoop.executionengine.physicalLayer.expressionOperators.POProject.getNext(POProject.java:392) at org.apache.pig.backend.hadoop.executionengine.physicalLayer.relationalOperators.POLocalRearrange.getNext(POLocalRearrange.java:357) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigMapBase.runPipeline(PigMapBase.java:236) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigMapBase.map(PigMapBase.java:231) at org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigMapBase.map(PigMapBase.java:53) at org.apache.hadoop.mapreduce.Mapper.run(Mapper.java:144) at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:621) at org.apache.hadoop.mapred.MapTask.run(MapTask.java:305)
+Test case failure Error message: Testcase: took 53.076 sec Caused an ERROR Unable to open iterator for alias E. Backend error :
+******
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MRCompiler.MRCompiler.getSamplingJob(POSort, MapReduceOper, List<PhysicalPlan>, FileSpec, FileSpec, int, List<PhysicalPlan>, String, String[], String), true
+test.org.apache.pig.test.TestSecondarySort.TestSecondarySort.testDistinctOptimization1(), false, test_method
+test.org.apache.pig.test.TestSecondarySort.TestSecondarySort.testDistinctOptimization2(), false, refactoring
+test.org.apache.pig.test.TestSecondarySort.TestSecondarySort.testDistinctOptimization3(), false, test_method
+test.org.apache.pig.test.TestSecondarySort.TestSecondarySort.testDistinctOptimization4(), false, test_method
+test.org.apache.pig.test.TestSecondarySort.TestSecondarySort.testDistinctOptimization5(), false, test_method
+test.org.apache.pig.test.TestSecondarySort.TestSecondarySort.testDistinctOptimization6(), false, test_method
+test.org.apache.pig.test.TestSecondarySort.TestSecondarySort.testDistinctOptimization7(), false, test_method
+test.org.apache.pig.test.TestSecondarySort.TestSecondarySort.testDistinctOptimization8(), false, test_method
+test.org.apache.pig.test.TestSecondarySort.TestSecondarySort.testDistinctOptimization9(), false, test_method
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.SecondaryKeyOptimizer.SecondaryKeyOptimizer.processRoot(PhysicalOperator), true
+src.org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.SecondaryKeyOptimizer.SecondaryKeyOptimizer.processForEach(POForEach), true
+#####

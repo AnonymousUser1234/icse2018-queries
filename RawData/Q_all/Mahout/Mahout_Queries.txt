@@ -1,0 +1,198 @@
+MAHOUT-1410
+cluster point contain vector id cluster non name vector vector id cluster point valu cluster id vector valu distanc squar pdf ti known vector 
+2
+core.src.main.java.org.apache.mahout.clustering.classify.ClusterClassificationDriver.ClusterClassificationDriver
+core.src.main.java.org.apache.mahout.clustering.classify.ClusterClassificationMapper.ClusterClassificationMapper
+
+MAHOUT-1409
+matrix vector view ha index check error test correct index 
+1
+math.src.main.java.org.apache.mahout.math.MatrixVectorView.MatrixVectorView
+
+MAHOUT-1398
+file data model provid constructor delimit pattern delimit user cours user overwritten process line archiv goal us four space delimit pattern design framework mahout vari demand most user make easi us cost time implement push patch 
+1
+core.src.main.java.org.apache.mahout.cf.taste.impl.model.file.FileDataModel.FileDataModel
+
+MAHOUT-1396
+accident us common math won work next hadoop releas project us common math3 year ago us old common math lurk core src main java org apach mahout classifi sgd prior java org apach common math special gamma work common math ha pull hadoop common longer head http svn apach org viewvc hadoop common trunk hadoop common project hadoop common pom xml view markup longer compil latest hadoop run latest hadoop even on us version compil versu older hadoop us us context writabl client environ happen packag common math fail cluster chang trivial common math3 ve verifi test pass patch attach question blocker pend releas caus stop work next hadoop releas get imho 
+0
+
+MAHOUT-1389
+complementari naiv bay classifi get call option activ run trainnb testnb option complementari naiv bay classifi get call 
+1
+core.src.main.java.org.apache.mahout.classifier.naivebayes.training.TrainNaiveBayesJob.TrainNaiveBayesJob
+
+MAHOUT-1379
+cluster qualiti summar fail digest cluster data point cluster qualiti summar digest fail cluster ha singl data point issu call onlin summar get quartil expect point avail cluster 
+1
+examples.src.main.java.org.apache.mahout.clustering.streaming.tools.ClusterQualitySummarizer.ClusterQualitySummarizer
+
+MAHOUT-1378
+run random forest ignor featur fail load featur descriptor from json file run random forest ignor featur fail load featur descriptor from json file dataset java from json string json function line 400 origin nomin valu arrai chang nomin valu ignor size arrai put arrai ignor featur filter index 
+1
+src.main.java.org.apache.mahout.classifier.df.data.Dataset.Dataset
+
+MAHOUT-1371
+arff loader misinterpret nomin integ real string nomin valu contain valu integ real string misinterpret nomin 
+2
+integration.src.main.java.org.apache.mahout.utils.vectors.arff.ARFFVectorIterable.ARFFVectorIterable
+integration.src.main.java.org.apache.mahout.utils.vectors.arff.ARFFIterator.ARFFIterator
+
+MAHOUT-1368
+convert onlin summar us digest digest better accuraci quartil estim produc quantil current quartil estim onlin summar fail highli skew distribut extend provid quantil digest handl 
+3
+math.src.test.java.org.apache.mahout.math.stats.OnlineSummarizerTest.OnlineSummarizerTest
+math.src.main.java.org.apache.mahout.math.stats.OnlineSummarizer.OnlineSummarizer
+mahout.examples.src.main.java.org.apache.mahout.clustering.streaming.tools.ClusterQualitySummarizer.ClusterQualitySummarizer
+
+MAHOUT-1367
+wikipedia xml splitter except thread main java lang pointer except run command mahout home bin mahout org apach mahout text wikipedia wikipedia xml splitter frwiki latest page articl xml bz2 wikipedia xml chunk 100 error mahout job home ollagni document tool mahout distribut bin trunk exampl target mahout exampl snapshot job jar 13 11 29 14 51 08 warn driver mahout driver org apach mahout text wikipedia wikipedia xml splitter prop found classpath us command line argument 13 11 29 14 51 08 warn util code loader unabl load hadoop librari platform builtin java class applic except thread main java lang pointer except org apach hadoop io compress bzip2 bzip2 factori bzip2 load bzip2 factori java 54 org apach hadoop io compress bzip2 bzip2 factori get bzip2 decompressor bzip2 factori java 131 org apach hadoop io compress zip2 codec creat decompressor zip2 codec java 250 org apach hadoop io compress zip2 codec creat input stream zip2 codec java 156 org apach mahout text wikipedia wikipedia xml splitter main wikipedia xml splitter java 190 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 57 sun reflect deleg method accessor impl invok deleg method accessor impl java 43 java lang reflect method invok method java 606 org apach hadoop util program driver program descript invok program driver java 72 org apach hadoop util program driver run program driver java 144 org apach hadoop util program driver driver program driver java 152 org apach mahout driver mahout driver main mahout driver java 195 sun reflect method accessor impl invoke0 method sun reflect method accessor impl invok method accessor impl java 57 sun reflect deleg method accessor impl invok deleg method accessor impl java 43 java lang reflect method invok method java 606 org apach hadoop util run jar main run jar java 212 littl troubl from help 
+1
+integration.src.main.java.org.apache.mahout.text.wikipedia.WikipediaXmlSplitter.WikipediaXmlSplitter
+
+MAHOUT-1364
+upgrad mahout codebas lucen parallel random test carrot random runner fail mac os code invok lucen api discuss 1345 fix upgrad lucen version present lucen version mahout trunk 
+12
+core.src.main.java.org.apache.mahout.vectorizer.document.SequenceFileTokenizerMapper.SequenceFileTokenizerMapper
+integration.src.main.java.org.apache.mahout.text.SequenceFilesFromLuceneStorageDriver.SequenceFilesFromLuceneStorageDriver
+integration.src.main.java.org.apache.mahout.text.LuceneStorageConfiguration.LuceneStorageConfiguration
+integration.src.main.java.org.apache.mahout.text.SequenceFilesFromLuceneStorageMapper.SequenceFilesFromLuceneStorageMapper
+integration.src.main.java.org.apache.mahout.text.LuceneSegmentRecordReader.LuceneSegmentRecordReader
+core.src.main.java.org.apache.mahout.common.lucene.AnalyzerUtils.AnalyzerUtils
+integration.src.main.java.org.apache.mahout.utils.regex.AnalyzerTransformer.AnalyzerTransformer
+integration.src.main.java.org.apache.mahout.text.wikipedia.WikipediaAnalyzer.WikipediaAnalyzer
+core.src.main.java.org.apache.mahout.common.lucene.TokenStreamIterator.TokenStreamIterator
+integration.src.main.java.org.apache.mahout.text.LuceneSegmentInputFormat.LuceneSegmentInputFormat
+integration.src.main.java.org.apache.mahout.text.ReadOnlyFileSystemDirectory.ReadOnlyFileSystemDirectory
+integration.src.main.java.org.apache.mahout.text.LuceneSegmentInputSplit.LuceneSegmentInputSplit
+
+MAHOUT-1358
+stream mean thread illeg argument except reduc stream kmean set run stream mean cluster reduc stream kmean estim distanc cutoff specifi follow error java lang illeg argument except nonzero number train test vector ask 1f vector test 10 000000149011612 com googl common base precondit check argument precondit java 120 org apach mahout cluster stream cluster ball mean split train test ball mean java 176 org apach mahout cluster stream cluster ball mean cluster ball mean java 192 org apach mahout cluster stream mapreduc stream mean reduc get best centroid stream mean reduc java 107 org apach mahout cluster stream mapreduc stream mean reduc reduc stream mean reduc java 73 org apach mahout cluster stream mapreduc stream mean reduc reduc stream mean reduc java 37 org apach hadoop mapreduc reduc run reduc java 177 org apach hadoop mapr reduc task run reduc reduc task java 649 org apach hadoop mapr reduc task run reduc task java 418 org apach hadoop mapr local job runner job run local job runner java 398 issu caus follow code stream mean thread call iter centroid datapoint iter datapoint iter estim distanc cutoff stream mean driver invalid distanc cutoff list centroid estim point list arrai list expect size num estim point datapoint iter ha next estim point size num estim point estim point add datapoint iter next estim distanc cutoff cluster util estim distanc cutoff estim point searcher get distanc measur stream mean cluster stream mean searcher num cluster estim distanc cutoff datapoint iter ha next cluster cluster datapoint iter next code iter twice fail second us obviou reason 
+1
+core.src.main.java.org.apache.mahout.clustering.streaming.mapreduce.StreamingKMeansThread.StreamingKMeansThread
+
+MAHOUT-1357
+interact valu encod produc wrong trace dictionari entri trace code valu term hash convert back string concaten raw form arrai string make revers engin even harder fix creat string patch attach 
+1
+core.src.main.java.org.apache.mahout.vectorizer.encoders.InteractionValueEncoder.InteractionValueEncoder
+
+MAHOUT-1351
+ad dens vector support abstract cluster improv reduc runtim 80 perform mean cluster scale invari featur transform sift descriptor deriv visual word comput vision unlik spars document vector sift descriptor dens improv involv updat org apach mahout cluster abstract cluster vector point id2 constructor us point clone random access spars vector point creat centroid ad test mean seq job dens vector test dens vector process 
+1
+core.src.main.java.org.apache.mahout.clustering.AbstractCluster.AbstractCluster
+
+MAHOUT-1349
+clusterdump load term dictionari crash highest index spars dictionari vector larger dictionari vector size wrong here cluster dumper support fairli simpl us repositori 500k document gener input vector dictionari custom code seq2 spars hash featur max size 5m didn featur dataset want minim collis kmean ran fine gener result run cluster dumper follow error bash bin mahout clusterdump dt sequencefil complet 5159 bba4 e4 b0718 d03 c8 cf79 email content analyt dict 5159 bba4 e4 b0718 d03 c8 cf79 part test kmean cluster 19 10 10 sp 10 test kmean run hadoop usr bin hadoop hadoop conf dir mahout job opt mahout distribut mahout exampl job jar 13 05 17 08 26 41 info common abstract job command line argument dictionari complet 5159 bba4 e4 b0718 d03 c8 cf79 email content analyt dict 5159 bba4 e4 b0718 d03 c8 cf79 part dictionari type sequencefil distanc measur org apach mahout common distanc squar euclidean distanc measur end phase 2147483647 input test kmean cluster 19 num word 10 output usr share tomcat6 test kmean output format text sampl point 10 start phase substr 10 temp dir temp except thread main java lang arrai index bound except 698948 org apach mahout cluster abstract cluster format vector abstract cluster java 350 org apach mahout cluster abstract cluster format string abstract cluster java 306 org apach mahout util cluster cluster dumper writer write cluster dumper writer java 54 org apach mahout util cluster abstract cluster writer write abstract cluster writer java 169 org apach mahout util cluster abstract cluster writer write abstract cluster writer java 156 org apach mahout util cluster cluster dumper print cluster cluster dumper java 187 org apach mahout util cluster cluster dumper run cluster dumper java 153 error access dictionari featur index 698948 dictionari load code http grepcod com file repo1 maven org maven2 org apach mahout mahout integr org apach mahout util vector vector helper java vector helper load term dictionari 28 java io file 29 check hasn chang dictionari arrai size number uniqu keyword highest index open object hash map dict open object hash map string dictionari string dict size after ran custom dictionari featur gener code discov 517 327 uniqu featur surpris die index 517327 don understand didn die load dictionari file reason vector helper code creat dictionari arrai ha size highest index read from dictionari sequenc file easili calcul preced loop misunderstand work fine reduc hash size total number featur desir gener don number featur befor run job guess high cluster dumper crash alex piggott ikanow 
+1
+integration.src.main.java.org.apache.mahout.utils.vectors.VectorHelper.VectorHelper
+
+MAHOUT-1339
+add rat check fix copyright header file project don carri standard licens header plugin call rat autom check attach patch add suitabl rat config fix error identifi propos make check part build 
+0
+
+MAHOUT-1336
+high df word pruner test fail silent appar tool runner allow mapr option valid foolproof result silent failur high df word pruner test error messag org apach common cli2 option except unexpect mapr process option org apach common cli2 commandlin parser pars parser java 99 org apach mahout vector spars vector from sequenc file run spars vector from sequenc file java 154 org apach hadoop util tool runner run tool runner java 65 org apach mahout vector high df word pruner test run test high df word pruner test java 111 org apach mahout vector high df word pruner test test high df word prune high df word pruner test java 85 usag min support min support analyz name analyz name chunk size chunk size output output input input min df min df max df sigma max df sigma max df percent max df percent weight weight norm norm min llr min llr num reduc num reduc max gram size ngram size overwrit help sequenti access vector name vector log normal 
+1
+core.src.test.java.org.apache.mahout.vectorizer.HighDFWordsPrunerTest.HighDFWordsPrunerTest
+
+MAHOUT-1320
+ball mean test test cluster unstabl from time time test fail follow build log test run failur error skip time elaps 48 134 sec failur org apach mahout cluster stream cluster ball mean test test cluster org apach mahout cluster stream cluster ball mean test time elaps 051 sec failur java lang assert error expect 625 796 org junit fail java 88 org junit fail equal java 743 org junit equal java 494 org junit equal java 592 org apach mahout cluster stream cluster ball mean test test cluster ball mean test java 119 here bit more build log output show test run parallel on info maven surefir plugin 15 test test mahout core info surefir report directori home jenkin jenkin slave workspac mahout qualiti trunk core target surefir report info parallel class core thread count thread count us unlimit thread run org apach mahout common distanc test chebyshev measur test run failur error skip time elaps 043 sec org apach mahout common distanc test chebyshev measur run org apach mahout common distanc test minkowski measur run org apach mahout common distanc test mahalanobi distanc measur run org apach mahout common distanc test manhattan distanc measur run org apach mahout common distanc cosin distanc measur test run org apach mahout common distanc test tanimoto distanc measur test run failur error skip time elaps 143 sec org apach mahout common distanc test minkowski measur test run failur error skip time elaps 078 sec org apach mahout common distanc test mahalanobi distanc measur run org apach mahout common distanc test weight manhattan distanc measur test run failur error skip time elaps 099 sec org apach mahout common distanc test manhattan distanc measur test run failur error skip time elaps 075 sec org apach mahout common distanc cosin distanc measur test test run failur error skip time elaps 094 sec org apach mahout common distanc test tanimoto distanc measur run org apach mahout common distanc test weight euclidean distanc measur test run org apach mahout common distanc test euclidean distanc measur run org apach mahout common iter test fix size sampler test run failur error skip time elaps 135 sec org apach mahout common distanc test weight manhattan distanc measur run org apach mahout common iter count iter test test run failur error skip time elaps 009 sec org apach mahout common iter count iter test test run failur error skip time elaps 073 sec org apach mahout common iter test fix size sampler test run failur error skip time elaps 111 sec org apach mahout common distanc test weight euclidean distanc measur test test run failur error skip time elaps 121 sec org apach mahout common distanc test euclidean distanc measur run org apach mahout common iter test sampl iter run org apach mahout common iter test stabl fix size sampler run org apach mahout common dummi record writer test run org apach mahout common string util test test run failur error skip time elaps 093 sec org apach mahout common iter test stabl fix size sampler test run failur error skip time elaps 113 sec org apach mahout common dummi record writer test run org apach mahout common abstract job test run org apach mahout common pair writabl test test run failur error skip time elaps 02 sec org apach mahout common pair writabl test run org apach mahout common lucen analyz util test test run failur error skip time elaps 07 sec org apach mahout common lucen analyz util test run org apach mahout cluster topdown path directori test test run failur error skip time elaps 007 sec org apach mahout cluster topdown path directori test run org apach mahout cluster topdown postprocessor cluster count reader test test run failur error skip time elaps 505 sec org apach mahout common string util test run org apach mahout cluster classifi cluster classif driver test run org apach mahout cluster topdown postprocessor cluster output post processor test run org apach mahout cluster spectral test vector cach run org apach mahout cluster spectral test vector matrix multipl job run org apach mahout cluster spectral test matrix diagon job run org apach mahout cluster lda cvb test cvb model trainer run org apach mahout cluster spectral test affin matrix input job run org apach mahout cluster spectral test unit vector job test run failur error skip time elaps 356 sec org apach mahout common abstract job test run org apach mahout cluster canopi test canopi creation test run failur error skip time elaps 046 sec org apach mahout cluster spectral test vector matrix multipl job test run failur error skip time elaps 288 sec org apach mahout cluster spectral test matrix diagon job test run failur error skip time elaps 624 sec org apach mahout cluster spectral test vector cach test run failur error skip time elaps 713 sec org apach mahout common iter test sampl iter test run failur error skip time elaps 054 sec org apach mahout cluster spectral test unit vector job test run failur error skip time elaps 518 sec org apach mahout cluster spectral test affin matrix input job run org apach mahout cluster kmean test random seed gener test run failur error skip time elaps 609 sec org apach mahout cluster topdown postprocessor cluster count reader test run org apach mahout cluster kmean test eigen seed gener run org apach mahout cluster kmean test kmean cluster run org apach mahout cluster test gaussian accumul run org apach mahout cluster iter test cluster classifi test run failur error skip time elaps 065 sec org apach mahout cluster topdown postprocessor cluster output post processor test run org apach mahout cluster fuzzykmean test fuzzi kmean cluster run org apach mahout cluster test cluster test run failur error skip time elaps 203 sec org apach mahout cluster test cluster test run failur error skip time elaps 746 sec org apach mahout cluster kmean test eigen seed gener test run failur error skip time elaps 897 sec org apach mahout cluster kmean test random seed gener run org apach mahout cluster stream cluster stream mean test run org apach mahout cluster stream cluster ball mean test run org apach mahout math stat onlin auc test run org apach mahout math stat sampler test run org apach mahout math varint test test run failur error skip time elaps 031 sec org apach mahout math varint test test run failur error skip time elaps 294 sec org apach mahout math stat sampler test test run failur error skip time elaps 821 sec org apach mahout cluster classifi cluster classif driver test run org apach mahout math hadoop stochasticsvd ssvd common test run org apach mahout math hadoop stat basic stat test run org apach mahout math hadoop test distribut row matrix test run failur error skip time elaps 175 sec org apach mahout math hadoop stochasticsvd ssvd common test run org apach mahout math hadoop stochasticsvd local ssvdpca spars test test run failur error skip time elaps 366 sec org apach mahout cluster test gaussian accumul run org apach mahout math hadoop stochasticsvd local ssvd solver spars sequenti test test run failur error skip time elaps 578 sec org apach mahout math stat onlin auc test test run 12 failur error skip time elaps 893 sec org apach mahout cluster iter test cluster classifi run org apach mahout math hadoop stochasticsvd local ssvd solver dens test run org apach mahout math hadoop solver test distribut conjug gradient solver cli test run 17 failur error skip time elaps 15 419 sec org apach mahout cluster canopi test canopi creation run org apach mahout math hadoop solver test distribut conjug gradient solver test run failur error skip time elaps 13 33 sec org apach mahout math hadoop stat basic stat test run org apach mahout math hadoop similar test vector distanc similar job test run failur error skip time elaps 20 475 sec org apach mahout cluster kmean test kmean cluster run org apach mahout math hadoop similar cooccurr measur vector similar measur test test run failur error skip time elaps 076 sec org apach mahout math hadoop similar cooccurr measur vector similar measur test run org apach mahout math hadoop similar cooccurr row similar job test test run 11 failur error skip time elaps 17 855 sec org apach mahout math hadoop test distribut row matrix test run failur error skip time elaps 63 sec org apach mahout math hadoop similar test vector distanc similar job run org apach mahout math hadoop decompos test distribut lanczo solver cli run org apach mahout math vector writabl test test run 100 failur error skip time elaps 046 sec org apach mahout math vector writabl test run org apach mahout math ssvd sequenti core svd test test run failur error skip time elaps 16 541 sec org apach mahout math hadoop solver test distribut conjug gradient solver cli test run failur error skip time elaps 16 658 sec org apach mahout math hadoop solver test distribut conjug gradient solver run org apach mahout math neighborhood local sensit hash search test test run failur error skip time elaps 25 045 sec org apach mahout math hadoop stochasticsvd local ssvd solver spars sequenti test run org apach mahout math neighborhood search saniti test test run failur error skip time elaps 33 918 sec org apach mahout cluster fuzzykmean test fuzzi kmean cluster run org apach mahout math matrix writabl test test run failur error skip time elaps 13 944 sec org apach mahout math hadoop similar cooccurr row similar job test test run failur error skip time elaps 08 sec org apach mahout math matrix writabl test run org apach mahout vector document processor test run org apach mahout vector high df word pruner test test run failur error skip time elaps 631 sec org apach mahout vector high df word pruner test run org apach mahout math neighborhood search qualiti test run org apach mahout vector encod continu valu encod test test run failur error skip time elaps 062 sec org apach mahout vector encod continu valu encod test test run failur error skip time elaps 581 sec org apach mahout vector document processor test test run failur error skip time elaps 34 304 sec org apach mahout math hadoop stochasticsvd local ssvdpca spars test run org apach mahout vector encod constant valu encod test run org apach mahout vector encod interact valu encod test test run failur error skip time elaps 113 sec org apach mahout vector encod constant valu encod test test run failur error skip time elaps 137 sec org apach mahout vector encod interact valu encod test run org apach mahout vector encod word valu encod test test run failur error skip time elaps 174 sec org apach mahout vector encod word valu encod test run org apach mahout vector encod text valu encod test run org apach mahout vector spars vector from sequenc file test run org apach mahout vector colloc llr gram test test run failur error skip time elaps 082 sec org apach mahout vector colloc llr gram test test run failur error skip time elaps 544 sec org apach mahout vector encod text valu encod test run org apach mahout vector colloc llr gram kei group compar test test run failur error skip time elaps 069 sec org apach mahout vector colloc llr gram kei group compar test run org apach mahout vector colloc llr gram kei partition test test run failur error skip time elaps 061 sec org apach mahout vector colloc llr gram kei partition test run org apach mahout vector colloc llr llr reduc test run org apach mahout vector colloc llr colloc reduc test test run failur error skip time elaps 552 sec org apach mahout vector colloc llr llr reduc test test run failur error skip time elaps 369 sec org apach mahout vector colloc llr colloc reduc test run org apach mahout vector colloc llr colloc mapper test run org apach mahout vector colloc llr gram kei test test run failur error skip time elaps 081 sec org apach mahout vector colloc llr gram kei test test run failur error skip time elaps 693 sec org apach mahout vector colloc llr colloc mapper test run org apach mahout vector dictionari vector test run org apach mahout vector encod vector from sequenc file test test run failur error skip time elaps 48 134 sec failur org apach mahout cluster stream cluster ball mean test test cluster org apach mahout cluster stream cluster ball mean test time elaps 051 sec failur java lang assert error expect 625 796 org junit fail java 88 org junit fail equal java 743 org junit equal java 494 org junit equal java 592 org apach mahout cluster stream cluster ball mean test test cluster ball mean test java 119 last time test fail ubuntu node randomli success node doesn caus node specif 
+0
+
+MAHOUT-1319
+seqdirectori filter argument silent ignor run mr run seqdirectori sequenc file from input directori from command line specifi custom filter filter paramet argument ignor prefix addit filter us input except thrown command run xm sequenti filter found work expect 
+4
+integration.src.main.java.org.apache.mahout.text.SequenceFilesFromDirectory.SequenceFilesFromDirectory
+integration.src.main.java.org.apache.mahout.text.WholeFileRecordReader.WholeFileRecordReader
+integration.src.test.java.org.apache.mahout.text.TestSequenceFilesFromDirectory.TestSequenceFilesFromDirectory
+core.src.main.java.org.apache.mahout.common.HadoopUtil.HadoopUtil
+
+MAHOUT-1317
+clarifi messag precondit check argument experi thing get error from row similar job sourc realiz littl incomplet issu form precondit check argument max similar row incorrect maximum number similar row here known actual issu paramet zero neg incorrect trivial chang error messag save folk time newbi quick grep code show more case code base appar easi fix save folk time get relev error 
+32
+core.src.main.java.org.apache.mahout.classifier.df.mapreduce.partial.Step1Mapper.Step1Mapper
+core.src.main.java.org.apache.mahout.clustering.kmeans.RandomSeedGenerator.RandomSeedGenerator
+core.src.main.java.org.apache.mahout.classifier.df.data.Dataset.Dataset
+core.src.main.java.org.apache.mahout.cf.taste.impl.eval.GenericRecommenderIRStatsEvaluator.GenericRecommenderIRStatsEvaluator
+core.src.main.java.org.apache.mahout.math.neighborhood.BruteSearch.BruteSearch
+core.src.main.java.org.apache.mahout.cf.taste.impl.recommender.SamplingCandidateItemsStrategy.SamplingCandidateItemsStrategy
+core.src.main.java.org.apache.mahout.cf.taste.impl.common.WeightedRunningAverage.WeightedRunningAverage
+core.src.main.java.org.apache.mahout.classifier.df.data.DataConverter.DataConverter
+core.src.main.java.org.apache.mahout.classifier.df.data.DataLoader.DataLoader
+integration.src.main.java.org.apache.mahout.cf.taste.impl.model.mongodb.MongoDBDataModel.MongoDBDataModel
+math.src.main.java.org.apache.mahout.math.als.AlternatingLeastSquaresSolver.AlternatingLeastSquaresSolver
+examples.src.main.java.org.apache.mahout.cf.taste.example.kddcup.KDDCupDataModel.KDDCupDataModel
+integration.src.main.java.org.apache.mahout.utils.vectors.lucene.LuceneIterator.LuceneIterator
+core.src.main.java.org.apache.mahout.cf.taste.impl.recommender.TopItems.TopItems
+core.src.main.java.org.apache.mahout.cf.taste.impl.eval.AbstractDifferenceRecommenderEvaluator.AbstractDifferenceRecommenderEvaluator
+integration.src.main.java.org.apache.mahout.cf.taste.impl.model.cassandra.CassandraDataModel.CassandraDataModel
+math.src.main.java.org.apache.mahout.math.random.Empirical.Empirical
+core.src.main.java.org.apache.mahout.cf.taste.impl.similarity.GenericUserSimilarity.GenericUserSimilarity
+core.src.main.java.org.apache.mahout.classifier.naivebayes.training.WeightsMapper.WeightsMapper
+core.src.main.java.org.apache.mahout.math.neighborhood.FastProjectionSearch.FastProjectionSearch
+math.src.main.java.org.apache.mahout.math.random.ChineseRestaurant.ChineseRestaurant
+core.src.main.java.org.apache.mahout.cf.taste.impl.common.SamplingLongPrimitiveIterator.SamplingLongPrimitiveIterator
+core.src.main.java.org.apache.mahout.classifier.df.mapreduce.partial.TreeID.TreeID
+core.src.main.java.org.apache.mahout.math.Varint.Varint
+core.src.main.java.org.apache.mahout.common.iterator.SamplingIterator.SamplingIterator
+core.src.main.java.org.apache.mahout.math.hadoop.similarity.cooccurrence.RowSimilarityJob.RowSimilarityJob
+core.src.main.java.org.apache.mahout.math.neighborhood.ProjectionSearch.ProjectionSearch
+core.src.main.java.org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob.ItemSimilarityJob
+core.src.main.java.org.apache.mahout.cf.taste.impl.similarity.GenericItemSimilarity.GenericItemSimilarity
+core.src.main.java.org.apache.mahout.cf.taste.impl.eval.IRStatisticsImpl.IRStatisticsImpl
+org.apache.mahout.utils.SplitInput.SplitInput
+org.apache.mahout.math.CholeskyDecomposition.CholeskyDecomposition
+
+MAHOUT-1314
+stream mean reduc pointer except reduc stream kmean set reduc stream kmean option set rskm reduc fail pointer except problem reduc method line 60 input get centroid input get centroid clone similar line 81 full stack trace java lang pointer except com googl common base precondit check precondit java 191 org apach mahout math random weight thing init weight thing java 31 org apach mahout math neighborhood brute search search first brute search java 133 org apach mahout cluster cluster util estim distanc cutoff cluster util java 100 org apach mahout cluster stream mapreduc stream mean thread call stream mean thread java 64 org apach mahout cluster stream mapreduc stream mean reduc reduc stream mean reduc java 66 org apach mahout cluster stream mapreduc stream mean reduc reduc stream mean reduc java org apach hadoop mapreduc reduc run reduc java 176 org apach hadoop mapr reduc task run reduc reduc task java 650 org apach hadoop mapr reduc task run reduc task java 418 org apach hadoop mapr local job runner job run local job runner java 260 time reduc stream kmean set 
+1
+core.src.main.java.org.apache.mahout.clustering.streaming.mapreduce.StreamingKMeansReducer.StreamingKMeansReducer
+
+MAHOUT-1308
+extend candid item strategi restrict visibl order implement custom candid item strategi extend abstract candid item strategi visibl modifi get candid item extend 
+0
+
+MAHOUT-1301
+string method sequenti access spars vector ha excess comma end realiz sequenti access spars vector string method chang mahout 1259 patch patch introduc bug output string method chang extra comma ad end string exampl follow spars vector vector sequenti access spars vector capac set set string return follow string return extra comma end string 
+2
+math.src.main.java.org.apache.mahout.math.RandomAccessSparseVector.RandomAccessSparseVector
+math.src.main.java.org.apache.mahout.math.SequentialAccessSparseVector.SequentialAccessSparseVector
+
+MAHOUT-1291
+mahout driver yield cosmet suboptim except bin mahout run arg hadoop version run bin mahout argument error correctli displai lack argument part displai error hadoop code version hadoop error quit jvm exit call code mahout driver error main method version hadoop code doesn immedi exit jvm execut continu yield except pretti harmless ugli attach on line fix from main error more correct begin 
+1
+core.src.main.java.org.apache.mahout.driver.MahoutDriver.MahoutDriver
+
+MAHOUT-1285
+arff loader mispars string data successfulli load numer arff file mahout origin gener weka file contain randomli gener data specif random seed follow except thrown java lang number format except input string b1 shkt70694 difsmmmdv0 ikmoh sun misc float decim read java format string float decim java 1241 java lang pars java 540 org apach mahout util vector arff map back arff model process numer map back arff model java 146 org apach mahout util vector arff map back arff model get valu map back arff model java 97 org apach mahout util vector arff arff iter comput next arff iter java 77 org apach mahout util vector arff arff iter comput next arff iter java 30 com googl common collect abstract iter comput next abstract iter java 143 com googl common collect abstract iter ha next abstract iter java 138 org apach mahout util vector io sequenc file vector writer write sequenc file vector writer java 44 org apach mahout util vector arff driver write file driver java 251 org apach mahout util vector arff driver main driver java 145 lib interfac mahout trace builder gener mahout file mahout trace builder java 38 lib interfac mahout trace builder gener mahout reader mahout trace builder java 42 test input tester test mahout mean shift input tester java 111 
+2
+integration.src.main.java.org.apache.mahout.utils.vectors.arff.ARFFVectorIterable.ARFFVectorIterable
+integration.src.main.java.org.apache.mahout.utils.vectors.arff.MapBackedARFFModel.MapBackedARFFModel
+
+MAHOUT-1284
+dummi record writer bug reus writabl recommend practic reus writabl object dummi record writer us test mahout keep writabl instanc map next time user reus writabl object intern map dummi record writer chang make dummi record writer fail test map reduc job reus writabl 
+0
+
+MAHOUT-1276
+job name parallel al factor job confus parallel al factor job set job name iter differ logger info job name start from num iter base run job iter job name start from recomput iter better set job name logger info messag current job name confus 
+1
+core.src.main.java.org.apache.mahout.cf.taste.hadoop.als.ParallelALSFactorizationJob.ParallelALSFactorizationJob
+
+MAHOUT-1261
+tast hadoop util id index ha size integ max valu run item similar job larg 600m 4b matrix spars total set associ 630 mb job fail index except user vector reduc tast hadoop util id index id hash x7 fffffff long hash code id line cf tast hadoop tast hadoop util 57 id don valu result return integ max valu set user vector cardin integ max valu except issu valu from max return id index vector ha max entri nasti littl on bug think size set sebastian schelter thought 
+1
+core.src.main.java.org.apache.mahout.cf.taste.hadoop.TasteHadoopUtils.TasteHadoopUtils
+
+MAHOUT-1242
+kei redistribut function associ map integ base map current us hash function hash return kei valu return hashcod specifi valu hash code valu specifi valu hash valu valu valu x278 dde6d org apach mahout math jet random engin rand valu x7 fffffff make hash code hash code 31 hash code valu 10 valu 10 28629151 hash code spread even 31 easili lead degener behavior kei constant lower bit collis chain simpl strong hash function step murmurhash3 ensur kei distribut more uniform input distribut 
+1
+math.src.main.java.org.apache.mahout.math.map.HashFunctions.HashFunctions
+
+MAHOUT-1030
+regress cluster point weight properti vector writabl weight vector writabl won make build pretti widespread impact code test don properti implement old version creat jira post interim result 12 12 21 pm jeff eastman wrote revers evid cluster classif driver introduc pretti easi fix make chang befor paritosh cut releas bit tonight 12 00 pm pat ferrel wrote appear kmean cluster point written weight vector writabl mahout weight properti vector writabl mean distanc from centroid longer store here hope wrong welcom chang on order cluster doc distanc from cluster centroid calcul distanc mean up centroid cluster id weight vector writabl mean iter cluster cluster doc number cluster fairli larg miss 
+3
+core.src.main.java.org.apache.mahout.clustering.classify.ClusterClassificationDriver.ClusterClassificationDriver
+integration.src.main.java.org.apache.mahout.utils.clustering.ClusterDumperWriter.ClusterDumperWriter
+core.src.main.java.org.apache.mahout.clustering.classify.ClusterClassificationMapper.ClusterClassificationMapper
+

@@ -1,0 +1,300 @@
+openjpa-2.2.0
+OPENJPA-2255
+https://issues.apache.org/jira/browse/OPENJPA-2255
+Couldn't load the referencedColumn definition when create the JoinTable The JoinColumn couldn't have the referencedColumn's definition which includes the length definition. and it's length should be assigned to the default value 255. @Entity public class Student { @Id @Column(name="id", length=128, nullable=false) private String id; @Column(name="sName", length=255) private String sName; @ManyToMany @JoinTable( name="student_course_map", joinColumns= {@JoinColumn(name="student_id", referencedColumnName="id", nullable=false)} , inverseJoinColumns= {@JoinColumn(name="course_id", referencedColumnName="id", nullable=false)} ) public Collection getCourses() ... } @Entity public class Courses { @Id @Column(name="id", length=128, nullable=false) private String id; @Column(name="cName", length=255) private String cName; ... } We can see the student id length has been defined to 128. And there is no definition length in the JoinColumn student_id. The JoinColumn should be set to the default value 255. The warning message will occur like this WARN [Schema] Existing column "student_id" on table "test.student_course_map" is incompatible with the same column in the given schema definition. Existing column: Full Name: student_course_map.student_id Type: varchar Size: 128 Default: null Not Null: true Given column: Full Name: student_course_map.student_id Type: varchar Size: 255 Default: null Not Null: true
+Couldn't load the definition when create the The couldn't have the definition which includes the length definition. and it's length should be assigned to the default value 255.  We can see the student id length has been defined to 128. And there is no definition length in the. The should be set to the default value 255. The warning message will occur like this WARN [Schema] Existing column is incompatible with the same column in the given schema definition. Existing column:
+******
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingInfo.MappingInfo.mergeColumn(MetaDataContext, String, Column, boolean, Column, Table, boolean, boolean), true
+#####
+openjpa-2.2.0
+OPENJPA-2229
+https://issues.apache.org/jira/browse/OPENJPA-2229
+Persistence entities not recognized when deploying on JBoss AS 7.1 I've found this guide [1] about using OenJPA 2.2.0 and JBoss 7.1: I had some minor issues (already reported on that page) easily solved, but then I came to this exception, thrown at every JPA query: <openjpa-2.2.0-r422266:1244990 nonfatal user error> org.apache.openjpa.persistence.ArgumentException: An error occurred while parsing the query filter "SELECT e FROM ExternalResource e". Error message: The name "ExternalResource" is not a recognized entity or identifier. Perhaps you meant ExternalResource, which is a close match. Known entity names: [ExternalResource, AbstractSchema, RAttrUniqueValue, AbstractVirAttr, Membership, TaskExec, SyncopeConf, Report, RAttr, AbstractExec, SyncopeLogger, USchema, MAttr, PasswordPolicy, RSchema, MSchema, MAttrValue, MAttrUniqueValue, AbstractAttr, AbstractDerSchema, AbstractVirSchema, UAttr, AccountPolicy, RAttrValue, UAttrValue, ReportExec, SyncopeUser, Notification, ConnInstance, AbstractDerAttr, AbstractAttrValue, SyncopeRole, SyncPolicy, Policy, ReportletConfInstance, Task, UAttrUniqueValue, Entitlement, SchemaMapping, UserRequest] at org.apache.openjpa.kernel.exps.AbstractExpressionBuilder.parseException(AbstractExpressionBuilder.java:119) [openjpa-kernel-2.2.0.jar:2.2.0] at org.apache.openjpa.kernel.jpql.JPQLExpressionBuilder.getClassMetaData(JPQLExpressionBuilder.java:194) [openjpa-kernel-2.2.0.jar:2.2.0] at org.apache.openjpa.kernel.jpql.JPQLExpressionBuilder.resolveClassMetaData(JPQLExpressionBuilder.java:167) [openjpa-kernel-2.2.0.jar:2.2.0] at org.apache.openjpa.kernel.jpql.JPQLExpressionBuilder.getCandidateMetaData(JPQLExpressionBuilder.java:242) [openjpa-kernel-2.2.0.jar:2.2.0] at org.apache.openjpa.kernel.jpql.JPQLExpressionBuilder.getCandidateMetaData(JPQLExpressionBuilder.java:212) [openjpa-kernel-2.2.0.jar:2.2.0] at org.apache.openjpa.kernel.jpql.JPQLExpressionBuilder.getCandidateType(JPQLExpressionBuilder.java:205) [openjpa-kernel-2.2.0.jar:2.2.0] at org.apache.openjpa.kernel.jpql.JPQLExpressionBuilder.access$200(JPQLExpressionBuilder.java:80) [openjpa-kernel-2.2.0.jar:2.2.0] at org.apache.openjpa.kernel.jpql.JPQLExpressionBuilder$ParsedJPQL.populate(JPQLExpressionBuilder.java:2417) [openjpa-kernel-2.2.0.jar:2.2.0] at org.apache.openjpa.kernel.jpql.JPQLParser.populate(JPQLParser.java:61) [openjpa-kernel-2.2.0.jar:2.2.0] After some deeper investigation, I've found that the problem resides in the vfs: JBoss URLs, currently not managed. [1] https://community.jboss.org/thread/201329
+Persistence entities not recognized when deploying on AS 7.1 I've found this guide [1] about using 2.2.0 and 7.1: I had some minor issues (already reported on that page) easily solved, but then I came to this exception, thrown at every JPA query: An error occurred while parsing the query filter "SELECT e FROM e". Error message: The name is not a recognized entity or identifier. Perhaps you meant which is a close match. Known entity names
+******
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.AbstractCFMetaDataFactory.AbstractCFMetaDataFactory.parsePersistentTypeNames(ClassLoader), true
+iopenjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository.sUni1To1JT(FieldMapping), true
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.meta.TestSecondaryTable.TestSecondaryTable.setUp(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.meta.TestSecondaryTable.TestSecondaryTable.testMappingInfo(), false, new_method
+#####
+openjpa-2.2.0
+OPENJPA-2197
+https://issues.apache.org/jira/browse/OPENJPA-2197
+MethodComparator in AnnotationPersistenceMetaDataParser should also compare parameters AnnotationPersistenceMetaDataParser contains a MethodComparator which only compares the class + the method name. Too bad I have (had...) 2 methods with the same name in my EntityListener: @PreUpdate public void updateChangeLog(Object entity) { .. and also private void updateChangeLog(BaseEntity he, ChangeLogEntry cle) which is a private helper method. Due to the bug in MethodComparator, my @PreUpdate sometimes didn't get detected.
+in should also compare parameters contains a which only compares the class + the method name. Too bad I have (had...) 2 methods with the same name in my and also private void which is a private helper method. Due to the bug in, my sometimes didn't get detected.
+******
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerImpl.ListenerImpl.postLoad(int, String), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerImpl.ListenerImpl.postLoad(int), false, new_method
+openjpa-persistence.src.main.java.org.apache.openjpa.persistence.AnnotationPersistenceMetaDataParser.AnnotationPersistenceMetaDataParser.compare(Method, Method), true
+#####
+openjpa-2.2.0
+OPENJPA-2131
+https://issues.apache.org/jira/browse/OPENJPA-2131
+Missing IN or OUT parameter exception with OracleDictionary We have generate query with Query q = em.createQuery("select e._name, e._id, sum(case when e._status=:pending then e._count else 0 end) from Exceptions e, Historty h where e._guid = :guid and ..... then set paramenters for both :pending (in select) and :guid (in where), and call q.setMaxResults(100); with DB2, everything works fine, and DBDictionary.getSelects() and SQLBuffer.append() will invoke correctly and set parameter of :pending with Oracle implementation, OracleDictionary.getSelects(Select sel, boolean distinctIdentifiers, boolean forUpdate) will invoke and SQLBuffer.getSQL() get to call (as two if checks are not satisfied and gos to create a new SQLBuffer instance), but this time :pending parameter will missing to add to _param List, Eventually, we'll get Missing IN or OUT parameter exception from to execute query by preparedStatement This bug exist in both this branch and trunk. We have a work around, after SQLBuffer.getSQL() call, add some code to reset _param list.
+Missing IN or OUT parameter exception with We have generate query with Query from Exceptions e, Historty h where then set paramenters for both and call with DB2, everything works fine, and will invoke correctly and set parameter of :pending with Oracle implementation, will invoke and get to call (as two if checks are not satisfied and gos to create a new instance), but this time :pending parameter will missing to add to Eventually, we'll get Missing IN or OUT parameter exception from to execute query by This bug exist in both this branch and trunk. We have a work around, after call, add some code to reset.
+******
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.SQLBuffer.SQLBuffer.append(SQLBuffer), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.SQLBuffer.SQLBuffer.append(SQLBuffer, int, int, boolean), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.OracleDictionary.OracleDictionary.getSelects(Select, boolean, boolean), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.OracleDictionary.OracleDictionary.resolveSubselects(), true
+#####
+openjpa-2.2.0
+OPENJPA-428
+https://issues.apache.org/jira/browse/OPENJPA-428
+Bad error message regarding "openjpa.Id" Hi all, this bug is to report a confusing and misplaced error message. Problem is described below. Feel free to request more info from me. When running my project with OpenJPA, I get the following error message: 140 INFO [http-0.0.0.0-8080-Processor23] openjpa.Runtime - Starting OpenJPA 1.0.0 380 INFO [http-0.0.0.0-8080-Processor23] openjpa.jdbc.JDBC - Using dictionary class "org.apache.openjpa.jdbc.sql.DB2Dictionary". 20 WARN [http-0.0.0.0-8080-Processor25] openjpa.Runtime - The property named "openjpa.Id" was not recognized and will be ignored, although the name closely matches a valid property called "openjpa.Id". 100 INFO [http-0.0.0.0-8080-Processor25] openjpa.Runtime - Starting OpenJPA 1.0.0 300 INFO [http-0.0.0.0-8080-Processor25] openjpa.jdbc.JDBC - Using dictionary class "org.apache.openjpa.jdbc.sql.DB2Dictionary". As you can see, the two property names printed are the same, not different or similar. I retyped all my @Id annotations to make sure there was no special character in one of them coming from copy&paste. Furthermore, I was able to identify that the error message was being printed only when I removed the @Id annotation from one of my classes (all the other classes still have @Id). Here is a sample of my class without @Id annotation: @Entity @Table(name="TAX", schema="JPA_SC") public class Tax { // Class variables protected double taxamount; public Tax(){ } public Tax(double taxamount) { this.taxamount = taxamount; } //plus getter and setter for taxamount } Regards, Vitor Rodrigues
+Bad error message regarding Bad error message regarding Hi all, this bug is to report a confusing and misplaced error message. Problem is described below. Feel free to request more info from me. When running my project with , I get the following error message: with DB2, everything works fine, and and will invoke correctly and set parameter of :pending with Oracle implementation, will invoke and get to call (as two if checks are not satisfied and gos to create a new instance), but this time :pending parameter will missing to add to _param List, Eventually, we'll get Missing IN or OUT parameter exception from to execute query by This bug exist in both this branch and trunk. We have a work around,call, add some code to reset _param list. The property named was not recognized and will be ignored, although the name closely matches a valid property called As you can see, the two property names printed are the same, not different or similar. I retyped all my @Id annotations to make sure there was no special character in one of them coming from copy&paste. Furthermore, I was able to identify that the error message was being printed only when I removed the @Id annotation from one of my classes (all the other classes still have @Id). Here is a sample of my class without annotation:
+******
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.Configurations.Configurations.removeProperty(String, Map), true
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.Configurations.Configurations.removeProperty(String, Map<?, ?>, Map<?, ?>), false, new_method
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.ConfigurationImpl.ConfigurationImpl.fromProperties(Map), true
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.Issue428Entity.Issue428Entity.Issue428Entity(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.Issue428Entity.Issue428Entity.Issue428Entity(double), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.Issue428Entity.Issue428Entity.getDoubleField(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.Issue428Entity.Issue428Entity.setDoubleField(double), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.TestOpenjpaIdNotRecognizedMessage.TestOpenjpaIdNotRecognizedMessage.setUp(), false, test_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.TestOpenjpaIdNotRecognizedMessage.TestOpenjpaIdNotRecognizedMessage.test428(), false, test_method
+#####
+openjpa-2.2.0
+OPENJPA-2275
+https://issues.apache.org/jira/browse/OPENJPA-2275
+Extending SchemaTool Proposing some access level changes to various attributes and methods in SchemaTool as per [1], in order to improve extendability. [1] http://openjpa.208410.n2.nabble.com/Overriding-SchemaTool-td7581315.html
+Extending Proposing some access level changes to various attributes and methods in as per [1], in order to improve extendability. [1] http://openjpa.208410.n2.nabble.com/Overriding-SchemaTool-td7581315.html
+******
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.add(), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.drop(), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.retain(), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.refresh(), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.createDB(), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.build(), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.dropDB(), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.deleteTableContents(), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.add(SchemaGroup, SchemaGroup), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.retain(SchemaGroup, SchemaGroup, boolean), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.drop(SchemaGroup, SchemaGroup), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.isDroppable(Table), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.isDroppable(Sequence), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.findIndex(Table, Index), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.findForeignKey(Table, ForeignKey), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.dropTables(Collection<Table>, SchemaGroup), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.getDBSchemaGroup(boolean), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.assertSchemaGroup(), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.executeSQL(String[]), false, access_modifier
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.SchemaTool.SchemaTool.handleException(SQLException), false, access_modifier
+#####
+openjpa-2.2.0
+OPENJPA-2257
+https://issues.apache.org/jira/browse/OPENJPA-2257
+Concurreny in org.apache.openjpa.persistence.EntityManagerImpl.getProperties leads to NullPointer and ConcurrentModificationException A call of EntityManager.getProperties() can lead to NullPointer and ConcurrentModificationException. Issue occurs right after start up of the overlying JEE application if multiple EntityManager instance are created at same time. Please find the issued stack trace below: Caused by: java.lang.NullPointerException at java.lang.String.compareTo(String.java:482) at java.lang.String.compareTo(String.java:31) at java.util.TreeMap.cmp(TreeMap.java:4514) at java.util.TreeMap.putImpl(TreeMap.java:4556) at java.util.TreeMap.put(TreeMap.java:4536) at java.util.TreeSet.add(TreeSet.java:122) at org.apache.openjpa.lib.conf.ConfigurationImpl.getPropertyKeys(ConfigurationImpl.java:708) at org.apache.openjpa.kernel.BrokerImpl.getSupportedProperties(BrokerImpl.java:729) at org.apache.openjpa.kernel.DelegatingBroker.getSupportedProperties(DelegatingBroker.java:223) at org.apache.openjpa.persistence.EntityManagerImpl.getProperties(EntityManagerImpl.java:1624) ... 33 more
+Concurreny in leads to A call of can lead to Issue occurs right after start up of the overlying JEE application if multiple instance are created at same time. Please find the issued stack trace below: Caused by:
+******
+openjpa-lib.src.main.java.org.apache.openjpa.lib.conf.ConfigurationImpl.ConfigurationImpl.getPropertyKeys(), true
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.conf.TestGetProperty.TestGetProperty.setUp(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.conf.TestGetProperty.TestGetProperty.tearDown(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.conf.TestGetProperty.TestGetProperty.testGetProperty(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.conf.TestGetProperty.TestGetProperty.Test(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.conf.TestGetProperty.TestGetProperty.run(), false, new_method
+#####
+openjpa-2.2.0
+OPENJPA-2247
+https://issues.apache.org/jira/browse/OPENJPA-2247
+JoinColumn annotation is ignored when mapping a unidirectional owned OneToOne that is in a SecondaryTable The runtime incorrectly ignores @JoinColumn.name when mapping a unidirectional owned OneToOne that is in a SecondaryTable. This problem only exists when running with a persistence.xml that is set to 2.0 (version="2.0">). For example: @Entity @SecondaryTable(name = "ParentSecondaryTable", pkJoinColumns = { @PrimaryKeyJoinColumn(name = "idParent", referencedColumnName = "idParent") } ) public class Parent { @Id @GeneratedValue int idParent; String child_ref; @OneToOne @JoinColumn(name = "CHILD_REF", table = "ParentSecondaryTable", referencedColumnName = "idChild") PChild child; } The column "CHILD_REF" will be ignored and the runtime will look for the fk in non-existent column ParentSecondaryTable.CHILD_IDCHILD.
+annotation is ignored when mapping a unidirectional owned that is in a The runtime incorrectly ignores when mapping a unidirectional owned that is in a This problem only exists when running with a that is set to 2.0 (version="2.0">). For example:    The column  will be ignored and the runtime will look for the fk in non-existent column
+******
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository.isUniMTo1JT(FieldMapping), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository.isUni1To1JT(FieldMapping), false, refactoring
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository.isBi1To1JT(FieldMapping), true
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.meta.TestSecondaryTable.TestSecondaryTable.testMappingInfo(), false, comments
+#####
+openjpa-2.2.0
+OPENJPA-2231
+https://issues.apache.org/jira/browse/OPENJPA-2231
+jest  TokenReplacedStream use Reader instead of Inputstream in order to preserve utf-8 characters in replace-function , use Reader instead of Inputstream public class TokenReplacedStream { ... //public void replace(InputStream in, Writer out, String... prs) throws IOException { public void replace(Reader in, Writer out, String... prs) throws IOException { using new type: InputStream in=servletContext.getResourceAsStream(rsrc); BufferedReader in_br=new BufferedReader(new InputStreamReader(in,"UTF-8")); new TokenReplacedStream().replace(in_br,out_char,tokens);
+jest use Reader instead of in order to preserve utf-8 characters in replace-function , use Reader instead of public class using new type
+******
+openjpa-jest.src.main.java.org.apache.openjpa.persistence.jest.TokenReplacedStream.TokenReplacedStream.replace(InputStream, Writer, String...), true
+#####
+openjpa-2.2.0
+OPENJPA-2227
+https://issues.apache.org/jira/browse/OPENJPA-2227
+OpenJPA doesn't find custom SequenceGenerators I'm trying to use a custom SequenceGenerator within an enterprise application using openJPA (providing by WebSphere). When defining a custom Sequence a ClassNotFoundException (for the Sequence class) will be thrown when trying to insert data into the database. ExampleConfiguration: @Entity @SequenceGenerator(name="MySequence", sequenceName="org.apache.openjpa.generator.UIDGenerator()") public class Customer implements Serializable { @Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MySequence") private long id; The example will produce the stacktrace attached. It seems that the wrong class loader is used to instantiate the custom sequence class. A very similar issue seems to be: OPENJPA-758. With JavaSE (JUnit) all is working fine, but after deploying into WAS the Exception will occur. I think within the method SequenceMetaData.instantiate(Classloader envLoader) the JavaTypes.classForName() -method with parameter mustExist=false should be used instead of the pure Class.forName() call. But I'm not sure about the Metadata-parameter needed for this method call.
+OpenJPA doesn't find custom  I'm trying to use a custom within an enterprise application using openJPA (providing by ). When defining a custom Sequence a (for the Sequence class) will be thrown when trying to insert data into the database.     The example will produce the stacktrace attached. It seems that the wrong class loader is used to instantiate the custom sequence class. A very similar issue seems to be: OPENJPA-758. With all is working fine, but after deploying into WAS the Exception will occur. I think within the method the -method with paramete should be used instead of the pure call. But I'm not sure about the needed for this method call.
+******
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.SequenceMetaData.SequenceMetaData.instantiate(ClassLoader), true
+#####
+openjpa-2.2.0
+OPENJPA-2196
+https://issues.apache.org/jira/browse/OPENJPA-2196
+Create Sequence Postgres 9.1 Sorry my bad english .. when annotated a entity with @SequenceGenerator and with allocationSize = 1 and initialValue = 1, the method DBDictionary.commonCreateAlterSequenceSQL is creating a alter sequence sql invalid for Postgres 9.1. Despite the documentation of postgres inform you that the other parameters are optional (http://www.postgresql.org/docs/9.1/static/sql-altersequence.html), an error occurs in executing the sql below. Eg: ALTER SEQUENCE schema_experimento.usuario_sq (no other attributes) Even the method NativeJDBCSeq.udpateSql being fault tolerant, the connection is marked for rollback and not allowing run the next val of sequence. Hêndi Marcos
+Create Sequence Postgres 9.1 Sorry my bad english .. when annotated a entity with the method is creating a alter sequence sql invalid for Postgres 9.1. Despite the documentation of postgres inform you that the other parameters are optional (http://www.postgresql.org/docs/9.1/static/sql-altersequence.html), an error occurs in executing the sql below. Even the method being fault tolerant, the connection is marked for rollback and not allowing run the next val of sequence. Hêndi Marcos
+******
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.NativeJDBCSeq.NativeJDBCSeq.allocateInternal(int, JDBCStore, ClassMapping), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.NativeJDBCSeq.NativeJDBCSeq.udpateSql(Connection, String), false, comments
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DBDictionary.DBDictionary.commonCreateAlterSequenceSQL(Sequence, boolean), true
+#####
+openjpa-2.2.0
+OPENJPA-2174
+https://issues.apache.org/jira/browse/OPENJPA-2174
+Result set mapping was not looked up when retrieving column data from a NamedNativeQuery Invalid index exception was thrown when it tried to retrieve the column data from the result set of a name native query. This is because the attribute name defined in the entity is different from the actual column alas name defined in the query and it didn't look up the result set mapping for the correct column name before retrieving the data. the fix and test case is attached.
+Result set mapping was not looked up when retrieving column data from a Invalid index exception was thrown when it tried to retrieve the column data from the result set of a name native query. This is because the attribute name defined in the entity is different from the actual column alas name defined in the query and it didn't look up the result set mapping for the correct column name before retrieving the data. the fix and test case is attached.
+******
+src.test.java.org.apache.openjpa.persistence.criteria.results.ShipRate.ShipRate.ShipRate(long, BigDecimal), false, new_method
+src.main.java.org.apache.openjpa.jdbc.kernel.MappedQueryResultObjectProvider.MappedQueryResultObjectProvider.getObjectInternal(Object, int, Object, Joins), true
+src.main.java.org.apache.openjpa.jdbc.sql.ResultSetResult.ResultSetResult.findObject(Object, Joins), true
+src.test.java.org.apache.openjpa.persistence.query.results.TestResultSetMapping.TestResultSetMapping.setUp(), false, new_method
+src.test.java.org.apache.openjpa.persistence.query.results.TestResultSetMapping.TestResultSetMapping.testQuery(), false, new_method
+#####
+openjpa-2.2.0
+OPENJPA-2163
+https://issues.apache.org/jira/browse/OPENJPA-2163
+Lifecycle event callback occurs more often than expect A problem was uncovered in a scenario where multiple EntityManager instances created from the same EntityManagerFactory, and each instance is initialized with a new instance of a LifecycleListener instance, i.e. final EntityManager em = factory.createEntityManager(); final EntityManager em2 = factory.createEntityManager(); ... MyLifecycleListener l1 = new MyLifecycleListener(); MyLifecycleListener l2 = new MyLifecycleListener(); ... ((OpenJPAEntityManagerSPI)em).addLifecycleListener(l1, null); ((OpenJPAEntityManagerSPI)em2).addLifecycleListener(l2, null); When life cycle event occurs for a specific entity manager, all the listeners created under the emf are being invoked. The expected behavior is only the listener registered in the em from which the life cycle events are related should be called.
+Lifecycle event callback occurs more often than expect A problem was uncovered in a scenario where multiple instances created from the same and each instance is initialized with a new instance of a instance, i.e.     When life cycle event occurs for a specific entity manager, all the listeners created under the emf are being invoked. The expected behavior is only the listener registered in the em from which the life cycle events are related should be called.
+******
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.getId(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.setId(long), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.getValue(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.setValue(int), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.prePersist(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.postPersist(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.postLoad(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.preUpdate(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.postUpdate(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.preRemove(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.ListenerInEntity.ListenerInEntity.postRemove(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.validation.TestValidationMode.TestValidationMode.testUniqueLifecycleManager(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.validation.TestValidationMode.TestValidationMode.beforePersist(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.validation.TestValidationMode.TestValidationMode.afterPersist(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.validation.TestValidationMode.TestValidationMode.beforeStore(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.validation.TestValidationMode.TestValidationMode.afterStore(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.validation.TestValidationMode.TestValidationMode.assertCounts(int, int, int, int), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.AddListenerEntity.AddListenerEntity.getId(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.AddListenerEntity.AddListenerEntity.setId(long), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.AddListenerEntity.AddListenerEntity.getValue(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.AddListenerEntity.AddListenerEntity.setValue(int), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl(boolean, boolean), true
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl.LEMValue(String, boolean), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl.get(), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl.isSingletonLifecycleEventManager(), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl.setSingletonLifecycleEventManager(boolean), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl.SingletonLEMValue(String), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl.set(boolean), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.OpenJPAConfigurationImpl.OpenJPAConfigurationImpl.getLifecycleEventManagerInstance(), true
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.TestMultiEmEntityListeners.TestMultiEmEntityListeners.setUp(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.TestMultiEmEntityListeners.TestMultiEmEntityListeners.testListenerInEntity1(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.TestMultiEmEntityListeners.TestMultiEmEntityListeners.assertListenerInEntityStatus(ListenerInEntity, int, int, int, int, int, int, int), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.TestMultiEmEntityListeners.TestMultiEmEntityListeners.testAddListenerEntity1(), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.TestMultiEmEntityListeners.TestMultiEmEntityListeners.assertAddListenerEntityStatus(PerInstanceListener, int, int, int, int, int, int, int, int, int, int), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.afterDeletePerformed(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.afterPersistPerformed(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.beforeStore(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.afterStore(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.afterLoad(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.afterRefresh(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.beforeDirty(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.afterDirty(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.beforeDirtyFlushed(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.afterDirtyFlushed(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.beforeDelete(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.afterDelete(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.beforePersist(LifecycleEvent), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.callbacks.PerInstanceListener.PerInstanceListener.afterPersist(LifecycleEvent), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.Compatibility.Compatibility.isSingletonLifecycleEventManager(), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.conf.Compatibility.Compatibility.setSingletonLifecycleEventManager(boolean), false, new_method
+#####
+openjpa-2.2.0
+OPENJPA-2151
+https://issues.apache.org/jira/browse/OPENJPA-2151
+Improve the performance of StateManagerImpl.initialize  While running some performance tests I found that StateManagerImpl.initialize could be improved through caching some additional meta data. I also found another improvement that could be added to the PCState.initialize(...) transition. As far as I can tell, the PCState transition(s) do not have a concept of what state they are coming from and in some instances we are doing work unnecessary work. For example, when finding an Entity with an active transaction, we have all clean bitsets, but when we call PCleanState.initialize(...) the state doesn't know that this is a 'fresh' instance and we don't need to touch the dirty bitset.
+Improve the performance of  While running some performance tests I found that could be improved through caching some additional meta data. I also found another improvement that could be added to the transition. As far as I can tell, the do not have a concept of what state they are coming from and in some instances we are doing work unnecessary work. For example, when finding an Entity with an active transaction, we have all clean bitsets, but when we call the state doesn't know that this is a 'fresh' instance and we don't need to touch the dirty bitset.
+******
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.ECleanState.ECleanState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.TDirtyState.TDirtyState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PDeletedState.PDeletedState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.EDirtyState.EDirtyState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.StateManagerImpl.StateManagerImpl.StateManagerImpl(Object, ClassMetaData, BrokerImpl), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.StateManagerImpl.StateManagerImpl.setPCState(PCState), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.StateManagerImpl.StateManagerImpl.initialize(Class, PCState), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.StateManagerImpl.StateManagerImpl.initialize(PersistenceCapable, PCState), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.StateManagerImpl.StateManagerImpl.isIntercepting(), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.StateManagerImpl.StateManagerImpl.readObject(ObjectInputStream), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.StateManagerImpl.StateManagerImpl.setMeta(ClassMetaData), false, new_method
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PNonTransDirtyState.PNonTransDirtyState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PNewProvisionalState.PNewProvisionalState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.TCleanState.TCleanState.initialize(StateManagerImpl), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PCleanState.PCleanState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.TransientState.TransientState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PCState.PCState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PNonTransNewState.PNonTransNewState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PNewState.PNewState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.ClassMetaData.ClassMetaData.getPkAndNonPersistentManagedFmdIndexes(), true
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.ClassMetaData.ClassMetaData.hasInverseManagedFields(), true
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.ClassMetaData.ClassMetaData.getMappyedByIdFields(), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.HollowState.HollowState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.TLoadedState.TLoadedState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PNonTransState.PNonTransState.initialize(StateManagerImpl), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PDirtyState.PDirtyState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.ENonTransState.ENonTransState.initialize(StateManagerImpl), true
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.ECopyState.ECopyState.initialize(StateManagerImpl), false, method_signature
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.PNewFlushedDeletedFlushedState.PNewFlushedDeletedFlushedState.initialize(StateManagerImpl), false, method_signature
+#####
+openjpa-2.2.0
+OPENJPA-2149
+https://issues.apache.org/jira/browse/OPENJPA-2149
+Criteria.function adds wrong casts to parameters making it unsuable Criteria.function will generate an SQL with only the last parameter casted and to the wrong type. Expression<String> stPointFunc = cb.function( "db2gse.st_point", String.class, cb.literal(0.0), cb.literal(0.0), cb.literal(1003)); Expression<Double> distanceFunc = cb.function( "db2gse.st_distance", Double.class, stPointFunc, usersLocations.get("location")); criteriaQuery.select(usersLocations).where(cb.lessThan(distanceFunc, cb.literal(50.0))); Will generate the following SQL: (db2gse.st_distance(db2gse.st_point(?, ?, CAST(? AS DOUBLE)), t0.LOCATION) < ?) Notice the 3rd parameter is an Integer and its being cast as Double. The problem is in org.apache.openjpa.jdbc.kernel.exps.DatastoreFunction#appendTo Line 54: args.appendTo(sel, ctx, state, sql, 0); Will append 3 ? to the sql buffer: "(db2gse.st_distance(db2gse.st_point(?, ?, ?" Then the loop in line 56-58 for (int i = 1; i < vals.length; i++) { sql.addCastForParam(getOperator(), vals[i]); } It becomes: "(db2gse.st_distance(db2gse.st_point(?, ?, CAST(? AS DOUBLE)" Starts with 1 (second parameter and not the first one), whil sql.addCastForParam only works for the last ? in the sql buffer, meaning the cast for the param at index 1 is added to the last ? and the method will not do anything else. This issue leaves Criteria.function useless to me, I tried extending my DBDictionary to remove all the cast as a work around but the function became ambiguous. Thanks in advance. Found a temporary (working but ugly) workaround: Expression<String> stPointFunc = cb.function( "db2gse.st_point", String.class, cb.coalesce(cb.literal(0.0), cb.literal(0.0)), cb.coalesce(cb.literal(1.0), cb.literal(1.0)), cb.coalesce(cb.literal(1003), cb.literal(1003))); coalesce uses raw value instead of parameters and makes it work (the same value twice becuase if I put cb.nullLiteral I get a NullPointerException, might be another bug)
+adds wrong casts to parameters making it unsuable Notice the 3rd parameter is an Integer and its being cast as Double. The problem is in Starts with 1 (second parameter and not the first one), whil only works for the last ? in the sql buffer, meaning the cast for the param at index 1 is added to the last ? and the method will not do anything else. This issue leaves Criteria.function useless to me, I tried extending my DBDictionary to remove all the cast as a work around but the function became ambiguous. Thanks in advance. Found a temporary (working but ugly) workaround: coalesce uses raw value instead of parameters and makes it work (the same value twice becuase if I put I get a might be another bug)
+******
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.exps.Args.Args.appendTo(Select, ExpContext, ExpState, SQLBuffer, int), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.exps.UnaryOp.UnaryOp.appendTo(Select, ExpContext, ExpState, SQLBuffer, int), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.kernel.exps.DatastoreFunction.DatastoreFunction.appendTo(Select, ExpContext, ExpState, SQLBuffer, int), true
+#####
+openjpa-2.2.0
+OPENJPA-2133
+https://issues.apache.org/jira/browse/OPENJPA-2133
+OpenJPA doesn't find custom mappings with an applicable class loader JIRA OPENJPA-758 addressed a class loader issue where ValueHandlers could not be found by an applicable class loader. The fix was specific to ValueHandlers. However, the same issue occurs for other customer mappings (e.g. ClassStrategy, DiscriminatorStrategy, etc). Basically, mappings handled by MappingRepository. I will attach a patch with my proposed changes. The fix is in the same pattern as was done in the fix for JIRA OPENJPA-758, please see this JIRA for more details.
+OpenJPA doesn't find custom mappings with an applicable class loader JIRA OPENJPA-758 addressed a class loader issue where could not be found by an applicable class loader. The fix was specific to. However, the same issue occurs for other customer mappings (e.g. etc). Basically, mappings handled by I will attach a patch with my proposed changes. The fix is in the same pattern as was done in the fix for JIRA OPENJPA-758, please see this JIRA for more details.
+******
+openjpa-kernel.src.main.java.org.apache.openjpa.meta.JavaTypes.JavaTypes.classForName(String, ClassMetaData, ClassLoader, boolean), false, new_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository.instantiateClassStrategy(String, ClassMapping), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository.namedStrategy(FieldMapping, boolean), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository.instantiateDiscriminatorStrategy(String, Discriminator), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.meta.MappingRepository.MappingRepository.instantiateVersionStrategy(String, Version), true
+#####
+openjpa-2.2.0
+OPENJPA-2107
+https://issues.apache.org/jira/browse/OPENJPA-2107
+ManagedCache conflict due adding an entity 2 times in the same query. I have a complex query which creates the following error: <openjpa-2.2.0-tiss-2-rexported nonfatal user error> org.apache.openjpa.persistence.ArgumentException: Cannot load object with id "26301". Instance "at.ac.tuwien.tiss.curriculum.be.entities.DefaultCourse@6e267b76" with the same id already exists in the L1 cache. This can occur when you assign an existing id to a new instance, and before flushing attempt to load the existing instance for that id. FailedObject: at.ac.tuwien.tiss.curriculum.be.entities.DefaultCourse-26301 at org.apache.openjpa.kernel.ManagedCache.add(ManagedCache.java:126) at org.apache.openjpa.kernel.BrokerImpl.setStateManager(BrokerImpl.java:4117) at org.apache.openjpa.kernel.StateManagerImpl.initialize(StateManagerImpl.java:391) at org.apache.openjpa.kernel.StateManagerImpl.initialize(StateManagerImpl.java:340) at org.apache.openjpa.jdbc.kernel.JDBCStoreManager.initializeState(JDBCStoreManager.java:378) It seems that this entity gets loaded from the db twice in the same query. While hitting the problem, the StateManagers have the following _flags: orig _flags= 602 = 0010 0101 1010 SAVE LOADED READ_LOCKED OID_ASSIGNED FLUSHED sm _flags= 16 = 0000 0001 0000 READ_LOCKED And it is really only 1 instance which makes this problem. If I set the 'orig' variable to null in the debugger, the test runs fine.
+conflict due adding an entity 2 times in the same query. I have a complex query which creates the following error: Cannot load object with id "26301". Instance with the same id already exists in the L1 cache. This can occur when you assign an existing id to a new instance, and before flushing attempt to load the existing instance for that id. It seems that this entity gets loaded from the db twice in the same query. While hitting the problem, the And it is really only 1 instance which makes this problem. If I set the 'orig' variable to null in the debugger, the test runs fine. have the following _flags:
+******
+openjpa-kernel.src.main.java.org.apache.openjpa.kernel.BrokerImpl.BrokerImpl.setStateManager(Object, StateManagerImpl, int), true
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.query.TestSimple.TestSimple.testSimple(), false, test_method
+#####
+openjpa-2.2.0
+OPENJPA-1682
+https://issues.apache.org/jira/browse/OPENJPA-1682
+TestSimpleXmlEntity.testId failed with invalid DB2 create table SQL statement TestSimpleXmlEntity.testId starts failing with the following exception against DB2: TestSimpleXmlEntity.testId View test details (org.apache.openjpa.persistence.xml) <openjpa-2.1.0-SNAPSHOT-r422266:951071 nonfatal general error> org.apache.openjpa.persistence.PersistenceException: DB2 SQL Error: SQLCODE=-542, SQLSTATE=42831, SQLERRMC=NICKNAME_XML, DRIVER=3.50.152 {stmnt 65405926 CREATE TABLE NickNames_xml (A_ID_xml INTEGER NOT NULL, nickName_xml VARCHAR(20), CONSTRAINT U_NCKNXML_A_ID_XML UNIQUE (A_ID_xml, nickName_xml))} [code=-542, state=42831] at org.apache.openjpa.jdbc.meta.MappingTool.record(MappingTool.java:556) at org.apache.openjpa.jdbc.meta.MappingTool.record(MappingTool.java:456) Please wait... Show details » « Hide details <openjpa-2.1.0-SNAPSHOT-r422266:951071 nonfatal general error> org.apache.openjpa.persistence.PersistenceException: DB2 SQL Error: SQLCODE=-542, SQLSTATE=42831, SQLERRMC=NICKNAME_XML, DRIVER=3.50.152 {stmnt 65405926 CREATE TABLE NickNames_xml (A_ID_xml INTEGER NOT NULL, nickName_xml VARCHAR(20), CONSTRAINT U_NCKNXML_A_ID_XML UNIQUE (A_ID_xml, nickName_xml))} [code=-542, state=42831] at org.apache.openjpa.jdbc.meta.MappingTool.record(MappingTool.java:556) at org.apache.openjpa.jdbc.meta.MappingTool.record(MappingTool.java:456) at org.apache.openjpa.jdbc.kernel.JDBCBrokerFactory.synchronizeMappings(JDBCBrokerFactory.java:155) at org.apache.openjpa.jdbc.kernel.JDBCBrokerFactory.synchronizeMappings(JDBCBrokerFactory.java:159) at org.apache.openjpa.jdbc.kernel.JDBCBrokerFactory.newBrokerImpl(JDBCBrokerFactory.java:117) at org.apache.openjpa.kernel.AbstractBrokerFactory.newBroker(AbstractBrokerFactory.java:199) at org.apache.openjpa.kernel.DelegatingBrokerFactory.newBroker(DelegatingBrokerFactory.java:156) at org.apache.openjpa.persistence.EntityManagerFactoryImpl.createEntityManager(EntityManagerFactoryImpl.java:213) at org.apache.openjpa.persistence.EntityManagerFactoryImpl.createEntityManager(EntityManagerFactoryImpl.java:151) at org.apache.openjpa.persistence.test.SingleEMTestCase.setUp(SingleEMTestCase.java:47) at org.apache.openjpa.persistence.xml.TestSimpleXmlEntity.setUp(TestSimpleXmlEntity.java:28) at junit.framework.TestCase.runBare(TestCase.java:125) at org.apache.openjpa.persistence.test.AbstractPersistenceTestCase.runBare(AbstractPersistenceTestCase.java:503) at org.apache.openjpa.persistence.test.AbstractPersistenceTestCase.runBare(AbstractPersistenceTestCase.java:479) at junit.framework.TestResult$1.protect(TestResult.java:106) at junit.framework.TestResult.runProtected(TestResult.java:124) at junit.framework.TestResult.run(TestResult.java:109) at junit.framework.TestCase.run(TestCase.java:118) at org.apache.openjpa.persistence.test.AbstractPersistenceTestCase.run(AbstractPersistenceTestCase.java:179) at junit.framework.TestSuite.runTest(TestSuite.java:208) at junit.framework.TestSuite.run(TestSuite.java:203) at sun.reflect.GeneratedMethodAccessor52.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:37) at java.lang.reflect.Method.invoke(Method.java:600) at org.apache.maven.surefire.junit.JUnitTestSet.execute(JUnitTestSet.java:213) at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.executeTestSet(AbstractDirectoryTestSuite.java:140) at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.execute(AbstractDirectoryTestSuite.java:127) at org.apache.maven.surefire.Surefire.run(Surefire.java:177) at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:48) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:37) at java.lang.reflect.Method.invoke(Method.java:600) at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:345) at org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:1009) Caused by: org.apache.openjpa.lib.jdbc.ReportingSQLException: DB2 SQL Error: SQLCODE=-542, SQLSTATE=42831, SQLERRMC=NICKNAME_XML, DRIVER=3.50.152 {stmnt 65405926 CREATE TABLE NickNames_xml (A_ID_xml INTEGER NOT NULL, nickName_xml VARCHAR(20), CONSTRAINT U_NCKNXML_A_ID_XML UNIQUE (A_ID_xml, nickName_xml))} [code=-542, state=42831] at org.apache.openjpa.lib.jdbc.LoggingConnectionDecorator.wrap(LoggingConnectionDecorator.java:257) at org.apache.openjpa.lib.jdbc.LoggingConnectionDecorator.wrap(LoggingConnectionDecorator.java:241) at org.apache.openjpa.lib.jdbc.LoggingConnectionDecorator.access$700(LoggingConnectionDecorator.java:70) at org.apache.openjpa.lib.jdbc.LoggingConnectionDecorator$LoggingConnection$LoggingStatement.executeUpdate(LoggingConnectionDecorator.java:951) at org.apache.openjpa.lib.jdbc.DelegatingStatement.executeUpdate(DelegatingStatement.java:136) at org.apache.openjpa.jdbc.schema.SchemaTool.executeSQL(SchemaTool.java:1200) at org.apache.openjpa.jdbc.schema.SchemaTool.createTable(SchemaTool.java:956) at org.apache.openjpa.jdbc.schema.SchemaTool.add(SchemaTool.java:533) at org.apache.openjpa.jdbc.schema.SchemaTool.add(SchemaTool.java:348) at org.apache.openjpa.jdbc.schema.SchemaTool.run(SchemaTool.java:325) at org.apache.openjpa.jdbc.meta.MappingTool.record(MappingTool.java:504) ... 33 more The create table constraint requires nickName_xml be "NOT NULL" Albert Lee
+failed with invalid DB2 create table SQL statement starts failing with the following exception against DB2: The create table constraint requires be "NOT NULL"
+******
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DBDictionary.DBDictionary.setTyped(PreparedStatement, int, Object, Column, int, JDBCStore), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DBDictionary.DBDictionary.getDeclareColumnSQL(Column, boolean), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Unique.Unique.addColumn(Column), false, new_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.nullity.TestBasicFieldNullity.TestBasicFieldNullity.testUniqueStringColumnCanBeNull(), false, test_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.nullity.TestBasicFieldNullity.TestBasicFieldNullity.testUniqueStringColumnAsNull(), false, test_method
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.nullity.TestBasicFieldNullity.TestBasicFieldNullity.isUniqueColumnNullable(), true
+openjpa-persistence-jdbc.src.test.java.org.apache.openjpa.persistence.nullity.NullValues.NullValues.NullValues(), false, test_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.RowImpl.RowImpl.setObject(Column, Object, int, boolean), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DB2Dictionary.DB2Dictionary.DB2Dictionary(), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.ForeignKey.ForeignKey.join(Column, Column), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.ForeignKey.ForeignKey.removeJoin(Column), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column.addConstraint(Constraint), false, new_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column.copy(Column), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column.removeConstraint(Constraint), false, new_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column.hasConstraint(Class<? extends Constraint>), false, new_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column.getConstraints(), false, new_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column.getConstraints(Class<T>), false, new_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column.isUniqueConstraint(), false, new_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column.isIndex(), false, new_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.Column.Column.isForeignKey(), false, new_method
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.LocalConstraint.LocalConstraint.remove(), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.LocalConstraint.LocalConstraint.removeColumn(Column), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.schema.LocalConstraint.LocalConstraint.addColumn(Column), true
+openjpa-jdbc.src.main.java.org.apache.openjpa.jdbc.sql.DerbyDictionary.DerbyDictionary.DerbyDictionary(), true
+#####

@@ -1,0 +1,1738 @@
+28974
+compil error introduc field aspect fail compil b2 produc compil error ajc assign valu field sourc inform avail error author colyer chang gener comment edit variabl window gt prefer gt java gt templat enabl disabl creation type comment window gt prefer gt java gt code gener next line culprit make inter type declar non solv problem 
+1
+org.aspectj.matcher.src.org.aspectj.weaver.AjcMemberMaker
+
+28919
+waever weav method don find except bug add bug make bug prioriti includ test program reproduc except bad non abstract method code bad non abstract method code bad non abstract method code 
+1
+weaver.src.org.aspectj.weaver.bcel.LazyMethodGen
+
+29186
+ajc emacssym choke pointcut includ intertyp method work fine emacssym di log bug bug databas bug except thrown titl file line from stack 243 don find except bug add bug make bug prioriti includ test program reproduc except fail abort 
+6
+org.aspectj.matcher.src.org.aspectj.weaver.Shadow
+weaver.src.org.aspectj.weaver.bcel.BcelWeaver
+asm.src.org.aspectj.asm.StructureModel
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AsmBuilder
+weaver.src.org.aspectj.weaver.AsmAdaptor
+org.aspectj.matcher.src.org.aspectj.weaver.Lint
+
+29769
+ajd support aspectj compil option support aspectj compil option ad old renam option deprec correct process happen ajd pass option compil enhanc need id project aspectj support 
+3
+.ajde.src.org.aspectj.ajde.internal.AspectJBuildManager
+ajde.src.org.aspectj.ajde.internal.CompilerAdapter
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+
+29959
+call intertyp method declar bodi caus verifi error aspectj compil beta4 program caus error runtim except thread main method illeg us nonvirtu function call note foo even call error load time express caus load error on foo method declar directli kind showstopp doug 
+8
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.InterTypeMethodBinding
+ExplicitConstructorCall)
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.InterTypeConstructorDeclaration
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.SuperFixerVisitor
+org.rg.eclipse.jdt.core.compiler.org.eclipse.jdt.internal.compiler.ast.AllocationExpression
+org.eclipse.jdt.core.compiler.org.eclipse.jdt.internal.compiler.ast.ExplicitConstructorCall
+org.eclipse.jdt.core.compiler.org.eclipse.jdt.internal.compiler.ast.MessageSend
+org.eclipse.jdt.core.compiler.org.eclipse.jdt.internal.compiler.lookup.MethodBinding
+
+30168
+error combin advic program caus java vm crash minim exampl remov aspect work result solari erik oden test java b8 df17 unexpect signal 11 occur pc fa415 a00 function unknown librari note unabl locat function name symbol error occur refer releas document reason solut local time fri jan 24 13 38 29 2003 elaps time hot spot machin error 11 error id f530 e43505002 d3 01 report error http java sun com cgi bin bugreport cgi java vm java hot spot tm client vm b92 mix mode error report file ha save refer file inform abort erik oden test erik oden test afa3 unexpect signal 11 occur pc x85 c24 function name librari note unabl locat function name symbol error occur refer releas document reason solut current java thread dynam librari local time fri jan 24 13 39 20 2003 elaps time hot spot machin error 11 error id f530 e43505002 c4 01 report error http java sun com cgi bin bugreport cgi java vm java hot spot tm client vm 02 b02 mix mode error report file ha save hs err pid15100 log refer file inform abort erik oden test result window 2000 result window 2000 copi correctli version java version 01 java tm runtim environ standard edit build 01 b01 java hot spot tm client vm build 01 b01 mix mode java 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.ThisJoinPointVisitor
+
+31423
+work pick advic execut join point beta4 here program show problem java test reach execut 
+1
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.SignaturePattern
+
+33635
+negat pointcut work express negat part ignor beta4 reproduc 
+1
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.IfPointcut
+
+32463
+ajc report error encount declar nest class version aspectj compil beta4 ajc compil issu spuriou error messag exit neg error code weav code contain declar nest compil write classfil correctli neg exit statu caus problem ant reproduc extract follow two file empti directori file compil file ajc sourceroot verbos output compil error 
+5
+org.aspectj.matcher.src.org.aspectj.weaver.NameMangler
+weaver.src.org.aspectj.weaver.ResolvedTypeX
+weaver.src.org.aspectj.weaver.TypeX
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.WithinPointcut
+weaver.testsrc.org.aspectj.weaver.TypeXTestCase
+
+29934
+runtim appli advic advic program run produc 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+34858
+weaver crash test file crash weaver test aspect optim prompt gt ajc 11 bin test java except thrown from aspectj rc1 log bug find current bug bug except thrown titl file line from stack 243 don find except bug add bug make bug prioriti includ test program reproduc except fail abort 
+1
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.CflowPointcut
+
+34925
+compil crash yesterdai rc1 build test file crash compil fact compil convert uncheck crash make except applic uncheck soft declar convert convert except work allow last statement block suspect gener ineffici code even ineffici wrap method bodi sourc inform avail abort except thrown from aspectj rc1 log bug find current bug http bug eclips org bug buglist cgi product aspectj amp compon compil bug except thrown titl file line from stack file java 243 don find except bug add bug http bug eclips org bug enter bug cgi product aspectj make bug prioriti includ test program reproduc except unimpl unimpl fail abort error 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseShadow
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.problem.AjProblemReporter
+
+36803
+bc except thrown aspectj rc1 iajc expect state resolv concret iajc expect state resolv concret 
+4
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.KindedPointcut
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.Pointcut
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.WithinPointcut
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.WithincodePointcut
+
+34951
+npe compil compil spacewar specifi classpath caus npe expect error messag requir step reproduc instal latest cd result npe attach log 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+
+37576
+ant task switch boot classpath entiti rc2 iajc task take nest bootclasspath entiti classpath vice versa 
+1
+taskdefs.src.org.aspectj.tools.ant.taskdefs.AjcTask
+
+37739
+unexpect xlint warn withincod follow code produc xlint unresolv member warn warn text 22 resolv member line 22 line aspect withincod comment aspect warn awai comment constructor awai warn reproduc rc1 rc2 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+38131
+ajc option correctli compil class from subpackag rc1 regress rc1 deviat from javac guess chang underli eclips compil creat subpackag subpackag compil follow command gt ajc directori subpackag creat exist subpackag directori put directori mean run java command result except thread main run follow command fix problem gt ajc gt javac big deal nice behavior javac 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+
+39626
+compil error compil buggi us aspectj from eclips after time develop get follow stack trace wrap eclips gui compil java file huge amount syntax error miss variabl problem fix issu comnpil unfortunatli provid more detail inform error pop up randomli disappear bug fix time permiss creat more accur sampl kind arno schmidmeier 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AsmBuilder
+
+40257
+pars path lst file broken rel path longer parser properli ajd 
+2
+ajbrowser.testsrc.org.aspectj.tools.ajbrowser.BrowserManagerTest
+ajde.src.org.aspectj.ajde.ui.swing.CompilerMessagesCellRenderer
+
+41123
+weav failur injar sampl run fail injar implement inherit abstract method aje error work singl pass compil 
+3
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+weaver.src.org.aspectj.weaver.bcel.BcelTypeMunger
+weaver.src.org.aspectj.weaver.bcel.LazyMethodGen
+
+40380
+aspectj honour librari defin project properti ajdt eclips build jdk program eclips jdk appropri build librari select project properti java build path aspectj continu us jdk associ eclips error result from api occur run eclips compil program testcas run eclips jdk creat java project us jdk write java class us api convert aspectj project 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+
+42539
+deriv pointcut advis follow point cut advic aspect code list file ajc advis output from compil follow 11 except from aspect mail list contribut jim hugunin amp lt detail amp gt bug caus code mistakenli us intern method extern method class java access rule allow nice easi specifii method access from subtyp amp lt detail amp gt 
+1
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.ThrowsPattern
+
+42993
+languag regress languag improv file first here version aspectj bash shell cygwin window xp gt incompat type expect contain descriptor found error run sept 11 build ajc incompat type error regress desir result code port 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+weaver.src.org.aspectj.weaver.ResolvedTypeX
+
+39993
+ajc stack trace declar method aspect from email sent user list 26 2003 ajc npe aspect declar follow workaround caller compil control replac declar advic 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelTypeMunger
+
+43194
+gener code attach file sourc file won compil reproduc bug bug gt ls bug gt gmake classpath version aspectj compil method show action signatur unabl pop operand empti stack except thread main make error 
+1
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.ReferencePointcut
+
+43033
+compil crash ajc head post rc1 erron program caus fix concret input sourc base debug sourc inform avail unmatch brack abort except thrown from aspectj develop log bug find current bug http bug eclips org bug buglist cgi product aspectj amp compon compil bug except thrown titl file line from stack 243 don find except bug add bug http bug eclips org bug enter bug cgi product aspectj make bug prioriti includ test program reproduc except 
+1
+org.aspectj.matcher.src.org.aspectj.weaver.patterns.ReferencePointcut
+
+43709
+structur view crash extend librari aspect librari aspect includ advic compil outjar client project extend make concret pointcut result librari aspect affect part bug enhanc request here bug structur view affect class problem navig from call advic ajdt result npe here stack trace ajdt enhanc request concret aspect appli advic show affect project cours nice concret librari aspect aspect path affect project 
+1
+asm.src.org.aspectj.asm.internal.ProgramElement
+
+44117
+npe compil 
+2
+weaver.src.org.aspectj.weaver.AsmRelationshipProvider
+asm.src.org.aspectj.asm.IRelationship
+
+47318
+contain kind arrai contain kind three kind defin contain lead 
+1
+org.aspectj.modules.asm.src.org.aspectj.asm.IRelationship
+
+39436
+task summari shown statu line build i20030625 old task view show summari number task error warn info statu line miss rework view 
+1
+weaver.src.org.aspectj.weaver.bcel.LazyMethodGen
+
+41952
+lint warn call pcd subtyp defin type lint compil warn user call pcd specifi declar type defin type constrain join point bytecod signatur contain specifi type declar type warn two reason first user intend call instanc object pick compil time type refer us make call us target amp amp suggest lint messag second older compil compil incorrectli specifi declar type method call first type hierarchi defin method even user meant constrain join point compil time refer type bytecod signatur incorrect pointcut fail pick join point on problem lint warn pick valid declar warn error statement enforc requir compil time type refer us invok method refer wrong type level ignor bug 41888 
+13
+bridge.src.org.aspectj.bridge.Message
+bridge.src.org.aspectj.bridge.MessageUtil
+bridge.src.org.aspectj.bridge.SourceLocation
+org.aspectj.ajdt.core.src.org.aspectj.tools.ajc.Main
+weaver.src.org.aspectj.weaver.Checker
+weaver.src.org.aspectj.weaver.Lint
+weaver.src.org.aspectj.weaver.patterns.AndPointcut
+weaver.src.org.aspectj.weaver.patterns.ExactTypePattern
+weaver.src.org.aspectj.weaver.patterns.KindedPointcut
+weaver.src.org.aspectj.weaver.patterns.NotPointcut
+weaver.src.org.aspectj.weaver.patterns.OrPointcut
+weaver.src.org.aspectj.weaver.patterns.Pointcut
+weaver.src.org.aspectj.weaver.patterns.ReferencePointcut
+
+49250
+alia implement point ramniva misc mail messag code comment mean chain print expect esp wrap replic deprec support maintain upward binari compat runtim class 
+0
+
+47754
+illeg method modifi attach exampl load time note bug result differ except differ setup load boss more cryptic talk gener format error except thread main 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.InterTypeMethodDeclaration
+
+49638
+except log throw advic convert throwabl obj string ajc abort problem found exampl list 15 from laddad aspectj action book except object advic ha problem convert string call environ os solari kernel patch level 108528 27 plu j2 se recommend patch java version java version java version java tm runtim environ standard edit build b28 java hot spot tm client vm build b28 mix mode problem ha reproduc aspectj window 2000 00 2195 sp descript ajc abort follow output troubl 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.parser.AjParser
+
+46280
+compil issu error inner aspect privilieg compil complain inner aspect qualifi inner aspect privileg matter enclos type aspect j2 sdk1 02 aspectj eclips ajdt test base aspect privileg lt uncom aspect 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.parser.AjParser
+
+50570
+claus signatur ha broken oper get paramet name oper org aspectj lang reflect claus signatur work return name except declar match handler return string valu lt miss gt here test show problem start test code end test code output from run monitor caught busi except call lt miss gt except caught surpris oper window xp aspectj latest from cv head 
+3
+weaver.src.org.aspectj.weaver.ResolvedMember
+weaver.src.org.aspectj.weaver.Member
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+49457
+error overload pointcut bind variabl compil detect overload pointcut name paramet bound implement pointcut correctli context from repli ron bodkin aspectj dev proper behavior overload pointcut definit check code recent submit test evalu code replic ron bug context from email program guid error two pointcut name name aspect declar compil overload pointcut name get error us pointcut bound paramet get error ron code follow program compil warn produc output run aspectj appear behav more specif definit definit pointcut here simpl program illustr question odd behavior 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectDeclaration
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+
+48091
+lazi instanti join point case bodi advic refer non static evalu portion join point optim compil join point part join point object current creat befor enter advic bodi even join point object access test advic exampl join point us trace applic trace applic tend pervas low overhead trace disabl creation join point object expens expens compar test flag nice creat join point object lazili first actual refer advic bodi 
+6
+weaver.src.org.aspectj.weaver.Lint
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+runtime.src.org.aspectj.runtime.reflect.Factory
+weaver.src.org.aspectj.weaver.bcel.BcelAdvice
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+51929
+advic call method caus bad access data thrown runtim complain bad access data advic sub aspect call method aspect woven call method woven advic declar aspect work fine aspect woven precompil sun javac class verifi error occur sun blackdown vm vm workaround make method fix verifi error test avail cv 
+3
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AccessForInlineVisitor
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseFactory
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.InlineAccessFieldBinding
+
+36430
+support xreweav option ad rfe we suggest we repli issu xnoweav option won time carefulli resolv even suggest time workaround present weav trace transact transact jar compil build ajc build jar mkdir cd jar xf jar xf jar xf fixup manifest jar cf don sourc get binari transact aspect from vendor won provid sourc want weav trace hope time problem preval solut keep radar submit discuss rfe compil http dev eclips org bug enter bug cgi product aspectj we person gt gt ajc injar gt aspectpath doesn make sens thing aspectpath defin thing injar woven redefin clear from command variant user expect refer type ramniva laddad wrote gt gt hello gt gt us implement gt least elegantli noweav xno weav gt option request make regular option gt experiment gt gt basic gt contain trace aspect weav gt contain abstract transact mangement aspect gt concret polici enforc aspect support gt class assum contain busi class gt interfac jar creat gt ourjar noweav xno weav gt gt build issu follow gt command gt gt ajc injar gt aspectpath gt gt compil error multipli woven gt class aspect gt gt work fine creat origin jar gt file noweav gt gt workaround creat multipl jar gt hink noweav right approach gt don ship multipl jar gt need implement singl concern expect gt user correctli specifi jar file injar gt aspectpath gt gt ramniva 
+12
+ajde.testsrc.org.aspectj.ajde.AjdeTests
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+taskdefs.src.org.aspectj.tools.ant.taskdefs.AjcTask
+testing.src.org.aspectj.testing.harness.bridge.CompilerRun.CRSOptions
+weaver.src.org.aspectj.weaver.Advice
+weaver.src.org.aspectj.weaver.CrosscuttingMembers
+weaver.src.org.aspectj.weaver.WeaverStateInfo
+weaver.src.org.aspectj.weaver.bcel.BcelCflowStackFieldAdder
+weaver.src.org.aspectj.weaver.bcel.BcelClassWeaver
+weaver.src.org.aspectj.weaver.bcel.BcelWeaver
+weaver.src.org.aspectj.weaver.patterns.CflowPointcut
+
+51320
+concret get follow except weav attach aspect dev build 
+4
+weaver.src.org.aspectj.weaver.patterns.ArgsPointcut
+weaver.src.org.aspectj.weaver.patterns.CflowPointcut
+weaver.src.org.aspectj.weaver.patterns.IfPointcut
+weaver.src.org.aspectj.weaver.patterns.ThisOrTargetPointcut
+
+48080
+context inform declar warn error messag discuss aspectj dev user befor implement found abl includ contextu inform messag produc declar warn error abl write declar warn call api get compil messag call api prototyp solut substitut variabl follow insert charact insert joinpoint kind insert signatur joinpoint insert name declar type joinpoint insert name identifi joinpoint insert string represent joinpoint insert filenam match found insert line number match found insert file line number declar error warn definit perfect set here complet mini exampl show subsitut action hello java rc file retriev revis diff r1 12 mar 2003 19 51 43 0000 19 jul 2003 12 34 12 0000 17 17 insert charact insert joinpoint kind insert signatur joinpoint insert name declar type joinpoint insert name identifi joinpoint insert string represent joinpoint insert extend string represent joinpoint insert filenam match found insert line number match found insert name aspect declar defin 
+3
+org.aspectj.ajdt.core.src.org.aspectj.tools.ajc.Main
+org.aspectj.matcher.src.org.aspectj.weaver.Checker
+weaver.src.org.aspectj.weaver.bcel.BcelWorld
+
+44272
+retitl warn circular advic depend write aspect cycl advic preced get warn circular depend join point circular advic depend circular advic preced join point reorder advic aspect fwiw here exampl circular advic preced aspect program guid more discuss circular advic preced 
+2
+weaver.src.org.aspectj.weaver.Shadow
+weaver.src.org.aspectj.weaver.patterns.DeclarePrecedence
+
+51322
+introduc unknown type caus pointer except introduc method unknown type arguement follow unknown type forgotten import caus ajc puke follow sourc inform avail sourc inform avail abort except thrown from aspectj log bug find current bug http bug eclips org bug buglist cgi product aspectj amp compon compil bug except thrown titl file line from stack don find except bug add bug http bug eclips org bug enter bug cgi product aspectj make bug prioriti includ test program reproduc except fail abort error 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.InterTypeMethodDeclaration
+
+54965
+increment compil twice work necessari ad support test har surpris find duplic entri except come from output file write outjar trace found sourc file pass increment compil fact compil twice first time round note refer cours file ha refer call file compil iter method rememb set file compil referenc type compil reord fact compil second time bytecod ident previou doesn note depend time termin 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjState
+
+47910
+ajc contain call output file creat jar extens valid jar file file text ajc put output class zip file impli suppos zip file paramet call creat zip file doesn make sens us result file valid jar file file insid 
+4
+ajde.testsrc.org.aspectj.ajde.InpathTestcase
+ajde.testsrc.org.aspectj.ajde.ResourceCopyTestCase
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+weaver.src.org.aspectj.weaver.bcel.BcelWeaver
+
+52394
+inter type declar caus rockit crash bea rockit jvm version sp2 05 load10 vike win32 sthqa29 20031105 1554 crash simpl inter type declar submit bug bea aj team abl shed light bea jvm behav wrong cannon exampl li run get jvm crash follow thread stack trace end stack trace feel free ask detail rockit download http commerc bea com showallvers jsp famili wljr reproduc error window xp happend red hat worth ad rockit aspectj compat test suit 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectClinit
+weaver.src.org.aspectj.weaver.bcel.BcelClassWeaver
+
+54625
+increment support work outjar fix file delet work jar batch build work outjar 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjState
+
+45489
+structur model wrong open element wrong kind save structur model load close open eclips workbench class shown outlin view travers tree code get wrong kind assign class interfac aspect declar file children class aspect thing 
+1
+ajde.testsrc.org.aspectj.ajde.AjdeTests
+
+50200
+manifest file name chang upper name aspectjrt jar manifest file chang from jar file specif http java sun com product jdk doc guid jar manifest html name manifest file upper trivial caus unnecessari warn least on popular id j2 ee develop ibm web sphere studio packag ear file option assign trivial sever level 
+1
+build.src.org.aspectj.internal.tools.ant.taskdefs.AntBuilder
+
+50776
+fail compil aspect overrid method introduct differ claus first declar on method except claus second redefinig method aspect declar method introduct name signatur type on claus legal overrid second invoc overriden method doesn block refer hown method rais except code compil ajc version built jul 24 2002 21 pm pst run java aspectj compil aspectj compil 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.InterTypeMemberFinder
+
+53012
+declar preced compil time error compil silent accept mistak error nice mean amp amp pick aspect subtyp 
+1
+weaver.src.org.aspectj.weaver.patterns.DeclarePrecedence
+
+36234
+memori error compil get memori error compil ajc rc1 descript point direct get more output here addit inform code base medium size 1500 classfil remov aspect receiv error run from command line ajc classpath whatever sourceroot whatever whatever 
+1
+org.aspectj.ajdt.core.src.org.aspectj.tools.ajc.Main
+
+47952
+soft except print stack trace print wrap throwabl soft except print trace wrap throwabl abl set flag initi run implement init caus direct deleg fix agre 
+0
+
+40192
+build cancel weav build cancel bytecod weav stage 
+4
+ajde.testsrc.org.aspectj.ajde.AjdeTests
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.AjCompilerAdapter
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.WeaverAdapter
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+
+31460
+weav loader discuss mail list dai ago implement weav loader enabl bytecod base weav load time loader base us addit add aspect weav loader aspect woven load test case loader aren implement think implement contribut martin 
+3
+org.aspectj.ajdt.core.testsrc.org.aspectj.ajdt.internal.compiler.batch.BcweaverJarMaker
+weaver.src.org.aspectj.weaver.ExtensibleURLClassLoader
+weaver.testsrc.org.aspectj.weaver.BcweaverTests
+
+55341
+error type mismatch convert from compil binari concret aspect librari ltw consist more on aspect perform itd target expos weaver get follow error error type mismatch convert from error oocur complet build amp weav perform testcas attach 
+0
+
+57430
+except print except thrown from compil us print submit bug header print twice header cv version 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.AjCompilerAdapter
+
+57436
+java fail run class produc ajc java beta report run program spacewar compil ajc latest cv head sun java beta binari compat doc obfusc violat format specif file fail run doc incomplet beta submit bug sun implement techniqu valid don chang techniqu document don fix peopl 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectDeclaration
+
+59909
+late problem current implement version till rc1 store thread thread remov after call method case gt 70 call project cycl sover run thread grap lot lot memori memori freed after thread remov from product code sum up more 300 thread store differ varaibl result memori error ad patch improv free scheme check size tabl ha grown ha check remov thread 
+1
+runtime.src.org.aspectj.runtime.internal.CFlowStack
+
+59596
+pointer except weav add aspect compil aspect ajc inpath here aspect here error messag get from ajc fail abort 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.EclipseAdapterUtils
+
+59895
+npe updat aspect increment mode npe updat aspect increment mode find test claus run after iter handler set complet rebuild result set introduc month ago 44 test coverag increment mode aw 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+
+62227
+load time weav abort kind warn declar xlint messag handler weav adapt load time weav mean warn bang even declar warn meant user inform ltw caus code blow up fix straightforward simpli log warn messag fail error messag wait testcas from matthew befor check fix 
+2
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+eaver.src.org.aspectj.weaver.WeavingURLClassLoader
+
+72671
+specif compil follow bug run eclips ajdt 12 follow compil fine jdk 02 window xp ad begin jre contain includ jar librari list befor jar convert project aspectj project code compil anymor aspectj compil find includ on two addit jar method more kind arno schmidmeier 
+5
+ajde.src.org.aspectj.ajde.internal.CompilerAdapter
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildConfig
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+org.aspectj.ajdt.core.testsrc.org.aspectj.ajdt.ajc.BuildArgParserTestCase
+
+76096
+anonym class unawar introduct abstract class error find type local exampl gener compil error linux window error occur ajdt eclips compil error ajc version gt aspectj compil built fridai 21 2004 gt 15 06 22 gmt gt comment bodi anonym code compil error 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.problem.AjProblemReporter
+
+73433
+aspectj correctli support cp discov andi brodi cp shorthand classpath support jdt compil aspectj correctli support cp option exampl error find type org aspectj lang join point error classpath arg parser aspectj recogn classpath doesn fail encount cp ignor pass down jdt process fix recogn cp 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+
+42573
+lst file entri resolv rel list file boot classpath extdir classpath entri file resolv rel work directori file bootclasspath extdir injar aspectpath sourceroot 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+util.src.org.aspectj.util.ConfigParser
+
+70008
+problem ajdoc spacewar exampl follow work fine ajdoc doc spacewar coordin follow break ajdoc doc spacewar coordin end fail output gener type decor shouldn gt decor html file gt decor gt decor intern error occur ajdoc copi follow text email messag send addit inform add find file specifi find file specifi 
+1
+ajdoc.src.org.aspectj.tools.ajdoc.HtmlDecorator
+
+71811
+aj doc abl set encod javadoc ajdoc doesn support encod docencod charset option javadoc doesn pass encod ajc project us sourc file encod utf differ form platform standard java identifi us charact byond standard ascii rang won abl us ajdoc 
+1
+ajdoc.src.org.aspectj.tools.ajdoc.Main
+
+72699
+bogu error messag abstract method type trace defin abstract attempt compil follow aspect result error messag abstract method type trace defin abstract aspect 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.PointcutDeclaration
+
+74238
+applet us cflow pointcut get us cflow pointcut applet couldn launch applet more us method block applet doesn permiss read properti workaround modifi defin more simpl name method util call better 
+2
+runtime.src.org.aspectj.runtime.internal.CFlowCounter
+runtime.src.org.aspectj.runtime.internal.CFlowStack
+
+59208
+weaver fail bcel larg class problem first observ weav larg binari legaci class ajc rc1 candid turn bcel fail differ error messag depend binari weav straight ajc compil error messag confus reproduc compil run follow code produc end straight compil weav ajc sourceroot abort except thrown from aspectj rc1 log bug find current bug http bug eclips org bug buglist cgi product aspectj amp compon compil bug except thrown titl file line from stack don find except bug add bug http bug eclips org bug enter bug cgi product aspectj make bug prioriti includ test program reproduc except fail abort signal 127 3b binari weav ajc noweav outjar test jar aj javac class foo java ajc aspectpath test jar inpath class abort except thrown from aspectj rc1 log bug find current bug http bug eclips org bug buglist cgi product aspectj amp compon compil bug except thrown titl file line from stack file java 243 don find except bug add bug http bug eclips org bug enter bug cgi product aspectj make bug prioriti includ test program reproduc except abstract abstract fail abort signal 127 
+2
+weaver.src.org.aspectj.weaver.WeaverMessages
+weaver.src.org.aspectj.weaver.bcel.LazyClassGen
+
+49743
+perform improv runtim librari heavili runtim signatur inform from method caus heavi string oper time method call cach result string exampl similar class signatur 
+4
+runtime.src.org.aspectj.runtime.reflect.StringMaker
+runtime.src.org.aspectj.runtime.reflect.Factory
+runtime.src.org.aspectj.runtime.reflect.SignatureImpl
+runtime.src.org.aspectj.runtime.reflect.SourceLocationImpl
+
+53981
+proce us method name advic method name advic confus compil least wai shown current tree untest workaround renam method first problem npe compil second problem incorrect error wrt number argument third hypothet document ambigu resolv 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.Proceed
+
+60015
+npe incorrect lint warn incomplet bug report time isol run ajdt get dozen warn warn match declar type match desir us target xlint line 22 code warn here warn point pointcut join point shadow npe run from command line latest tree attach 
+1
+weaver.src.org.aspectj.weaver.patterns.KindedPointcut
+
+61411
+aj doc launch script window lose argument aspectj rc1 window xp report highlight problem ve window issu appli equal file file user run launch ajdoc tool impos limit command line argument pass scenario sourcepath classpath option us easi eat up list argument pass jvm list packag enter end command truncat possibl even ignor error messag output tell user class packag specifi order prevent limit put number argument pass launch jvm invoc line end list current us propos fix confirm sort problem file semi colon delimit path suppli argument sourcepath classpath option get split pass jvm separ argument entir path list suppli insid quot necessari batch file processor interpret semi colon path list delimit argument element path list treat separ argument part on big string repres sourcepath classpath 
+1
+build.src.$installer$.org.aspectj.Main
+
+61536
+front end bug shouldn allow pattern form foo foo follow code shouldn on java follow note first advic incorrect on pass front end match second on match front end reject first on incorrect on befor call method java correct on befor call method java 
+1
+weaver.src.org.aspectj.weaver.patterns.PatternParser
+
+53999
+bind type messag ha type name declar soft cosmet mistak error messag expect bind type name actual bind type name mung 
+1
+weaver.src.org.aspectj.weaver.patterns.WildTypePattern
+
+65319
+ajc crash compil follow program bind 
+4
+weaver.src.org.aspectj.weaver.bcel.BcelAdvice
+weaver.src.org.aspectj.weaver.patterns.ArgsPointcut
+weaver.src.org.aspectj.weaver.patterns.ExposedState
+weaver.src.org.aspectj.weaver.patterns.ThisOrTargetPointcut
+
+68991
+intertyp initialis match field set pointcut initialis intertyp field match field set pointcut exampl output set field set field get field set field first field set pick up 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.InterTypeFieldDeclaration
+
+69011
+ajdoc fail document class follow error occur gt call ajc gt build signatur file gt call javadoc load sourc file lt identifi gt expect error gt decor html file gt decor intern error occur copi follow text email messag send addit inform add aspectj dev eclips org find file specifi 
+1
+ajdoc.src.org.aspectj.tools.ajdoc.StubFileGenerator
+
+46298
+aspectj gener code de compil cleanli condit cleanli decompil code gener aspectj compil code weaver com regular rune jad jad couldn fulli decompil method couldn resolv except handler method jad output decompil jad v1 copyright 1997 99 pavel kouznetsov jad home page decompil option sourc file name referenc class aspect jad pars gener couldn fulli decompil method decompil jad v1 copyright 1997 99 pavel kouznetsov jad home page decompil option sourc file name start befor block end befor block error messag jvm instr dup jvm instr enjoi ron 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+70773
+aspectj error thrown aspectj 11 eclips build id previou 10 eclips version build id 200406351208 enabl increment compil make chang file type space delet edit comment get thrown error 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+
+71723
+inconsist scope member itd introduc member function exist class inter type declar scope rule appli itd bodi aspect exampl member target access aspect privileg similarli member class differ packag visibl itd aspect privileg rule enforc member declar target member inherit visibl from itd aspect differ packag follow exampl four call fail refer member from bar first directli declar overridden detect error remov make rest compil execut best wish pavel 
+0
+
+44191
+better error messag find type experienc situat iajc output messag end compil iajc find type on time highli confus expect question refer project date locat refer case extrem nice error messag displai name refer es aspect es possibl reason cutoff seldom list refer messag iajc find refer 
+7
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectDeclaration
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseSourceType
+weaver.src.org.aspectj.weaver.ResolvedTypeX
+weaver.src.org.aspectj.weaver.bcel.BcelAdvice
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+weaver.src.org.aspectj.weaver.patterns.DeclareParents
+weaver.src.org.aspectj.weaver.patterns.DeclareSoft
+
+72157
+declar soft caus program invalid except behaviour gener compil program result constructor throw except declar sourc code gener bytecod declar soft statement remov call constructor correctli report throw undeclar except declar soft statement turn except check call join point cover call soften except develop built mondai aug 16 2004 13 50 47 gmt 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.problem.AjProblemReporter
+
+57666
+duplic manifest caus resourc copi gack ah joi build infrastructur self explanatori trace from build mondai apr 2004 08 46 01 gmt duplic entri duplic entri 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+weaver.src.org.aspectj.weaver.bcel.BcelWeaver
+
+58681
+name ajc emit avail option help request java get more traffic feedback experiment option 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.AjdtCommand
+org.aspectj.ajdt.core.src.org.aspectj.tools.ajc.Main
+
+48990
+special requir dynam test effici pattern match pointcut constant pool currrent implement pointcut plan provid oimplement pointcut releas 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.IfPseudoToken
+weaver.src.org.aspectj.weaver.patterns.Pointcut
+
+64331
+ve run aspectj compil stack trace iajc don find except bug add bug iajc http bug eclips org bug enter bug cgi product aspectj iajc make bug prioriti includ test program iajc reproduc except iajc iajc simpl test problem 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.WeaverMessageHandler
+weaver.src.org.aspectj.weaver.ResolvedTypeX
+
+70241
+outlin view show anonym inner class differ jdt outlin screenshot 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AsmHierarchyBuilder
+
+69459
+hide instanc method method introduct hide instanc method method exampl sub aspect sub acccord java languag specif allow behaviour desir overrid method instanc method wich caus compil time error java 
+1
+weaver.src.org.aspectj.weaver.ResolvedTypeX
+
+30439
+spuriou circular depend error aspectj compil beta4 program result error circular depend circular depend method circular depend method circular depend method error comment on four piec advic error awai assum valid reason print error line number doug 
+23
+weaver.src.org.aspectj.weaver.Advice
+weaver.src.org.aspectj.weaver.Lint
+weaver.src.org.aspectj.weaver.ResolvedTypeX
+weaver.src.org.aspectj.weaver.NewConstructorTypeMunger
+weaver.src.org.aspectj.weaver.Shadow
+weaver.src.org.aspectj.weaver.WeaverStateInfo
+weaver.src.org.aspectj.weaver.World
+weaver.src.org.aspectj.weaver.bcel.BcelClassWeaver
+weaver.src.org.aspectj.weaver.bcel.BcelWeaver
+weaver.src.org.aspectj.weaver.bcel.ClassPathManager
+weaver.src.org.aspectj.weaver.bcel.LazyClassGen
+weaver.src.org.aspectj.weaver.bcel.LazyMethodGen
+weaver.src.org.aspectj.weaver.patterns.ArgsPointcut
+weaver.src.org.aspectj.weaver.patterns.CflowPointcut
+weaver.src.org.aspectj.weaver.patterns.DeclareParents
+weaver.src.org.aspectj.weaver.patterns.DeclarePrecedence
+weaver.src.org.aspectj.weaver.patterns.DeclareSoft
+weaver.src.org.aspectj.weaver.patterns.IfPointcut
+weaver.src.org.aspectj.weaver.patterns.PerFromSuper
+weaver.src.org.aspectj.weaver.patterns.ReferencePointcut
+weaver.src.org.aspectj.weaver.patterns.ThisOrTargetPointcut
+weaver.src.org.aspectj.weaver.patterns.TypePattern
+weaver.src.org.aspectj.weaver.patterns.WildTypePattern
+
+71377
+advis method call advic match call joint point advic aspectj match call method advic appli get set pointcut field testcas call bodi advic call accessor method miss join point success 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectDeclaration
+weaver.src.org.aspectj.weaver.bcel.LazyClassGen
+
+67592
+valu arrai chang on advic decl updat valu advic decl ajc us correspond object type object ha four compon retriev accessor method target arg arg object return object arrai mean advic decl overwrit arg advic share chang arg here small exampl aspect befor advic chang arg lauri after advic lauri won million pound behaviour intend thought valu read strang interact advic decl occur arg lotteri pair advic decl demonstr advic chang arg join point 
+1
+runtime.src.org.aspectj.runtime.reflect.JoinPointImpl
+
+67774
+nullpoint except pointcut claus get pointer except specifi pointcut claus warn us log exampl exclud method from pointcut execut claus show work claus comment yield npe troubl session jun 18 2004 10 49 48 666 eclips build id i200406110010 java version 03 java vendor sun microsystem boot loader constant os win32 arch x86 ws win32 nl de ch entri michael 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+71878
+bad injar aspect name linux checkout jar project project from org eclips ajdt test manual test ajdt 12 tree advis entri outlin view context menu gutter annot window get injar aspect abstract aspect aj linux get injar aspect eclipse30 ajdt plugin test eclips workspac jar gener project src p1 abstract aspect aj window style path locat origin file jar file built window 
+1
+asm.src.org.aspectj.asm.internal.AspectJElementHierarchy
+
+72154
+support simpl dump file compil termin abnorm except behav unexpectedli warn error abort simpl dump compil state produc aid problem diagnosi content condit dump produc configur user facil enabl except inclus neglig impact compil perform footprint file attach bug report complet object descript user environ support problem resolut testcas provid on approach write uniqu name file date amp time current directori human readabl zip larg allow user potenti diagnos problem remov potenti sensit data befor submiss contain basic inform aspectj version properti command line failur inform full except stack trace compil messag intern compil state 
+5
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.AjdtCommand
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+org.aspectj.ajdt.core.src.org.aspectj.tools.ajc.Main
+weaver.src.org.aspectj.weaver.World
+
+68494
+ajdoc support file addit accept sourc file ajdoc accept file 
+2
+ajdoc.src.org.aspectj.tools.ajdoc.Main
+ajdoc.src.org.aspectj.tools.ajdoc.StubFileGenerator
+
+72531
+declar warn warn wrong point declar warn declar warn usag method return arrai pojo type point method realiti arrai warn point arrai return method signatur attach file get warn statement gt first line respect method 
+1
+weaver.src.org.aspectj.weaver.patterns.WildTypePattern
+
+54421
+compil time declar warn error accept string concaten follow code compil messag us string concaten thing declar error declar warn hei don nice 
+1
+weaver.src.org.aspectj.weaver.patterns.PatternParser
+
+49657
+result rt error affect base expos weav rd parti librari wrote aspect affect base deriv inadvert wove deriv result follow error weaver kind error weav link time creat code result rt error get error fairli recent version from cv head line call ve attach small exampl reproduc error relat except thread more 
+3
+weaver.src.org.aspectj.weaver.WeaverMessages
+org.aspectj.ajdt.core.testsrc.org.aspectj.ajdt.internal.compiler.batch.AjdtBatchTests
+weaver.src.org.aspectj.weaver.bcel.BcelTypeMunger
+
+62642
+proper handl insid lt clinit gt presenc after throw advic lt clinit gt contain after throw advic error embed advic fail error get properli report exampl compil ajc run follow except except thread main on follow except thread main caus here fix decompil lt clinit gt comment ljh woven fix basic block after throw lt clinit gt first check caught except 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+70619
+compil abort conflict domin order circular declar preced follow program caus ajc abort 
+1
+weaver.src.org.aspectj.weaver.World
+
+72150
+ajc bug nest class ajc fail find nest class binari weav analysi class previous compil j2 se5 javac compil option sourc target note nest class necessarili subject bytecod weav ajc fail detect jar analysi issu disappear java sourc pre compil sourc target javac compil from j2 se1 j2 se5 distribut issu distinct form bug 71548 sourc code process requir from ajc hristo 
+1
+weaver.src.org.aspectj.weaver.TypeX
+
+74952
+befor after print refer aspectj user mail list aspect doesn print messag pointcut defin defint work fine we isberg repli explain cflow us thought bug two here order figur happen ad second aspect trace here print us after advic execut preiniti 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+77799
+call aspectj project ha built result line 58 simpl patch attach 
+1
+ajde.src.org.aspectj.ajde.ui.StructureSearchManager
+
+77163
+load time weaver verbos set set load time weaver rc1 produc weav messag ignor chang ignor overrid set impli syntax from ha chang updat weaver fix us 
+1
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+
+80249
+order type pass compil determin weav behavior current order specifi type pass compil affect woven exampl aspect declar parent serializ depend first make serializ fix weav type first weav supertyp superinterfac pass compil problemat construct declar parent process type special order declar parent current decp binari weav order process logic put sourc weav pipelin 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+
+80916
+case structur model doesn contain match declar relationship project contain on on aspect follow return from structur model rel map entri relationship advis target relationship advis target entri warn test warn relationship match target word model two entri rel map entri relationship advis target test on match declar relationship relat declar warn chang aspect mean contain match declar relationship aspectj m1 
+1
+weaver.src.org.aspectj.weaver.AsmRelationshipProvider
+
+76798
+add version woven file enabl better backward compat don current includ version file weaver caus problem exampl add attribut file futur version aspectj attribut caus older version aspectj blow up encount includ version file rev version number add attribut chang file form check version number weaver better determin fail encount attribut chang safe process add attribut includ short major minor encount major version file greater version weaver design understand caus compil fail encount minor version file greater minor version weaver design understand caus compil fail assum safe 
+7
+weaver.src.org.aspectj.weaver.AjAttribute
+weaver.src.org.aspectj.weaver.bcel.BcelAttributes
+weaver.src.org.aspectj.weaver.bcel.BcelField
+weaver.src.org.aspectj.weaver.bcel.BcelMethod
+weaver.src.org.aspectj.weaver.bcel.BcelObjectType
+weaver.src.org.aspectj.weaver.bcel.LazyClassGen
+weaver.src.org.aspectj.weaver.bcel.LazyMethodGen
+
+82062
+provid more inform wonder object provid two addit thing affect name aspect name us determin aspect woven load time weav depend manag 
+4
+weaver.src.org.aspectj.weaver.Advice
+bridge.src.org.aspectj.bridge.WeaveMessage
+weaver.src.org.aspectj.weaver.Shadow
+weaver.src.org.aspectj.weaver.bcel.BcelTypeMunger
+
+81863
+annot match pcd doesn appear work from discuss aspectj list done test even simpler show behav correctli annot pointcut match method call effect pars ignor annot specifi valid aspectj misbehav get stack overflow claus match aspect type doesnt annot shouldnt match andi andi clement aspectj develop rifflard micka lt mickael rifflard atosorigin com gt sent aspectj user admin eclips org 22 12 2004 16 56 respond aspectj user eclips org lt aspectj user eclips org gt cc subject aspectj user aspect instanc jdk annot current get aspect instanc object instanc specif jdk annot exempl creat aspect instanc object aspect execut lead except micka 
+6
+weaver.src.org.aspectj.weaver.patterns.ExactAnnotationTypePattern
+weaver.src.org.aspectj.weaver.patterns.ExactTypePattern
+weaver.src.org.aspectj.weaver.patterns.HandlerPointcut
+weaver.src.org.aspectj.weaver.patterns.TypePattern
+weaver.src.org.aspectj.weaver.patterns.WildTypePattern
+weaver.src.org.aspectj.weaver.patterns.WithinPointcut
+
+82218
+fail doc spacewar ajdt m2 ajdt m2 java jre xp sp2 instal spacewar exampl gener result output ha cross refer displai special ajdt tag stderr list except 
+2
+ajdoc.src.org.aspectj.tools.ajdoc.HtmlDecorator
+ajdoc.testsrc.org.aspectj.tools.ajdoc.CoverageTestCase
+
+83303
+complier error mix inherit overrid polymorph scenario defin method m1 protecet visibl overrid method m1 visibl defin method m1 visibl code correct compil java let modifi scenario move method m1 method introduct aspect apsect intosuc method m1 visibl make implemt declar parent befor compil report error error inherit method hide abstract method 
+0
+
+83563
+hand inner class aspect associ handl nest class correctli here test exhibit problem test gt ajc version aspectj compil develop built mondai jan 24 2005 17 07 00 gmt gt ajc test test java gt java problem anonym inner class test 
+2
+weaver.src.org.aspectj.weaver.PerTypeWithinTargetTypeMunger
+weaver.src.org.aspectj.weaver.patterns.PerTypeWithin
+
+76055
+miss getter travers syntax tree order find pointcut referenc pointcut definit access member found weaver modul unlik class miss appropri getter method 
+0
+
+82134
+aspectj m2 implement backward compat binari aspect form adrian detail explan compat question explain problem observ gt aspectj program run runtim gt librari accompani distribut contain compil weaver gt us build interest point on on us compil on us weav gt nice gt messag aspect produc more recent version gt aspectj read likewis load pre aspectj aspect gt aspectj weaver right ll gt odd m2 ll detect us back level loader read gt bug track updat weaver weav runtim allow load weav asepect compil ajdt version right ajdt ajdt mx 
+57
+weaver.src.org.aspectj.weaver.AdviceKind
+weaver.src.org.aspectj.weaver.AjAttribute
+weaver.src.org.aspectj.weaver.ResolvedPointcutDefinition
+weaver.src.org.aspectj.weaver.WeaverStateInfo
+weaver.src.org.aspectj.weaver.bcel.BcelAttributes
+weaver.src.org.aspectj.weaver.bcel.BcelField
+weaver.src.org.aspectj.weaver.bcel.BcelMethod
+weaver.src.org.aspectj.weaver.bcel.BcelObjectType
+weaver.src.org.aspectj.weaver.bcel.LazyMethodGen
+weaver.src.org.aspectj.weaver.patterns.AndAnnotationTypePattern
+weaver.src.org.aspectj.weaver.patterns.AndPointcut
+weaver.src.org.aspectj.weaver.patterns.AndTypePattern
+weaver.src.org.aspectj.weaver.patterns.AnnotationPatternList
+weaver.src.org.aspectj.weaver.patterns.AnnotationPointcut
+weaver.src.org.aspectj.weaver.patterns.AnnotationTypePattern
+weaver.src.org.aspectj.weaver.patterns.ArgsAnnotationPointcut
+weaver.src.org.aspectj.weaver.patterns.ArgsPointcut
+weaver.src.org.aspectj.weaver.patterns.BindingAnnotationTypePattern
+weaver.src.org.aspectj.weaver.patterns.BindingTypePattern
+weaver.src.org.aspectj.weaver.patterns.CflowPointcut
+weaver.src.org.aspectj.weaver.patterns.Declare
+weaver.src.org.aspectj.weaver.patterns.DeclareErrorOrWarning
+weaver.src.org.aspectj.weaver.patterns.DeclareParents
+weaver.src.org.aspectj.weaver.patterns.DeclarePrecedence
+weaver.src.org.aspectj.weaver.patterns.DeclareSoft
+weaver.src.org.aspectj.weaver.patterns.ExactAnnotationTypePattern
+weaver.src.org.aspectj.weaver.patterns.ExactTypePattern
+weaver.src.org.aspectj.weaver.patterns.HandlerPointcut
+weaver.src.org.aspectj.weaver.patterns.IfPointcut
+weaver.src.org.aspectj.weaver.patterns.KindedPointcut
+weaver.src.org.aspectj.weaver.patterns.ModifiersPattern
+weaver.src.org.aspectj.weaver.patterns.NamePattern
+weaver.src.org.aspectj.weaver.patterns.NotAnnotationTypePattern
+weaver.src.org.aspectj.weaver.patterns.NotPointcut
+weaver.src.org.aspectj.weaver.patterns.NotTypePattern
+weaver.src.org.aspectj.weaver.patterns.OrAnnotationTypePattern
+weaver.src.org.aspectj.weaver.patterns.OrPointcut
+weaver.src.org.aspectj.weaver.patterns.OrTypePattern
+weaver.src.org.aspectj.weaver.patterns.PerCflow
+weaver.src.org.aspectj.weaver.patterns.PerClause
+weaver.src.org.aspectj.weaver.patterns.PerFromSuper
+weaver.src.org.aspectj.weaver.patterns.PerObject
+weaver.src.org.aspectj.weaver.patterns.PerSingleton
+weaver.src.org.aspectj.weaver.patterns.Pointcut
+weaver.src.org.aspectj.weaver.patterns.ReferencePointcut
+weaver.src.org.aspectj.weaver.patterns.SignaturePattern
+weaver.src.org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut
+weaver.src.org.aspectj.weaver.patterns.ThisOrTargetPointcut
+weaver.src.org.aspectj.weaver.patterns.ThrowsPattern
+weaver.src.org.aspectj.weaver.patterns.TypePattern
+weaver.src.org.aspectj.weaver.patterns.TypePatternList
+weaver.src.org.aspectj.weaver.patterns.WildAnnotationTypePattern
+weaver.src.org.aspectj.weaver.patterns.WildTypePattern
+weaver.src.org.aspectj.weaver.patterns.WithinAnnotationPointcut
+weaver.src.org.aspectj.weaver.patterns.WithinCodeAnnotationPointcut
+weaver.src.org.aspectj.weaver.patterns.WithinPointcut
+weaver.src.org.aspectj.weaver.patterns.WithincodePointcut
+
+86789
+annot circular declar preced follow exampl declar preced premium partner result error messag circular declar preced occur more exampl form name develop notebook http dev eclips org mhonarc list aspectj dev msg01326 html 
+1
+weaver.src.org.aspectj.weaver.patterns.WildTypePattern
+
+87376
+npe unresolv type bound var pointcut express attach mini project reproduc 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AsmHierarchyBuilder
+
+88652
+arrai type last paramet signatur match declar method get warn code specifi arrai type signatur match follow constructor signatur match signatur shouldn aspectj complain warn arrai type last paramet signatur match declar method even state arrai type match even imho arrai java implement 
+1
+weaver.src.org.aspectj.weaver.patterns.SignaturePattern
+
+96371
+patch support properli aspectj load time weav cv head isn load file properli from jar file specifi global flag follow patch fix problem load file from jar classpath global flag 109 enumer enumer doesn work lead separ least sun vm rock window write unit test requir signific chang loadtim modul wrote standalon test api 
+2
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+loadtime5.java5-src.org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter
+
+83565
+bad type name thrown compil download ajdt version 20050124144759 run eclips m4 us aspectj exist java project aspect straight java project run fine standard java project add aspectj natur compil project file gener get error gener type parameter intern compil error sourc code file gener error start gener visitor protocol end gener visitor protocol hope help ps abl creat run simpl aspectj project aspect advic java syntax 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AsmHierarchyBuilder
+
+81846
+83 provid more inform attach compil dump 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.EclipseAdapterUtils
+
+99168
+gener itd itd gener inner crash ajc inter type declar gener inner crash compil outer inner gener inner lt gt gener outer lt gt aspect injector outer outer work outer inner inner work gener outer outer work outer gener inner inner crash home user sgelin3 dev java ajc bug bug java error intern compil error java lang runtim except handl gener inner raw typenul superinterfac enclos type outer fieldsnul method 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.InterTypeScope
+
+98320
+gener itd intertyp nest gener type zipfil classpath entri exist zipfil classpath entri exist directori classpath entri exist compil 16 error type mismatch convert from set lt set lt gt gt set lt set lt string gt gt set lt set lt string gt gt fail error 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseFactory
+
+100227
+gener itd inner gener enclos ajc crash intertyp declar modifi inner enclos outer gener 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseFactory
+weaver.src.org.aspectj.weaver.TypeX
+
+82171
+enabl interoper uniform element handl propos past from follow email discuss http dev eclips org mhonarc list ajdt dev msg00379 html more support work directli java model more here idea light weight updat architectur transpar access work relationship map idea chang handl identifi us store entri map us allow ask relationship get back list handl adapt turn current identifi sourc locat includ path line column number java model us handl follow uniqu identifi member stabl build eclips invoc don member signatur adapt extend append line column offset inform reach code element call handler doabl handl get ignor java core desir wonder correspond extend java model subtyp sourc ref element call get jdt core add ll call provid project sort extens challeng gener project part handl compil doesn workspac hope info extract from full path sourc path inform id simpli us rel path convent 
+8
+asm.src.org.aspectj.asm.AsmManager
+asm.src.org.aspectj.asm.internal.AspectJElementHierarchy
+asm.src.org.aspectj.asm.internal.ProgramElement
+docs.sandbox.api-clients.org.aspectj.samples.AsmRelationshipMapExtensionTest
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AsmInterTypeRelationshipProvider
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AsmHierarchyBuilder
+weaver.src.org.aspectj.weaver.AsmRelationshipProvider
+weaver.src.org.aspectj.weaver.ShadowMunger
+
+82752
+return member bug affect ajdoc affect tool reli 
+1
+asm.src.org.aspectj.asm.internal.ProgramElement
+
+102459
+provid more detail show weav info messag advic execut object work queri get inform nice part weav get hold inform write coverag tool order measur ve place possibl introduct show weav info option mean record place greatli enhanc provid similar inform collect program run inform good obtain from 
+2
+weaver.src.org.aspectj.weaver.Shadow
+bridge.src.org.aspectj.bridge.WeaveMessage
+
+109173
+weav adaptor enhanc perform configur diagnosi here suggest enhanc result exhaust test eclips osgi environ aspect declar loader visibl file contain aspect definit circuit implement code unnecessarili pass weaver import osgi hundr bundl loader woven us exist enabl flag previous discuss directori consid osgi inappropri locat aop xml file declar share aspect propos properti set resourc name find file dorg catch throwabl aj known except issu messag let runtim except pass back loader user provid implement decid circumst abort altern aj consid safe weav agent jvmti dump logic contain move us directli from loader 
+2
+loadtime.src.org.aspectj.weaver.loadtime.Aj
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+
+92880
+aj ptw implement ptw aj aspect delai make ptw code style evolv 
+2
+weaver.src.org.aspectj.weaver.bcel.BcelPerClauseAspectAdder
+weaver.src.org.aspectj.weaver.AjcMemberMaker
+
+101047
+weaver produc wrong local variabl tabl bytecod aspectj version develop observ weav befor after advic gener local variabl tabl branch instruct offset length field local variabl wrongli on instruct weaver mix up local variabl name violat java vm specif compilw ajc sourceroot dump foo javap two occur local1 variabl erron combin on entri start 23 end 66 wrong local1 ha valu local2 block local2 variabl end wrongli offset on instruct offset 
+1
+bcel-builder.src.org.aspectj.apache.bcel.generic.MethodGen
+
+108118
+complet implement ensur suppress pointcut oper requir wrap major pointcut oper call lint from associ advic 
+2
+weaver.src.org.aspectj.weaver.bcel.BcelAdvice
+weaver.src.org.aspectj.weaver.bcel.Utility
+
+100195
+miss debug info advic aspectj version observ aspectj develop java version 07 debug java code woven advic proce inform get lost weav exampl code compil ajc ajc preserv local sourceroot run foo eclips debugg set breakpoint line debugg variabl window empti disassembl javap show empti gener foo body0 method gt javap 
+1
+weaver.src.org.aspectj.weaver.bcel.ShadowRange
+
+112243
+compil core dump appar fix except ajc binari weav iajc except thrown from aspectj m4 iajc log bug find current bug iajc http bug eclips org bug buglist cgi product aspectj amp compon compil iajc bug except thrown titl file line from stack iajc 243 iajc don find except bug add bug iajc http bug eclips org bug enter bug cgi product aspectj iajc make bug prioriti includ test program iajc reproduc except iajc iajc batch build classpath iajc iajc iajc iajc fail abort head us debugg determin resolv type load abl get finish weav error chang bcel world follow cast result fall usual lookup unresolv type logic fix correct suspect hour narrow down test on 
+2
+weaver.src.org.aspectj.weaver.World
+weaver.src.org.aspectj.weaver.bcel.BcelWorld
+
+107299
+name ajc doesn recogn window absolut file path don start drive letter run ajc error build config error bad inpath compon work ajc error build config error bad work 
+1
+util.src.org.aspectj.util.ConfigParser
+
+113510
+defin goal old read caus npe test current impl hashcod aspect name unstabl startup 
+1
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+
+103741
+problem turn java support annot 821 project compil java sourc support turn java support accident left annot pointcut recompil get error dialog thrown bad type signatur lt miss gt restart get error log compil messag 
+9
+weaver.src.org.aspectj.weaver.patterns.AnnotationPointcut
+weaver.src.org.aspectj.weaver.patterns.ArgsAnnotationPointcut
+weaver.src.org.aspectj.weaver.patterns.DeclareAnnotation
+weaver.src.org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut
+weaver.src.org.aspectj.weaver.patterns.WildAnnotationTypePattern
+weaver.src.org.aspectj.weaver.patterns.WithinAnnotationPointcut
+weaver.src.org.aspectj.weaver.patterns.WithinCodeAnnotationPointcut
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+weaver.src.org.aspectj.weaver.WeaverMessages
+
+95529
+concret aspect m4 note jit concret aspect need shadow munger api allow easi deal uniqu enforc concret aspect name burden deal jit bytecod grab from file confus bcel repositori alik idea andi more favor bytecod gen concret aspect mean underli infra support defin callback thing us alik run ltw 
+10
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+loadtime.src.org.aspectj.weaver.loadtime.Options
+loadtime.src.org.aspectj.weaver.loadtime.WeavingURLClassLoader
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+aspectj5rt.java5-src.org.aspectj.lang.annotation.Pointcut
+loadtime.src.org.aspectj.weaver.loadtime.definition.Definition
+loadtime.src.org.aspectj.weaver.loadtime.definition.DocumentParser
+weaver.src.org.aspectj.weaver.bcel.AtAjAttributes
+weaver.src.org.aspectj.weaver.bcel.BcelPerClauseAspectAdder
+weaver.src.org.aspectj.weaver.bcel.BcelWeaver
+
+115275
+aspect includ question load time weav aspectj aspectj develop kit develop notebook lt aspect gt element lt includ pattern gt child element http eclips org aspectj doc next adk15 notebook ltw configur html includ element child lt aspect gt element file get sax except unknown element pars lt aspectj gt element includ lt includ gt element current support lt aspect gt element explicitli list aspect woven load time lt aspect name gt aspect basic wish explicitli ennumer aspect file load time weaver us wildcard pattern captur 
+3
+weaver.src.org.aspectj.weaver.Lint
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+loadtime.src.org.aspectj.weaver.loadtime.definition.DocumentParser
+
+95517
+ajc pseudo ltw consist ltw doc ajc ltw thing on aop xml lookup remov made consist 
+1
+build.src.$installer$.org.aspectj.Main
+
+115252
+xlint messag improp annot type annot target on kind thing type us modifi pointcut method nice compil emit error two situat confusingli similar type 
+3
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseSourceType
+weaver.src.org.aspectj.weaver.Lint
+weaver.src.org.aspectj.weaver.patterns.SignaturePattern
+
+114875
+pointcut eclips ajdt 20051102174241 syntax shown error bug proper messag except help 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.ValidateAtAspectJAnnotationsVisitor
+
+116626
+load time weav except from weaver us weav get except testcas java code program output aaa info weav aspect except doesn happen time time get understand problem event run test code guess guess aspect applic classpath weav aspect misha 
+1
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+
+115607
+incorrect structur model simpl declar type program program lt file open aj editor built show incorrect gutter marker show head arrow simpl impli annot outgo from declar statement incom simpl type 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseSourceLocation
+
+113511
+ltw enhanc alex here basic patch work befor leav weekend ll let matthew post offici bugzilla idea earlier from enabl small addit made help great head report perform number base part articl developerwork hope enjoi addit index rc retriev revis 18 diff r1 18 
+2
+loadtime.src.org.aspectj.weaver.loadtime.Aj
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+
+117296
+stack overflow self bound gener code form curious recur pattern ajdt project accept jdk eclips project mohan 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseFactory
+
+117189
+contribut reduc overhead aspect defin patch loader weav adaptor add two optim enabl adaptor immedi return accept avoid overhead construct weaver world contain comment code let improv perform load reflect proxi creat bcel object resolut loader current broken reflect proxi requir reflect world 
+2
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+
+114343
+gener field get problem gener field us gui ve download develop 20051029200407 issu open exampl java code replac access member set deriv from number problem advic strict exact type member get error earlier incompat type appli incompat type appli m2 declar advic work fine allow declar advic misha 
+4
+weaver.src.org.aspectj.weaver.ReferenceType
+weaver.src.org.aspectj.weaver.ResolvedType
+weaver.src.org.aspectj.weaver.TypeFactory
+weaver.src.org.aspectj.weaver.World
+
+117681
+verifi error annot defin inter type annot sun jdk1 04 compil follow command incompat argument function 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelTypeMunger
+
+115251
+compil increment shadow get bc except build increment after clean project code correct run fine after clean build ajdt build id 20051104134042 aspectj version 200510241400 manifest differ bug ajdt bug troubl implement shadow weav type weav class weav increment build method implement shadow weav type weav class weav increment build build config 
+7
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectDeclaration
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseFactory
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseSourceType
+weaver.src.org.aspectj.weaver.CrosscuttingMembersSet
+weaver.src.org.aspectj.weaver.ReferenceType
+weaver.src.org.aspectj.weaver.ResolvedPointcutDefinition
+weaver.src.org.aspectj.weaver.patterns.CflowPointcut
+
+116949
+except thrown from aspectj compil weav type weav class weav increment build build config 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelClassWeaver
+
+112736
+bogu compil warn convert file extens convert file extens aj java compil doesn properli clear symbol tabl gener bogu warn conflict inter type declar avoid work full rebuild screenshot exampl after recompil error awai 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjState
+
+118192
+miss superclass reflect deleg impl attach patch fail junit test 
+1
+weaver.src.org.aspectj.weaver.reflect.ReflectionBasedReferenceTypeDelegate
+
+118599
+ambigu method error weav binari aspect configur eclips ajdt 20051129155513 problem descript project defin aspect provid implement project gener jar get us project java build path aspectj aspect path project contain follow implement result compil error method ambigu type note aspect project implement class caus compil error best christoph cenowa 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.InterTypeMemberFinder
+
+117882
+wait build declar annot increment compil test program includ stack trace shown 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+
+117209
+runtim error stack size larg bug 69706 relat aspectj compil version m5 ajdt plugin version error report bug 69706 even bug resolv experienc problem class attach bottom runtim error messag 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildConfig
+
+118715
+load time weav wipe xlint file xlint valu lint load xlint properti file get overwritten xlint properti attach patch fix problem 
+4
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+testing.newsrc.org.aspectj.testing.OutputSpec
+testing.newsrc.org.aspectj.testing.RunSpec
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+
+119543
+wait build nest aspect target code except result head aspectj 20051206103951 ajdt sourc inform avail abort except thrown from aspectj develop log bug find current bug http bug eclips org bug buglist cgi product aspectj amp compon compil bug except thrown titl file line from stack file java 243 don find except bug add bug http bug eclips org bug enter bug cgi product aspectj make bug prioriti includ test program reproduc except string index rang resolv pointcut declar complet type bind batch build classpath error signal 127 
+1
+weaver.src.org.aspectj.weaver.UnresolvedType
+
+109614
+wait build iajc task java lang runtim except rang updat enclos instruct list get follow error compil code iajc ant task iajc task troubl iajc task admin modelbean admin user mb web form support iajc task org apach log4j logger log ljava lang string ljava lang string buffer iajc task method call java lang string buffer java lang string buffer append java lang string iajc task ldc line 249 iajc task method call java lang string buffer java lang string buffer append java lang string iajc task invokevirtu java lang string buffer append ljava lang string ljava lang string buffer iajc task method call java lang string buffer java lang string buffer append java lang string iajc task method call java lang string java lang string buffer string iajc task invokevirtu java lang string buffer string ljava lang string line 236 iajc task method call java lang string java lang string buffer string iajc task areturn iajc task method execut java lang string admin modelbean admin user mb string iajc task end string string iajc task end admin modelbean admin user mb iajc task java lang runtim except rang updat enclos instruct list iajc task org aspectj weaver bcel rang updat target rang java 170 iajc task org aspectj weaver bcel bcel shadow retarget from bcel shadow java 235 iajc task org aspectj weaver bcel bcel shadow delet dup bcel shadow java 212 iajc task org aspectj weaver bcel bcel shadow prepar munger bcel shadow java 252 iajc task org aspectj weaver shadow implement shadow java 374 iajc task org aspectj weaver bcel bcel weaver implement bcel weaver java 1754 iajc task org aspectj weaver bcel bcel weaver weav bcel weaver java 393 iajc task org aspectj weaver bcel bcel weaver weav bcel weaver java 96 iajc task org aspectj weaver bcel bcel weaver weav bcel weaver java 1372 iajc task org aspectj weaver bcel bcel weaver weav dump bcel weaver java 1337 iajc task org aspectj weaver bcel bcel weaver weav notifi bcel weaver java 1114 iajc task org aspectj weaver bcel bcel weaver weav bcel weaver java 1001 iajc task org aspectj ajdt intern compil aj compil adapt weav aj compil adapt java 286 iajc task org aspectj ajdt intern compil aj compil adapt after compil aj compil adapt java 165 iajc task org aspectj ajdt intern compil compil adapt ajc after return org aspectj ajdt intern compil compil adapt f9 cc9 ca0 compil adapt aj 70 iajc task org aspectj org eclips jdt intern compil compil compil compil java 367 iajc task org aspectj ajdt intern core builder aj build manag perform compil aj build manag java 728 iajc task org aspectj ajdt intern core builder aj build manag build aj build manag java 206 iajc task org aspectj ajdt intern core builder aj build manag batch build aj build manag java 140 iajc task org aspectj ajdt ajc ajdt command command ajdt command java 112 iajc task org aspectj ajdt ajc ajdt command run command ajdt command java 60 iajc task org aspectj tool ajc main run main java 324 iajc task org aspectj tool ajc main run main main java 238 iajc task org aspectj tool ajc main main main java 82 iajc task abort iajc task iajc task except thrown from aspectj m3a iajc task log bug find current bug iajc task http bug eclips org bug buglist cgi product aspectj amp compon compil bug except thrown titl file line from stack don find except bug add bugat http bug eclips org bug enter bug cgi product aspectj make bug prioriti includ test program reproduc except java lang runtim except rang updat enclos instruct list follow error occur execut line follow error occur execut line follow error occur execut line 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+119210
+advic field set met weav doesn aj support situat properti java assist java runtim name java tm runtim environ standard edit vm 
+2
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+weaver.src.org.aspectj.weaver.bcel.Utility
+
+119353
+inconsist implement run problem load time weav us reflect deleg weaver gener incorrect bridg method perform inter type declar init method investig bcel world recogn overrid method version return declar method ancestor superclass reflect world return declar method on appear weaver expect make name mislead previous method implement inconsist reflect lt reflect deleg handl consist includ superclass method don place map expect get declar method sibl behav java reflect version start work ad method deleg altern provid weaver abil check method overrid littl bit involv want flag issu first here test fail illustr issu index 
+3
+weaver.src.org.aspectj.weaver.reflect.ReflectionBasedReferenceTypeDelegateFactory
+weaver.testsrc.org.aspectj.weaver.reflect.ReflectionBasedReferenceTypeDelegateTest
+weaver5.java5-src.org.aspectj.weaver.reflect.Java15ReflectionBasedReferenceTypeDelegate
+
+120351
+issu bind aj sam wrote gt work from aj from java gt annot base stuff get nasti except bug except thrown titl file line from gt stack don find except bug add bug make bug prioriti includ test program reproduc except incorrectli attempt counter oper stack cflow implement shadow weav type weav class weav batch build classpath 
+2
+weaver.src.org.aspectj.weaver.bcel.BcelAdvice
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+119451
+produc incorrect warn access aspect gener ajdoc eclips ajdt 20051206092602 aspectj 20051206103951 gener incorrect warn log main aspect gt call ajc gt build signatur file gt call javadoc load sourc file construct javadoc inform declar file name standard doclet version 04 build tree packag class gener remov gener tag gt finish 
+2
+ajdoc.src.org.aspectj.tools.ajdoc.StubFileGenerator
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectDeclaration
+
+120543
+issu version messag load time weav exactli version weaver us ltw inform messag issu instanc creat multipl version aspectj messag similar issu ajc version 
+1
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+
+120474
+don dump stack trace load proxi class get caught print stack trace load name proxy4 occur string receiv from strip lead treat type nest type best resolut loop handl lead identifi up empti string help hibern type here stack line 65 
+1
+weaver.src.org.aspectj.weaver.ResolvedType
+
+120363
+ltw weaver includ exclud behav correctli specif http www eclips org aspectj doc next adk15 notebook ltw configur html set type woven type match least on weaver includ element match weaver exclud element includ elem fast match exclud element ignor bug 117854 test har featur 
+1
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+
+120401
+add signatur except keep get unhelp messag resolv type first ad signatur messag permiss bug notic resolv type first 
+1
+weaver.src.org.aspectj.weaver.UnresolvedType
+
+113257
+increment compil bug paramet bound paramet keep get increment compil error pointcut save file ajdt result increment compil produc error requir full rebuild clear paramet bound branch 
+1
+weaver.src.org.aspectj.weaver.patterns.PointcutRewriter
+
+119749
+execut incorrectli match base overridden method claus user email throw match code execut pcd match base claus declar overridden method supertyp track multipl signatur model execut join point correct method except declar method overrid explicitli declar bug document differ call execut respect code warn match method implement implement 
+2
+weaver.src.org.aspectj.weaver.patterns.SignaturePattern
+weaver.src.org.aspectj.weaver.Advice
+
+120909
+test failur ibm java 51 failur occur compar pick up sun version jre15 lib bcel solut creat world loader failur differ jdk implement annot 
+3
+loadtime.src.org.aspectj.weaver.loadtime.DefaultWeavingContext
+weaver.testsrc.org.aspectj.weaver.reflect.ReflectionBasedReferenceTypeDelegateTest
+weaver.testsrc.org.aspectj.weaver.reflect.ReflectionWorldTest
+
+119539
+gener advic fail match pointcut get compil xlint parameter type specifi type pattern claus parameter type work pointcut pointcut match staticli deow result befor advic permit us type paramet parameter aspect adk15 notebook section point resolut bug code wrong permit us type paramet pertypewithin doc updat permit fix aspectj version 20051206103951 ajdt fyi compil absent call befor advic target pick constructor execut declar warn 
+4
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseSourceType
+weaver.src.org.aspectj.weaver.CrosscuttingMembersSet
+weaver.src.org.aspectj.weaver.ReferenceType
+weaver.src.org.aspectj.weaver.patterns.CflowPointcut
+
+124105
+xha member doesn appear work type packag jepp post mail list append more here 
+1
+weaver.src.org.aspectj.weaver.patterns.HasMemberTypePattern
+
+123695
+intern except complex declar annot statement affect inject method aspect declar annot method base complex condit basic mean type annot non method annot present method ad aspect make type annot implement name annot get intern pointer except weav time chang first aspect on compil fine here link small applic exhibit bug http www cs mcgill ca jlegar src jslegar zip here errorwhen weav type weav aspect weav batch build 
+1
+weaver.src.org.aspectj.weaver.patterns.WildAnnotationTypePattern
+
+122728
+ajdoc crash run ajdoc moder size code base 266 class interfac aspect ajdoc crash here ha appli warn gt build signatur file intern error occur ajdoc copi follow text email messag send addit inform add aspectj dev eclips org file contain file entri absolut path ajc ajdoc releas version ll happi provid inform help solv issu 
+1
+ajdoc.src.org.aspectj.tools.ajdoc.StubFileGenerator
+
+58520
+ajdoc doesn navig target detail case file advis javadoc us follow name convent set name ajdoc us unqualifi name argument resut follw file anchor link lt name gt html fail navig anchor file right file 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AsmElementFormatter
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AsmHierarchyBuilder
+
+123612
+increment declar follow code comment declar type statement increment build follow latest code head 
+1
+weaver.src.org.aspectj.weaver.CrosscuttingMembersSet
+
+124808
+gener detect field get field parameter type here second gener issu ha appli expect access int member test lot misha 
+2
+weaver.src.org.aspectj.weaver.patterns.ExactTypePattern
+weaver.src.org.aspectj.weaver.patterns.TypePattern
+
+124654
+captur method annot gener aspect compil follow aspect won compil aspect aj java lang annot annot 10 error incompat type expect check type specifi pointcut comment first advic let program run expect 
+1
+weaver.src.org.aspectj.weaver.patterns.ReferencePointcut
+
+124999
+gener incorrect call gener inherit method advic follow produc runtim error call befor advic 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AccessForInlineVisitor
+
+121395
+invalid aspectj path invalid aspectj path miss jar file file directori gener problem entri problem list 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+
+125101
+weav two aspect jar file jar jar ajc huge error messag attach great get recommend eric 
+0
+
+125405
+bad user code lead except thrown messag reproduc creat aspectj project creat aspect write save get warn abstract aspect type paramet good remov newli ad save happen ask parameter member non gener type 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseFactory
+
+125810
+miss error inherit abstract pointcut made concret sub aspect error issu sub aspect implement inherit abstract pointcut miss sub aspect 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+
+126328
+zip file close gt 1000 jar combin close successfulli reopen befor read from 
+1
+weaver.src.org.aspectj.weaver.bcel.ClassPathManager
+
+123212
+skip subvers resourc copi file from input output folder except compil project svn permiss non accord 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+
+120356
+aj decl err warn show cross structur view issu deow cross empti ajdt error warn gutter messag 
+0
+
+125475
+aspectj ajc compil empti get error method annot abstract pointcut abstract compil aspect ajc fine javac 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AccessForInlineVisitor
+weaver.src.org.aspectj.weaver.bcel.AtAjAttributes
+
+122370
+declar parent equival ad setter moodi exampl make clear annot style result differ behavior classic declar parent style call setter declar parent advis object behav on expect call setter advis object ha effect call setter call immedi call getter find valu didn chang follow exampl test run follow time 021 failur failur test run failur error classic success cmi0 cmi1 decoupl call set mood cmi1 ha impact cmi0 annot style fail appear done result ami1 jolli ami0 happi includ second ami0 amp ami1 end up jolli rc1 current behavior make unus retain field state near retain state method invoc creat discard back object method invoc 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelTypeMunger
+
+128128
+iajc doesn fail ant build compil error occur iajc ant task doesn anymor most relev line 1256 return instanc deleg messag interceptor consum messag leav 108 record messag submit patch bug report correct behavior note properli report messag prioriti error vs warn welcom function 
+1
+taskdefs.src.org.aspectj.tools.ant.taskdefs.AjcTask
+
+128699
+incorrect error declar statement error associ declar construct incorrect current messag expect on error warn parent soft domin domin chang precend annot relat declararion mention here suggest expect on error warn parent soft preced 
+1
+weaver.src.org.aspectj.weaver.patterns.PatternParser
+
+128655
+annot compil crash possibl declar type ajdt version 20060214104738 aspectj version 20060131132251 reason couldn reproduc smaller code base compil crash increment compil full clean build here stack trace thrown 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+
+128744
+ltw doesn work jre1 eclips ltw doesn work jre1 eclips support jre1 ltw defin aop xml file applic meta inf path work fine jre1 command line aop xml file us ltw command work btm eclips eclips sdk win32 eclips jre bin java classpath aspectj1 lib aspectjweav jar djava loader org aspectj weaver loadtim weav url loader daj path work btm eclips jre1 test aspectj1 doc exampl armtest jar btm dep e3 jar aspectj1 doc exampl armtest jar btm rt jar hello doesn work eclips ad upper command vm argument find aop xml chang aop xml wrong error execut applic eclips error execut command line base point aop xml didn us eclips add daj aspect path work btm eclips jre1 test confirm aspectj support command line jre1 doesn support eclips jre1 btw eclips env eclips ajdt eclips sun jdk us eclips problem exist 
+1
+loadtime.src.org.aspectj.weaver.loadtime.ConcreteAspectCodeGen
+
+122742
+extra argument aspectj aspect advis after throw advic except run result program caus 
+1
+weaver.src.org.aspectj.weaver.Advice
+
+128618
+increment warn wrong place increment compil zip file attach contain two aspectj project on depend make small chang main java test project save strang warn advic defin ha appli full build warn awai note error line 36 36 line relat line ffdc aspect contain advic 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.WeaverMessageHandler
+
+128237
+npe code pointcut contain logic oper compil code pointcut contain logic oper here test bug here acj error log aspectj properti aspectj compil built tuesdai dec 20 2005 12 05 54 gmt dump properti dump file 7015499 byte compil messag abort abort error latest aspectj develop 20060216105006 night build 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelWeaver
+
+121616
+aspectj lack join point crahe compil encount java poli demo pre releas develop version reproduc latest post releas develop version creat follow sourc file abort except thrown from aspectj develop log bug find current bug http bug eclips org bug buglist cgi product aspectj amp compon compil bug except thrown titl file line from stack file java 243 don find except bug add bug http bug eclips org bug enter bug cgi product aspectj make bug prioriti includ test program reproduc except valid aspectj annot log analys type defin compil unit fail abort error 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.ValidateAtAspectJAnnotationsVisitor
+
+125699
+inherit advic inhert follow advic caus unexpect error err paramet bound branch 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelWeaver
+
+131933
+grotti refer pointcut gener type aspect slide71 
+1
+weaver.src.org.aspectj.weaver.patterns.TypePattern
+
+131932
+structur model bug gener method itd ajdt program incorrectli show relationship from type from itd 
+3
+weaver.src.org.aspectj.weaver.NewConstructorTypeMunger
+weaver.src.org.aspectj.weaver.NewFieldTypeMunger
+weaver.src.org.aspectj.weaver.NewMethodTypeMunger
+
+132130
+miss relationship declar method annot locat method program enter on file don marker from declar annot method annot method file field ctor type problem 
+0
+
+129566
+regular java after upgrad eclips m5a ajdt 20060224163227 repeatedli get follow stack trace regular java even file fresh project aspect exist aj project work fine exclud from build path move differ project referenc depend work expect us work fine previou version ajdt up last releas eclips 
+1
+weaver.src.org.aspectj.weaver.ReferenceType
+
+133307
+declar parent implement gener referenc type follow construct aspect compil valid 
+3
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+weaver.src.org.aspectj.weaver.CrosscuttingMembersSet
+weaver.src.org.aspectj.weaver.patterns.WildTypePattern
+
+131505
+gener file contain aspect project built outxml option ajdt gener file correct after first build contain aspect built includ differ project duplic aspect ha built twice global list aspect clear 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+
+130869
+resolut fail type variabl bleed edg aspect design here gener aspect form ye enabl unbeliev cool fail unsurprisingli compil gener aspect find cours upper bound search pointcut type variabl 
+1
+weaver.src.org.aspectj.weaver.patterns.ReferencePointcut
+
+130837
+except edit annot base aspect normal java 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.ValidateAtAspectJAnnotationsVisitor
+
+132926
+compil crash process annot upgrad latest ajdt version build id 20060322082516 aspectj version 20060320075953 compil crash rebuld project us work fine march 16 th version retri clean build produc crash 
+1
+weaver.src.org.aspectj.weaver.AnnotationX
+
+135001
+npe 
+3
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+weaver.src.org.aspectj.weaver.bcel.BcelWorld
+weaver.testsrc.org.aspectj.weaver.bcel.AsmDelegateTests
+
+134541
+line number doesn keep up line number advic advic doesn match enabl project warn line number advic insert line befor advic save warn stai associ origin line on full build put warn line regress didn happen aj 
+2
+weaver.src.org.aspectj.weaver.CrosscuttingMembers
+weaver.src.org.aspectj.weaver.CrosscuttingMembersSet
+
+136665
+bug fail miss classpath entri fix error sourc inform avail open archiv resolv type defin compil unit process compil unit batch build error open zip file error open zip file open archiv resolv type defin compil unit process compil unit batch build 
+1
+weaver.src.org.aspectj.weaver.bcel.ClassPathManager
+
+138143
+duplic method name us develop aspect annot get save sourc file ha duplic method name break java code pop up aspectj messag info npe follow moritz post 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseSourceType
+
+138540
+patch add support option need add ant build configur troubleshoot memori permgen condit ant task support doesn current support ad style option andi ad here small patch pass option work 
+1
+taskdefs.src.org.aspectj.tools.ant.taskdefs.AjcTask
+
+138286
+caus aspect follow intern compil weav type weav aspect weav batch build ll attach file 
+1
+weaver.src.org.aspectj.weaver.patterns.PerThisOrTargetPointcutVisitor
+
+135780
+java depend bug fix fail vm reli work aspectj embed devic pre vm problem li attach patch fix pass test test fail program manual vm autom test requir ad vm regress test infrastructur sampl 
+1
+runtime.src.org.aspectj.runtime.reflect.SignatureImpl
+
+118781
+aspectj fairli aspectj explain ve start work project work fine ad method class dimension string arrai paramet suddenli get except 
+1
+weaver.src.org.aspectj.weaver.World
+
+133117
+lot warn guard lazi tjp guard lazi tjp compil option set warn error piec advic caus warn show up get on warn join point match advic on 
+2
+weaver.src.org.aspectj.weaver.bcel.BcelAdvice
+weaver.src.org.aspectj.weaver.Lint
+
+135068
+ltw style aspect get incompat object argument function call error ltw stype aspect interestingli ltw work expect equival style aspect compil time weav work aspect style test linux aspectj develop 20060404163823 sun 06 ibm sr1 jvm attach exampl project shortli 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.ValidateAtAspectJAnnotationsVisitor
+weaver.src.org.aspectj.weaver.bcel.AtAjAttributes
+
+82570
+weav code includ debug line attempt us aspectj output class debug mode requir code coverag instrumentor code introduc aspect product class includ debug line inform ant script us iajc task follow lt iajc debug gt aspect introduc argument constructor class enabl aspect clean build get follow error from code coverag tool jblanket java lang unsupport oper except line number detect com abmuk om core model core xml object lt init gt remov on line file tag turn debug compil remov aspect get error debug line inform ve debug debug level line var sourc success issu prevent unit test suit from execut requir inform don hesit email cheer chri nappin 
+3
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AdviceDeclaration
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectDeclaration
+weaver.src.org.aspectj.weaver.bcel.LazyMethodGen
+
+142165
+rewrit xml concret pointcut doesnt work construct scheme us rewrit pointcut defin xml us doesnt work get mangl 
+2
+util.src.org.aspectj.util.LangUtil
+weaver.src.org.aspectj.weaver.bcel.AtAjAttributes
+
+141956
+skip parent munger don intern work aspectj bug keep pop up troubl check debug provid inform get fix eclips ajdt fulli clean befor rebuild happen incrment build project gt build automat set error iter recurs build list method match error trigger here from parent kind munger us return munger instanc naiv fix check check assum on skip relat don intern architectur weaver magic hope inform appreci more intern specul bug pop up clean build increment build increment build haven abl isol kind chang compil trigger except keep get build clean 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseFactory
+weaver.src.org.aspectj.weaver.ResolvedType
+
+138171
+intern compil error copi resourc 1a develop web applic ran compil crash resourc copi thumb db us copi ajc end up produc intern error warn normal error 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+
+125480
+aspect gener treat abstract method pointcut aspect inherit abstract method inherit on ha made concret moment abstract method caus follow error ltw info aspectj weaver version develop built info classload org aspectj weaver loadtim weav url loader info temp ajc sandbox ajc test6462 tmp meta inf aop xml error abstract pointcut test configur lt concret aspect name trace hello world concret method gt aop xml warn definit fail abort except abstract pointcut test configur lt concret aspect name trace hello world concret method gt aop xml abstract pointcut test configur lt concret aspect name trace hello world concret method gt aop xml messag error abstract pointcut test configur lt concret aspect name trace hello world concret method gt aop xml org aspectj bridg abort except abstract pointcut test configur 
+1
+loadtime.src.org.aspectj.weaver.loadtime.ConcreteAspectCodeGen
+
+132349
+inter type declar nest gener type illeg state except compil from 20 th decemb eclips ajdt plugin 20051220093604 compil follow code level type lt gt nest type aspect aspect level type nest type method result dokument und einstellungen michi eigen dateien temp tmp level type java error intern compil error java lang illeg state except us gener type parameter type sourc inform avail abort except thrown from aspectj log bug find current bug http bug eclips org bug buglist cgi product aspectj amp compon compil bug except thrown titl file line from stack file java 243 don find except bug add bug http bug eclips org bug enter bug cgi product aspectj make bug prioriti includ test program reproduc except us gener type parameter type collect itd declar aspect complet type bind batch build classpath us gener type parameter type us gener type parameter type 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.InterTypeDeclaration
+
+72528
+advic runtim aspect captur pcd return actual method instrument valid pojo arrai understand aspectj care cast assign expect follow code work properli runtim get shown method on signatur incompat argument function except thread main suspect compil fail notic type method caught compil time test code ajdt result error output 
+2
+weaver.src.org.aspectj.weaver.ResolvedTypeX
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+120739
+ltw optim disabl world ha aspect optim disabl weav aspect defin aspect exclus exclud aspect defin parent loader help trivial rare aop xml definit aspect definit 
+1
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+
+145086
+npe weak refer set signatur simon ran problem set valu attach patch fix test case properli verifi work case 
+1
+runtime.src.org.aspectj.runtime.reflect.SignatureImpl
+
+145950
+xadd serial version uid doesn work indirect rout serializ hierarchi xadd serial version uid fail add serialversionuid field type serializ isn direct parent fail get field woven serializ work serializ get field woven mistak code check serializ 
+1
+weaver.src.org.aspectj.weaver.bcel.LazyClassGen
+
+146546
+remov hard code depend method part bug 141730 remov hard code depend method us handl get filenam method 
+2
+asm.src.org.aspectj.asm.AsmManager
+asm.src.org.aspectj.asm.internal.AspectJElementHierarchy
+
+122580
+fix amp bug circular failur verbos load 08 agent here stack trace get us aspectj releas load time weav rock 08 load server sp2 debug code eclips discov weaver initi load rock vm simpli hasn run make abl fix stack trace hoist check load aspectj code up befor initi weav adaptor chang line 55 comment line 251 weav adaptor avoid duplic check fixm av bcel wrap check earlier avoid circular issu initi jdk proxi fixm av proxi note bug occur vm even command line argument 
+2
+loadtime.src.org.aspectj.weaver.loadtime.Aj
+loadtime.src.org.aspectj.weaver.loadtime.JRockitAgent
+
+132591
+duplic except aop xml file aspectpath bug 57666 relat ha manifest meta inf aop xml file aspectpath on sourc path shouldn even duplic aspectpath resourc copi output aspectj build 20060309143651 get 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+
+136707
+iajc print summari javac iajc ant task produc summari javac task javac compil 189 sourc file 
+2
+taskdefs.src.org.aspectj.tools.ant.taskdefs.AjcTask
+taskdefs.testsrc.org.aspectj.tools.ant.taskdefs.AjcTaskTest
+
+147701
+us fqn except declar claus lead code wrap spring except contain after debug found except appear load depend guess problem parent declar bytecod find here steven 
+2
+weaver.src.org.aspectj.weaver.bcel.AtAjAttributes
+weaver.src.org.aspectj.weaver.bcel.BcelWorld
+
+147801
+repetit method name signatur get perform runtim weav woven full messag except repetit method name signatur file examin post weav file aspectj defin duplic method call here messag from weaver 
+2
+weaver.src.org.aspectj.weaver.World
+weaver.src.org.aspectj.weaver.bcel.BcelClassWeaver
+
+148545
+call gener method privileg aspect from advic execut main method produc interest remov privileg modifi from aspect definit work fine 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.PrivilegedHandler
+
+148536
+declar inter type annot found aspect produc intern compil error 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.AjLookupEnvironment
+
+148786
+arrai construct join point fail freaki arrai constructor discov recreat problem caus bytecod caus code bang 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelWorld
+
+148388
+ltw weaver produc debug messag begin code bug 148381 work option lt weaver produc debug messag longer expect max expect 1000 actual 65371 
+1
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+
+148727
+call synthet method aspect librari jar separ compil follow program break rc1 recent chang mark aspect method synthet method undefi ned type asp find symbol symbol method locat error vital extern user librari abl call api method librari aspect work client call patch test integr cv tree follow 
+1
+weaver.src.org.aspectj.weaver.NameMangler
+
+148693
+woven pass org apach bcel verifi static pass2 verifi number local variabl tabl attribut code attribut lt code gt method mypackag aspect aspect unknown attribut org aspectj weaver aj synthet exce number local variabl slot more on local variabl tabl attribut local variabl code attribut mypackag aspect aspect pointcut execut method test amp amp execut befor execut method println enter join point part after execut method println leav join point part test main string arg ic enver haas 2001 2002 lt http bcel sourceforg net gt lt http jakarta apach org bcel gt verifi mypackag test pass verifi pass verif pass verifi pass verif pass 3a method number lt init gt verifi pass verif pass 3b method number lt init gt verifi pass verif pass 3a method number main string arg unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 verifi reject instruct invokestat 184 28 constraint violat type verifi successfulli number local variabl tabl attribut code attribut lt code gt method mypackag aspect aspect unknown attribut org aspectj weaver aj synthet exce number local variabl slot more on local variabl tabl attribut local variabl code attribut pass 3b method number main string arg unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 verifi notyet verifi pass 3a method number lt clinit gt verifi pass verif pass 3b method number lt clinit gt verifi pass verif warn pass attribut unknown attribut org aspectj weaver weaver version 00 03 00 00 00 00 00 00 00 00 truncat attribut file structur mypackag test java lang object filenam mypackag test compil from test java compil version 46 access flag 33 constant pool 69 entri acc flag attribut sourc file test java unknown attribut org aspectj weaver weaver version 00 03 00 00 00 00 00 00 00 00 truncat unknown attribut org aspectj weaver weaver state 53 00 00 00 01 00 12 6d 79 70 truncat field org aspectj lang join point part ajc tjp method lt init gt main string arg unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 lt clinit gt unknown ignor pass attribut unknown attribut org aspectj weaver weaver state 53 00 00 00 01 00 12 6d 79 70 truncat attribut file structur mypackag test java lang object filenam mypackag test compil from test java compil version 46 access flag 33 constant pool 69 entri acc flag attribut sourc file test java unknown attribut org aspectj weaver weaver version 00 03 00 00 00 00 00 00 00 00 truncat unknown attribut org aspectj weaver weaver state 53 00 00 00 01 00 12 6d 79 70 truncat field org aspectj lang join point part ajc tjp method lt init gt main string arg unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 lt clinit gt unknown ignor pass attribut lt local variabl tabl local variabl start pc length index mypackag test gt attribut code attribut lt code gt method lt init gt effect ignor debugg pass attribut lt line number tabl line number gt attribut code attribut lt code gt method lt init gt effect ignor debugg pass attribut unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 attribut method main string arg unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 unknown ignor pass attribut unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 attribut method main string arg unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 code except us debugg pass unknown attribut unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 attribut known context pass attribut lt local variabl tabl local variabl start pc length index string arg gt attribut code attribut lt code gt method main string arg unknown attribut org aspectj weaver method declar line number 00 00 00 05 00 00 00 46 effect ignor debugg pass attribut effect ignor debugg pass initi method ha superflu access modifi set acc strict ignor pass attribut attribut code attribut effect ignor debugg pass attribut known context 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectDeclaration
+
+148537
+nest annot meta annot arrai type valu 
+0
+
+148972
+problem binari weav declar parent mix environ report larg intric weav class vm binari weav declar parent refus allow modif hierarchi see clash two method two case fix signatur type differ synthet method relationship isn determin correctli 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelTypeMunger
+
+148737
+non gener type similar 112880 messag stack trace get ask parameter member non gener type com object kind raw ask parameter member code abl weav reason major issu suffer from 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+
+148409
+gener aspectj load time weav spring rc1 inject entiti get follow except examin call stack debugg happen weaver attempt determin weav except thrown follow method cast highlight question on requir weav ha follow signatur except happen member type instanc loop variabl concretet signatur second type paramet concretet trip up weaver 
+1
+weaver.src.org.aspectj.weaver.UnresolvedType
+
+149305
+sourc file order depend aspect inherit compil follow code place differ packag caus unexpect error error paramet bound branch pointcut sourc inform avail place code on code compil successfuli bag bug 125699 us 
+1
+weaver.src.org.aspectj.weaver.CrosscuttingMembers
+
+150671
+declar error set field work aspect ha declar error statement involv pointcut captur set field compil error produc bug reproduc follow follow set state field method result compil error expect origin notic bug ajdt eclips ha reproduc confirm aspectj compil 
+1
+weaver.src.org.aspectj.weaver.ResolvedMemberImpl
+
+151673
+incorrect weav after return input bytecod strang form user report problem after advic woven method produc code verifi problem occur bytecod input weav process includ subroutin contain from method here problemat snippet produc unknown compil 200 invokespeci 17 method jsr jump 234 befor subroutin 238 method method return string after weav get areturn ha lost code blow up verifi error string stack ignor 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelShadow
+
+151845
+npe build build larg project fail weav npe project migrat eclips eclips newli instal eclips sdk updat manag ajdt cdt web j2 ee tool sub clips spring id project work eclips simpl test aspectj project work build ant aspectj compil extern tool launch eclips work follow error check aspectj project upgrad develop version ajdt 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.EclipseSourceContext
+
+152257
+increment compil doesn handl except declar correctli increment compil code advic throw excpet error state except thrown full compil compil code successfulli ajdt version build id 20060727081607 aspectj version 20060726092219 here minimum code reproduc behavior modifi add delet space exampl save compil incremet error issu call state sever descript path resourc locat creation time id check except join point line 1154196826350 7956 full rebuild error awai 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.AjCompilerAdapter
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.AjPipeliningCompilerAdapter
+
+151938
+handl duplic entri more gracefulli start java vm aspectj weaver specifi more flag file defin choke badli reweav woven aspectj code emit massiv amount bytecod better aspectj detect specifi more gave warn disabl on agent fail better fail error messag emit bytecod issu up autom instal add flag vm startup command script wrap twice gener duplic make script more intellig avoid issu peopl hit issu manual edit add flag tomcat instanc 
+1
+loadtime5.java5-src.org.aspectj.weaver.loadtime.Agent
+
+152388
+npe get messag from error recent dev build aspectj load time weav don sourc locat associ messag shouldn line 806 us patch note alex vasseur adaptor invok aspectj ltw from vm recurs protect ad don chang expect behavior aj 
+1
+bridge.src.org.aspectj.bridge.MessageUtil
+
+152631
+problem decp aspect cflow occur aspectj build ajdt from august from juli 31 narrow down problem isn obviou 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelTypeMunger
+
+152871
+pars bytecod most weav 10 cpu time reduct analyz profil cpu time spent weav weblog ltw total 22 second cpu second spent exact amount spent underneath call exact expens oper get call propos simpl fix allow set field adapt clear start check field glad write test patch committ agre propos wouldn pars bytecod aim avoid expens exclus type pattern current requir accept make java case necessari odd run post separ enhanc request limit case run 
+2
+weaver.src.org.aspectj.weaver.bcel.Utility
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+
+152873
+optim patch current implement surpris weav annot aspect regard regist file annot style aspect load woven even doesn match class woven file even regist unexpect impos signific overhead configur aren us simpl fast match exclus prevent weav bug 152871 weav annot style aspect done configur mechan aspect us larg cpu overhead pars creat bcel object load class avoid 
+2
+weaver.src.org.aspectj.weaver.World
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+
+152589
+pipelin ad whitespac result warn follow ad whitespac befor aspect declar result warn even weav place advic match output from ajdt event trace show kind build request increment aspectj compil 14 38 23 build examin delta sourc file chang requir project prepar build plan increment build start increment compil loop possibl compil sourc file timer event time first compil messag defin ha appli drop back full build 14 38 23 prepar build increment success previou full build 14 38 23 ajc compil sourc file 14 38 23 ajc compil 14 38 23 ajc process reweav state 14 38 23 ajc ad type munger 14 38 23 timer event 452 ms time first woven messag 14 38 23 ajc woven aspect 14 38 23 aspectj report build success build full 14 38 23 ajd callback finish full build 14 38 23 timer event 517 ms total time spent ajd 14 38 23 timer event ms creat element map rel project bug92895 14 38 23 type affect build 14 38 23 timer event ms add marker marker 14 38 24 timer event 1274 ms total time spent warn ad fell back full build warn wasn clear perform clean build fix problem pipelin chang 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.AjPipeliningCompilerAdapter
+
+130300
+remov hide obfusc xno weav option redund from us aspectj develop mainten confus user sourc problem ltw 
+8
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.core.AspectJCore
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.AjCompilerAdapter
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildConfig
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjCompilerOptions
+org.aspectj.ajdt.core.testsrc.org.aspectj.ajdt.internal.compiler.batch.BcweaverJarMaker
+taskdefs.src.org.aspectj.tools.ant.taskdefs.AjcTask
+
+154332
+annot incorrect handl annot match rais mr bodkin list compil program produc warn marker deprec recent dev build ajdt bug runtim retent expect equival behavior 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelObjectType
+
+153535
+bug reflect deleg signatur arrai object type follow problem interest advic weav correctli java ltw java build time weav follow call pointcut isn match expect call site java load time weav line 150 modifi version alex vasseur ltw plugin java vm haven test rock plugin vm guess fail 
+1
+weaver.src.org.aspectj.weaver.reflect.ReflectionWorld
+
+129525
+don dump bytecod syserr ltw load time weav produc massiv quantiti output weav error dump bytecod syserr better produc ajcor file point us log 
+3
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+loadtime.src.org.aspectj.weaver.loadtime.WeavingURLClassLoader
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+
+155148
+jdk14 trace deadlock oc4j turn trace insid oracl oc4j server on test deadlock thread lock loader notic on thread method oracl reason prefer trace argument name ident here thread dump from ctrl found on java level deadlock wait lock monitor held wait lock monitor held java stack inform thread list 
+3
+loadtime.src.org.aspectj.weaver.loadtime.DefaultWeavingContext
+weaver.src.org.aspectj.weaver.tools.AbstractTrace
+weaver5.java5-src.org.aspectj.weaver.tools.Jdk14Trace
+
+155238
+trace us trace modul us identifi untrust object format littl safer more accur us trace code wouldn call applic defin code valu chang loader state chang 
+2
+loadtime.src.org.aspectj.weaver.loadtime.DefaultWeavingContext
+weaver.src.org.aspectj.weaver.tools.AbstractTrace
+
+155972
+version 200608290814 advis constructor follow obtain constructor fail return 
+3
+runtime.src.org.aspectj.runtime.reflect.ConstructorSignatureImpl
+runtime.src.org.aspectj.runtime.reflect.FieldSignatureImpl
+runtime.src.org.aspectj.runtime.reflect.InitializerSignatureImpl
+
+151182
+npe ltw creat log aspect applic time ago aspectj enabl from time time load time weav recent recompil aspect run weaver jar fail weaver jar aspect compil ran problem 
+1
+loadtime.src.org.aspectj.weaver.loadtime.Aj
+
+156962
+annot problem member signatur latest dev build case don match properli attach two fail test case execut 
+3
+weaver.src.org.aspectj.weaver.bcel.BcelField
+weaver.src.org.aspectj.weaver.bcel.BcelMethod
+weaver.src.org.aspectj.weaver.patterns.HasMemberTypePattern
+
+153845
+gener problem signatur gener type aspect 
+1
+weaver.src.org.aspectj.weaver.ReferenceType
+
+153490
+illeg state except thrown resolv inner type contract4j aspectj build 20060629124300 eclips build m20060629 1905 window xp sp2 java 06 follow except find testcod except bug relat contract4j aspectj except 
+3
+weaver.src.org.aspectj.weaver.ReferenceType
+weaver.src.org.aspectj.weaver.asm.AsmDelegate
+weaver.src.org.aspectj.weaver.bcel.BcelObjectType
+
+152848
+thrown expect raw type get except enabl aspectj java project 
+2
+weaver.src.org.aspectj.weaver.TypeFactory
+weaver.src.org.aspectj.weaver.bcel.BcelGenericSignatureToTypeXConverter
+
+158573
+chang valu variabl aspect result follow chang valu save result increment build warn full build clear warn bug 141730 made ajdt down call line 90 fix bug 134541 reason hit doesn depend locat 
+1
+weaver.src.org.aspectj.weaver.CrosscuttingMembers
+
+156904
+incorrect warn advis method inner eclips ajdt incorrect warn advis method inner advis method inner get warn next pointcut next advic marker point method 
+1
+weaver.src.org.aspectj.weaver.patterns.WildTypePattern
+
+149071
+itd improp visibl nest inner type code fail work error appear incorrectli appli visibl rule base declar type defin holder shouldn visibl inner cours aspect visibl rule field visibl inner make inner type work properli comment holder uncom line analog java code work 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.InterTypeFieldBinding
+
+152366
+ltw pattern accept consist weav definit accept addit amp amp amp amp pointcut silent accept fail work type pattern us type pattern import creat except exclud help here ve attach patch support test show work 
+1
+loadtime.src.org.aspectj.weaver.loadtime.definition.DocumentParser
+
+159896
+advic from injar uniqu handl advic kind contain aspect current uniqu handl aspect aspectpath 
+1
+weaver.src.org.aspectj.weaver.ShadowMunger
+
+158624
+compil error gener arrai report here info here set up messag error don understand error from compil pars down erron file contain bug direct here set up eclips sdk version build id m20060629 1905 ajdt eclips aspectj develop tool version 200608141223 aspectj version 200608210848 here bug dump from compil insid eclips 
+1
+weaver.src.org.aspectj.weaver.ResolvedMemberImpl
+
+123423
+rfe expos aspect type aspect gener field time us on access field defer initi creat duplic field initi nice method signatur defin aspect 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.AspectDeclaration
+weaver.src.org.aspectj.weaver.bcel.BcelPerClauseAspectAdder
+
+148908
+incorrect sourc signatur field ip qualifi alloc express choke interfac initi field doesn preserv initi valu attach ajdt project fail run ajdoc option gt call ajc gt build signatur file gt call javadoc load sourc file error gt decor html file gt remov gener tag gt finish 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AsmHierarchyBuilder
+
+161217
+npe ve plai aspect deploy model error project rebuild from ajdt lass weav batch build file here aspect class appli 
+1
+weaver.src.org.aspectj.weaver.bcel.BcelAdvice
+
+149289
+support user aop xml configur file ajdt bug 71066 aspectj bug 95516 support gener aop xml declar set aspect ltw user modifi file add option chang written allow user provid configur separ file 
+4
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.ajc.BuildArgParser
+org.aspectj.ajdt.core.testsrc.org.aspectj.ajdt.ajc.BuildArgParserTestCase
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+bridge.src.org.aspectj.bridge.Constants
+
+138219
+us fq refer express referenc claus express claus fail resolv contain refer refer express defin type even indirectli local name 
+3
+weaver.src.org.aspectj.weaver.CrosscuttingMembers
+weaver.src.org.aspectj.weaver.CrosscuttingMembersSet
+weaver.src.org.aspectj.weaver.ResolvedType
+
+138223
+compil crash two bind xxx pcd on compound express test annot match bind fail test annot match bind fail unexpect warn messag 
+1
+weaver.src.org.aspectj.weaver.patterns.AnnotationPointcut
+
+138215
+refer pointcut fail insid pointcut express us construct contain refer pointcut warn correctli produc match join point compil error referenc pointcut found 
+2
+weaver.src.org.aspectj.weaver.bcel.AtAjAttributes
+weaver.src.org.aspectj.weaver.bcel.BcelObjectType
+
+158412
+declar error result npe us normal aspectj declar error express result follow except 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.lookup.EclipseSourceType
+
+173602
+follow except caus duplic inter type introduct method declar aspect remov duplic method solv problem 
+1
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.compiler.ast.InterTypeMethodDeclaration
+
+104218
+aspect woven xreweav rewoven ltw weav aspect1 xreweav load time weav aspect2 aspect1 rewoven confirm lack weaveinfo messag aspect1 work post compil weav test attach reweav test binari weav adapt run 
+3
+weaver.src.org.aspectj.weaver.WeaverMessages
+weaver.src.org.aspectj.weaver.bcel.BcelTypeMunger
+weaver.src.org.aspectj.weaver.bcel.BcelWeaver
+
+145693
+verifi error inpath entri classpath xlint ignor attach fail 
+2
+org.aspectj.ajdt.core.src.org.aspectj.ajdt.internal.core.builder.AjBuildManager
+weaver.src.org.aspectj.weaver.patterns.ConcreteCflowPointcut
+
+64069
+itd name clash member weav sourc itd constructor method overrid member signatur member exist illustr exampl exampl class compil separ bytecod weav execut situat field differ compil flag error itd introduc exist error flag us us clash field pass compil program run java behaviour illustr bug behaviour consist situat request make legal introduc member itd ha name signatur member mangl member us weav sourc itd constructor method overrid member name bytecod weav separ file class exampl execut compil flag error itd introduc exist error flag us us clash field pass compil program run java behaviour illustr comment assign 
+1
+weaver.src.org.aspectj.weaver.ResolvedTypeX
+
+150271
+allow multipl level ltw inform nice basic inform load time weav version aspectj us loader weav configur us avail verbos inform list class woven woven unfortun flag weav level differ summari info verbos summari configur us info list affect join point verbos verbos 
+4
+loadtime.src.org.aspectj.weaver.loadtime.ClassLoaderWeavingAdaptor
+loadtime.src.org.aspectj.weaver.loadtime.DefaultMessageHandler
+loadtime.src.org.aspectj.weaver.loadtime.Options
+weaver.src.org.aspectj.weaver.tools.WeavingAdaptor
+

@@ -1,0 +1,95 @@
+383
+22 samsung spica 480 x320 show magnifi screen upgrad gt 22 introduc bug samsung spica i5700 480 x320 screen program show left upper corner camera input pictur twice bigger imposs scan code roll back fix build address ll get email address separ statu accept owner srowen label prioriti medium prioriti low glad help test vitali rcdesign ru debug ve sent spica commit fix svn chang resolv issu moment android statu fix 
+2
+android.src.com.google.zxing.client.android.camera.CameraConfigurationManager
+android.src.com.google.zxing.client.android.camera.CameraManager
+
+357
+failur decod pdf417 barcod current evalu zxing bank record us pdf417 print document input imag grayscal jpeg from scanner decod code39 successfulli pdf417 fail attach imag encod text 00123 mcta0123456789012345678901234567890123456789012345678900101 version window xp ve modifi gui runner run follow param 
+1
+core.src.com.google.zxing.pdf417.decoder.DecodedBitStreamParser
+
+411
+messag dimens greater version product oper latest check 18 th window amp amp linux code attach imag error occur temppage57 png 37 kb amp nbsp view amp nbsp download complet code code java kb amp nbsp view amp nbsp download function gener error ll more easi avoid dimens greater 
+1
+core.src.com.google.zxing.qrcode.QRCodeReader
+
+412
+messag zero us follow function from code attach imag attach except occur version product oper check 18 th 2010 code imag file attach code java kb amp nbsp view amp nbsp download temppage14 png 22 kb amp nbsp view amp nbsp download easi fix run corner case pure barcod mode surpris imag aren pure barcod let contain barcod pure barcod mode shouldn need statu accept owner srowen label prioriti medium prioriti low statu fix scan batch mode separ page barcod major page scan barcod btw fix issu quick scan even page clean scan pure barcod get thrown easili pure exactli orient imag set hei work better ahead 
+1
+core.src.com.google.zxing.qrcode.QRCodeReader
+
+407
+updat broke app incred open app won scan barcod qr code expect output us scan up close instant zoom constantli focu doesn focu barcod version product 51 oper htc sens android befor 51 updat scan barcod close distanc notic behavior v51 open app automat zoom camera problem zoom focu barcod clear scan hold 12 awai point app get confus product line packag technic program app want let haven abl us app htc incred upgrad 51 version zoom focu problem similar problem touch3g android stock mobil version app work great last updat focu keep focu barcod qr screen from market book upc us test won read most time app menu chang set enabl disabl 1d code exampl scan read barcod problem independ code scan specif sens base devic heard touch exampl n1 fine hero fine workaround build contact list updat broke most qr scan droid continu zoom focu time even put green highlight big corner squar hung infinit loop googl busi card isef san jose last week googl add back cover busi week light condit chang work btwd poster googl hq lot comment problem android market review issu 413 ha merg issu similar issu report reddit http www reddit com android comment c8 gl3 barcod scanner doesnt work cyanog enmod v507 fix work set chang scan work after exit from set info phone htc dream g1 root barcod scanner v51 mod cyanogen mod ds build number epe54b relat race condit restart scan activ restart spin roulett wheel mark fix beta up appear fix affect devic statu fix owner srowen 
+0
+
+432
+utc gmt line 44 45 current read second line incorrect utc rel field correctli equival gmt level precis cool fix statu fix label prioriti medium prioriti low 
+1
+com.google.zxing.web.generator.client.TimeZoneList
+
+363
+app stop scan barcod power button press barcod inform displai scan qr address code found contact info dialog visibl tap power button put phone standbi mode note apolog don technic term mode refer mode put phone pocket ui won respond press button enter login pattern tap power button displai phone login pattern screen enter login pattern barcod app reappear found contact info dialog visibl attempt scan barcod barcod scan program think dialog open dialog visibl phone awaken from standbi log expect return barcod dialog screen previous visibl version product oper barcod scanner v3 21 nexu on kernel 29 01117 g4 bc62 c2 good bug statu accept owner dswit googl com most describ design chang gener app return scan screen back from sleep app avoid confus situat exampl user left pick contact share come bs contact odd remov behavior on intent show scan result daniel thought wasn abl reproduc rest abl scan rescan code after wake troubl hero repro nexu back scan screen autofocu isn run imag process appear run genuin bug core issu here part from op daniel last chang acer fix on yup exactli fix statu fix 
+1
+com.google.zxing.client.android.CaptureActivity
+
+475
+incorrect comment sourc code android app ha follow comment wifi connect us googl book search search content book provid comment wifi book search version product oper latest svn fix statu fix owner srowen label prioriti medium prioriti low 
+0
+
+469
+recogn code us zxing detect larg qrcode code recogn rare download us hint decod fine work upload http zxing org decod jspx identifi site report messag descript server encount intern error prevent from fulfil request except zero 
+1
+core.src.com.google.zxing.common.HybridBinarizer
+
+512
+itf writer stack trace version product oper rev 1516 from svn tree follow code correct itf reader pattern inner arrai entri second dimens follow intent statu fix owner srowen label type defect prioriti low 
+1
+core.src.com.google.zxing.oned.ITFWriter
+
+511
+modul size estim slightli inaccur subtl problem estim modul size greatest impact low resolut low pixel modul imag larger code 510 blackbox qrcode 11 gif caus core dump unexpect except java issu 510 code wasn handl differ estim dimens imag encod version easi fix ad check throw except java code make wonder 11 gif wasn get decod turn exist modul estim code doesn estim modul size right modul size 11 gif pixel get estim recal caus dimens 69 65 thing requir fix move 1s look place calcul incorrect valu 11 gif black white black run measur code fix chang length measur spot close decod chang doesn test set pick up four assum 11 gif rotat chang even singl pixel modul code decod ad down sampl version 16 gif test set boundari patch kb amp nbsp view amp nbsp download 32 gif 708 byte amp nbsp view amp nbsp download owner srowen commit doesn affect number imag pass run test 11 decod idea statu accept more success 508 508 ll find three finder 11 put don test exact pretti ye statu fix label type defect prioriti low 
+1
+core.src.com.google.zxing.qrcode.detector.Detector
+
+508
+handl boundari condit littl better comment last pixel drop kind boundari mythic user don frame code thought easi eleg fix fraction block right bottom simpli comput pixel overlap previou block fine wouldn expect comput impact miss hb patch kb amp nbsp view amp nbsp download issu 509 ha merg issu sound good commit 511 statu fix owner srowen label type defect prioriti low 
+1
+core.src.com.google.zxing.common.HybridBinarizer
+
+492
+rotat non squar imag correctli java test driver doesn rotat imag correctli imag isn squar huge deal reason desir crosscheck java doesn issu patch attach creat nine qr success creat four partial posit case failur come from imag differ angl surpris imag get crop get incorrectli decod rotat patch kb amp nbsp view amp nbsp download rotat right result imag boundari wrong issu back statu accept owner srowen label type defect prioriti low yeah poor choic word imag ha differ size mean ha translat move old center center patch handl non 90 degre rotat produc imag necessari size placement gener current us gener easier code special case great commit statu fix 
+1
+android.src.com.google.zxing.client.android.camera.CameraManager
+
+507
+compani field gener work gener vcard contact inform compani field work qr code compani inform info url compani info shown version product oper chrome 375 125 mac os10 test reader iphon os ha problem german umlaut problem import card support mecard encod compani info yeah field shouldn ll delet real plan updat statu accept owner srowen quick respons vcard wrong reader support org mecard valid statu fix label type defect prioriti low abl add mecard org support attach file show chang keep mind made chang version kb amp nbsp download right hard add valid 
+1
+zxing.appspot.com.generator.src.com.google.zxing.web.generator.client.ContactInfoGenerator
+
+519
+wrong align posit version 23 don spec line on doesn follow regular pattern constant delta success align posit 74 typo good ey correct valu from tabl ll commit fix statu fix owner srowen label type defect prioriti low modul core 
+1
+core.src.com.google.zxing.qrcode.decoder.Version
+
+524
+boundari condit check bad valu doesn check bad valu core dump bottom valu get invert imag bound lead neg larg unsign height simlar check want saniti check patch mind owner smpar smpark net label type defect prioriti low simpl ll appli object fair patch kb amp nbsp view amp nbsp download statu fix 
+1
+core.src.com.google.zxing.qrcode.detector.Detector
+
+537
+barcod scan correclti scan attach barcod type ean13 correctli identifi correctli barcod number incorrect correct number 030000769023 actual result 30000769023 version product oper android market version ean13 test jpg 102 kb amp nbsp view amp nbsp download barcod upc code ean 13 ean 13 clever superset upc design enabl backward compat scanner simpli pick upc here differenti 13 digit print ean 13 call upc technic don troubl disambigu statu wont fix forc ean 13 pass 30000769023 result ah point here intern scan upc ean 13 on decod ean 13 deploi ean 13 superset find barcod start constru upc nice trick correct upc allow barcod format 13 digit valu fix pretti back upc scan back ean 13 upc allow statu accept owner srowen label type defect prioriti medium statu fix 
+1
+com.google.zxing.oned.MultiFormatUPCEANReader
+
+548
+rim app crash jvm except connect close except run insid zxlib snap pictur qr code imag obtain from simul camera imag simul expect output app decod correctli show url jvm except 104 except from here version product oper zxing blackberri 9800 simul window xp oracl vbox worth app simul present problem problem sd card present librari decod pictur bug help sound problem simpli open web page connect close relat app support statu bug ll check code imag run app 8530 simul exactli support hass work black berri client don plan don statu newer phone os emul error method call after block except appear call befor hope help bug fix issu updat issu 126 work differ java stream file switch statu fix owner srowen label type defect prioriti low fix chang call help 
+1
+rim.src.com.google.zxing.client.rim.ZXingLMMainScreen
+
+376
+zoom android work instal latest market version start app zoom suppos start zoom version product oper version 48 android ve run test camera appear let set initi zoom start test start side thread sleep 100 milli set zoom correct issu solv simpli provid zoom control main view gonna devic us xing test app market send dump camera paramet app written us android ha direct api zoom control set devic specif camera paramet set zoom right set param guess set on devic ha world 99 android move real api assum fact work devic label type defect prioriti medium type enhanc prioriti low don ha canera api oom control ment screen widget chang zoom manuali param set zoom work after camera ha finish first focu littl test app delai second thread help motorola droid updat dai ago first time app test app hour awak hmm right param focu effect flash white balanc don zoom assum event ye zoom param set check chang respect mot zoom valu param show up report from moto blur back comb devic report from droid mot zoom step guess devic won accept zoom valu aren multipl right 7x conveni max zoom hero person devic ll make chang next 15 minut respect valu second chang posit download build from svn statu accept owner srowen label type enhanc type defect check from svn ran didn solv zoom issu issu least droid prevent from pre set zoom matter zoom level set initi phase reset even valu zoom what notic littl experi found two solut bug droid bug android bug wrap call set zoom thread slight delai 
+2
+android.src.com.google.zxing.client.android.CameraManager
+android.src.com.google.zxing.client.android.PlanarYUVLuminanceSource
+

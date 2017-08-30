@@ -1,0 +1,539 @@
+75739
+ha ha on call case except type suggest return string amp 64 param variant amp 64 string version m2 
+1
+org.eclipse.swt.ole.win32.Variant
+
+77948
+pointer except i200411041200 gtk kde linux creat simpl file exist project delet keyboard heavili navig found except log major effect from pointer respons button disabl ll investiag more entri 2004 11 05 08 51 21 199 messag unhandl event loop except entri 2004 11 05 08 51 21 235 messag 
+1
+org.eclipse.swt.custom.CLabel
+
+78548
+consist button fire befor run button tab turn listen click exampl button amp gt osx ll get amp gt ll get select 
+2
+org.eclipse.swt.widgets.Button
+org.eclipse.swt.widgets.ToolItem
+
+78559
+consist fire two event befor run tab turn listen click exampl thumb amp gt osx follow fire amp gt win32 follow fire lt span bz close gt lt href show bug cgi id 78558 titl resolv wontfix consist fire two select event singl click gt bug 78558 lt gt lt span gt amp gt 
+1
+org.eclipse.swt.widgets.Slider
+
+79107
+consist element check platform stop ignor element 
+3
+org.eclipse.swt.custom.CCombo
+org.eclipse.swt.widgets.Combo
+org.eclipse.swt.widgets.List
+
+79481
+longer draggabl small snippet grab second right button move left button grab notic note bug occur suggest size button thiner guess button invis allow resiz smaller valu ben 
+1
+org.eclipse.swt.custom.SashForm
+
+80120
+layout put right item on pixel right attach toolbar right cut pixel corner layout account border 
+1
+org.eclipse.swt.custom.CTabFolder
+
+80276
+call call time good interact resiz slow us code fix call resiz 
+1
+org.eclipse.swt.custom.CBannerLayout
+
+78854
+memori leak end function us function copi data freed 
+2
+org.eclipse.swt.dnd.Clipboard
+org.eclipse.swt.dnd.DragSource
+
+81265
+background tree incorrect disabl tree tab chang background colour uncheck enabl checbox background node name chang background rest background remain background entir background tabl tree back colour 
+1
+org.eclipse.swt.widgets.Tree
+
+80506
+consist inconsist platform shell hasn open forc activ window mac current app lose focu shell activ gtk motif shell isn visibl done 
+1
+org.eclipse.swt.widgets.Shell
+
+58185
+eclips fail load oldstyl bmp file old style bmp file attempt load imag eclips run memori problem appear check header file correctli befor read imag bmp file follow header x42 x4d xca x00 x00 x00 x00 x00 x00 x00 x4a x00 x00 x00 c0 x00 x00 x00 x10 x00 x10 x00 x01 x00 x04 x00 notic x0c offset 14 info header 12 byte 42 assum conform microsoft inform start offset 14 differ check size lt href http msdn microsoft com librari asp url librari en gt http msdn microsoft com librari asp url librari en lt gt gdi bitmap jaq asp 
+1
+org.eclipse.swt.internal.image.WinBMPFileFormat
+
+83251
+javadoc warn latest build attach patch get rid 
+2
+org.eclipse.swt.custom.VerifyKeyListener
+org.eclipse.swt.custom.LineStyleListener
+
+82346
+disappear flag constructor work disappear notic linux gtk eclips m4 
+1
+org.eclipse.swt.custom.CLabel
+
+83699
+font reset after screen saver i20050125 0800 editor view widget font reset after come back from screen saver make build i20050125 0800 unus work replac on from last build breakpoint get hit from screen saver thread main suspend breakpoint line 6820 
+1
+org.eclipse.swt.widgets.Control
+
+79419
+prefer link compon creat sort compon prefer page us link push down mechan possibl 
+0
+
+83262
+rxvt past termin past middl mous button from rxvt window contain termin end past from applic gedit mozilla rxvt show behaviour reproduc past xterm problem exist motif gtk clipboard protocol ha string length field termin string 
+2
+org.eclipse.swt.dnd.RTFTransfer
+org.eclipse.swt.dnd.TextTransfer
+
+80830
+implement i20041208 gtk simpli draw solid line correctli follow javadoc happend draw focu support limit implement custom widget chanc implement gtk dup point lt span bz close gt lt href show bug cgi id 62424 titl resolv wontfix linux us xor draw gt bug 62424 lt gt lt span gt mention thing file on separ 
+3
+org.eclipse.swt.internal.gtk.OS
+org.eclipse.swt.graphics.Device
+org.eclipse.swt.graphics.GC
+
+82905
+doesn honor clip rect i20050104 1600 m4 differ linux version gtk gtk gc honor gc clip draw client area set imag ha alpha channel happen step reproduc ve attach demo applic displai two custom tab stripe creat custom canva subclass first stripe us valid work window canva draw background real applic more fill simpl color flicker blit alpha imag slow swt notic first stripe tab text vanish move mous tab happen redrawn part stripe updat imag drawn text insid clip region imag overwrit text clip region 
+2
+org.eclipse.swt.internal.gtk
+org.eclipse.swt.graphics.GC
+
+84557
+tabl item appear tabl run i20050202 0800 linux gtk ctrl esc bring up handi editor window unfortuantlei list empti 
+2
+org.eclipse.swt.widgets.TreeColumn
+org.eclipse.swt.widgets.TableColumn
+
+86000
+save produc invalid jpeg imag save function appear produc bad jpg imag verifi jpeg output simpl test load png file save jpeg file test major produc proper jpg imag expect attach zip file contain file save correctli jpeg 
+1
+org.eclipse.swt.internal.image.JPEGFileFormat
+
+84012
+style adjust select correctli select text window text widget extend select begin end line move mous cursor left right edg widget client area widget style work handl mous move event discard case horizont mous posit li client area vertic coordin translat line caret current mean mous movement quick result receiv mous move event cover caret posit up left right most on select remain incomplet attach screenshot visual clarif ignor event client area appar done order confus horizont scroll mechan kick mous movement style set horizont scroll fix introduc check word wrap option turn allow extend select 
+1
+org.eclipse.swt.custom.StyledText
+
+87363
+regress longer open menu bug introduc nov 2004 prior chang menu creat listen notif menu field updat menu set visibl after nov 2004 method move menu local variabl updat menu creat event follow exampl demonstr problem 
+4
+org.eclipse.swt.widgets.Table
+org.eclipse.swt.widgets.Text
+org.eclipse.swt.widgets.Tree
+org.eclipse.swt.widgets.Widget
+
+87676
+click work tree column0 build 20050308 log view exampl click column0 bring up event dialog click column1 column2 result notif click listen 
+1
+org.eclipse.swt.widgets.Tree
+
+86294
+find replac work illeg unsupport escap mac search java file m5a build mac find mask4 amp quot illeg unsupport escap amp quot up find replac dialog 
+3
+org.eclipse.swt.widgets.Combo
+org.eclipse.swt.widgets.Spinner
+org.eclipse.swt.widgets.Text
+
+87855
+pointer except here stack trace found kill run process press amp quot kill amp quot button consol view us m5a entri 2005 03 12 14 26 25 58 messag 
+2
+org.eclipse.swt.widgets.Table
+org.eclipse.swt.widgets.Tree
+
+89533
+theme color font prefer page ha funni icon color entri 
+1
+org.eclipse.swt.widgets.ImageList
+
+90018
+tooltip left hover insid eclips tooltip displai exampl maxim button tooltip appear chang perspect keybind get hidden tooltip perman displai awai even dispos assum perspect close 
+1
+org.eclipse.swt.custom.CTabFolder
+
+87997
+caus npe link dispos found i20050308 0835 call method own remov listen from tabl column tabl process dispos column dispos result npe specif prevent on from ad dispos listen dispos associ editor code dispos listen set parent tabl amp quot dispos amp quot except thrown npe leav place hook trigger dispos 
+2
+org.eclipse.swt.widgets.Table
+org.eclipse.swt.widgets.Tree
+
+88829
+fire event start five column differ width event fire column swap posit amp gt fire column width first displai column chang column shift 
+1
+org.eclipse.swt.widgets.Table
+
+86631
+javadoc wrong exampl code javadoc stream doesn close fix here place swt accept stream determin correct pattern appli doc 
+1
+org.eclipse.swt.graphics.Image
+
+81242
+unit gp amp lt amp gt resolv file name unexpect except ha detect code unexpect signal 11 occur pc x0 function unknown librari note unabl locat function name symbol error occur refer releas document reason solut current java thread except detect code vm java vm java hot spot tm client vm 06 b02 mix mode error report file ha save hs err pid20700 log refer file inform 
+4
+org.eclipse.swt.dnd.ClipboardProxy
+org.eclipse.swt.dnd.DragSource
+org.eclipse.swt.dnd.DropTarget
+org.eclipse.swt.accessibility
+
+92017
+support larg imag window platform current window size limit 16 mb post respons amp quot larger imag problem amp quot suggest get transpar dib store main memori size easili support help 
+2
+org.eclipse.swt.graphics.GC
+org.eclipse.swt.graphics.Image
+
+88717
+dnd scroll slow drag item bottom creat item implement dnd support explain snippet lt href http dev eclips org viewcv index cgi org eclips swt snippet src org eclips swt snippet snippet91 java rev head amp amp content type text vnd viewcv markup gt http dev eclips org viewcv index cgi org eclips swt snippet src org eclips swt snippet snippet91 java rev head amp amp content type text vnd viewcv markup lt gt expand item vertic scrollbar appear draggin item bottom tree scroll current drag item posit view thought enabl automat scroll user drag item bottom nt work open bookmark manag firefox expand item scrollbar show drag bookmark bottom scroll ben 
+0
+
+92612
+hidden tab count chevron 0420 integr build show vi drag eclips view on view slot amp gt assum isn room show tab chevron shown number repres number hidden tab slowli make view more narrow make more narrow number tab fit shrink number chevron grow ll reach point number equal number tab 
+1
+org.eclipse.swt.custom.CTabFolder
+
+92181
+bogu tab size run code head 20050421 java perspect drag problem view right java doc view result tab size wrong 
+1
+org.eclipse.swt.custom.CTabFolder
+
+91159
+consist field alwi set window field set first valu arrai carbon gtk motif field 
+1
+org.eclipse.swt.dnd.DropTarget
+
+79268
+api work gnome libgnomevf warn i200411170800 gtk trigger get follow stderr output amp lt unknown amp gt 27693 libgnomevf warn deprec function user modif mime databas longer support develop workbench output read gecko 11501 libgnomevf warn deprec function user modif mime databas longer support suspect mozilla gecko librari punt swt here bug 
+1
+org.eclipse.swt.program.Program
+
+94467
+layout lai give bogu size i20050510 0010 us ctrl shift bring up editor list list appear empti column set zero size 
+3
+org.eclipse.swt.widgets.ScrollBar
+org.eclipse.swt.widgets.Scrollable
+org.eclipse.swt.widgets.Table
+
+94598
+dbcs3 eclips hang activ iimf input search scope help os amp lt rhel amp gt languag amp lt tradit chines amp gt build level amp lt eclips sdk m6 i20050506 1600 amp gt jdk version amp lt ibm jdk sp1a amp gt test amp lt search scope nl name help amp gt summari dbcs3 eclips hang activ iimf input search scope help step recreat problem instal eclips sdk nl pack click amp quot help amp quot from menu amp gt select amp quot help content amp quot amp gt click amp quot search scope amp quot search scope dialog pop up select amp quot search topic amp quot click amp quot amp quot search list dialog pop up activ iimf input method amp quot ctrl space amp quot kei order input dbc charact eclips hang respons from eclips error eclips hang chang input method expect result iimf input work properli input kei dbc charact 
+2
+org.eclipse.swt.browser.Browser
+org.eclipse.swt.widgets.Composite
+
+93724
+drag drop creat signal name time here exampl code drag sourc java gtk convert name signal time signal name defin os java creat 
+2
+org.eclipse.swt.dnd.DragSource
+org.eclipse.swt.dnd.DropTarget
+
+97651
+tree insert mark chees rc1 run snippet insert line set amp quot root amp quot item collaps root item amp gt problem make most insert line awai pointi end line awai belong amp quot root amp quot item amp quot child amp quot item awai end tip left press button right note insert line reappear guess meant awai amp gt problem expand root item insert mark get copi child item addit initi locat chees damag part line window 
+2
+org.eclipse.swt.dnd.TreeDragUnderEffect
+org.eclipse.swt.widgets.Tree
+
+97678
+sash form lose sash item right eclips rc1 custom control exampl drag sash item right right stop 20 pixel from end let drag sash right end longer drag sash back 
+1
+org.eclipse.swt.custom.SashForm
+
+97745
+column header stai press mous button releas rc1 window xp open task view click amp quot resourc amp quot column releas sort tabl note column header inset press down restor normal releas press down amp quot locat amp quot column drag mous view befor releas mous button problem amp quot locat amp quot column keep amp quot depress amp quot column click mislead on think tabl sort wrong column swt face 
+2
+org.eclipse.swt.widgets.Table
+org.eclipse.swt.widgets.TableColumn
+
+97177
+misc chines im statu lost open chines im eclips text editor window back eclips chines im close open 
+1
+org.eclipse.swt.widgets.Shell
+
+99376
+ha width second column miss 31 rc2 window amp gt show view amp gt select pde runtim plug registri open view right tree ha two problem amp gt column ha width width increas drag separ amp gt column non exist 
+1
+org.eclipse.swt.custom.SashFormLayout
+
+100040
+slowdown rc1 n20050602 chang build n20050602 ui perform test slower rc1 n20050602 window run on open close window test n20050602 n20050602 rc1 swt here number win2k n20050602 elaps process 844 ms elaps process 828 ms elaps process 854 ms averag 842 n20050602 swt from rc1 i20050527 1300 elaps process 751 ms elaps process 757 ms elaps process 731 ms averag 746 ms increas 96 746 13 slower ve includ time debug perspect perspect show chang correl numer icon menu toolbar debug perspect ha most icon suspici chang specifi ll unwind singl chang make differ 
+8
+org.eclipse.swt.widgets.Button
+org.eclipse.swt.widgets.Display
+org.eclipse.swt.widgets.ImageList
+org.eclipse.swt.widgets.Menu
+org.eclipse.swt.widgets.TabFolder
+org.eclipse.swt.widgets.Table
+org.eclipse.swt.widgets.ToolItem
+org.eclipse.swt.widgets.Tree
+
+78634
+incorrect javadoc implement wrong implement appear fulli opaqu mask imag ha transpar javadoc infer return amp lt code amp gt imag data amp lt code amp gt specifi transpar mask inform receiv receiv ha transpar icon amp 64 transpar mask exist implement differ note transpar mask base valu 127 threshold 
+0
+
+94603
+window standard on swt put button text box inset border standard window control differ button insid inset border 
+1
+org.eclipse.swt.widgets.Spinner
+
+96916
+doesn work tooltip appear spinner widget after 
+2
+org.eclipse.swt.widgets.Control
+org.eclipse.swt.widgets.Shell
+
+102794
+ha chang behaviour run follow problem show differ behaviour basic window appear ha label 80 pixel wide textbox 400 pixel wide label 400 pixel wide text box 2000 pixel wide appear combin text box span column us turn help mean real app from end up untidi doesn help comment line help form end up wider effect achiev label column wide text box column wide row get two label text box scroll composit need real app form abil scroll 
+1
+org.eclipse.swt.layout.GridLayout
+
+100387
+creat dispos shell current follow creat temporari shell tooltip set show dispos shell tooltip tab us view eclips hover tab shell creat dispos event 
+1
+org.eclipse.swt.custom.CTabFolder
+
+104966
+displai enabl call after ve run xp manifest creat swt drop link composit set enabl properti link disabl note link disabl preview close editor open editor observ link show enabl run applic link show enabl disabl chang order initi enabl statu set after text set displai correctli swt bug 
+1
+org.eclipse.swt.widgets.Link
+
+90258
+item updat item count i20050401 m6 work fine set item count receiv notif reproduc modifi version snippet151 work expect idea wrong on funni thing variabl view debugg displai updat content after call verifi data set displai fail updat code 
+1
+org.eclipse.swt.widgets.Table
+
+107145
+javadoc refer method javadoc refer method remov put comment remov follow build error caus problem warn tag amp 64 find warn tag amp 64 find warn tag amp 64 find 
+0
+
+92013
+dcr style orient vertic drag handl render vertic line vertic dot want us intro launch bar get os specif handl render abl posit vertic left right window trim area orient handl render horizont horizont line dot 
+2
+org.eclipse.swt.widgets.CoolBar
+org.eclipse.swt.widgets.CoolItem
+
+96053
+press button focu spinner select text swt win32 v3135 m7 standard behaviour window spinner widget set focu text control select text user click up down button right happen note get free implement suggest window standard on gt bug 94603 comment lt gt lt span gt 
+1
+org.eclipse.swt.widgets.Spinner
+
+105772
+strang background color label text search page i20050726 1222 swt ha enabl support correct background color tab bock on label insid search page ha strang background color 
+1
+org.eclipse.swt.custom.CLabel
+
+84609
+ha npe call last column follow code tabl ha column refresh tabl data third call get caught npe debugg line 356 354 return arrai element on more exist tabl last element win xp eclips version build id i20050202 0800 jdk 
+2
+org.eclipse.swt.widgets.Table
+org.eclipse.swt.widgets.TableColumn
+
+99266
+viewer bogu empti row begin tabl rc1 reproduc issu run attach code tabl get displai blank line 
+2
+org.eclipse.swt.widgets.Table
+org.eclipse.swt.widgets.TableColumn
+
+113971
+test failur n20051027 0010 amp quot amp quot test failur mac os last night failur code on npe ha fix follow 
+2
+org.eclipse.swt.widgets.Tree
+org.eclipse.swt.widgets.TreeItem
+
+112358
+creat base exist color creat color from exist color vari hue satur bright 
+0
+
+82277
+xp theme coolbar gradient background gradient background coolbar combin win xp visula theme amp quot offic 2003 amp quot toolbar lt href http www eclips org newsport articl php id 16763 amp amp group eclips platform swt gt http www eclips org newsport articl php id 16763 amp amp group eclips platform swt lt gt 
+1
+org.eclipse.swt.widgets.CoolBar
+
+92341
+dcr add style widget add possibl lazi load first tree level tabl widget 
+4
+org.eclipse.swt.widgets.Tree
+org.eclipse.swt.widgets.TreeColumn
+org.eclipse.swt.widgets.TreeItem
+org.eclipse.swt.widgets.TreeItem.org.eclipse.swt.widgets.TreeItem
+
+117574
+don get build i20051122 0800 us gc clip paint exampl doesn draw note machin win xp bidi enabl 
+1
+org.eclipse.swt.widgets.Composite
+
+93380
+dnd 100 cpu usag drag file navig explor version build id i20050419 1200 drag drop file insid explor navig view cpu 100 50 hyperthread enabl cpu usag doesn 50 guess process time spent event thread window doesn let cpu event thread 50 number massiv us cpu drag extern file navig drag file navig drag view editor get thread dump tonight tomorrow 
+1
+org.eclipse.swt.dnd.DragSource
+
+103976
+widget provid method picki order set valu set individu pain get right nice method 
+0
+
+106289
+blurri text second column run sampl column snippet snippet170 get blurri text column after select item antialias ha appli time 
+1
+org.eclipse.swt.widgets.Tree
+
+104150
+patch cursor separ from tabl select click grid line empti space swt win32 v3138 tabl cursor two kind tabl region potenti separ tabl cursor from tabl select click grid line empti space left first cell row expect behaviour matter part tabl user click tabl cursor follow tabl select close select chang result click reproduc problem us snippet 96 ad 
+1
+org.eclipse.swt.custom.TableCursor
+
+81264
+fail after item ad tabl work tabl viewer keep track scroll bar load content tabl dynam user scroll end tabl item ad remov from tabl user scroll maintain posit tabl call end updat creat small testcas simul process here testcas demonstr problem fail posit correct tabl item item ad tabl after shell open first call succe tabl correctli posit item 20 after ad tabl item tabl call ha effect call continu 20 expect result call move tabl item 40 tabl call after 40 last item ad befor shell open 40 succe testcas work expect window 
+3
+org.eclipse.swt.widgets.List
+org.eclipse.swt.widgets.Table
+org.eclipse.swt.widgets.Tree
+
+99145
+widget disabl link text 20050609 0010 disabl link wiget mix text link content amp quot us amp lt amp gt xy page amp lt amp gt configur amp quot link disabl text screenshot 
+1
+org.eclipse.swt.widgets.Link
+
+101354
+javadoc lt span bz close gt lt href show bug cgi id 68867 titl resolv fix remov depend gt bug 68867 lt gt lt span gt detail 
+0
+
+108769
+addit clarif javadoc conveni method recent work issu code attach patch add addit inform javadoc explain detail glean from read sourc wasn clear from exist javadoc patch add method set filter name extens more conveni us creat patch gtk version swt adapt version note amp quot adapt amp quot mean line number adjust code platform specif 
+1
+org.eclipse.swt.widgets.FileDialog
+
+85072
+eclips work set aggress trim window problem affect nt base window variant includ win2k xp window nt kernel ha known problem minim applic window trim work set process describ follow microsoft knowledgebas entri solut applic affect problem java gui applic mozilla suit sensit mozilla base app includ hidden configur option enabl solut mention bring back minim applic os start swap page back physic memori amp quot trash amp quot disk make applic complet unrespons wait up minut observ larg 300 350 mb work set aforement solut prevent os from immedi swap applic swap applic prioriti focus applic fix ha signific neg effect run patch offer swt dev mail list time ago record accept lt href http dev eclips org mhonarc list platform swt dev msg03710 html gt http dev eclips org mhonarc list platform swt dev msg03710 html lt gt refer lt href http www javagam org cgi bin jg net forum ya bb cgi board tune action displai num 1090286158 gt http www javagam org cgi bin jg net forum ya bb cgi board tune action displai num 1090286158 lt gt lt href http bugzilla mozilla org show bug cgi id 76831 gt http bugzilla mozilla org show bug cgi id 76831 lt gt lt href http www eclipsepow org archiv 2004 11 18 best jvm set eclips gt http www eclipsepow org archiv 2004 11 18 best jvm set eclips lt gt 
+1
+org.eclipse.swt.widgets.Shell
+
+102756
+us attach screenshot fedora core gnome gtk 14 goodcombo png gtk open file eclips team prefer page eclips render read properli render combo confus impli edit valu doesn match combo applic render widget match gtk platform 
+1
+org.eclipse.swt.widgets.Combo
+
+81834
+bidi convert european number arab number convert european number en arab number win xp reproduc chang user languag arab amp quot region languag option amp quot panel window specifi amp quot nl amp quot command line argument creat shell flag add shell set text amp quot 012345 abc 012345 amp quot widget open run shell result number european number charact widget text widget displai first amp quot 012345 amp quot arab number reproduc swt i20041221 0800 win32 eclipse3 ga hiro 
+1
+org.eclipse.swt.graphics.TextLayout
+
+106372
+provid dnd support widget r3 order add dnd text edit support editor lt span bz close gt lt href show bug cgi id 11624 titl resolv fix dnd navig text drag drop gt bug 11624 lt gt lt span gt basic support on platform text plan item great earli feedback expect area 
+3
+org.eclipse.swt.custom.StyledText
+org.eclipse.swt.dnd.DragSource
+org.eclipse.swt.dnd.DragSourceEvent
+
+115947
+access set text imag column section 508 compliant imag alt text tooltip associ imag tabl set tooltip 
+1
+org.eclipse.swt.widgets.Display
+
+84911
+unspecifi method spec method intend platform implement specif feel state find detail file attach broadli speak function method an ha specifi total implement depend function guidelin 
+2
+org.eclipse.swt.widgets.DirectoryDialog
+org.eclipse.swt.widgets.FileDialog
+
+84906
+found typo broken link file attach 
+1
+org.eclipse.swt.graphics.Device
+
+14654
+type singl line select tripl click common conveni behavior text editor id miss nice switch keyboard amp quot shift arrow down amp quot lot more effort achiev effect 
+1
+org.eclipse.swt.custom.StyledText
+
+82500
+us natur widget us get widget draw area limit photon draw surfac widget canva tab control surfac us determin draw area overwrit tab attach patch fix 
+0
+
+92241
+fill clipboard select chang stream lt span bz close gt lt href show bug cgi id 92209 titl resolv fix implement scroll perform degrad size select gt bug 92209 lt gt lt span gt fill clipboard current select select chang hurt on test select big editor area chang select arrow kei hold shift select larg area mous note window gtk imo copi entir document content select chang expens avoid 
+1
+org.eclipse.swt.custom.StyledText
+
+108591
+swt support input method mac os user turn japanes input method type japanes charact swt float input window show up im window show up swt widget widget displai im widget chines korean input method 
+5
+org.eclipse.swt.custom.StyledText
+org.eclipse.swt.custom.StyledTextRenderer
+org.eclipse.swt.graphics.TextLayout
+org.eclipse.swt.widgets.Canvas
+org.eclipse.swt.widgets.Caret
+
+108813
+line take forev liter forev user amp quot end process amp quot start lt span bz close gt lt href show bug cgi id 108806 titl close fix line xml file appear hang eclips gt bug 108806 lt gt lt span gt most recent on open wtp befor extrem exampl open bug determin improv made swt level ve mark major lt span bz close gt lt href show bug cgi id 108806 titl close fix line xml file appear hang eclips gt bug 108806 lt gt lt span gt mark major user client describ lt span bz close gt lt href show bug cgi id 108806 titl close fix line xml file appear hang eclips gt bug 108806 lt gt lt span gt ve notic 500k charact line produc 100k amp quot style amp quot pass back on thing notic exampl loop style eventu call code creat arrai grow arrai on item time end up 100k grow arrai amp quot on on amp quot test wai anticip size arrai avoid arrai copi first question even request provid amp quot amp quot line visibl cut made second question amp quot amp quot method made more effici least allow user limp problem encount type third question advic proce 
+1
+org.eclipse.swt.graphics.TextLayout
+
+78856
+clipboard swt ha support imag copi clipboard support jdk access swt clipboard eclips plug in pass swt util awt clipboard order support copi past extern applic swt support addition good delai render capabl imag isn request user past word allow interim format svg store bitmap render requir save expens memori requir bitmap 
+0
+
+100095
+dnd make read comment veronika intention fulli implement platform nt make provid fake implement platform implement exampl activ implement os widget sad loos exist function window reason ask transfer allow easili read url dnd from internet explor even firefox support dnd from ben 
+1
+org.eclipse.swt.dnd.URLTransfer
+
+111259
+dnd insert mark awai gtk logic exampl gtk click drop part outlin view insert mark awai exit viewer problem even don drop part outlin 
+2
+org.eclipse.swt.widgets.Tree
+org.eclipse.swt.dnd.TableDropTargetEffect
+
+91317
+support neg valu version build id i20050413 0910 allow negavt valu 
+1
+org.eclipse.swt.widgets.Spinner
+
+87460
+caret locat updat line style us swt win32 v3124 snippet line style listen line style listen bold font style set chang width render text expect screen caret locat offset adjust chang happen ital style right bug 
+1
+org.eclipse.swt.custom.StyledText
+
+92757
+add caret listen 
+2
+org.eclipse.swt.custom.StyledText
+org.eclipse.swt.custom.StyledTextListener
+
+83408
+support link allow hyperlink specifi link activ cursor chang underlin colour chang mous link user tab link link travers tab event link select link activ statu bar show detail info link user hover link support tooltip abl specifi link underlin activ 
+4
+org.eclipse.swt.custom.StyledText
+org.eclipse.swt.custom.StyledTextRenderer
+org.eclipse.swt.graphics.TextLayout
+org.eclipse.swt.graphics.TextStyle
+
+108236
+allow r3 build id i20050627 1435 follow ha effect maximum ignor keep 100 follow code likewis ha restrict rang singl valu scenario work exampl app let choos number peopl bui activ part adventur max head count 
+1
+org.eclipse.swt.widgets.Spinner
+
+104545
+make size empti composit smaller follow two constant chang smaller width widget equal 16 work run test face ui rcp run fine constant background write rcp app enabl cool bar cool bar initi empti 64 x64 pixel size window border empti coolbar user get big empti space window confus lt span bz close gt lt href show bug cgi id 70049 titl resolv invalid height gigant gt bug 70049 lt gt lt span gt problem occur rcp applic start open perspect cool bar item 
+1
+org.eclipse.swt.widgets.CoolBar
+
+95410
+gdi consist gdi structur render gc abl predict thing larg string paint previou visitor ha trigger gdi behavior alter char get expand compress funni wai gener bad 
+2
+org.eclipse.swt.graphics.GC
+org.eclipse.swt.graphics.TextLayout
+
+103863
+support encapsul swt layout mechan current swt layout work event occur app method updat set widget method notifi wigdet layout chang call prevent write black box object updat set wigdet depend wigdet us creat sever maintnanc problem eclips ui code modifi widget piec code call widget method object trigger layout trigger layout defer undef layout issu creat larg complic updat method issu mean spaghetti code specif layout reus even minor layout chang requir sever refactor issu imposs get right world trigger listen even layout happen after last listen ha done thing control return event loop amp quot last chang widget befor control return event loop amp quot work heurist batch updat make individu updat method respons widget current heurist work code extrem complic brittl pr request follow provid flag widget amp quot chang amp quot depend layout notifi trigger control return event loop client code respons call provid amp quot prefer size chang amp quot listen widget posit manag parent aka proxi control provid layout chang child affect prefer size need swt correctli comput effect amp quot chang amp quot event flag amp quot blocker amp quot amp quot enhanc amp quot enhanc block work eclips layout flag major compromis 
+2
+org.eclipse.swt.widgets.Composite
+org.eclipse.swt.widgets.Display
+
+119192
+mous problem listen fire respond listen respond control throught get text button 
+1
+org.eclipse.swt.custom.CCombo
+
+108792
+horizont caret posit lost i20050830 0800 enabl mark occur disabl sticki occur follow cu place caret press arrow down wait occur updat press arrow up amp gt caret posit 
+1
+org.eclipse.swt.custom.StyledText
+

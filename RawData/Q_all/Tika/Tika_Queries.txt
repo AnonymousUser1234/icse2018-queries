@@ -1,0 +1,143 @@
+TIKA-1126
+text html procud tika server tika resourc handler tika server produc text plain patch add support produc text html 
+2
+tika-server.src.test.java.org.apache.tika.server.TikaResourceTest.TikaResourceTest
+tika-server.src.main.java.org.apache.tika.server.TikaResource.TikaResource
+
+TIKA-1090
+improv java document apach tika metadata describ user here happi javadoc metadata replac legaci tika metadata vocabulari thought import provid document patch make more clear dev user wish build tika metadata function simpl patch substanti java document metadata explain tika api ha chang addit method us introduc feed java metadata remov unnecessari unrequir introduc consist field expect rome rss atom feed parser librari obtain feed legaci from apach nutch metadata work patch todai submit here cours http www mail archiv com user 40 tika apach org msg01156 html 
+0
+
+TIKA-1083
+add link uti valu tika metadata xml tika 1012 ad tika link tika uti patch fill valu 
+1
+tika-core.src.test.java.org.apache.tika.mime.MimeTypesReaderTest.MimeTypesReaderTest
+
+TIKA-1074
+extract except hit visit embed document spinoff from tika 1072 issu problemat document document corrupt poi bug caus except visit embed document chang tika suppress except rest document extract fine more robust here log except save record except after pars app decid 
+4
+tika-app.src.main.java.org.apache.tika.cli.TikaCLI.TikaCLI
+tika-parsers.src.test.java.org.apache.tika.parser.microsoft.WordParserTest.WordParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.AbstractPOIFSExtractor.AbstractPOIFSExtractor
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.SummaryExtractor.SummaryExtractor
+
+TIKA-1053
+upgrad tika parser us right tika us caus issu wiki project bundl framework us more recent version us pegdown us parboil draw problem compat http jira xwiki org brows xe 1269 more detail issu face upgrad 
+1
+tika-parsers.src.main.java.org.apache.tika.parser.asm.XHTMLClassVisitor.XHTMLClassVisitor
+
+TIKA-1047
+provid jax rs detect mediatyp current us jax rs server detect mediatyp meta endpoint problem send entir document get metadata detect mediatyp byte necessari send 8k server let mediatyp order accomplish good modifi meta endpoint address individu field return meta mediatyp meta author meta last modifi part current follow path turn queri paramet more appropri easier manipul tool jqueri suffici data avail bad request interest tika possibl implement 
+6
+src.main.java.org.apache.tika.server.JSONMessageBodyWriter.JSONMessageBodyWriter
+tika-server.src.main.java.org.apache.tika.server.TikaServerCli.TikaServerCli.TikaServerCli
+src.test.java.org.apache.tika.server.MetadataEPTest.MetadataEPTest
+src.main.java.org.apache.tika.server.CSVMessageBodyWriter.CSVMessageBodyWriter
+tika-server.src.main.java.org.apache.tika.server.TikaResource.TikaResource
+src.main.java.org.apache.tika.server.MetadataEP.MetadataEP
+
+TIKA-1014
+allow custom mime type reader current mime type reader field great allow subclass reader support custom behavior error handl custom xml tag 
+2
+tika-core.src.test.java.org.apache.tika.mime.CustomReaderTest.CustomReaderTest
+tika-core.src.main.java.org.apache.tika.mime.MimeTypesReader.MimeTypesReader
+
+TIKA-992
+open graph meta tag allow multipl valu html handler us metadata add open graph properti html handler add html metadata method us metadata set og properti multivalu metadata set method overwrit previou entri doesn us metadata append valu 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.html.HtmlHandler.HtmlHandler
+
+TIKA-1211
+open document odf parser produc multipl start document event relat solr 4809 solr receiv multipl start document event pars open document file parser prevent multipl end document multipl start document bug introduc ad pars content xml meta xml tika 736 feed element xhtml output get multipl start end document 
+1
+tika-core.src.main.java.org.apache.tika.sax.XHTMLContentHandler.XHTMLContentHandler
+
+TIKA-1210
+address tika parser mime test mime type todo test flash file afaic todo relat absenc suitabl swf swf file us type data string st string st method nutch current run test avail swf file us tika http svn apach org repo asf nutch branch src plugin pars swf sampl 
+1
+tika-parsers.src.test.java.org.apache.tika.mime.TestMimeTypes.TestMimeTypes
+
+TIKA-1202
+refactor pdf parser enabl easier paramet set handi abl set pdf parser paramet extract annot text config file pars context 
+5
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParserConfig.PDFParserConfig
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser
+tika-parsers.src.test.java.org.apache.tika.TikaTest.TikaTest
+
+TIKA-1201
+add possibl switch pdfbox non sequenti pdf parser discuss improv pdf extract 45 non sequenti pdf parser fit more pdf specif parser integr pdfbox ref http issu apach org jira brows pdfbox 1104 http pdfbox apach org idea html provid extend parser paramet current pdf parser call pd document load non seq file scratch file 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser
+
+TIKA-1193
+allow access html parser html schema tag soup html schema suit html5 capabl correctli handl strang quirk tabl insid anchor allow access schema applic modifi schema suit fly mean don reli tika 985 get commit chang from applic 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.html.HtmlParser.HtmlParser
+
+TIKA-1192
+arrai index bound except pars rtf pars rtf file get follow except abl attach file privaci reason java lang arrai index bound except text extractor java 872 org apach tika parser rtf text extractor process control word text extractor java 566 org apach tika parser rtf text extractor pars control word text extractor java 492 org apach tika parser rtf text extractor pars control token text extractor java 459 org apach tika parser rtf text extractor extract text extractor java 448 org apach tika parser rtf text extractor extract rtf parser java 56 org apach tika parser rtf rtf parser pars unknown sourc sun reflect method accessor impl invoke0 method accessor impl java 57 sun reflect method accessor impl invok deleg method accessor impl java 43 sun reflect deleg method accessor impl invok method java 606 java lang reflect method invok reflector java 93 clojur lang reflector invok match method reflector java 28 clojur lang reflector invok instanc method tika parser clj 20 rtf parser tika parser pars form init2921349737948661927 clj rtf parser tika parser eval4200 compil java 6619 clojur lang compil eval compil java 6582 clojur lang compil eval core clj 2852 clojur core eval main clj 259 clojur main repl fn main clj 259 clojur main repl fn main clj 277 clojur main repl fn main clj 277 clojur main repl rest fn java 1096 clojur lang rest fn invok interrupt eval clj 56 clojur tool nrepl middlewar interrupt eval evalu fn afn java 159 clojur lang afn appli helper afn java 151 clojur lang afn appli core clj 617 clojur core appli core clj 1788 clojur core bind rest fn java 425 clojur lang rest fn invok interrupt eval clj 41 clojur tool nrepl middlewar interrupt eval evalu interrupt eval clj 171 clojur tool nrepl middlewar interrupt eval interrupt eval fn core clj 2330 clojur core comp fn interrupt eval clj 138 clojur tool nrepl middlewar interrupt eval run next fn afn java 24 clojur lang afn run thread pool executor java 1145 java util concurr thread pool executor run worker thread pool executor java 615 java util concurr thread pool executor worker run thread java 724 java lang thread run 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.rtf.RTFParserTest.RTFParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.rtf.TextExtractor.TextExtractor
+
+TIKA-1152
+process loop infinit pars chm file pars attach chm file ms microsoft help file java process stuck thread main main org apach tika parser chm lzx chm lzx block extract content chm lzx block java 203 org apach tika parser chm lzx chm lzx block init chm lzx block java 77 org apach tika parser chm core chm extractor extract chm entri chm extractor java 338 org apach tika parser chm chm document inform get content chm document inform java 72 org apach tika parser chm chm document inform get text chm document inform java 141 org apach tika parser chm chm2 xhtml process chm2 xhtml java 34 org apach tika parser chm chm parser pars chm parser java 51 org apach tika parser parser decor pars parser decor java 91 org apach tika parser composit parser pars composit parser java 242 org apach tika parser abstract parser pars abstract parser java 53 com polyspot document convert document convert realiz convers document convert java 192 
+1
+tika-parsers.src.main.java.org.apache.tika.parser.chm.lzx.ChmLzxBlock.ChmLzxBlock
+
+TIKA-1130
+docx text extract leav portion text pars microsoft word docx applic vnd openxmlformat officedocu wordprocessingml document portion text remain unextract attach docx file test grai portion text extract darker color text extract fine document xml portion docx zip file show text 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.microsoft.ooxml.OOXMLParserTest.OOXMLParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XWPFWordExtractorDecorator.XWPFWordExtractorDecorator
+
+TIKA-1124
+nest document extract pdf file chain tika abl get attach from attach pdf trunk abl get attach from pdf pdf embed document doc embed pdf extract solut found two thing help diagnosi modifi code pdf parser doesn wrap handler bodi content handler work trunk modifi bodi content handler us toi simpl bodi match content handler problem solv caus match content handler 
+3
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDF2XHTML.PDF2XHTML
+tika-parsers.src.test.java.org.apache.tika.parser.pdf.PDFParserTest.PDFParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.pdf.PDFParser.PDFParser
+
+TIKA-1110
+incorrectli declar support type chm parser link assign offici mime type file applic vnd ms htmlhelp wild two type us applic chm applic chm tika mimetyp xml us correct offici mime type chm parser declar support applic chm reason content us offici mime type come detector pars detect parser simpli declar metadata fail pars unknown mime type fix simpl chm parser declar type support type 
+3
+tika-parsers.src.main.java.org.apache.tika.parser.chm.ChmParser.ChmParser
+tika-parsers.src.main.java.org.apache.tika.parser.chm.CHM2XHTML.CHM2XHTML
+tika-parsers.src.test.java.org.apache.tika.parser.AutoDetectParserTest.AutoDetectParserTest
+
+TIKA-1109
+metadata extract befor content ooxml pptx process ooxml document metadata read after text mean imposs us medata process text more metadata popul first symptom java jar tika app jar test class test document test ppt pptx output metadata meta name content length content 36518 meta name content type content applic vnd openxmlformat officedocu presentationml present meta name resourc name content test ppt pptx more medata file dc titl attach test dc titl 
+3
+tika-parsers.src.test.java.org.apache.tika.parser.microsoft.ooxml.OOXMLParserTest.OOXMLParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.XSSFExcelExtractorDecorator.XSSFExcelExtractorDecorator
+tika-parsers.src.main.java.org.apache.tika.parser.microsoft.ooxml.OOXMLExtractorFactory.OOXMLExtractorFactory
+
+TIKA-1078
+tika cli invalid charact embed document name caus fnfe save attach document hit window java ex jar tika app jar data idit ds excel2003 ppt2003 xl extract file0 png imag png file0 png extract file1 emf applic emf file1 emf extract file2 jpg imag jpeg file2 jpg extract file3 emf applic emf file3 emf extract file4 wmf applic msmetafil file4 wmf extract mbd0016 bde4 bin applic octet stream mbd0016 bde4 bin except thread main org apach tika except tika except tika 198 illeg io except from org apach tika parser microsoft offic parser 75 f875 f8 org apach tika parser composit parser pars composit parser java 248 org apach tika parser composit parser pars composit parser java 242 org apach tika parser detect parser pars detect parser java 120 org apach tika cli tika cli output type process tika cli java 139 org apach tika cli tika cli process tika cli java 415 org apach tika cli tika cli main tika cli java 109 caus java io file found except mbd0016 bde4 bin filenam directori name volum label syntax incorrect java io file output stream init file output stream java 205 java io file output stream init file output stream java 156 org apach tika cli tika cli file embed document extractor pars embed tika cli java 722 org apach tika parser microsoft abstract poif extractor handl embed offic doc abstract poif extractor java 201 org apach tika parser microsoft excel extractor pars excel extractor java 158 org apach tika parser microsoft offic parser pars offic parser java 194 org apach tika parser microsoft offic parser pars offic parser java 161 org apach tika parser composit parser pars composit parser java 242 more tika cli manag creat sub directori embed file name ha invalid window charact fail linux run fine sanit embed file name 
+3
+tika-app.src.main.java.org.apache.tika.cli.TikaCLI.TikaCLI
+tika-core.src.test.java.org.apache.tika.io.FilenameUtilsTest.FilenameUtilsTest
+tika-core.src.main.java.org.apache.tika.io.FilenameUtils.FilenameUtils
+
+TIKA-1070
+stack overflow error org apach tika sax xml content handler element info get prefix xml content handler java 58 error occur pars big xl file caus element info store current element time element start method start element current elment newli overwritten current element element info current element namespac exist element us parent element current element reset parent element after finish element method end element method get prefix recurs travers parent caus stack flow error understand current element current element parent end element method solv issu best 
+1
+src.main.java.org.apache.tika.sax.ToXMLContentHandler.ToXMLContentHandler
+
+TIKA-961
+whitespac ad boilerpip content handler set includ markup ignor whitespac properli ad boilerpip content handler marku includ 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest
+tika-parsers.src.main.java.org.apache.tika.parser.html.BoilerpipeContentHandler.BoilerpipeContentHandler
+
+TIKA-820
+locat unset html parser html parser call set document locat locat locat user content handler patch unit test attach 
+2
+tika-parsers.src.test.java.org.apache.tika.parser.html.HtmlParserTest.HtmlParserTest
+tika-core.src.main.java.org.apache.tika.sax.TextContentHandler.TextContentHandler
+

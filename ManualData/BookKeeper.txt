@@ -1,0 +1,1071 @@
+bookkeeper-4.1.0
+BOOKKEEPER-524
+https://issues.apache.org/jira/browse/BOOKKEEPER-524
+Bookie journal filesystem gets full after SyncThread is terminated with exception The SyncThread get a NPE while the rest of the bookie is still running. This causes the journal gc to be stopped and the filesystem get full. Tue Dec 18 17:01:18 2012: Exception in thread "SyncThread" java.lang.NullPointerException Tue Dec 18 17:01:18 2012: at org.apache.bookkeeper.bookie.LedgerCacheImpl.getLedgerEntryPage(LedgerCacheImpl.java:153) Tue Dec 18 17:01:18 2012: at org.apache.bookkeeper.bookie.LedgerCacheImpl.flushLedger(LedgerCacheImpl.java:421) Tue Dec 18 17:01:18 2012: at org.apache.bookkeeper.bookie.LedgerCacheImpl.flushLedger(LedgerCacheImpl.java:363) Tue Dec 18 17:01:18 2012: at org.apache.bookkeeper.bookie.InterleavedLedgerStorage.flush(InterleavedLedgerStorage.java:148) Tue Dec 18 17:01:18 2012: at org.apache.bookkeeper.bookie.Bookie$SyncThread.run(Bookie.java:221)
+journal filesystem gets full after is terminated with exception The get a while the rest of the bookie is still running. This causes the journal to be stopped and the filesystem get full.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.run(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.getLedgerEntryPage(Long, Long, boolean), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.testSyncThreadNPE(), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-514
+https://issues.apache.org/jira/browse/BOOKKEEPER-514
+TestDeadLock hanging sometimes I've attached the logs. Looks to be something with the new channel manager. Also, the test itself is bad because its doing an assert from a callback.
+hanging sometimes I've attached the logs. Looks to be something with the new channel manager. Also, the test itself is bad because its doing an assert from a callback.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.LedgerHandle(BookKeeper, long, LedgerMetadata, DigestType, byte[]), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.getAvailablePermits(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.doAsyncAddEntry(PendingAddOp, byte[], int, int, AddCallback, Object), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingAddOp.PendingAddOp.submitCallback(int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.sendReadTo(InetSocketAddress, LedgerEntryRequest), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.readEntryComplete(int, long, long, ChannelBuffer, Object), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieThrottleTest.BookieThrottleTest.testVerifyPermitRelaseInReadFailure(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieThrottleTest.BookieThrottleTest.testVerifyPermitRelaseInAsyncReadFailure(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieThrottleTest.BookieThrottleTest.readComplete(int, LedgerHandle, Enumeration<LedgerEntry>, Object), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.testSpeculativeReadScheduling(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookieReadWriteTest.BookieReadWriteTest.getAvailablePermits(LedgerHandle), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookieReadWriteTest.BookieReadWriteTest.testReadWriteAsyncSingleClientThrottle(), false, test_method
+hedwig-server.src.test.java.org.apache.hedwig.server.persistence.TestDeadlock.TestDeadlock.deliver(ByteString, ByteString, Message, Callback<Void>, Object), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-498
+https://issues.apache.org/jira/browse/BOOKKEEPER-498
+BookieRecoveryTest.tearDown NPE Jenkins build is complaining among other things about this NPE.
+Jenkins build is complaining among other things about this.
+******
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieRecoveryTest.BookieRecoveryTest.tearDown(), true, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-495
+https://issues.apache.org/jira/browse/BOOKKEEPER-495
+Revise BK config doc There are a few missing config parameters.
+Revise BK config doc There are a few missing config parameters.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.setOpenLedgerRereplicationGracePeriod(String), false, comments
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.getOpenLedgerRereplicationGracePeriod(), false, comments
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.setReadOnlyModeEnabled(boolean), false, comments
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.isReadOnlyModeEnabled(), false, comments
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.setDiskUsageThreshold(float), false, comments
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.getDiskUsageThreshold(), false, comments
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.setDiskCheckInterval(int), false, comments
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.getDiskCheckInterval(), false, comments
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-491
+https://issues.apache.org/jira/browse/BOOKKEEPER-491
+Hedwig doc for configuration Unless I'm not looking properly into it, I can's see any doc describing the configuration parameters of hedwig-server.
+Hedwig doc for configuration Unless I'm not looking properly into it, I can's see any doc describing the configuration parameters of hedwig-server.
+******
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getReadAheadCount(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getReadAheadSizeBytes(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getMaximumCacheSize(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getScanBackoffPeriodMs(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getServerPort(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getSSLServerPort(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getZkPrefix(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getZkHost(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getZkTimeout(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getReadAheadEnabled(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.isStandalone(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getRegions(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getCertName(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getCertPath(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getPassword(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.isSSLEnabled(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getConsumeInterval(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getRetentionSecs(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.isInterRegionSSLEnabled(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getMessagesConsumedThreadRunInterval(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getRetryRemoteSubscribeThreadRunInterval(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getDefaultMessageWindowSize(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getBkEnsembleSize(), false, comments
+hedwig-server.src.main.java.org.apache.hedwig.server.common.ServerConfiguration.ServerConfiguration.getBkQuorumSize(), false, comments
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-472
+https://issues.apache.org/jira/browse/BOOKKEEPER-472
+Provide an option to start Autorecovery along with Bookie Servers We can also have an option to start the Autorecovery along with Bookie servers. If some users are not having too much load on the servers, they can even start them along the Bookie servers. If they feel, Auditor would disturb Bookie performance, they can anyway start as separate process. In another case, deployment overhead will reduce a bit as Monitoring process need not monitor one more process in their lifcycles etc. Thoughts?
+Provide an option to start Autorecovery along with Bookie Servers We can also have an option to start the Autorecovery along with Bookie servers. If some users are not having too much load on the servers, they can even start them along the Bookie servers. If they feel, would disturb performance, they can anyway start as separate process. In another case, deployment overhead will reduce a bit as Monitoring process need not monitor one more process in their lifcycles etc. Thoughts?
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.setAutoRecoveryDaemonEnabled(boolean), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.isAutoRecoveryDaemonEnabled(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.BookieServer(ServerConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.BookieServer.start(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.shutdown(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.isAutoRecoveryRunning(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.run(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.parseArgs(String[]), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AutoRecoveryMain.AutoRecoveryMain.start(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AutoRecoveryMain.AutoRecoveryMain.shutdown(int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AutoRecoveryMain.AutoRecoveryMain.isAutoRecoveryRunning(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.LocalBookKeeper.LocalBookKeeper.runBookies(ServerConfiguration), false, method_signature
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.LocalBookKeeper.LocalBookKeeper.main(String[]), false, method_signature
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.ReplicationTestUtil.ReplicationTestUtil.isLedgerInUnderReplication(ZooKeeper, long, String), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestAutoRecoveryAlongWithBookieServers.TestAutoRecoveryAlongWithBookieServers.TestAutoRecoveryAlongWithBookieServers(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestAutoRecoveryAlongWithBookieServers.TestAutoRecoveryAlongWithBookieServers.testAutoRecoveryAlongWithBookieServers(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldReplicateFragmentsToTargetBookie(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldRetryUntilThereAreEnoughBksAvailableForReplication(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.test2RWsShouldCompeteForReplicationOf2FragmentsAndCompleteReplication(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldCleanTheLedgerFromUnderReplicationIfLedgerAlreadyDeleted(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testMultipleLedgerReplicationWithReplicationWorker(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldReplicateTheLedgersAfterTimeoutIfLastFragmentIsUR(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldReplicateTheLedgersAfterTimeoutIfLastFragmentIsNotUR(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.isLedgerInUnderReplication(long, String), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.restartBookies(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.restartBookies(ServerConfiguration), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.startNewBookie(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.startBookie(ServerConfiguration), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.startBookie(ServerConfiguration, Bookie), false, test_method
+hedwig-server.src.test.java.org.apache.hedwig.server.persistence.BookKeeperTestBase.BookKeeperTestBase.TestBookieServer(ServerConfiguration), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-465
+https://issues.apache.org/jira/browse/BOOKKEEPER-465
+CreateNewLog may overwrite lastLogId with smaller value In createNewLog(), only one directory is searched to check for duplicate log id. Then the id is used to overwrite lastLogId. It looks like regression from BOOKKEEPER-345. // It would better not to overwrite existing entry log files File newLogFile = null; do { String logFileName = Long.toHexString(++logId) + ".log"; File dir = ledgerDirsManager.pickRandomWritableDir(); newLogFile = new File(dir, logFileName); currentDir = dir; if (newLogFile.exists()) { LOG.warn("Found existed entry log " + newLogFile + " when trying to create it as a new log."); newLogFile = null; continue; } } while (newLogFile == null);
+may overwrite with smaller value In, only one directory is searched to check for duplicate log id. Then the id is used to overwrite. It looks like regression from BOOKKEEPER-345.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.createNewLog(), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.CreateNewLogTest.CreateNewLogTest.setUp(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.CreateNewLogTest.CreateNewLogTest.tearDown(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.CreateNewLogTest.CreateNewLogTest.deleteRecursive(File), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.CreateNewLogTest.CreateNewLogTest.testCreateNewLog(), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-447
+https://issues.apache.org/jira/browse/BOOKKEEPER-447
+Bookie can fail to recover if index pages flushed before ledger flush acknowledged Bookie index page steal (LedgerCacheImpl::grabCleanPage) can cause index file to reflect unacknowledged entries (due to flushLedger). Suppose ledger and entry fail to flush due to Bookkeeper server crash, it will cause ledger recovery not able to use the bookie afterward, due to InterleavedStorageLedger::getEntry throws IOException. If the ackSet bookies all experience this problem (DC environment), the ledger will not be able to recover. The problem here essentially a violation of WAL. One reasonable fix is to track ledger flush progress (either per-ledger entry, or per-topic message). Do not flush index pages which tracks entries whose ledger (log) has not been flushed.
+can fail to recover if index pages flushed before ledger flush acknowledged Bookie index page steal can cause index file to reflect unacknowledged entries (due to). Suppose ledger and entry fail to flush due to Bookkeeper server crash, it will cause ledger recovery not able to use the afterward, bookie due to throws. If the bookies all experience this problem (DC environment), the ledger will not be able to recover. The problem here essentially a violation of WAL. One reasonable fix is to track ledger flush progress (either per-ledger entry, or per-topic message). Do not flush index pages which tracks entries whose ledger (log) has not been flushed.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.NoEntryException(long, long), false, refactoring
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.readEntry(long, long, long), false, refactoring
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.tearDown(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.newLedgerCache(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.testIndexPageEvictionWriteOrder(), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-436
+https://issues.apache.org/jira/browse/BOOKKEEPER-436
+Journal#rollLog may leak file handler Just seen the peice of code in Jouranl#rollLog try { FileOutputStream fos = new FileOutputStream(file); fos.write(buff); fos.getChannel().force(true); fos.close(); } catch (IOException e) { LOG.error("Problems writing to " + file, e); } On exception It is just logging and continuing. Even though FileOutputStream provides finalize implementation and which will clean streams, I don't think it's a good idea to depend on it as it will not be garanteed. cleaning with more care would avoid this.
+may leak file handler Just seen the peice of code in On exception It is just logging and continuing. Even though provides finalize implementation and which will clean streams, I don't think it's a good idea to depend on it as it will not be garanteed. cleaning with more care would avoid this.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Journal.Journal.rollLog(), true
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-424
+https://issues.apache.org/jira/browse/BOOKKEEPER-424
+Bookie start is failing intermittently when zkclient connection delays I'm seeing the following intermittent failure, when there is a delay in establishing zkclient connection with zkserver. org.apache.bookkeeper.bookie.BookieException$InvalidCookieException: org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /ledgers/INSTANCEID at org.apache.bookkeeper.bookie.Bookie.checkEnvironment(Bookie.java:329) at org.apache.bookkeeper.bookie.Bookie.<init>(Bookie.java:378) at org.apache.bookkeeper.bookie.BookieInitializationTest.testStartBookieWithoutZKServer(BookieInitializationTest.java:253) at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) at java.lang.reflect.Method.invoke(Unknown Source) at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44) at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15) at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41) at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20) at org.junit.internal.runners.statements.FailOnTimeout$1.run(FailOnTimeout.java:28) Caused by: org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /ledgers/INSTANCEID at org.apache.zookeeper.KeeperException.create(KeeperException.java:99) at org.apache.zookeeper.KeeperException.create(KeeperException.java:51) at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1131) at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1160) at org.apache.bookkeeper.bookie.Bookie.getInstanceId(Bookie.java:346) at org.apache.bookkeeper.bookie.Bookie.checkEnvironment(Bookie.java:280)
+is failing intermittently when zkclient connection delays I'm seeing the following intermittent failure, when there is a delay in establishing zkclient connection with zkserver.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.start(), false, refactoring
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.instantiateZookeeperClient(ServerConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.newZookeeper(String, int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeper.BookKeeper.BookKeeper(ClientConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.format(ClientConfiguration, boolean, boolean), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.BookKeeperAdmin(ClientConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AutoRecoveryMain.AutoRecoveryMain.AutoRecoveryMain(ServerConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.ZkUtils.ZkUtils.createConnectedZookeeperClient(String, int), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieInitializationTest.BookieInitializationTest.testStartBookieWithoutZKServer(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestLedgerUnderreplicationManager.TestLedgerUnderreplicationManager.setupZooKeeper(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.test2RWsShouldCompeteForReplicationOf2FragmentsAndCompleteReplication(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.ZooKeeperUtil.ZooKeeperUtil.startServer(), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-409
+https://issues.apache.org/jira/browse/BOOKKEEPER-409
+Integration Test - Perform bookie rereplication cycle by Auditor-RW processes The idea is to perform integration testing of entire re-replication module : Auditor-RW processes
+Integration Test - Perform bookie rereplication cycle by -RW processes The idea is to perform integration testing of entire re-replication module : -RW processes
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.shutdown(), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.BookieAutoRecoveryTest(String), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.setUp(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.tearDown(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.testOpenLedgers(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.testClosedLedgers(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.testStopWhileReplicationInProgress(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.testNoSuchLedgerExists(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.getReplicaIndexInLedger(LedgerHandle, InetSocketAddress), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.verifyLedgerEnsembleMetadataAfterReplication(BookieServer, LedgerHandle, int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.closeLedgers(List<LedgerHandle>), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.createLedgersAndAddEntries(int, int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.getUrLedgerZNode(LedgerHandle), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieAutoRecoveryTest.BookieAutoRecoveryTest.watchUrLedgerNode(String, CountDownLatch), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.startBKCluster(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.stopBKCluster(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.killBookie(InetSocketAddress), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.ServerConfiguration(int), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.restartBookies(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.restartBookies(ServerConfiguration), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.startNewBookie(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.startBookie(ServerConfiguration), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.startBookie(ServerConfiguration, Bookie), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-396
+https://issues.apache.org/jira/browse/BOOKKEEPER-396
+Compilation issue in TestClient.java of BenchMark ( showing this in eclipse) import java.util.concurrent.Future;; showing here. Simply we can remove one ';'
+Compilation issue in of BenchMark ( showing this in eclipse) showing here. Simply we can remove one ';'
+******
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-387
+https://issues.apache.org/jira/browse/BOOKKEEPER-387
+BookKeeper Upgrade is not working. I am trying to upgrade BK from 4.1.0 to 4.2.0, but it will log as "Directory is current, no need to upgrade" even then it will continue and fail. and throwing following exception. 2012-09-03 17:25:12,468 - ERROR - [main:FileSystemUpgrade@229] - Error moving upgraded directories into place /home/BK4.1/bookkeeper1/ledger/upgradeTmp.2433718456734190 -> /home/BK4.1/bookkeeper1/ledger/current org.apache.commons.io.FileExistsException: Destination '/home/BK4.1/bookkeeper1/ledger/current' already exists at org.apache.commons.io.FileUtils.moveDirectory(FileUtils.java:2304) at org.apache.bookkeeper.bookie.FileSystemUpgrade.upgrade(FileSystemUpgrade.java:225) at org.apache.bookkeeper.bookie.FileSystemUpgrade.main(FileSystemUpgrade.java:367)
+BookKeeper Upgrade is not working. I am trying to upgrade BK from 4.1.0 to 4.2.0, but it will log as "Directory is current, no need to upgrade" even then it will continue and fail. and throwing following exception.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.FileSystemUpgrade.FileSystemUpgrade.upgrade(ServerConfiguration), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.UpgradeTest.UpgradeTest.testUpgradeCurrent(), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-383
+https://issues.apache.org/jira/browse/BOOKKEEPER-383
+NPE in BookieJournalTest Running org.apache.bookkeeper.bookie.BookieJournalTest Exception in thread "GarbageCollectorThread" java.lang.NullPointerException at org.apache.bookkeeper.meta.AbstractZkLedgerManager.asyncGetLedgersInSingleNode(AbstractZkLedgerManager.java:191) at org.apache.bookkeeper.meta.AbstractZkLedgerManager.getLedgersInSingleNode(AbstractZkLedgerManager.java:268) at org.apache.bookkeeper.meta.FlatLedgerManager.garbageCollectLedgers(FlatLedgerManager.java:144) at org.apache.bookkeeper.bookie.GarbageCollectorThread.doGcLedgers(GarbageCollectorThread.java:226) The exception is found in https://builds.apache.org/job/bookkeeper-trunk/671/console
+NPE in The exception is found in https://builds.apache.org/job/bookkeeper-trunk/671/console
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.meta.FlatLedgerManager.FlatLedgerManager.garbageCollectLedgers(GarbageCollector), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.meta.HierarchicalLedgerManager.HierarchicalLedgerManager.garbageCollectLedgers(GarbageCollector), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieJournalTest.BookieJournalTest.testPreV2Journal(), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-381
+https://issues.apache.org/jira/browse/BOOKKEEPER-381
+ReadLastConfirmedOp's Logger class name is wrong In ReadLastConfirmedOp class logger name configured LedgerRecoveryOp.class. class ReadLastConfirmedOp implements ReadEntryCallback { static final Logger LOG = LoggerFactory.getLogger(LedgerRecoveryOp.class); It should be ReadLastConfirmedOp.class.
+is wrong In logger name configured It should be
+******
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-376
+https://issues.apache.org/jira/browse/BOOKKEEPER-376
+LedgerManagers should consider 'underreplication' node as a special Znode Saw this while running the RW tests: 2012-08-22 23:59:35,649 - WARN  - [GarbageCollectorThread:HierarchicalLedgerManager@354] - Exception during garbage collecting ledgers for underreplication of /ledgers java.io.IOException: java.lang.NumberFormatException: For input string: "underreplicationlocks0000" at org.apache.bookkeeper.meta.HierarchicalLedgerManager.getLedgerId(HierarchicalLedgerManager.java:236) at org.apache.bookkeeper.meta.HierarchicalLedgerManager.getStartLedgerIdByLevel(HierarchicalLedgerManager.java:254) at org.apache.bookkeeper.meta.HierarchicalLedgerManager.doGcByLevel(HierarchicalLedgerManager.java:388) at org.apache.bookkeeper.meta.HierarchicalLedgerManager.garbageCollectLedgers(HierarchicalLedgerManager.java:351) at org.apache.bookkeeper.bookie.GarbageCollectorThread.doGcLedgers(GarbageCollectorThread.java:226) at org.apache.bookkeeper.bookie.GarbageCollectorThread.run(GarbageCollectorThread.java:195) Caused by: java.lang.NumberFormatException: For input string: "underreplicationlocks0000" at java.lang.NumberFormatException.forInputString(Unknown Source) at java.lang.Long.parseLong(Unknown Source) at java.lang.Long.parseLong(Unknown Source) at org.apache.bookkeeper.meta.HierarchicalLedgerManager.getLedgerId(HierarchicalLedgerManager.java:234) ... 5 more
+should consider 'underreplication' node as a special Znode Saw this while running the RW tests:
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.meta.AbstractZkLedgerManager.AbstractZkLedgerManager.isSpecialZnode(String), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestLedgerUnderreplicationManager.TestLedgerUnderreplicationManager.setupZooKeeper(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.TestReplicationWorker(String), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldReplicateFragmentsToTargetBookie(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldRetryUntilThereAreEnoughBksAvailableForReplication(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.test2RWsShouldCompeteForReplicationOf2FragmentsAndCompleteReplication(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldCleanTheLedgerFromUnderReplicationIfLedgerAlreadyDeleted(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testMultipleLedgerReplicationWithReplicationWorker(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.isLedgerInUnderReplication(long, String), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-371
+https://issues.apache.org/jira/browse/BOOKKEEPER-371
+NPE in hedwig hub client causes hedwig hub to shut down. The hedwig client was connected to a remote region hub that restarted resulting in the channel getting disconnected. 2012-08-15 17:47:42,443 - ERROR - [pool-20-thread-1:TerminateJVMExceptionHandler@28] - Uncaught exception in thread pool-20-thread-1 java.lang.NullPointerException at org.apache.hedwig.client.netty.HedwigClientImpl.getResponseHandlerFromChannel(HedwigClientImpl.java:323) at org.apache.hedwig.client.handlers.MessageConsumeCallback.operationFinished(MessageConsumeCallback.java:75) at org.apache.hedwig.client.handlers.MessageConsumeCallback.operationFinished(MessageConsumeCallback.java:41) at org.apache.hedwig.server.regions.RegionManager$1$1$1.operationFinished(RegionManager.java:208) at org.apache.hedwig.server.regions.RegionManager$1$1$1.operationFinished(RegionManager.java:202) at org.apache.hedwig.server.persistence.ReadAheadCache$PersistCallback.operationFinished(ReadAheadCache.java:194) at org.apache.hedwig.server.persistence.ReadAheadCache$PersistCallback.operationFinished(ReadAheadCache.java:171) at org.apache.hedwig.server.persistence.BookkeeperPersistenceManager$PersistOp$1.safeAddComplete(BookkeeperPersistenceManager.java:548) at org.apache.hedwig.zookeeper.SafeAsynBKCallback$AddCallback.addComplete(SafeAsynBKCallback.java:93) at org.apache.bookkeeper.client.PendingAddOp.submitCallback(PendingAddOp.java:165) at org.apache.bookkeeper.client.LedgerHandle.sendAddSuccessCallbacks(LedgerHandle.java:643) at org.apache.bookkeeper.client.PendingAddOp.writeComplete(PendingAddOp.java:159) at org.apache.bookkeeper.proto.PerChannelBookieClient.handleAddResponse(PerChannelBookieClient.java:577) at org.apache.bookkeeper.proto.PerChannelBookieClient$7.safeRun(PerChannelBookieClient.java:525) at org.apache.bookkeeper.util.SafeRunnable.run(SafeRunnable.java:31) at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) at java.util.concurrent.FutureTask.run(FutureTask.java:166) at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) at java.lang.Thread.run(Thread.java:722) At 2012-08-15 17:47:42,443, the channel was disconnected as well. I believe the following code in the MessageConsumeCallback is causing this problem. Channel topicSubscriberChannel = client.getSubscriber().getChannelForTopic(topicSubscriber); HedwigClientImpl.getResponseHandlerFromChannel(topicSubscriberChannel).getSubscribeResponseHandler() .messageConsumed(messageConsumeData.msg); The channel was retrieved without checking if it was closed and then getPipeline().getLast() was called which returned a null value resulting in a NPE. Moreover, we need to check if the returned Response handler is not null because there is a race here if channel.close() is called after we retrieve the channel and before we call messageConsumed(). I guess the same applies for other instances where we use this. Does the above explanation seem right?
+in hedwig hub client causes hedwig hub to shut down. The hedwig client was connected to a remote region hub that restarted resulting in the channel getting disconnected. At the channel was disconnected as well. I believe the following code in the is causing this problem. The channel was retrieved without checking if it was closed and then was called which returned a null value resulting in a. Moreover, we need to check if the returned Response handler is not null because there is a race here if  is called after we retrieve the channel and before we call I guess the same applies for other instances where we use this. Does the above explanation seem right?
+******
+hedwig-client.src.main.java.org.apache.hedwig.client.exceptions.NoResponseHandlerException.NoResponseHandlerException.NoResponseHandlerException(String), true
+hedwig-client.src.main.java.org.apache.hedwig.client.exceptions.NoResponseHandlerException.NoResponseHandlerException.NoResponseHandlerException(String, Throwable), true
+hedwig-client.src.main.java.org.apache.hedwig.client.handlers.MessageConsumeCallback.MessageConsumeCallback.run(), true
+hedwig-client.src.main.java.org.apache.hedwig.client.handlers.MessageConsumeCallback.MessageConsumeCallback.operationFinished(Object, Void), true
+hedwig-client.src.main.java.org.apache.hedwig.client.handlers.SubscribeResponseHandler.SubscribeResponseHandler.handleSubscribeResponse(PubSubResponse, PubSubData, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigClientImpl.HedwigClientImpl.run(), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigClientImpl.HedwigClientImpl.getResponseHandlerFromChannel(Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigPublisher.HedwigPublisher.doPublish(PubSubData, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigPublisher.HedwigPublisher.getChannelForHost(InetSocketAddress), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigSubscriber.HedwigSubscriber.doSubUnsub(PubSubData, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigSubscriber.HedwigSubscriber.startDelivery(ByteString, ByteString, MessageHandler, boolean), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigSubscriber.HedwigSubscriber.stopDelivery(ByteString, ByteString), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigSubscriber.HedwigSubscriber.asyncCloseSubscription(ByteString, ByteString, Callback<Void>, Object), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigSubscriber.HedwigSubscriber.getChannelForTopic(TopicSubscriber), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.WriteCallback.WriteCallback.operationComplete(ChannelFuture), true
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-355
+https://issues.apache.org/jira/browse/BOOKKEEPER-355
+Ledger recovery will mark ledger as closed with -1, in case of slow bookie is added to ensemble during recovery add Scenario: 1. Ledger is created with ensemble and quorum size as 2, written with one entry 2. Now first bookie is in the ensemble is made down. 3. Another client fence and trying to recover the same ledger 4. During this time ensemble change will happen and new bookie will be added. But this bookie is not able to connect. 5. This recovery will fail. 7. Now previously added bookie came up. 8. Another client trying to recover the same ledger. 9. Since new bookie is first in the ensemble, doRecoveryRead() is reading from that bookie and getting NoSuchLedgerException and closing the ledger with -1 i.e. Marking the ledger as empty, even though first client had successfully written one entry.
+Ledger recovery will mark ledger as closed with in case of slow bookie is added to ensemble during recovery add Scenario: Ledger is created with ensemble and quorum size as 2, written with one entry. Now first bookie is in the ensemble is made down. Another client fence and trying to recover the same ledger. During this time ensemble change will happen and new bookie will be added. But this bookie is not able to connect. This recovery will fail. Now previously added bookie came up. Another client trying to recover the same ledger. Since new bookie is first in the ensemble, is reading from that bookie and getting and closing the ledger with i.e. Marking the ledger as empty, even though first client had successfully written one entry.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.handleBookieFailure(InetSocketAddress, int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.unsetSuccessAndSendWriteRequest(int), false, access_modifier
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerMetadata.LedgerMetadata.resolveConflict(LedgerMetadata), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.ReadOnlyLedgerHandle.ReadOnlyLedgerHandle.handleBookieFailure(InetSocketAddress, int), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.LedgerRecoveryTest.LedgerRecoveryTest.testLedgerRecoveryWithRollingRestart(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.LedgerRecoveryTest.LedgerRecoveryTest.testBookieFailureDuringRecovery(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.newServerConfiguration(int, String, File, File[]), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.startNewBookie(), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-349
+https://issues.apache.org/jira/browse/BOOKKEEPER-349
+Entry logger should close all the chennels which are there in Map, instead of closing only current channel. I have seen this on restarting the same bookies from same JVM( in one of mey testcase which I was writing for autoRecovery work), i.e, all channels are not getting closed. When we restart the same bookie, there are 0.log channel will be a older channel. Since the current code cares about only current logChannel. So, we are not releasing the older channels on EntryLogger shutdown.
+Entry logger should close all the chennels which are there in Map, instead of closing only current channel. I have seen this on restarting the same bookies from same JVM( in one of mey testcase which I was writing for autoRecovery work), i.e, all channels are not getting closed. When we restart the same bookie, there are 0.log channel will be a older channel. Since the current code cares about only current logChannel. So, we are not releasing the older channels on shutdown.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.shutdown(), true
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-347
+https://issues.apache.org/jira/browse/BOOKKEEPER-347
+Provide mechanism to detect r-o bookie by the bookie clients This jira to discuss, how the bookie client knows about the bookie running in r-o. This would be required by the client to choose writable bookies during add entries.
+Provide mechanism to detect r-o bookie by the bookie clients This jira to discuss, how the bookie client knows about the bookie running in r-o. This would be required by the client to choose writable bookies during add entries.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.transitionToReadOnlyMode(), false, access_modifier
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BKException.BKException.create(int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BKException.BKException.getMessage(int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BKException.BKException.BKWriteOnReadOnlyBookieException(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.BookieWatcher(ClientConfiguration, BookKeeper), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.processResult(int, String, Object, List<String>), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.readBookiesBlocking(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.ReadOnlyBookieWatcher(ClientConfiguration, BookKee), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.process(WatchedEvent), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.readROBookiesBlocking(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.readROBookies(ChildrenCallback), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.readROBookies(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.processResult(int, String, Object, List<String>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.getReadOnlyBookies(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.getAvailableBookies(InetSocketAddress, InetSocketAddress, RecoverCallback, Object), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.PerChannelBookieClient.PerChannelBookieClient.handleAddResponse(long, long, int), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.ReadOnlyBookieTest.ReadOnlyBookieTest.testLedgerCreationShouldFailWithReadonlyBookie(), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-346
+https://issues.apache.org/jira/browse/BOOKKEEPER-346
+Detect IOExceptions in LedgerCache and bookie should look at next ledger dir(if any) This jira to detect IOExceptions in "LedgerCache" to iterate over all the configured ledger(s).
+Detect in and bookie should look at next ledger dir(if any) This jira to detect in to iterate over all the configured ledger(s).
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.FileInfo.FileInfo.getLf(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.FileInfo.FileInfo.getSizeSinceLastwrite(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.FileInfo.FileInfo.readHeader(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.FileInfo.FileInfo.write(ByteBuffer[], long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.FileInfo.FileInfo.moveToNewLocation(File, long), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.InterleavedLedgerStorage.InterleavedLedgerStorage.InterleavedLedgerStorage(ServerConfiguration, ActiveLedgerManager, LedgerDirsManager), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.LedgerCacheImpl(ServerConfiguration, ActiveLedgerManager), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.getLedgerName(long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.pickDirs(File[]), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.getFileInfo(Long, byte[]), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.getNewLedgerIndexFile(Long), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.getLedgerDirsListener(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.diskFull(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.diskFailed(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.allDisksFull(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.fatalError(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.flushLedger(boolean), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.moveLedgerIndexFile(Long, FileInfo), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.getActiveLedgers(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.findIndexFile(long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerCacheImpl.LedgerCacheImpl.findIndexFile(long), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.setUp(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.tearDown(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.newLedgerCache(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.testAddEntryException(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.testLedgerCacheFlushFailureOnDiskFull(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.LedgerCacheTest.LedgerCacheTest.generateEntry(long, long), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-345
+https://issues.apache.org/jira/browse/BOOKKEEPER-345
+Detect IOExceptions on entrylogger and bookie should consider next ledger dir(if any) This jira to detect IOExceptions in "EntryLogger", and will iterate over all the configured ledger(s) on IOException. Finally if no writable dirs available, will move bookie to r-o mode(if this mode is enabled). By default(r-o mode will be disabled) the bookie will shutdown if no writable disk available.
+Detect on and bookie should consider next ledger dir(if any) This jira to detect in , and will iterate over all the configured ledger(s) on. Finally if no writable dirs available, will move bookie to r-o mode(if this mode is enabled). By default(r-o mode will be disabled) the bookie will shutdown if no writable disk available.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.Bookie(ServerConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.run(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.checkEnvironment(ZooKeeper), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.getLedgerDirsManager(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.getMyId(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.start(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.getLedgerDirsListener(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.diskFull(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.diskFailed(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.allDisksFull(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.fatalError(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.registerBookie(int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.transitionToReadOnlyMode(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.isReadOnly(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.run(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.triggerBookieShutdown(int), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.shutdown(int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.recoveryAddEntry(ByteBuffer, WriteCallback, Object, byte[]), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.addEntry(ByteBuffer, WriteCallback, Object, byte[]), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getJournal(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.EntryLogger(ServerConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.initialize(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.getLedgerDirsListener(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.diskFull(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.diskFailed(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.allDisksFull(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.fatalError(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.createNewLog(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.addEntry(long, ByteBuffer), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.logExists(long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.EntryLogger.EntryLogger.findFile(long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.InterleavedLedgerStorage.InterleavedLedgerStorage.InterleavedLedgerStorage(ServerConfiguration, ActiveLedgerManager), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Journal.Journal.Journal(ServerConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Journal.Journal.rollLog(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Journal.Journal.readLog(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Journal.Journal.rollLog(), false, method_signature
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.LedgerDirsManager(ServerConfiguration), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.NoWritableLedgerDirException(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.getAllLedgerDirs(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.getWritableLedgerDirs(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.isDirFull(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.addToFilledDirs(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.pickRandomWritableDir(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.addLedgerDirsListener(LedgerDirsListener), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.start(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.shutdown(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.LedgerDirsManager.LedgerDirsManager.run(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.ReadOnlyEntryLogger.ReadOnlyEntryLogger.ReadOnlyEntryLogger(ServerConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.setReadOnlyModeEnabled(boolean), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.isReadOnlyModeEnabled(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.setDiskUsageThreshold(float), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.getDiskUsageThreshold(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.setDiskCheckInterval(int), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.getDiskCheckInterval(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.getBookie(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.processPacket(ByteBuffer, Cnxn), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.DiskChecker.DiskChecker.DiskErrorException(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.DiskChecker.DiskChecker.DiskOutOfSpaceException(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.DiskChecker.DiskChecker.DiskChecker(float), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.DiskChecker.DiskChecker.mkdirsWithExistsCheck(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.DiskChecker.DiskChecker.checkDiskFull(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.DiskChecker.DiskChecker.checkDir(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.DiskChecker.DiskChecker.getDiskSpaceThreshold(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.DiskChecker.DiskChecker.setDiskSpaceThreshold(float), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.DiskChecker.DiskChecker.validateThreshold(float), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.EntryLogTest.EntryLogTest.testCorruptEntryLog(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.EntryLogTest.EntryLogTest.generateEntry(long, long), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.EntryLogTest.EntryLogTest.testMissingLogId(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.EntryLogTest.EntryLogTest.testEntryLoggerShouldThrowFNFEIfDirectoriesDoesNotExist(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.EntryLogTest.EntryLogTest.testAddEntryFailureOnDiskFull(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.ReadOnlyBookieTest.ReadOnlyBookieTest.ReadOnlyBookieTest(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.ReadOnlyBookieTest.ReadOnlyBookieTest.testBookieShouldServeAsReadOnly(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.ReadOnlyBookieTest.ReadOnlyBookieTest.testBookieShutdownIfReadOnlyModeNotEnabled(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.ReadOnlyBookieTest.ReadOnlyBookieTest.testBookieContinueWritingIfMultipleLedgersPresent(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.ReadOnlyBookieTest.ReadOnlyBookieTest.startNewBookieWithMultipleLedgerDirs(int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.util.TestDiskChecker.TestDiskChecker.setup(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.util.TestDiskChecker.TestDiskChecker.testCheckDiskFull(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.util.TestDiskChecker.TestDiskChecker.testCheckDiskFullOnNonExistFile(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.util.TestDiskChecker.TestDiskChecker.testCheckDiskErrorForFile(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.util.TestDiskChecker.TestDiskChecker.testCheckDiskErrorForDir(), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-337
+https://issues.apache.org/jira/browse/BOOKKEEPER-337
+Add entry fails with MetadataVersionException when last ensemble has morethan one bookie failures Scenario: Start Five BK's Write ledger's with ensemble three and quroum size=2 while write inprogress down two bookies(Bookies should be in ensemble)
+Add entry fails with when last ensemble has morethan one bookie failures Scenario: Start Five BK's Write ledger's with ensemble three and quroum size=2 while write inprogress down two bookies(Bookies should be in ensemble)
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.handleBookieFailure(InetSocketAddress, int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.operationComplete(int, Void), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.operationComplete(int, LedgerMetadata), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.resolveConflict(LedgerMetadata), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.unsetSuccessAndSendWriteRequest(int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieWriteLedgerTest.BookieWriteLedgerTest.BookieWriteLedgerTest(String, DigestType), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieWriteLedgerTest.BookieWriteLedgerTest.setUp(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieWriteLedgerTest.BookieWriteLedgerTest.testWithMultipleBookieFailuresInLastEnsemble(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieWriteLedgerTest.BookieWriteLedgerTest.testAsyncWritesWithMultipleFailuresInLastEnsemble(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieWriteLedgerTest.BookieWriteLedgerTest.readEntries(LedgerHandle, ArrayList<byte[]>), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.BookieWriteLedgerTest.BookieWriteLedgerTest.addComplete(int, LedgerHandle, long, Object), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-336
+https://issues.apache.org/jira/browse/BOOKKEEPER-336
+bookie readEntries is taking more time if the ensemble has failed bookie(s) Scenario: 1) Start three bookies. Create ledger with ensemblesize=3, quorumsize=2 2) Add 100 entries to this ledger 3) Make first bookie down and read the entries from 0-99 Output: Each entry is going to fetch from the failed bookie and is waiting for the bookie connection timeout, only after failure going to next bookie. This is affecting the read entry performance. Impact: Namenode switching time will be affected by adding this failed bookie readTimeOut also.
+is taking more time if the ensemble has failed bookie(s) Scenario: 1) Start three bookies. Create ledger with ensemblesize=3, quorumsize=2 2) Add 100 entries to this ledger 3) Make first bookie down and read the entries from 0-99 Output: Each entry is going to fetch from the failed bookie and is waiting for the bookie connection timeout, only after failure going to next bookie. This is affecting the read entry performance. Impact: Namenode switching time will be affected by adding this failed bookie also.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.BookieWatcher(ClientConfiguration, BookKeeper), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookieWatcher.BookieWatcher.halt(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeper.BookKeeper.BookKeeper(ClientConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeper.BookKeeper.BookKeeper(ClientConfiguration, ZooKeeper, ClientSocketChannelFactory), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeper.BookKeeper.close(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerHandle.LedgerHandle.asyncReadEntries(long, long, ReadCallback, Object), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.LedgerEntryRequest(ArrayList<InetSocketAddress>, long, long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.PendingReadOp(LedgerHandle, long, long, ReadCallback, Object), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.ReadContext(InetSocketAddress, LedgerEntryRequest), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.sendNextRead(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.getReplicaIndex(InetSocketAddress), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.getSentToBitSet(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.getHeardFromBitSet(Set<InetSocketAddress>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.readsOutstanding(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.maybeSendSpeculativeRead(Set<InetSocketAddress>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.logErrorAndReattemptRead(String, int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.complete(ChannelBuffer), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.initiate(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.sendReadTo(InetSocketAddress, LedgerEntryRequest), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.readEntryComplete(int, long, long, ChannelBuffer, Object), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.PendingReadOp.PendingReadOp.submitCallback(int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ClientConfiguration.ClientConfiguration.getSpeculativeReadTimeout(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.TestSpeculativeRead(DigestType), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.getLedgerToRead(int, int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.readComplete(int, LedgerHandle, Enumeration<LedgerEntry>, Object), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.getDuration(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.expectSuccess(int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.expectFail(int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.expectTimeout(int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.testSpeculativeRead(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.testSpeculativeReadMultipleReplicasDown(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.testSpeculativeReadFirstReadCompleteIsOk(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestSpeculativeRead.TestSpeculativeRead.testSpeculativeReadScheduling(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.sleepBookie(InetSocketAddress, int), false, refactoring
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookKeeperClusterTestCase.BookKeeperClusterTestCase.sleepBookie(InetSocketAddress, CountDownLatch), false, refactoring
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-330
+https://issues.apache.org/jira/browse/BOOKKEEPER-330
+System.currentTimeMillis usage in Hedwig Need same changes in hedwig server as what did in bookkeeper as BOOKKEEPER-327.
+usage in Hedwig Need same changes in hedwig server as what did in bookkeeper as BOOKKEEPER-327.
+******
+hedwig-client.src.main.java.org.apache.hedwig.client.benchmark.BenchmarkPublisher.BenchmarkPublisher.call(), true
+hedwig-client.src.main.java.org.apache.hedwig.client.benchmark.BenchmarkSubscriber.BenchmarkSubscriber.multiSub(String, String, int, int, int), true
+hedwig-client.src.main.java.org.apache.hedwig.client.benchmark.BenchmarkUtils.BenchmarkUtils.calcTp(int, long), true
+hedwig-client.src.main.java.org.apache.hedwig.client.benchmark.BenchmarkUtils.BenchmarkUtils.ding(boolean), true
+hedwig-client.src.main.java.org.apache.hedwig.client.benchmark.BenchmarkUtils.BenchmarkUtils.BenchmarkCallback(ThroughputLatencyAggregator), true
+hedwig-client.src.main.java.org.apache.hedwig.client.benchmark.BenchmarkUtils.BenchmarkUtils.finish(boolean), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigClientImpl.HedwigClientImpl.run(), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigPublisher.HedwigPublisher.doPublish(PubSubData, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.HedwigSubscriber.HedwigSubscriber.doSubUnsub(PubSubData, Channel), true
+hedwig-server.src.main.java.org.apache.hedwig.admin.console.HedwigConsole.HedwigConsole.runCmd(String), true
+hedwig-server.src.main.java.org.apache.hedwig.admin.console.HedwigConsole.HedwigConsole.processCmd(MyCommandOptions), true
+hedwig-server.src.main.java.org.apache.hedwig.server.benchmark.AbstractBenchmark.AbstractBenchmark.handle(boolean, Object), true
+hedwig-server.src.main.java.org.apache.hedwig.server.benchmark.AbstractBenchmark.AbstractBenchmark.runPhase(String, int), true
+hedwig-server.src.main.java.org.apache.hedwig.server.benchmark.BookieBenchmark.BookieBenchmark.doOps(int), true
+hedwig-server.src.main.java.org.apache.hedwig.server.benchmark.BookkeeperBenchmark.BookkeeperBenchmark.doOps(int), true
+hedwig-server.src.main.java.org.apache.hedwig.server.delivery.FIFODeliveryManager.FIFODeliveryManager.retryErroredSubscriberAfterDelay(ActiveSubscriberState), true
+hedwig-server.src.main.java.org.apache.hedwig.server.delivery.FIFODeliveryManager.FIFODeliveryManager.retryErroredSubscribers(), true
+hedwig-server.src.main.java.org.apache.hedwig.server.handlers.PublishHandler.PublishHandler.handleRequestAtOwner(PubSubRequest, Channel), true
+hedwig-server.src.main.java.org.apache.hedwig.server.handlers.PublishHandler.PublishHandler.operationFinished(Object, Long), true
+hedwig-server.src.main.java.org.apache.hedwig.server.handlers.SubscribeHandler.SubscribeHandler.handleRequestAtOwner(PubSubRequest, Channel), true
+hedwig-server.src.main.java.org.apache.hedwig.server.handlers.UnsubscribeHandler.UnsubscribeHandler.handleRequestAtOwner(PubSubRequest, Channel), true
+hedwig-server.src.main.java.org.apache.hedwig.server.netty.ServerStats.ServerStats.updateLatency(long), true
+hedwig-server.src.main.java.org.apache.hedwig.server.persistence.ReadAheadCache.ReadAheadCache.performRequest(), true
+hedwig-server.src.test.java.org.apache.hedwig.server.netty.TestServerStats.TestServerStats.testUpdateLatencyShouldNotFailWithAIOBEWithNegativeLatency(), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-327
+https://issues.apache.org/jira/browse/BOOKKEEPER-327
+System.currentTimeMillis usage in BookKeeper The following exception occured in the bookie statistics logic due to the System time changes. In our bookie cluster its running a periodic syncup scripts just to unify the SystemTime in all the machines. This is causing the problem and resulting ArrayIndexOutOfBoundException. Exception in thread "BookieJournal-3181" java.lang.ArrayIndexOutOfBoundsException: -423 at org.apache.bookkeeper.proto.BKStats$OpStats.updateLatency(BKStats.java:126) at org.apache.bookkeeper.proto.BookieServer.writeComplete(BookieServer.java:655) at org.apache.bookkeeper.bookie.Journal.run(Journal.java:507) This jira is raised to discuss whether to use System.nanoTime() instead of System.currentTimeMillis()
+usage in BookKeeper The following exception occured in the bookie statistics logic due to the System time changes. In our bookie cluster its running a periodic syncup scripts just to unify the in all the machines. This is causing the problem and resulting. This jira is raised to discuss whether to use instead of
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.main(String[]), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.GarbageCollectorThread.GarbageCollectorThread.GarbageCollectorThread(ServerConfiguration, LedgerCache, EntryLogger, ActiveLedgerManager, EntryLogScanner), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.GarbageCollectorThread.GarbageCollectorThread.run(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.GarbageCollectorThread.GarbageCollectorThread.doCompactEntryLogs(double), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Journal.Journal.run(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BKStats.BKStats.updateLatency(long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.processPacket(ByteBuffer, Cnxn), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.writeComplete(int, long, long, InetSocketAddress, Object), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.PerChannelBookieClient.PerChannelBookieClient.messageReceived(ChannelHandlerContext, MessageEvent), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.PerChannelBookieClient.PerChannelBookieClient.CompletionKey(long, long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.PerChannelBookieClient.PerChannelBookieClient.shouldTimeout(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.ServerStats.ServerStats.updateLatency(long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.LocalBookKeeper.LocalBookKeeper.waitForServerUp(String, long), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.MathUtils.MathUtils.long(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.proto.TestBKStats.TestBKStats.testUpdateLatencyShouldNotFailWithAIOBEWithNegativeLatency(), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-326
+https://issues.apache.org/jira/browse/BOOKKEEPER-326
+DeadLock during ledger recovery Deadlock found during ledger recovery. please find the attached thread dump.
+DeadLock during ledger recovery Deadlock found during ledger recovery. please find the attached thread dump.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.PerChannelBookieClient.PerChannelBookieClient.connect(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.PerChannelBookieClient.PerChannelBookieClient.connectIfNeededAndDoOp(GenericCallback<Void>), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.BookieFailureTest.BookieFailureTest.testReadLastConfirmedOp(), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-325
+https://issues.apache.org/jira/browse/BOOKKEEPER-325
+Delay the replication of a ledger if RW found that its last fragment is in underReplication. When RW found that ledger's last fragment is in underReplication state, then we should delay that ledger replication for some grace period. optimally we can replicate other fragments. The idea is, Whenever it finds the last fragement is under replicated, It can add into PendingReplication list. There will be a small daemon, which will check for the timeouts of this ledgers. Once it timed out , it will trigger the normal replication process if it is not in last fragment. Otherwise, it will fence the ledger and will trigger the replication nomally. see the discussion for more info: http://markmail.org/message/ruhhxxgvuqnjlu2s#query:+page:1+mid:f6ifo4sizulwiaem+state:results
+Delay the replication of a ledger if RW found that its last fragment is in. When RW found that ledger's last fragment is in state, then we should delay that ledger replication for some grace period. optimally we can replicate other fragments. The idea is, Whenever it finds the last fragement is under replicated, It can add into list. There will be a small daemon, which will check for the timeouts of this ledgers. Once it timed out , it will trigger the normal replication process if it is not in last fragment. Otherwise, it will fence the ledger and will trigger the replication nomally. see the discussion for more info: http://markmail.org/message/ruhhxxgvuqnjlu2s#query:+page:1+mid:f6ifo4sizulwiaem+state:results
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragment.LedgerFragment.isClosed(), false, access_modifier
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.setOpenLedgerRereplicationGracePeriod(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.conf.ServerConfiguration.ServerConfiguration.getOpenLedgerRereplicationGracePeriod(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.ReplicationWorker(ZooKeeper, AbstractConfiguration, InetSocketAddress), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.run(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.rereplicate(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.deferLedgerLockRelease(long), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.doReplicateFragments(long, LedgerHandle), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.ClientUtil.ClientUtil.isLedgerOpen(LedgerHandle), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.ClientUtil.ClientUtil.testRWShouldReplicateFragmentsToTargetBookie(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.ClientUtil.ClientUtil.testRWShouldRetryUntilThereAreEnoughBksAvailableForReplication(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.ClientUtil.ClientUtil.test2RWsShouldCompeteForReplicationOf2FragmentsAndCompleteReplication(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.ClientUtil.ClientUtil.testRWShouldCleanTheLedgerFromUnderReplicationIfLedgerAlreadyDeleted(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.ClientUtil.ClientUtil.testMultipleLedgerReplicationWithReplicationWorker(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.ClientUtil.ClientUtil.testRWShouldReplicateTheLedgersAfterTimeoutIfLastFragmentIsUR(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.ClientUtil.ClientUtil.testRWShouldReplicateTheLedgersAfterTimeoutIfLastFragmentIsNotUR(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.ClientUtil.ClientUtil.verifyRecoveredLedgers(LedgerHandle, long, long), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-319
+https://issues.apache.org/jira/browse/BOOKKEEPER-319
+Manage auditing and replication processes This subtask discusses, how we will manage the whole rereplication processes.
+Manage auditing and replication processes This subtask discusses, how we will manage the whole rereplication processes.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.AutoRecoveryMain(ServerConfiguration), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.InetSocketAddress(ServerConfiguration), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.start(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.join(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.shutdown(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.shutdown(int), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.getExitCode(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.run(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.printUsage(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.loadConfFile(ServerConfiguration, String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.ServerConfiguration(String[]), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.main(String[]), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.shutdown(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.isRunning(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AutoRecoveryMainTest.AutoRecoveryMainTest.AutoRecoveryMainTest(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AutoRecoveryMainTest.AutoRecoveryMainTest.testStartup(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AutoRecoveryMainTest.AutoRecoveryMainTest.testShutdown(), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-318
+https://issues.apache.org/jira/browse/BOOKKEEPER-318
+Spelling mistake in MultiCallback log message. @Override public void processResult(int rc, String path, Object ctx) { if (rc != successRc) { LOG.error("Error in multi callback : " + rc); exceptions.add(rc); } tick(); }
+Spelling mistake in log message.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookkeeperInternalCallbacks.BookkeeperInternalCallbacks.processResult(int, String, Object), false, refactoring
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-304
+https://issues.apache.org/jira/browse/BOOKKEEPER-304
+Prepare bookie vs ledgers cache and will be used by the Auditor This JIRA discusses how to build bookie -> ledgers cache and this will be used by the Auditor to publish the suspected ledgers of failed bookies.
+Prepare bookie vs ledgers cache and will be used by the This JIRA discusses how to build bookie -> ledgers cache and this will be used by the to publish the suspected ledgers of failed bookies.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.BookieLedgerIndexer.BookieLedgerIndexer.BookieLedgerIndexer(LedgerManager), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.BookieLedgerIndexer.BookieLedgerIndexer.getBookieToLedgerIndex(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.BookieLedgerIndexer.BookieLedgerIndexer.putLedger(ConcurrentHashMap<String, Set<Long>>, String, long), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationException.ReplicationException.BKAuditException(String, Throwable), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieLedgerIndexTest.BookieLedgerIndexTest.BookieLedgerIndexTest(String), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieLedgerIndexTest.BookieLedgerIndexTest.setUp(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieLedgerIndexTest.BookieLedgerIndexTest.testSimpleBookieLedgerMapping(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieLedgerIndexTest.BookieLedgerIndexTest.testWithoutZookeeper(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieLedgerIndexTest.BookieLedgerIndexTest.testEnsembleReformation(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieLedgerIndexTest.BookieLedgerIndexTest.shutdownBookie(int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.BookieLedgerIndexTest.BookieLedgerIndexTest.createAndAddEntriesToLedger(), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-300
+https://issues.apache.org/jira/browse/BOOKKEEPER-300
+Create Bookie format command Provide a bookie format command. Then the admin would just have to run the command on each machine, which will prepare the bookie env Zookeeper paths (znodes): ledger's root path bookie's available path Directories: Journal directories Ledger directories
+Create Bookie format command Provide a bookie format command. Then the admin would just have to run the command on each machine, which will prepare the bookie env paths (znodes): ledger's root path bookie's available path Directories: Journal directories Ledger directories
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.checkEnvironment(ZooKeeper), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.getInstanceId(ZooKeeper), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.format(ServerConfiguration, boolean, boolean), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.cleanDir(File), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieException.BookieException.InvalidCookieException(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.MetaFormatCmd(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getOptions(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getDescription(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getUsage(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.runCmd(CommandLine), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.BookieFormatCmd(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getOptions(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getDescription(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getUsage(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.runCmd(CommandLine), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.RecoverCmd(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getOptions(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getDescription(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.getUsage(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.runCmd(CommandLine), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.BookieShell.BookieShell.bkRecovery(BookKeeperAdmin, String[]), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Cookie.Cookie.verify(Cookie), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Cookie.Cookie.toString(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Cookie.Cookie.parse(Scanner), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Cookie.Cookie.readFromZooKeeper(ZooKeeper, ServerConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Cookie.Cookie.readFromDirectory(File), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.BookKeeperAdmin(ClientConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.format(ClientConfiguration, boolean, boolean), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.meta.AbstractZkLedgerManager.AbstractZkLedgerManager.isSpecialZnode(String), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.meta.FlatLedgerManagerFactory.FlatLedgerManagerFactory.format(AbstractConfiguration, ZooKeeper), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.meta.HierarchicalLedgerManagerFactory.HierarchicalLedgerManagerFactory.format(AbstractConfiguration, ZooKeeper), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.meta.LedgerLayout.LedgerLayout.delete(ZooKeeper, String), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.meta.LedgerManagerFactory.LedgerManagerFactory.newLedgerManagerFactory(AbstractConfiguration, ZooKeeper), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.CookieFormat(Builder), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.CookieFormat(boolean), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getDefaultInstance(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getDefaultInstanceForType(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getDescriptor(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.internalGetFieldAccessorTable(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.hasBookieHost(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getBookieHost(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getBookieHostBytes(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getJournalDir(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getJournalDirBytes(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.hasLedgerDirs(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getLedgerDirs(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getLedgerDirsBytes(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.hasInstanceId(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getInstanceId(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getInstanceIdBytes(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.initFields(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.isInitialized(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.writeTo(com.google.protobuf.CodedOutputStream), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getSerializedSize(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.writeReplace(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.parseFrom(com.google.protobuf.ByteString), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.parseFrom(byte[]), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.parseFrom(byte[], com.google.protobuf.ExtensionRegistryLite), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.parseFrom(java.io.InputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.parseDelimitedFrom(java.io.InputStream), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.parseDelimitedFrom(java.io.InputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.parseFrom(com.google.protobuf.CodedInputStream), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.parseFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.newBuilder(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.newBuilderForType(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.newBuilder(org.apache.bookkeeper.proto.DataFormats.CookieFormat), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.toBuilder(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.newBuilderForType(com.google.protobuf.GeneratedMessage.BuilderParent), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getDescriptor(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.internalGetFieldAccessorTable(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.Builder(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.Builder(BuilderParent), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.maybeForceBuilderInitialization(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.create(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.clear(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.clone(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getDescriptorForType(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getDefaultInstanceForType(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.build(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.buildParsed(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.buildPartial(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.mergeFrom(com.google.protobuf.Message), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.mergeFrom(org.apache.bookkeeper.proto.DataFormats.CookieFormat), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.isInitialized(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.hasBookieHost(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getBookieHost(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.setBookieHost(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.clearBookieHost(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.setBookieHost(com.google.protobuf.ByteString), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.hasJournalDir(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getJournalDir(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.setJournalDir(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.clearJournalDir(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.setJournalDir(com.google.protobuf.ByteString), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.hasLedgerDirs(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getLedgerDirs(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.setLedgerDirs(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.clearLedgerDirs(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.setLedgerDirs(com.google.protobuf.ByteString), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.hasInstanceId(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.getInstanceId(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.setInstanceId(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.clearInstanceId(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.DataFormats.DataFormats.setInstanceId(com.google.protobuf.ByteString), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.IOUtils.IOUtils.confirmPrompt(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.util.ZkUtils.ZkUtils.createConnectedZookeeperClient(String, int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.CookieTest.CookieTest.testVerifyCookieWithFormat(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestLedgerUnderreplicationManager.TestLedgerUnderreplicationManager.setupZooKeeper(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.test2RWsShouldCompeteForReplicationOf2FragmentsAndCompleteReplication(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.TestBackwardCompat.TestBackwardCompat.testOldCookieAccessingNewCluster(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.ZooKeeperUtil.ZooKeeperUtil.getNewZooKeeperClient(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.test.ZooKeeperUtil.ZooKeeperUtil.startServer(), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-299
+https://issues.apache.org/jira/browse/BOOKKEEPER-299
+Provide LedgerFragmentReplicator which should replicate the fragments found from LedgerChecker Replication worker requires LedgerFragmentReplicator for replicating the actula fragments found from Ledger checker. Most of the fragment replication code available in BookKeeperAdmin. We can refactor it to LedgerFragmentReplicator and use it
+Provide which should replicate the fragments found from Replication worker requires for replicating the actula fragments found from Ledger checker. Most of the fragment replication code available in. We can refactor it to and use it
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.BookKeeperAdmin(ClientConfiguration), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.recoverLedger(InetSocketAddress, long, AsyncCallback.VoidCallback, List<InetSocketAddress>), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.recoverLedgerFragment(InetSocketAddress, LedgerHandle, Long, Long, SingleFragmentCallback, netSocketAddress), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.recoverLedgerFragmentEntry(Long, LedgerHandle, AsyncCallback.VoidCallback, InetSocketAddress), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.asyncRecoverLedgerFragment(LedgerHandle, LedgerFragment, LedgerFragmentReplicator.SingleFragmentCallback, InetSocketAddress), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.replicateLedgerFragment(LedgerHandle, LedgerFragment, InetSocketAddress), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.getResult(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.ResultCallBack(SyncCounter), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.processResult(int, String, Object), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.SingleFragmentCallback(AsyncCallback.VoidCallback, LedgerHandle, fragmentStartId, InetSocketAddress, InetSocketAddress), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.void(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.writeLedgerConfig(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.operationComplete(int, Void), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragmentReplicator.LedgerFragmentReplicator.LedgerFragmentReplicator(BookKeeper), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragmentReplicator.LedgerFragmentReplicator.replicate(LedgerHandle, LedgerFragment, SingleFragmentCallback, InetSocketAddress), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragmentReplicator.LedgerFragmentReplicator.recoverLedgerFragmentEntry(Long, LedgerHandle, AsyncCallback.VoidCallback, InetSocketAddress), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragmentReplicator.LedgerFragmentReplicator.SingleFragmentCallback(AsyncCallback.VoidCallback, LedgerHandle, long, InetSocketAddress, InetSocketAddress), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragmentReplicator.LedgerFragmentReplicator.processResult(int, String, Object), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragmentReplicator.LedgerFragmentReplicator.writeLedgerConfig(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragmentReplicator.LedgerFragmentReplicator.operationComplete(int, Void), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerFragmentReplication.TestLedgerFragmentReplication.TestLedgerFragmentReplication(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerFragmentReplication.TestLedgerFragmentReplication.waitAndGetResult(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerFragmentReplication.TestLedgerFragmentReplication.operationComplete(int, Set<LedgerFragment>), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerFragmentReplication.TestLedgerFragmentReplication.testReplicateLFShouldCopyFailedBookieFragmentsToTargetBookie(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerFragmentReplication.TestLedgerFragmentReplication.testReplicateLFShouldReturnFalseIfTheReplicationFails(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerFragmentReplication.TestLedgerFragmentReplication.getFragmentsToReplicate(LedgerHandle), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerFragmentReplication.TestLedgerFragmentReplication.verifyRecoveredLedgers(LedgerHandle, long, long), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-294
+https://issues.apache.org/jira/browse/BOOKKEEPER-294
+Not able to start the bookkeeper before the ZK session timeout. Not able to start the bookkeeper before the ZK session timeout. Here i killed the bookie and started again. 2012-06-12 20:00:25,220 - INFO  [main:LedgerCache@65] - openFileLimit is 900, pageSize is 8192, pageLimit is 456781 2012-06-12 20:00:25,238 - ERROR [main:Bookie@453] - ZK exception registering ephemeral Znode for Bookie! org.apache.zookeeper.KeeperException$NodeExistsException: KeeperErrorCode = NodeExists for /ledgers/available/10.18.40.216:3181 at org.apache.zookeeper.KeeperException.create(KeeperException.java:119) at org.apache.zookeeper.KeeperException.create(KeeperException.java:51) at org.apache.zookeeper.ZooKeeper.create(ZooKeeper.java:778) at org.apache.bookkeeper.bookie.Bookie.registerBookie(Bookie.java:450) at org.apache.bookkeeper.bookie.Bookie.<init>(Bookie.java:348) at org.apache.bookkeeper.proto.BookieServer.<init>(BookieServer.java:64) at org.apache.bookkeeper.proto.BookieServer.main(BookieServer.java:249)
+Not able to start the bookkeeper before the ZK session timeout. Not able to start the bookkeeper before the ZK session timeout. Here i killed the bookie and started again.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.readJournal(), false, access_modifier
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.start(), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.bookie.Bookie.Bookie.registerBookie(int), true
+bookkeeper-server.src.main.java.org.apache.bookkeeper.proto.BookieServer.BookieServer.start(), true
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieInitializationTest.BookieInitializationTest.setupZooKeeper(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieInitializationTest.BookieInitializationTest.tearDownZooKeeper(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieInitializationTest.BookieInitializationTest.MockBookie(ServerConfiguration), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieInitializationTest.BookieInitializationTest.testRegisterBookie(int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieInitializationTest.BookieInitializationTest.testBookieRegistration(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieInitializationTest.BookieInitializationTest.testRegNodeExistsAfterSessionTimeOut(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieInitializationTest.BookieInitializationTest.testDuplicateBookieServerStartup(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieInitializationTest.BookieInitializationTest.createNewZKClient(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieJournalTest.BookieJournalTest.testTruncatedInEntryJournal(), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieJournalTest.BookieJournalTest.testPartialFileInfoPreV3Journal(boolean), false, test_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.bookie.BookieJournalTest.BookieJournalTest.testPartialFileInfoPostV3Journal(boolean), false, test_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-291
+https://issues.apache.org/jira/browse/BOOKKEEPER-291
+BKMBeanRegistry uses log4j directly It should use slf4j.
+uses log4j directly It should use slf4j.
+******
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-272
+https://issues.apache.org/jira/browse/BOOKKEEPER-272
+Provide automatic mechanism to know bookie failures The idea is to build automatic mechanism to find out the bookie failures. Setup the bookie failure notifications to start the re-replication process. There are multiple approaches to findout bookie failures. Please refer the documents attached in BookKeeper-237
+Provide automatic mechanism to know bookie failures The idea is to build automatic mechanism to find out the bookie failures. Setup the bookie failure notifications to start the re-replication process. There are multiple approaches to findout bookie failures. Please refer the documents attached in BookKeeper-237
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.Auditor(String, AbstractConfiguration, ZooKeeper), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.initialize(AbstractConfiguration, ZooKeeper), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.run(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.getAvailableBookies(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.auditingBookies(List<String>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.generateBookie2LedgersIndex(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.handleLostBookies(Collection<String>, Map<String, Set<Long>>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.publishSuspectedLedgers(String, Set<Long>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.process(WatchedEvent), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.shutdown(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.Auditor.Auditor.isRunning(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.AuditorElector(String, AbstractConfiguration, ZooKeeper), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.doElection(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.createMyVote(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.getVotePath(String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.createElectorPath(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.process(WatchedEvent), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.shutdown(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.isRunning(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.compare(String, String), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.AuditorElector.AuditorElector.getVoteSequenceId(String), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.AuditorBookieTest(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.setUp(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.tearDown(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.testEnsureOnlySingleAuditor(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.testSuccessiveAuditorCrashes(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.testBookieClusterRestart(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.testShutdown(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.testRestartAuditorBookieAfterCrashing(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.startAuditorElectors(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.stopAuditorElectors(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.verifyAuditor(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.getAuditorBookie(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.shudownBookie(BookieServer), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorBookieTest.AuditorBookieTest.waitForNewAuditor(BookieServer), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest(String), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.setUp(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.tearDown(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.startAuditorElectors(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.stopAuditorElectors(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.testSimpleLedger(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.testRestartBookie(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.testMultipleBookieFailures(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.registerUrLedgerWatcher(int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.doLedgerRereplication(long), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.shutdownBookie(int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.createAndAddEntriesToLedger(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.addEntry(int, LedgerHandle), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.getParentZnodePath(String, long), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.ChildWatcher(CountDownLatch), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.AuditorLedgerCheckerTest.process(WatchedEvent), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-248
+https://issues.apache.org/jira/browse/BOOKKEEPER-248
+Rereplicating of under replicated data This subtask discusses how we will rereplicate underreplicated entries.
+Rereplicating of under replicated data This subtask discusses how we will rereplicate underreplicated entries.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.BookKeeperAdmin(BookKeeper), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.openLedger(long), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.openLedgerNoRecovery(long), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.BookKeeperAdmin.BookKeeperAdmin.replicateLedgerFragment(LedgerHandle, LedgerFragment, InetSocketAddress), false, access_modifier
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.ReplicationWorker(ZooKeeper, AbstractConfiguration, InetSocketAddress), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.start(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.run(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.doReplicateFragments(ledgerIdToReplicate, LedgerHandle), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.shutdown(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.isTargetBookieExistsInFragmentEnsemble(LedgerHandle, LedgerFragment), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.operationComplete(int, Set<LedgerFragment>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.replication.ReplicationWorker.ReplicationWorker.waitAndGetResult(), false, new_method
+bookkeeper-bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.TestReplicationWorker(String), false, new_method
+bookkeeper-bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldReplicateFragmentsToTargetBookie(), false, new_method
+bookkeeper-bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldRetryUntilThereAreEnoughBksAvailableForReplication(), false, new_method
+bookkeeper-bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.test2RWsShouldCompeteForReplicationOf2FragmentsAndCompleteReplication(), false, new_method
+bookkeeper-bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testRWShouldCleanTheLedgerFromUnderReplicationIfLedgerAlreadyDeleted(), false, new_method
+bookkeeper-bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.testMultipleLedgerReplicationWithReplicationWorker(), false, new_method
+bookkeeper-bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.killAllBookies(LedgerHandle, InetSocketAddress), false, new_method
+bookkeeper-bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.isLedgerInUnderReplication(long, String), false, new_method
+bookkeeper-bookkeeper-server.src.test.java.org.apache.bookkeeper.replication.TestReplicationWorker.TestReplicationWorker.verifyRecoveredLedgers(LedgerHandle, long, long), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.LedgerHandleAdapter.LedgerHandleAdapter.getLedgerMetadata(LedgerHandle), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-247
+https://issues.apache.org/jira/browse/BOOKKEEPER-247
+Detection of under replication This JIRA discusses how the bookkeeper system will detect underreplication of ledger entries.
+Detection of under replication This JIRA discusses how the bookkeeper system will detect underreplication of ledger entries.
+******
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.DistributionSchedule.DistributionSchedule.hasEntry(long, int), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.LedgerChecker(BookKeeper), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.ReadManyEntriesCallback(long, LedgerFragment, GenericCallback<LedgerFragment>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.readEntryComplete(int, long, long, ChannelBuffer, Object), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.verifyLedgerFragment(LedgerFragment, GenericCallback<LedgerFragment>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.EntryExistsCallback(int, GenericCallback<Boolean>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.readEntryComplete(int, long, long, ChannelBuffer, Object), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.FullLedgerCallback(long, GenericCallback<Set<LedgerFragment>>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.operationComplete(int, LedgerFragment), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.checkLedger(LedgerHandle, GenericCallback<Set<LedgerFragment>>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerChecker.LedgerChecker.checkFragments(Set<LedgerFragment>, GenericCallback<Set<LedgerFragment>>), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragment.LedgerFragment.LedgerFragment(long, long, long, int, List<InetSocketAddress>, DistributionSchedule), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragment.LedgerFragment.getLedgerId(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragment.LedgerFragment.getAddress(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragment.LedgerFragment.getFirstStoredEntryId(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragment.LedgerFragment.getLastStoredEntryId(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragment.LedgerFragment.getEnsemble(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.LedgerFragment.LedgerFragment.toString(), false, new_method
+bookkeeper-server.src.main.java.org.apache.bookkeeper.client.RoundRobinDistributionSchedule.RoundRobinDistributionSchedule.hasEntry(long, int), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.TestLedgerChecker(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.operationComplete(int, Set<LedgerFragment>), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.waitAndGetResult(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.testChecker(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.testShouldNotGetTheFragmentIfThereIsNoMissedEntry(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.testShouldGetTwoFrgamentsIfTwoBookiesFailedInSameEnsemble(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.testShouldNotGetAnyFragmentIfNoLedgerPresent(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.testShouldGetFailedEnsembleNumberOfFgmntsIfEnsembleBookiesFailedOnNextWrite(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.testShouldNotGetAnyFragmentWithEmptyLedger(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.testShouldGet2FragmentsWithEmptyLedgerButBookiesDead(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.testShouldGetOneFragmentWithSingleEntryOpenedLedger(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.testSingleEntryAfterEnsembleChange(), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.getUnderReplicatedFragments(LedgerHandle), false, new_method
+bookkeeper-server.src.test.java.org.apache.bookkeeper.client.TestLedgerChecker.TestLedgerChecker.killBookie(ArrayList<InetSocketAddress>, InetSocketAddress), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-78
+https://issues.apache.org/jira/browse/BOOKKEEPER-78
+filterable metadata fields in Hedwig's message definition In order to efficiently implement filtering of Hedwig messages, Hedwig should be able to rely on metadata information. (i.e. without needing to deserialize the content of the message) Filtering could use a subset of SQL (like in the JMS spec), leading to queries such as : "header1 like 'a' AND header2 IS NOT NULL" For that purpose, I propose to add customizable metadata to the definition of Hedwig messages, as header fields. Metadata must be customizable because it may be arbitrary. We should provide "map-like" containers according to the type of the metadata field. Metadata fields would be accessed by name. There are predefined headers for JMS that could be added as metadata fields such as : destination (~topic), delivery mode (persistent or not), expiration, priority, timestamp, correlation id (link to other message), reply to, type and redelivered. I think only a subset of these should be predefined headers, if any. Adding metadata fields to Hedwig messages implies modifying the message definition, which does not break backward compatibility when those fields are added as optional in the protocol buffer definition.
+filterable metadata fields in Hedwig's message definition In order to efficiently implement filtering of Hedwig messages, Hedwig should be able to rely on metadata information. (i.e. without needing to deserialize the content of the message) Filtering could use a subset of SQL (like in the JMS spec), leading to queries such as : "header1 like 'a' AND header2 IS NOT NULL" For that purpose, I propose to add customizable metadata to the definition of Hedwig messages, as header fields. Metadata must be customizable because it may be arbitrary. We should provide "map-like" containers according to the type of the metadata field. Metadata fields would be accessed by name. There are predefined headers for JMS that could be added as metadata fields such as : destination (~topic), delivery mode (persistent or not), expiration, priority, timestamp, correlation id (link to other message), reply to, type and redelivered. I think only a subset of these should be predefined headers, if any. Adding metadata fields to Hedwig messages implies modifying the message definition, which does not break backward compatibility when those fields are added as optional in the protocol buffer definition.
+******
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.Map(Builder), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.Map(boolean), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getDefaultInstanceForType(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getDescriptor(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.internalGetFieldAccessorTable(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.hasKey(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.hasValue(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.Entry(Builder), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.Entry(boolean), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getDefaultInstance(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getDefaultInstanceForType(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getDescriptor(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.internalGetFieldAccessorTable(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.boolean(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getKey(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getKeyBytes(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.initFields(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.writeTo(com.google.protobuf.CodedOutputStream), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getSerializedSize(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.writeReplace(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(com.google.protobuf.ByteString), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(com.google.protobuf.ByteString, com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(byte[]), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(byte[], com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(java.io.InputStream), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(java.io.InputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseDelimitedFrom(java.io.InputStream), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseDelimitedFrom(java.io.InputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(com.google.protobuf.CodedInputStream), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.newBuilder(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.newBuilderForType(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.newBuilder(org.apache.hedwig.protocol.PubSubProtocol.Map.Entry), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.toBuilder(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.newBuilderForType(com.google.protobuf.GeneratedMessage.BuilderParent), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.internalGetFieldAccessorTable(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.Builder(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.internalGetFieldAccessorTable(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.Builder(BuilderParent), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.maybeForceBuilderInitialization(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.create(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.clear(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.clone(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getDescriptorForType(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getDefaultInstanceForType(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.build(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.buildParsed(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.buildPartial(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.mergeFrom(com.google.protobuf.Message), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.mergeFrom(org.apache.hedwig.protocol.PubSubProtocol.Map.Entry), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getKey(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.setKey(String), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.hasValue(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getValue(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.setValue(com.google.protobuf.ByteString), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.clearValue(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getEntriesOrBuilderList(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getEntriesCount(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getEntries(int), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getEntriesOrBuilder(int), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.initFields(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.writeTo(com.google.protobuf.CodedOutputStream), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(com.google.protobuf.ByteString), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(com.google.protobuf.ByteString, com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(byte[]), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(byte[], com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(java.io.InputStream), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(java.io.InputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseDelimitedFrom(java.io.InputStream), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseDelimitedFrom(java.io.InputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(com.google.protobuf.CodedInputStream), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.parseFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.newBuilder(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.newBuilderForType(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.newBuilder(org.apache.hedwig.protocol.PubSubProtocol.Map), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.toBuilder(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.getDescriptor(), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.Builder(BuilderParent), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.isInitialized(), false, new_method
+#####
+bookkeeper-4.1.0
+BOOKKEEPER-55
+https://issues.apache.org/jira/browse/BOOKKEEPER-55
+SubscribeReconnectRetryTask might retry subscription endlessly when another subscription is already successfully created previously For channelDisconnected envent, we try to automatically recover the connection and subscription. But when users call HedwigSubscriber.subscribe() at the same time, it might succeed before the auto recovery. Then the auto recovery can never succeed as the server will report topic busy failure. Then the SubscribeReconnectRetryTask will retry again and again endlessly. We found this in our auto test. Fix is easy, we just need to firstly check if the channel for this topic and subscribe id is null, if not it means some subscription is already created before, we don't need to bother recover.
+might retry subscription endlessly when another subscription is already successfully created previously For envent, we try to automatically recover the connection and subscription. But when users call at the same time, it might succeed before the auto recovery. Then the auto recovery can never succeed as the server will report topic busy failure. Then the will retry again and again endlessly. We found this in our auto test. Fix is easy, we just need to firstly check if the channel for this topic and subscribe id is null, if not it means some subscription is already created before, we don't need to bother recover.
+******
+hedwig-client.src.main.java.org.apache.hedwig.client.data.PubSubData.PubSubData.isResubscribeRequest(), false, new_method
+hedwig-client.src.main.java.org.apache.hedwig.client.data.PubSubData.PubSubData.getOriginalChannelForResubscribe(), false, new_method
+hedwig-client.src.main.java.org.apache.hedwig.client.data.PubSubData.PubSubData.setOriginalChannelForResubscribe(HChannel), false, new_method
+hedwig-client.src.main.java.org.apache.hedwig.client.exceptions.ResubscribeException.ResubscribeException.ResubscribeException(String), false, new_method
+hedwig-client.src.main.java.org.apache.hedwig.client.exceptions.ResubscribeException.ResubscribeException.ResubscribeException(String, Throwable), false, new_method
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.CleanupChannelMap.CleanupChannelMap.replaceChannel(T, HChannel, HChannel), false, new_method
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.AbstractSubscribeResponseHandler.AbstractSubscribeResponseHandler.createActiveSubscriber(ClientConfiguration, AbstractHChannelManager, TopicSubscriber, PubSubData, SubscriptionPreferences, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.AbstractSubscribeResponseHandler.AbstractSubscribeResponseHandler.handleResponse(PubSubResponse, PubSubData, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.AbstractSubscribeResponseHandler.AbstractSubscribeResponseHandler.handleSuccessResponse(TopicSubscriber, ActiveSubscriber, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.ActiveSubscriber.ActiveSubscriber.ActiveSubscriber(ClientConfiguration, AbstractHChannelManager, TopicSubscriber, PubSubData, SubscriptionPreferences, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.ActiveSubscriber.ActiveSubscriber.resubscribeIfNecessary(SubscriptionEvent), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.ResubscribeCallback.ResubscribeCallback.operationFailed(Object, PubSubException), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.multiplex.MultiplexHChannelManager.MultiplexHChannelManager.MultiplexHChannelManager(ClientConfiguration, ChannelFactory), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.multiplex.MultiplexHChannelManager.MultiplexHChannelManager.storeSubscriptionChannel(TopicSubscriber, PubSubData, HChannel), false, new_method
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.multiplex.MultiplexHChannelManager.MultiplexHChannelManager.removeSubscriptionChannel(TopicSubscriber, HChannel), false, new_method
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.multiplex.MultiplexSubscribeResponseHandler.MultiplexSubscribeResponseHandler.handleSuccessResponse(TopicSubscriber, ActiveSubscriber, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.multiplex.MultiplexSubscribeResponseHandler.MultiplexSubscribeResponseHandler.asyncCloseSubscription(TopicSubscriber, Callback<ResponseBody>, Object), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.simple.SimpleHChannelManager.SimpleHChannelManager.storeSubscriptionChannel(TopicSubscriber, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.simple.SimpleHChannelManager.SimpleHChannelManager.createActiveSubscriber(ClientConfiguration, AbstractHChannelManager, TopicSubscriber, PubSubData, SubscriptionPreferences, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.simple.SimpleSubscribeResponseHandler.SimpleSubscribeResponseHandler.handleSuccessResponse(TopicSubscriber, ActiveSubscriber, Channel), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.simple.SimpleSubscribeResponseHandler.SimpleSubscribeResponseHandler.postHandleSuccessResponse(TopicSubscriber, ActiveSubscriber), false, new_method
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.simple.SimpleSubscribeResponseHandler.SimpleSubscribeResponseHandler.resubscribeIfNecessary(ActiveSubscriber, SubscriptionEvent), true
+hedwig-client.src.main.java.org.apache.hedwig.client.netty.impl.simple.SimpleSubscribeResponseHandler.SimpleSubscribeResponseHandler.SimpleActiveSubscriber(ClientConfiguration, AbstractHChannelManager, TopicSubscriber, PubSubData, SubscriptionPreferences, Channel), true
+hedwig-protocol.src.main.java.org.apache.hedwig.exceptions.PubSubException.PubSubException.create(StatusCode, String), true
+hedwig-protocol.src.main.java.org.apache.hedwig.exceptions.PubSubException.PubSubException.ResubscribeException(String), false, new_method
+hedwig-protocol.src.main.java.org.apache.hedwig.protocol.PubSubProtocol.PubSubProtocol.valueOf(int), true
+hedwig-server.src.test.java.org.apache.hedwig.client.TestPubSubClient.TestPubSubClient.testCloseSubscribeDuringResubscribe(), false, new_method
+hedwig-server.src.test.java.org.apache.hedwig.server.PubSubServerStandAloneTestBase.PubSubServerStandAloneTestBase.setUp(), false, test_method
+hedwig-server.src.test.java.org.apache.hedwig.server.PubSubServerStandAloneTestBase.PubSubServerStandAloneTestBase.startHubServer(), false, test_method
+#####

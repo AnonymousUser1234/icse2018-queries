@@ -1,0 +1,204 @@
+LUCENE-4561
+dwpt trip trip spooki dwpt ram us flush http jenkin sd datasolut de job lucen solr linux 2472 reproduc full failur 
+1
+core.src.java.org.apache.lucene.index.DocumentsWriterFlushControl.DocumentsWriterFlushControl
+
+LUCENE-4479
+doesn correctli termvector posit offset javadoc state low level api return token stream offset info avail index us feed highlight pre pars token stream term instanc pass ha posit offset store incorrectli return ha effect incorrectli highlight field term vector posit offset highlight markup prepend begin field 
+2
+highlighter.src.java.org.apache.lucene.search.highlight.TokenSources.TokenSources
+core.src.java.org.apache.solr.highlight.DefaultSolrHighlighter.DefaultSolrHighlighter
+
+LUCENE-4461
+multipl path creat inconsist result path creat inconsist result get merg on creat wrong result problem fix defin hashcod equal lucen recogn talk differ request 
+1
+facet.src.java.org.apache.lucene.facet.search.StandardFacetsAccumulator.StandardFacetsAccumulator
+
+LUCENE-4511
+wrong result field index present index return term return from upload test fix shortli 
+3
+spatial.src.java.org.apache.lucene.spatial.prefix.TermQueryPrefixTreeStrategy.TermQueryPrefixTreeStrategy
+queryparser.src.java.org.apache.lucene.queryparser.xml.builders.TermsFilterBuilder.TermsFilterBuilder
+queries.src.java.org.apache.lucene.queries.TermsFilter.TermsFilter
+
+LUCENE-4568
+integ overflow overflow more byte 
+1
+core.src.java.org.apache.lucene.util.PagedBytes.PagedBytes
+
+LUCENE-4585
+spatial ha bug index non point shape ha bug occur search index shape on bug unposit except test effect product coupl bug hard describ here rare occur extens test effect slim chanc match index shape near queri shape support index shape cover entir globe bug discov develop test rptf lucen 4419 submit shortli 
+6
+spatial.src.java.org.apache.lucene.spatial.prefix.tree.QuadPrefixTree.QuadPrefixTree
+spatial.src.java.org.apache.lucene.spatial.prefix.PointPrefixTreeFieldCacheProvider.PointPrefixTreeFieldCacheProvider
+spatial.src.java.org.apache.lucene.spatial.prefix.tree.SpatialPrefixTree.SpatialPrefixTree
+spatial.src.java.org.apache.lucene.spatial.prefix.RecursivePrefixTreeFilter.RecursivePrefixTreeFilter
+spatial.src.java.org.apache.lucene.spatial.prefix.tree.GeohashPrefixTree.GeohashPrefixTree
+spatial.src.java.org.apache.lucene.spatial.prefix.tree.Node.Node
+
+LUCENE-4633
+refresh reader migrat code lucen trip call taxonomi index contain categori add categori taxonomi receiv ordin reason replac taxo doesn refresh intern clear cach caus next find categori cach reader instanc hand simpl fix ll attach patch test expos bug 
+1
+facet.src.java.org.apache.lucene.facet.taxonomy.directory.DirectoryTaxonomyWriter.DirectoryTaxonomyWriter
+
+LUCENE-4469
+test appear useless reason guess debug explicitli disabl mdw call dont check valu test current fail wouldnt rememb right catch throwabl record insid statu test chang let mdw run search test 
+2
+codecs.src.test.org.apache.lucene.codecs.pulsing.TestPulsingReuse.TestPulsingReuse
+core.src.test.org.apache.lucene.index.Test2BPostings.Test2BPostings
+
+LUCENE-4182
+trip build http jenkin sd datasolut de job lucen solr trunk linux java6 64 1090 test fail regress error messag thread fail 
+1
+core.src.java.org.apache.lucene.index.DocumentsWriterFlushControl.DocumentsWriterFlushControl
+
+LUCENE-4459
+fail period jenkin bug test bug jvm bug dont care on let fix intermitt fail disabl test 
+1
+core.src.java.org.apache.lucene.util.WeakIdentityMap.WeakIdentityMap
+
+LUCENE-4485
+term stat includ delet doc output index ha delet compar test term freq prox includ delet next line doesn includ delet confus rd number token reflect delet first two number reflect delet app get sens deadweight index reclaim delet 
+1
+core.src.java.org.apache.lucene.index.CheckIndex.CheckIndex
+
+LUCENE-4653
+appli delet rob idea caus sort fun failur tweak test call make meaner 
+6
+codecs.src.java.org.apache.lucene.codecs.simpletext.SimpleTextFieldsReader.SimpleTextFieldsReader
+core.src.java.org.apache.lucene.index.ReadersAndLiveDocs.ReadersAndLiveDocs
+core.src.test.org.apache.lucene.index.TestIndexWriter.TestIndexWriter
+core.src.java.org.apache.lucene.index.SegmentInfoPerCommit.SegmentInfoPerCommit
+core.src.java.org.apache.lucene.index.IndexWriter.IndexWriter
+core.src.java.org.apache.lucene.codecs.lucene40.BitVector.BitVector
+
+LUCENE-4480
+isn affect time queue exhaust search done add queue after exhaust spinoff from lucen 3846 simon hit bug fail handl queue exhaust properli 
+2
+core.src.java.org.apache.lucene.util.fst.Util.Util
+suggest.src.java.org.apache.lucene.search.suggest.analyzing.AnalyzingSuggester.AnalyzingSuggester
+
+LUCENE-4671
+broken current broken implement 
+1
+core.src.java.org.apache.lucene.util.CharsRef.CharsRef
+
+LUCENE-4594
+distanc sort approach buggi distinct grid cell center point shape lost shape get index down max level precis grid cell appear point brought memori shape non trivial shape center point isn shape even knew problem happen better index center point spatial field arguabl strategi intern wether end up happen remov problemat behavior shouldn index center point shape index center point non point shape index addit shape cours rational point pick up 
+1
+spatial.src.java.org.apache.lucene.spatial.prefix.PrefixTreeStrategy.PrefixTreeStrategy
+
+LUCENE-4662
+elis miss jusqu quoiqu lorsqu puisqu 
+0
+
+LUCENE-4513
+delet nest doc score parent doc nest doc delet score parent doc isn right 
+1
+join.src.java.org.apache.lucene.search.join.ToParentBlockJoinQuery.ToParentBlockJoinQuery
+
+LUCENE-4443
+decod block remov separ worth skip sum miss test pass unnecessari skip document implicitli write unnecessari 
+4
+codecs.src.java.org.apache.lucene.codecs.block.BlockSkipWriter.BlockSkipWriter
+codecs.src.java.org.apache.lucene.codecs.block.BlockPostingsReader.BlockPostingsReader
+codecs.src.java.org.apache.lucene.codecs.block.BlockPostingsWriter.BlockPostingsWriter
+codecs.src.java.org.apache.lucene.codecs.block.BlockSkipReader.BlockSkipReader
+
+LUCENE-4899
+singl phrase term fail ha report occas solr 4660 solr 4137 es mail list http group googl com msg elasticsearch idi mspk5 gao zq8 ny wmgj reason current code expect necessarili us phrase term url test reproduc issu fix doesn experi highlight 
+1
+highlighter.src.java.org.apache.lucene.search.vectorhighlight.BaseFragListBuilder.BaseFragListBuilder
+
+LUCENE-4411
+set reset sampl effect paramet get reset paramet control depth result tree return sampl enabl us request 
+1
+contrib.facet.src.java.org.apache.lucene.facet.search.sampling.Sampler.Sampler
+
+LUCENE-4629
+fail delet document except iter document block roll back document on doc fail non abort except miss delet document iter except fact allow iter iw prepar rt except document creat stream fash build up imo valid usecas larg document materi memori befor index least don requir 
+1
+core.src.java.org.apache.lucene.index.DocumentsWriterPerThread.DocumentsWriterPerThread
+
+LUCENE-4567
+empti return accept result patch extra 
+2
+suggest.src.java.org.apache.lucene.search.suggest.analyzing.AnalyzingSuggester.AnalyzingSuggester
+suggest.src.java.org.apache.lucene.search.suggest.fst.WFSTCompletionLookup.WFSTCompletionLookup
+
+LUCENE-4660
+stall incom thread ha unexpect hysteresi set rd merg kick stall incom segment creat thread wait suppos resum thread merg count drop back resum merg count get stall unexpect hysteresi 
+1
+core.src.java.org.apache.lucene.index.ConcurrentMergeScheduler.ConcurrentMergeScheduler
+
+LUCENE-4596
+concurr bug mike trip error run benchmark first thought relat revert befor commit hit except modifi index hierarch categori think caus fail reproduc eventu realiz test doesn call test concurr concurr index ad call hit except ad avoid ex 
+2
+facet.src.java.org.apache.lucene.facet.taxonomy.directory.DirectoryTaxonomyWriter.DirectoryTaxonomyWriter
+facet.src.java.org.apache.lucene.facet.taxonomy.directory.ParallelTaxonomyArrays.ParallelTaxonomyArrays
+
+LUCENE-4618
+jame mention dev list fail reliabl multipl platform abl reproduc linux box trunk r1420486 
+1
+core.src.test.org.apache.lucene.util.TestMaxFailuresRule.TestMaxFailuresRule
+
+LUCENE-4521
+return success fail write chang index commit spinoff from java user thread subject delet document 
+1
+core.src.java.org.apache.lucene.index.IndexWriter.IndexWriter
+
+LUCENE-4566
+issu call even didn refresh swap nice user allow overrid get notifi searcher action current hook search creat factori wish async task guarante searcher pass manual allow hook reli exist infra latest on 
+1
+core.src.java.org.apache.lucene.search.ReferenceManager.ReferenceManager
+
+LUCENE-4656
+fix work fail doesn doesn comput end offset offset attribut ad filter 
+3
+test-framework.src.java.org.apache.lucene.analysis.BaseTokenStreamTestCase.BaseTokenStreamTestCase
+core.src.java.org.apache.lucene.index.DocInverterPerField.DocInverterPerField
+test-framework.src.java.org.apache.lucene.analysis.EmptyTokenizer.EmptyTokenizer
+
+LUCENE-4486
+doesn support wrap queri constant score fail highlight recogn 
+1
+highlighter.src.java.org.apache.lucene.search.highlight.WeightedSpanTermExtractor.WeightedSpanTermExtractor
+
+LUCENE-4657
+failur 
+2
+core.src.java.org.apache.lucene.index.IndexWriter.IndexWriter
+core.src.java.org.apache.lucene.index.BufferedDeletesStream.BufferedDeletesStream
+
+LUCENE-4587
+treat byte char origin open solr 4115 
+1
+suggest.src.java.org.apache.lucene.search.spell.WordBreakSpellChecker.WordBreakSpellChecker
+
+LUCENE-4466
+bound check inconsist store field vs term vector check store field codec dont doesnt check vector codec move vector check sr codec api more consist 
+3
+core.src.java.org.apache.lucene.codecs.lucene40.Lucene40TermVectorsReader.Lucene40TermVectorsReader
+core.src.java.org.apache.lucene.index.SegmentReader.SegmentReader
+codecs.src.java.org.apache.lucene.codecs.simpletext.SimpleTextTermVectorsReader.SimpleTextTermVectorsReader
+
+LUCENE-4615
+remov from facet modul spinoff from lucen 4600 make nervou alloc ti api abil hold arrai indefinit make even more nervou trust java gc job here free storag facet done 
+10
+facet.src.java.org.apache.lucene.facet.search.TemporaryObjectAllocator.TemporaryObjectAllocator
+facet.src.java.org.apache.lucene.facet.search.sampling.SamplingAccumulator.SamplingAccumulator
+facet.src.java.org.apache.lucene.facet.search.FacetArrays.FacetArrays
+facet.src.java.org.apache.lucene.facet.search.StandardFacetsAccumulator.StandardFacetsAccumulator
+facet.src.java.org.apache.lucene.facet.search.TopKInEachNodeHandler.TopKInEachNodeHandler
+facet.src.java.org.apache.lucene.facet.search.FacetResultsHandler.FacetResultsHandler
+facet.src.java.org.apache.lucene.facet.search.IntArrayAllocator.IntArrayAllocator
+facet.src.java.org.apache.lucene.facet.search.FloatArrayAllocator.FloatArrayAllocator
+facet.src.java.org.apache.lucene.facet.search.TopKFacetResultsHandler.TopKFacetResultsHandler
+facet.src.java.org.apache.lucene.facet.search.ReusingFacetArrays.ReusingFacetArrays
+
+LUCENE-4639
+spinoff from here http lucen 472066 n3 nabbl com test util get temp file fail quot access deni quot td4028048 html us delet file work run test multipl jvm ensur jvm get isol work result two jvm share directori window call exist directori get access deni except dawid propos simpl solut call continu success us hous clean object instanc initi counter claus avoid check pass remov suspicion randomli synchron us counter ll modifi first document creat directori make test fail 
+2
+test-framework.src.java.org.apache.lucene.util._TestUtil._TestUtil
+core.src.test.org.apache.lucene.index.TestIndexWriterLockRelease.TestIndexWriterLockRelease
+
